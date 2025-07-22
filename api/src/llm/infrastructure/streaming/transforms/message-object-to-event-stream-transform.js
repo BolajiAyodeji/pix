@@ -8,6 +8,7 @@ export function getTransform(llmMessageAccumulator) {
   return new Transform({
     objectMode: true,
     transform(chunk, _encoding, callback) {
+      console.log(chunk);
       const { message } = chunk;
       if (!message) {
         callback();

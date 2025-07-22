@@ -100,6 +100,12 @@ function createClientApplications(databaseBuilder) {
     scopes: ['meta', 'campaigns'],
     jurisdiction: { rules: [{ name: 'tags', value: [COLLEGE_TAG.name] }] },
   });
+  databaseBuilder.factory.buildClientApplication({
+    name: 'poc-llm',
+    clientId: 'poc-llm',
+    clientSecret: 'poc-llm-secret',
+    scopes: ['llm-preview'],
+  });
 }
 
 function _createPublicTargetProfile(databaseBuilder) {

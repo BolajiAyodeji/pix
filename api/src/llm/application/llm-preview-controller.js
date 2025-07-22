@@ -9,10 +9,11 @@ export const llmPreviewController = {
   async startChat(request, h) {
     const configuration = new Configuration(request.payload.configuration);
     const chat = await usecases.startChat({ configuration });
-    return h
-      .response()
-      .header('Location', new URL(`/llm/preview/${chat.id}`, `${config.domain.pixApp}${config.domain.tldFr}`).href)
-      .code(201);
+    console.log(chat.id);
+    console.log('CREATED');
+    console.log(new URL(`/llm/preview/${chat.id}`, `${config.domain.pixApp}${config.domain.tldFr}`).href);
+    const fausseUrl = 'http://localhost:4200/llm/preview/' + chat.id;
+    return h.response().header('Location', fausseUrl).code(201);
   },
 
   async getChat(request) {
