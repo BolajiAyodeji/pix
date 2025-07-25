@@ -1,8 +1,8 @@
-import { attachTargetProfileController } from '../../../../../src/certification/complementary-certification/application/attach-target-profile-controller.js';
-import { usecases } from '../../../../../src/certification/complementary-certification/domain/usecases/index.js';
+import { attachTargetProfileController } from '../../../../../src/certification/configuration/application/attach-target-profile-controller.js';
+import { usecases } from '../../../../../src/certification/configuration/domain/usecases/index.js';
 import { expect, hFake, sinon } from '../../../../test-helper.js';
 
-describe('Unit | Application | Certification | ComplementaryCertification | attach-target-profile-controller', function () {
+describe('Unit | Application | Certification | configuration | attach-target-profile-controller', function () {
   describe('#attachTargetProfile', function () {
     context('when there is no notification', function () {
       it('should call the usecase and serialize the response', async function () {

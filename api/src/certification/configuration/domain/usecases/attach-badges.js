@@ -1,6 +1,6 @@
 /**
- * @typedef {import ('../../domain/usecases/index.js').ComplementaryCertificationBadgesRepository} ComplementaryCertificationBadgesRepository
- * @typedef {import ('../models/ComplementaryCertification.js').ComplementaryCertification} ComplementaryCertification
+ * @typedef {import ('./index.js').ComplementaryCertificationBadgesRepository} ComplementaryCertificationBadgesRepository
+ * @typedef {import ('../models/ComplementaryCertificationForTargetProfileAttachment.js').ComplementaryCertificationForTargetProfileAttachment} ComplementaryCertificationForTargetProfileAttachment
  * @typedef {import ('../../../shared/domain/models/ComplementaryCertificationBadge.js').ComplementaryCertificationBadge} ComplementaryCertificationBadge
  */
 import lodash from 'lodash';
@@ -14,7 +14,7 @@ const { isNil, uniq } = lodash;
 
 /**
  * @param {Object} params
- * @param {ComplementaryCertification} params.complementaryCertification
+ * @param {ComplementaryCertificationForTargetProfileAttachment} params.complementaryCertification
  * @param {number} params.userId
  * @param {number|null} params.targetProfileIdToDetach
  * @param {Array<ComplementaryCertificationBadge>} params.complementaryCertificationBadgesToAttachDTO

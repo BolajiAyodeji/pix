@@ -11,7 +11,7 @@ import {
 
 const { omit } = lodash;
 
-describe('Acceptance | Controller | Complementary certification | attach-target-profile-controller', function () {
+describe('Acceptance | Controller | configuration | attach-target-profile-controller', function () {
   let server;
 
   beforeEach(async function () {

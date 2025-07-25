@@ -1,4 +1,4 @@
-import { BadgeToAttach } from '../../../../../../src/certification/complementary-certification/domain/models/BadgeToAttach.js';
+import { BadgeToAttach } from '../../../../../../src/certification/configuration/domain/models/BadgeToAttach.js';
 import { domainBuilder, expect, sinon } from '../../../../../test-helper.js';
 
 describe('Unit | Domain | Models | BadgeToAttach', function () {

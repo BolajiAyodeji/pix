@@ -48,11 +48,20 @@ const getCurrentConsolidatedFramework = async function (request) {
   return certificationConsolidatedFrameworkSerializer.serialize(currentConsolidatedFramework);
 };
 
+const getComplementaryCertificationTargetProfileHistory = async function (request) {
+  const complementaryCertificationId = request.params.complementaryCertificationId;
+  const complementaryCertification = await usecases.getComplementaryCertificationTargetProfileHistory({
+    complementaryCertificationId,
+  });
+  return complementaryCertificationSerializer.serializeForAdmin(complementaryCertification);
+};
+
 const complementaryCertificationController = {
   findComplementaryCertifications,
   searchAttachableTargetProfilesForComplementaryCertifications,
   createConsolidatedFramework,
   getCurrentConsolidatedFramework,
   calibrateConsolidatedFramework,
+  getComplementaryCertificationTargetProfileHistory,
 };
 export { complementaryCertificationController };

@@ -9,9 +9,9 @@ import { routes } from './lib/routes.js';
 import { bannerRoutes } from './src/banner/routes.js';
 import {
   attachTargetProfileRoutes,
-  complementaryCertificationRoutes,
-} from './src/certification/complementary-certification/routes.js';
-import { certificationConfigurationRoutes, scoWhitelistRoutes } from './src/certification/configuration/routes.js';
+  certificationConfigurationRoutes,
+  scoWhitelistRoutes,
+} from './src/certification/configuration/routes.js';
 import { certificationEnrolmentRoutes } from './src/certification/enrolment/routes.js';
 import { certificationEvaluationRoutes } from './src/certification/evaluation/routes.js';
 import { flashCertificationRoutes } from './src/certification/flash-certification/routes.js';
@@ -52,7 +52,6 @@ const certificationRoutes = [
   certificationEnrolmentRoutes,
   certificationResultRoutes,
   certificationSessionRoutes,
-  complementaryCertificationRoutes,
   scoringRoutes,
   scoWhitelistRoutes,
   certificationEvaluationRoutes,

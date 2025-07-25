@@ -7,10 +7,13 @@ import * as tubeRepository from '../../../../shared/infrastructure/repositories/
 import { injectDependencies } from '../../../../shared/infrastructure/utils/dependency-injection.js';
 import { importNamedExportsFromDirectory } from '../../../../shared/infrastructure/utils/import-named-exports-from-directory.js';
 import * as complementaryCertificationRepository from '../../../complementary-certification/infrastructure/repositories/complementary-certification-repository.js';
+import * as targetProfileHistoryRepository from '../../../shared/infrastructure/repositories/target-profile-history-repository.js';
 import * as activeCalibratedChallengeRepository from '../../infrastructure/repositories/active-calibrated-challenge-repository.js';
 import * as attachableTargetProfileRepository from '../../infrastructure/repositories/attachable-target-profiles-repository.js';
 import * as candidateRepository from '../../infrastructure/repositories/candidate-repository.js';
 import * as centerRepository from '../../infrastructure/repositories/center-repository.js';
+import * as complementaryCertificationBadgesRepository from '../../infrastructure/repositories/complementary-certification-badge-repository.js';
+import * as complementaryCertificationForTargetProfileAttachmentRepository from '../../infrastructure/repositories/complementary-certification-for-target-profile-attachment-repository.js';
 import * as consolidatedFrameworkRepository from '../../infrastructure/repositories/consolidated-framework-repository.js';
 import * as learningContentRepository from '../../infrastructure/repositories/learning-content-repository.js';
 
@@ -28,6 +31,9 @@ import * as learningContentRepository from '../../infrastructure/repositories/le
  * @typedef {learningContentRepository} LearningContentRepository
  * @typedef {skillRepository} SkillRepository
  * @typedef {tubeRepository} TubeRepository
+ * @typedef {complementaryCertificationBadgesRepository} ComplementaryCertificationBadgesRepository
+ * @typedef {complementaryCertificationForTargetProfileAttachmentRepository} ComplementaryCertificationForTargetProfileAttachmentRepository
+ * @typedef {targetProfileHistoryRepository} TargetProfileHistoryRepository
  **/
 const dependencies = {
   activeCalibratedChallengeRepository,
@@ -40,6 +46,9 @@ const dependencies = {
   learningContentRepository,
   skillRepository,
   tubeRepository,
+  complementaryCertificationBadgesRepository,
+  complementaryCertificationForTargetProfileAttachmentRepository,
+  targetProfileHistoryRepository,
 };
 
 const path = dirname(fileURLToPath(import.meta.url));

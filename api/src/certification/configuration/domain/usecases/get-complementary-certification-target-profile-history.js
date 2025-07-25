@@ -1,7 +1,8 @@
 /**
- * @typedef {import ('../../domain/usecases/index.js').TargetProfileHistoryRepository} TargetProfileHistoryRepository
- * @typedef {import ('../../domain/usecases/index.js').ComplementaryCertificationForTargetProfileAttachmentRepository} ComplementaryCertificationForTargetProfileAttachmentRepository
+ * @typedef {import ('./index.js').TargetProfileHistoryRepository} TargetProfileHistoryRepository
+ * @typedef {import ('./index.js').ComplementaryCertificationForTargetProfileAttachmentRepository} ComplementaryCertificationForTargetProfileAttachmentRepository
  */
+
 import { ComplementaryCertificationTargetProfileHistory } from '../models/ComplementaryCertificationTargetProfileHistory.js';
 
 /**

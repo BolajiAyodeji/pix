@@ -1,4 +1,4 @@
-import { BadgeToAttach } from '../../../../src/certification/complementary-certification/domain/models/BadgeToAttach.js';
+import { BadgeToAttach } from '../../../../src/certification/configuration/domain/models/BadgeToAttach.js';
 
 const buildBadgeToAttach = function ({
   level = 1,

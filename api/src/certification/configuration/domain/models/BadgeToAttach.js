@@ -1,4 +1,4 @@
-class BadgeToAttach {
+export class BadgeToAttach {
   constructor({
     level,
     complementaryCertificationId,
@@ -51,5 +51,3 @@ class BadgeToAttach {
     });
   }
 }
-
-export { BadgeToAttach };

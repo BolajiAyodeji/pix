@@ -1,4 +1,4 @@
-import * as complementaryCertificationForTargetProfileAttachmentRepository from '../../../../../../src/certification/complementary-certification/infrastructure/repositories/complementary-certification-for-target-profile-attachment-repository.js';
+import * as complementaryCertificationForTargetProfileAttachmentRepository from '../../../../../../src/certification/configuration/infrastructure/repositories/complementary-certification-for-target-profile-attachment-repository.js';
 import { NotFoundError } from '../../../../../../src/shared/domain/errors.js';
 import { catchErr, databaseBuilder, domainBuilder, expect } from '../../../../../test-helper.js';
 

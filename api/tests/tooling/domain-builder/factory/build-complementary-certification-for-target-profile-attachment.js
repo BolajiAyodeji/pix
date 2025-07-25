@@ -1,4 +1,4 @@
-import { ComplementaryCertificationForTargetProfileAttachment } from '../../../../src/certification/complementary-certification/domain/models/ComplementaryCertificationForTargetProfileAttachment.js';
+import { ComplementaryCertificationForTargetProfileAttachment } from '../../../../src/certification/configuration/domain/models/ComplementaryCertificationForTargetProfileAttachment.js';
 
 const buildComplementaryCertificationForTargetProfileAttachment = function ({
   id = 1,

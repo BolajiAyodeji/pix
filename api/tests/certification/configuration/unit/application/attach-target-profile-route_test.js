@@ -1,9 +1,9 @@
-import { attachTargetProfileController } from '../../../../../src/certification/complementary-certification/application/attach-target-profile-controller.js';
-import * as moduleUnderTest from '../../../../../src/certification/complementary-certification/application/attach-target-profile-route.js';
+import { attachTargetProfileController } from '../../../../../src/certification/configuration/application/attach-target-profile-controller.js';
+import * as moduleUnderTest from '../../../../../src/certification/configuration/application/attach-target-profile-route.js';
 import { securityPreHandlers } from '../../../../../src/shared/application/security-pre-handlers.js';
 import { expect, HttpTestServer, sinon } from '../../../../test-helper.js';
 
-describe('Unit | Application | Certification | ComplementaryCertification | attach-target-profile-route', function () {
+describe('Unit | Application | Certification | configuration | attach-target-profile-route', function () {
   describe('/api/admin/complementary-certifications/{complementaryCertificationId}/badges', function () {
     context('when user has role "SUPER ADMIN"', function () {
       context('when there is a target profile to remove', function () {
