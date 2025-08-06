@@ -5,7 +5,7 @@ const { Serializer } = jsonapiSerializer;
 function serialize(module) {
   return new Serializer('module', {
     transform(module) {
-      return {
+      const transformedModule = {
         id: module.id,
         slug: module.slug,
         title: module.title,
@@ -21,8 +21,14 @@ function serialize(module) {
           };
         }),
       };
+
+      if (module.redirectionUrl) {
+        transformedModule.redirectionUrl = module.redirectionUrl;
+      }
+
+      return transformedModule;
     },
-    attributes: ['slug', 'title', 'isBeta', 'version', 'grains', 'details'],
+    attributes: ['slug', 'title', 'isBeta', 'version', 'grains', 'details', 'redirectionUrl'],
     grains: {
       ref: 'id',
       includes: true,

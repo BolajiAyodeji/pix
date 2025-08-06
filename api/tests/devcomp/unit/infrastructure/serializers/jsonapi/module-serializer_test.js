@@ -22,6 +22,55 @@ import { expect } from '../../../../../test-helper.js';
 
 describe('Unit | DevComp | Infrastructure | Serializers | Jsonapi | ModuleSerializer', function () {
   describe('#serialize', function () {
+    it('should serialize with redirectionUrl', function () {
+      // given
+      const id = 'id';
+      const slug = 'bien-ecrire-son-adresse-mail';
+      const title = 'Bien écrire son adresse mail';
+      const redirectionUrl = 'https://app.pix.fr/parcours/COMBINIX1';
+      const isBeta = true;
+      const version = Symbol('version');
+      const details = {
+        image: 'https://images.pix.fr/modulix/bien-ecrire-son-adresse-mail-details.svg',
+        description:
+          'Apprendre à rédiger correctement une adresse e-mail pour assurer une meilleure communication et éviter les erreurs courantes.',
+        duration: 12,
+        level: 'Débutant',
+        objectives: [
+          'Écrire une adresse mail correctement, en évitant les erreurs courantes',
+          'Connaître les parties d’une adresse mail et les identifier sur des exemples',
+          'Comprendre les fonctions des parties d’une adresse mail',
+        ],
+      };
+      const moduleFromDomain = new Module({ id, details, slug, title, grains: [], isBeta, version });
+      moduleFromDomain.setRedirectionUrl(redirectionUrl);
+      const expectedJson = {
+        data: {
+          type: 'modules',
+          id,
+          attributes: {
+            'redirection-url': redirectionUrl,
+            slug,
+            title,
+            'is-beta': isBeta,
+            details,
+            version,
+          },
+          relationships: {
+            grains: {
+              data: [],
+            },
+          },
+        },
+      };
+
+      // when
+      const json = moduleSerializer.serialize(moduleFromDomain);
+
+      // then
+      expect(json).to.deep.equal(expectedJson);
+    });
+
     it('should serialize with empty grains list', function () {
       // given
       const id = 'id';
