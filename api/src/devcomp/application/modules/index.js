@@ -13,6 +13,9 @@ const register = async function (server) {
         handler: handlerWithDependencies(modulesController.getBySlug),
         validate: {
           params: Joi.object({ slug: Joi.string().required() }),
+          query: Joi.object({
+            redirectionHash: Joi.string(),
+          }),
         },
         notes: ['- Permet de récupérer un module grâce à son titre slugifié'],
         tags: ['api', 'modules'],

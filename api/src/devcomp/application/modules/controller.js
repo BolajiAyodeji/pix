@@ -1,6 +1,7 @@
 const getBySlug = async function (request, h, { moduleSerializer, usecases }) {
   const { slug } = request.params;
-  const module = await usecases.getModule({ slug });
+  const redirectionHash = request.query.redirectionHash;
+  const module = await usecases.getModule({ slug, redirectionHash });
 
   return moduleSerializer.serialize(module);
 };
