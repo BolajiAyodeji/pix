@@ -13,7 +13,7 @@ const scrypt = util.promisify(crypto.scrypt);
 const phcRegexp =
   /^\$(?<algoDesc>[\w+-]+)\$N=(?<N>\d+)\$r=(?<r>\d+)\$p=(?<p>\d+)\$(?<initializationVector>[\w/+=-]+)\$(?<encryptedText>[\w/+=-]+)$/;
 
-const key = config.authentication.secret;
+const authenticationKey = config.authentication.secret;
 const { bcryptNumberOfSaltRounds } = config;
 
 const N = Math.pow(2, 13);
@@ -44,10 +44,11 @@ const checkPassword = async function ({ password, passwordHash }) {
 
 /**
  * @param {string} text
+ * @param {string} key
  * @returns {Promise<string>} an output in PHC format.
  *   Example: $scrypt+aes-256-ctr$N=8192$r=8$p=10$bsKRpytT0ocFpxmIlk/COw==$L0kaiHkLjrbD3C
  */
-const encrypt = async function (text) {
+const encrypt = async function (text, key = authenticationKey) {
   const initializationVector = await randomBytes(AES_256_CTR_CIPHER_IV_LENGTH);
 
   const derivedKey = await scrypt(key, initializationVector, AES_256_CTR_KEY_LENGTH, { N, r, p });
@@ -64,9 +65,10 @@ const encrypt = async function (text) {
 
 /**
  * @param {string} phcText
+ * @param {string} key
  * @returns {Promise<string>} a decrypted text
  */
-const decrypt = async function (phcText) {
+const decrypt = async function (phcText, key = authenticationKey) {
   const matched = phcRegexp.exec(phcText);
   const N = Number(matched.groups.N);
   const r = Number(matched.groups.r);

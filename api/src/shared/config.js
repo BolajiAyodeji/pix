@@ -399,6 +399,7 @@ const configuration = (function () {
       isDirectMetricsEnabled: toBoolean(process.env.FT_ENABLE_DIRECT_METRICS),
       isOppsyDisabled: toBoolean(process.env.FT_OPPSY_DISABLED),
     },
+    module: { secret: process.env.MODULE_SECRET },
     partner: {
       fetchTimeOut: ms(process.env.FETCH_TIMEOUT_MILLISECONDS || '20s'),
     },
@@ -560,7 +561,7 @@ const configuration = (function () {
     config.mailing.brevo.templates.targetProfileNotCertifiableTemplateId =
       'test-target-profile-no-certifiable-template-id';
     config.mailing.brevo.templates.warningConnectionTemplateId = 'test-warning-connection-template-id';
-
+    config.module.secret = 'moduleUrlSecret';
     config.bcryptNumberOfSaltRounds = 1;
 
     config.authentication.secret = 'the-password-must-be-at-least-32-characters-long';
