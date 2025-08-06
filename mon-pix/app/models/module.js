@@ -6,5 +6,6 @@ export default class Module extends Model {
   @attr('boolean') isBeta;
   @attr() details;
   @attr('string') version;
+  @attr('string') redirectionUrl;
   @hasMany('grain', { async: false, inverse: 'module' }) grains;
 }

@@ -31,9 +31,16 @@ import ModuleBetaBanner from 'mon-pix/components/module/layout/beta-banner';
     </div>
 
     <div class="module-recap__link-details">
-      <PixButtonLink @size="large" @route="authenticated.user-dashboard" @variant="primary">
-        {{t "pages.modulix.recap.goToHomepage"}}
-      </PixButtonLink>
+      {{#if @module.redirectionUrl}}
+        <PixButtonLink @size="large" @href={{@module.redirectionUrl}} @variant="primary">
+          {{t "pages.modulix.recap.goToHomepage"}}
+        </PixButtonLink>
+      {{else}}
+        <PixButtonLink @size="large" @route="authenticated.user-dashboard" @variant="primary">
+          {{t "pages.modulix.recap.goToHomepage"}}
+        </PixButtonLink>
+      {{/if}}
+
     </div>
 
     {{#if @module.isBeta}}

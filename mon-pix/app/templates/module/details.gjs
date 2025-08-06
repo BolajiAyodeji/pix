@@ -7,7 +7,6 @@ import BetaBanner from 'mon-pix/components/module/layout/beta-banner';
       <BetaBanner />
     </div>
   {{/if}}
-
   <div class="modulix">
     <Details @module={{@model}} />
   </div>
