@@ -25,6 +25,13 @@ class Module {
       throw new ModuleInstantiationError('A module should have a list of grains');
     }
   }
+
+  setRedirectionUrl(url) {
+    const parsedUrl = URL.parse(url);
+    if (parsedUrl) {
+      this.redirectionUrl = parsedUrl.toString();
+    }
+  }
 }
 
 export { Module };

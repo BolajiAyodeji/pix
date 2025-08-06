@@ -138,4 +138,40 @@ describe('Unit | Devcomp | Domain | Models | Module | Module', function () {
       });
     });
   });
+
+  describe('#setRedirectionUrl', function () {
+    let module;
+
+    beforeEach(function () {
+      const id = 1;
+      const slug = 'les-adresses-email';
+      const title = 'Les adresses email';
+      const isBeta = false;
+      const grains = [Symbol('text')];
+      const details = Symbol('details');
+      const version = Symbol('version');
+
+      module = new Module({ id, slug, title, isBeta, grains, details, version });
+    });
+    it('should set redirectionUrl when url is valid', function () {
+      // given
+      const url = 'https://app.pix.fr/parcours/COMBINIX1';
+
+      // when
+      module.setRedirectionUrl(url);
+
+      // then
+      expect(module.redirectionUrl).to.equal(url);
+    });
+    it('should not set redirectionUrl when url is invalid', function () {
+      // given
+      const url = 'wrong';
+
+      // when
+      module.setRedirectionUrl(url);
+
+      // then
+      expect(module.redirectionUrl).to.be.undefined;
+    });
+  });
 });
