@@ -83,7 +83,7 @@
           "element": {
             "id": "365d0e92-7b9e-406a-920b-4d12e08c7a28",
             "type": "text",
-            "content": "<p>Mettez-vous un instant à la place du logiciel de Lila. 🤖&nbsp;</p><p>Comme lui, vous allez avoir plein d’images d’ail des ours et de muguet.<br>Observez bien, puis, vous devrez classer ces images.&nbsp;👀<br></p>"
+            "content": "<p>Mettez-vous un instant à la place du logiciel de Lila. 🤖&nbsp;</p><p>Comme lui, vous allez avoir plein d’images d’ail des ours et de muguet.<br><br></p>"
           }
         },
         {
@@ -91,10 +91,10 @@
           "element": {
             "id": "21c10c6e-591b-43f5-8894-6818ffdf5581",
             "type": "custom-draft",
-            "title": "",
-            "url": "",
-            "instruction": "",
-            "height": 0
+            "title": "Elément interactif où il faut apprendre à reconnaître l'ail des ours du muguet",
+            "url": "https://1024pix.github.io/atelier-contenus/JTE/poi-ailours-ou-muguet.html",
+            "instruction": "<p>Observez bien, puis, vous devrez classer ces images.&nbsp;👀</p>",
+            "height": 550
           }
         },
         {
@@ -177,12 +177,21 @@
         {
           "type": "element",
           "element": {
-            "id": "ff8997a5-8df9-47f9-ac05-9436e5b6302b",
-            "type": "custom-draft",
-            "title": "Ajuste les paramètres",
-            "url": "https://chatgpt.com/canvas/shared/68938299db4c81918a29a187e641d506",
-            "instruction": "<p>Cette photo montre un ail des ours.&nbsp;🌱</p><p>Ajustez les paramètres jusqu’à ce que la prédiction soit correcte.</p><p><a href=\"https://chatgpt.com/canvas/shared/68938299db4c81918a29a187e641d506\"><em>N.B : Le POI ne fonctionne pas pour l'instant</em></a></p>",
-            "height": 550
+            "id": "e5badfae-bca4-421a-ae72-299891ef31da",
+            "type": "text",
+            "content": "<p>Cette photo montre un ail des ours.&nbsp;🌱 </p><p>Ajustez les paramètres jusqu’à ce que la prédiction soit correcte.</p><p><u><a href=\"https://chatgpt.com/canvas/shared/68938299db4c81918a29a187e641d506\" target=\"_blank\">[Pour tester le POI, non fonctionnel pour l'instant... cliquer ici]</a></u></p>"
+          }
+        },
+        {
+          "type": "element",
+          "element": {
+            "id": "e5badfae-bca4-421a-ae72-299891ef31da",
+            "type": "image",
+            "url": "https://assets.pix.org/draft/modules/ia-def-ind/futur-poi-ajustement-parametres.png",
+            "alt": "futur POI",
+            "alternativeText": "<p><br></p>",
+            "legend": "",
+            "licence": ""
           }
         }
       ]
@@ -200,7 +209,7 @@
                 {
                   "id": "fa7f85fb-aa87-4e40-a967-ced438d2507c",
                   "type": "text",
-                  "content": "<p>Dans le cas de l’a<strong>pprentissage automatique</strong>, on n’explique pas précisément au logiciel comment associer l’image à l’étiquette.<br>On ne lui dit pas : “les pétales des fleurs des ours sont pointues et celles de muguets en forme de clochettes”.&nbsp;🌼</p><p><br>Mais, quand <strong>le logiciel analyse </strong><strong>l’image</strong>, il commence par trouver ses <strong>caractéristiques</strong> (couleurs, etc). Cela lui donne des <strong>valeurs numériques</strong>.&nbsp;🔢</p>"
+                  "content": "<p>Dans le cas de l’a<strong>pprentissage automatique</strong>, on n’explique pas précisément au logiciel comment associer l’image à l’étiquette.<br>On ne lui dit pas : “les pétales des fleurs des ours sont pointues et celles de muguets en forme de clochettes”.&nbsp;🌼</p><p>Pas besoin d'expliquer au logiciel comment associer une image à son étiquette : il <strong>analyse </strong>les pixels, détecte les <strong>caractéristiques </strong>visuelles et les convertit en <strong>valeurs </strong>numériques.&nbsp;🔢<br></p>"
                 }
               ]
             },
@@ -244,10 +253,10 @@
                 {
                   "id": "1b67fab0-9ad4-45a6-aded-160b77b24993",
                   "type": "image",
-                  "url": "",
-                  "alt": "",
-                  "alternativeText": "",
-                  "legend": "",
+                  "url": "https://assets.pix.org/draft/modules/ia-def-ind/jeudedonne-sanslegende.png",
+                  "alt": "Une illustration du jeu de données avec des exemples",
+                  "alternativeText": "<p>On peut des photos d'ail des ours (avec des fleurs, avec des feuilles) et de muguet (avec des feuilles, avec des fleurs)</p>",
+                  "legend": "Une photo de bulbes d'ail des ours",
                   "licence": ""
                 }
               ]
@@ -262,9 +271,9 @@
                 {
                   "id": "4fc2b7dc-0cc9-4e29-bb93-9c7ab25bcc60",
                   "type": "image",
-                  "url": "",
-                  "alt": "",
-                  "alternativeText": "",
+                  "url": "https://assets.pix.org/draft/modules/ia-def-ind/ailoursbulbe.jpg",
+                  "alt": "Une photo de bulbes d'ail des ours",
+                  "alternativeText": "<p>Une photo de bulbes d'ail des ours</p>",
                   "legend": "",
                   "licence": ""
                 },
@@ -303,7 +312,7 @@
                       "id": "1",
                       "content": "<p>Les images d'entraînement ne comportent pas de photos de bulbes.<br></p>",
                       "feedback": {
-                        "diagnosis": "<p>C'est ça ! Ces données manquent de diversité et d’exhaustivité !<br><br></p>"
+                        "diagnosis": "<p>Et oui ! Ces données ne sont pas suffisamment variées, elles manquent de diversité.</p>"
                       }
                     },
                     {
@@ -356,9 +365,9 @@
                 {
                   "id": "f9543a65-1749-4ebb-ae02-7dbf1b8ca4d8",
                   "type": "image",
-                  "url": "",
-                  "alt": "",
-                  "alternativeText": "",
+                  "url": "https://assets.pix.org/draft/modules/ia-def-ind/schema-nouvelle-etiquette.png",
+                  "alt": "Un schéma ",
+                  "alternativeText": "<p>Un schéma représentant le fait que le logiciel ne peut pas prédire \"Tournesol\" s'il n'a été entrainé qu'avec des étiquettes \"ail des ours\" ou \"muguet\".</p>",
                   "legend": "",
                   "licence": ""
                 }
@@ -401,8 +410,8 @@
           "element": {
             "id": "191e100f-8a78-4ad9-b6d0-65533eba3ad8",
             "type": "custom-draft",
-            "title": "",
-            "url": "",
+            "title": "Un tableau interactif pour associez les bonnes données à la bonne IA",
+            "url": "https://1024pix.github.io/atelier-contenus/JTE/poi-tableau-interactif-ia.html",
             "instruction": "<p>A vous de jouer, complétez le tableau avec les bonnes données pour le bon objectif !<br></p>",
             "height": 550
           }
@@ -575,7 +584,7 @@
                 "size": 10,
                 "display": "inline",
                 "placeholder": "",
-                "ariaLabel": "",
+                "ariaLabel": "champ à remplir",
                 "defaultValue": "",
                 "tolerances": [
                   "t1",
@@ -601,7 +610,7 @@
                 "size": 10,
                 "display": "inline",
                 "placeholder": "",
-                "ariaLabel": "",
+                "ariaLabel": "champ à remplir",
                 "defaultValue": "",
                 "tolerances": [
                   "t1",
