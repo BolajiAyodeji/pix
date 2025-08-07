@@ -1,0 +1,633 @@
+{
+  "id": "bc6d164f-26bd-4f58-9925-8cf5365e2ca6",
+  "slug": "tmp-ia-def-ind",
+  "title": "Une IA apprentie botaniste : l'histoire d'un apprentissage supervisé 🌱",
+  "isBeta": true,
+  "details": {
+    "image": "",
+    "description": "<p>L’intelligence artificielle a de multiples applications : génération de texte, recommandation de contenus, reconnaissance d’image … 🖼️ </p><p>Dans ce module, vous découvrirez l’une des techniques d’intelligence artificielle qui rend tout cela possible : l’apprentissage automatique supervisé. 🤖<br><br></p>",
+    "duration": 10,
+    "level": "Intermédiaire",
+    "objectives": [
+      "<p>Décrire le fonctionnement de l’apprentissage automatique supervisé grâce à un exemple : la reconnaissance d’image (données étiquetées, entraînement, prédiction)<br><br></p>",
+      "<p>Identifier les limites de l’apprentissage automatique supervisé</p>"
+    ],
+    "tabletSupport": "comfortable"
+  },
+  "grains": [
+    {
+      "id": "61f7db09-722e-442f-9aca-8fe39c425b41",
+      "type": "discovery",
+      "title": "Accroche - conversation ",
+      "components": [
+        {
+          "type": "element",
+          "element": {
+            "id": "6e186654-fd70-4d4c-af3e-530b7664b193",
+            "type": "text",
+            "content": "<p>Arthur a entendu parler de l’ail des ours, une plante qui se mange, et il voudrait goûter. 😋 </p><p>Mais il a peur de se tromper pendant sa cueillette, alors il demande à Lila. 🧺<br><br></p>"
+          }
+        },
+        {
+          "type": "element",
+          "element": {
+            "id": "dad28e9d-425d-4637-b848-052231cb225f",
+            "type": "custom",
+            "tagName": "message-conversation",
+            "props": {
+              "title": "Arthur demande à Lila comment reconnaître l'ail des ours",
+              "messages": [
+                {
+                  "userName": "Arthur",
+                  "direction": "incoming",
+                  "content": "Dis, tu sais où comment reconnaître de  l’ail des ours, toi ? 🌿"
+                },
+                {
+                  "userName": "Lila",
+                  "direction": "outgoing",
+                  "content": "Pas vraiment… Ce n’est pas si facile, ça ressemble à la colchique et au muguet, des plantes toxiques ! 🥴"
+                },
+                {
+                  "userName": "Arthur",
+                  "direction": "incoming",
+                  "content": "Mais, comment faire alors ?"
+                },
+                {
+                  "userName": "Lila",
+                  "direction": "outgoing",
+                  "content": "Tu tombes bien, justement, je suis en train de créer un logiciel d’IA qui reconnait les plantes !"
+                },
+                {
+                  "userName": "Arthur",
+                  "direction": "incoming",
+                  "content": "Ah bon, mais comment fais-tu ?"
+                },
+                {
+                  "userName": "Lila",
+                  "direction": "outgoing",
+                  "content": "Il faut l’entraîner avec plein de données, mais attention, il peut se tromper !"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "0b6be806-422b-4281-a5c6-7b0bf89262ca",
+      "type": "discovery",
+      "title": "Découverte n°1 - Données étiquetées",
+      "components": [
+        {
+          "type": "element",
+          "element": {
+            "id": "365d0e92-7b9e-406a-920b-4d12e08c7a28",
+            "type": "text",
+            "content": "<p>Mettez-vous un instant à la place du logiciel de Lila. 🤖&nbsp;</p><p>Comme lui, vous allez avoir plein d’images d’ail des ours et de muguet.<br>Observez bien, puis, vous devrez classer ces images.&nbsp;👀<br></p>"
+          }
+        },
+        {
+          "type": "element",
+          "element": {
+            "id": "21c10c6e-591b-43f5-8894-6818ffdf5581",
+            "type": "custom-draft",
+            "title": "",
+            "url": "",
+            "instruction": "",
+            "height": 0
+          }
+        },
+        {
+          "type": "element",
+          "element": {
+            "id": "5f687ff0-e980-4b61-bbdb-33b89e5beffe",
+            "type": "text",
+            "content": "<p>Pas si facile, n’est-ce pas ? Mais si c’était déjà difficile pour nous, comment font les machines ?<br>Voyons de plus près comment ça marche. 🔍</p>"
+          }
+        }
+      ]
+    },
+    {
+      "id": "3fd6303e-499d-4ace-a5a6-8882a118726d",
+      "type": "lesson",
+      "title": "Lesson n°1  : données étiquetées",
+      "components": [
+        {
+          "type": "stepper",
+          "steps": [
+            {
+              "elements": [
+                {
+                  "id": "e2964222-34ba-41d5-a8f4-d52b30c22bd2",
+                  "type": "text",
+                  "content": "<p>Pour apprendre, un logiciel d’IA fonctionne de façon similaire à ce que vous avez fait.&nbsp;&nbsp;</p><p>Il <strong>se base sur les exemples</strong> déjà vus et <strong>analyse l’image </strong>en cherchant des<strong> caractéristiques</strong> communes pour pouvoir répondre.&nbsp;🧐</p><p><br>Il n’a donc pas besoin d’être programmé pour chaque situation. Il peut<strong> s’adapter à des cas nouveaux.</strong> Par exemple, de nouvelles photos d’ail des ours ou de muguet.&nbsp;🌼</p>"
+                }
+              ]
+            },
+            {
+              "elements": [
+                {
+                  "id": "e089a941-4bfb-473f-879a-892f1be410ce",
+                  "type": "text",
+                  "content": "<p>On appelle ces exemples <strong>le jeu de données.</strong> Le jeu de données est composé de <strong>données étiquetées</strong>.&nbsp;🏷️</p><p>Par exemple, pour apprendre à reconnaître les images d’une plante, il faut : </p><ul><li>beaucoup de photos de cette plante avec la bonne étiquette (par exemple, l’ail des ours)</li><li>mais aussi beaucoup de photos de contre-exemple avec aussi son étiquette (muguet…).&nbsp;</li></ul>"
+                }
+              ]
+            },
+            {
+              "elements": [
+                {
+                  "id": "a7118db8-ea1e-4b7d-b2e9-12903eaa12b3",
+                  "type": "text",
+                  "content": "<p>On parle alors d’<strong>apprentissage supervisé</strong>.<br> Pourquoi ? Parce que ce sont des humains qui mettent les <strong>étiquettes </strong>sur les données. Ils <strong>“supervisent”</strong> le travail de l’IA.<br></p><p>L’apprentissage automatique supervisé est l’une des branches de l’<strong>intelligence artificielle</strong>. <br><br></p>"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3b2f5ec0-e70b-422a-9d55-84b741885c40",
+      "type": "transition",
+      "title": "transition n°1 ",
+      "components": [
+        {
+          "type": "element",
+          "element": {
+            "id": "bde3a389-1875-4e42-9c06-1cab0c51be96",
+            "type": "text",
+            "content": "<p>Maintenant, regardons de plus près :&nbsp; avec toutes ces images, comment le logiciel fait le lien entre la donnée d’entrée (la photo) et la donnée de sortie (son nom) ?<br><br></p>"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ee2eb6fe-6740-45f4-886a-994545855110",
+      "type": "discovery",
+      "title": "Découverte 2 : Ajustement des paramètres",
+      "components": [
+        {
+          "type": "element",
+          "element": {
+            "id": "9e2e1178-89e5-4c87-beb1-b7548e6d3937",
+            "type": "text",
+            "content": "<p>Le logiciel ajuste ses paramètres.&nbsp;⚙️</p><p>D’accord, mais comment fait-il ?<br>Mettons-nous de nouveau à la place du logiciel qui est en train d’apprendre.&nbsp;🤖 </p>"
+          }
+        },
+        {
+          "type": "element",
+          "element": {
+            "id": "ff8997a5-8df9-47f9-ac05-9436e5b6302b",
+            "type": "custom-draft",
+            "title": "Ajuste les paramètres",
+            "url": "https://chatgpt.com/canvas/shared/68938299db4c81918a29a187e641d506",
+            "instruction": "<p>Cette photo montre un ail des ours.&nbsp;🌱</p><p>Ajustez les paramètres jusqu’à ce que la prédiction soit correcte.</p><p><a href=\"https://chatgpt.com/canvas/shared/68938299db4c81918a29a187e641d506\"><em>N.B : Le POI ne fonctionne pas pour l'instant</em></a></p>",
+            "height": 550
+          }
+        }
+      ]
+    },
+    {
+      "id": "bdc51924-26ee-4f22-b302-fe4dec080387",
+      "type": "lesson",
+      "title": "Lesson 2 : Ajustement des paramètres",
+      "components": [
+        {
+          "type": "stepper",
+          "steps": [
+            {
+              "elements": [
+                {
+                  "id": "fa7f85fb-aa87-4e40-a967-ced438d2507c",
+                  "type": "text",
+                  "content": "<p>Dans le cas de l’a<strong>pprentissage automatique</strong>, on n’explique pas précisément au logiciel comment associer l’image à l’étiquette.<br>On ne lui dit pas : “les pétales des fleurs des ours sont pointues et celles de muguets en forme de clochettes”.&nbsp;🌼</p><p><br>Mais, quand <strong>le logiciel analyse </strong><strong>l’image</strong>, il commence par trouver ses <strong>caractéristiques</strong> (couleurs, etc). Cela lui donne des <strong>valeurs numériques</strong>.&nbsp;🔢</p>"
+                }
+              ]
+            },
+            {
+              "elements": [
+                {
+                  "id": "58f708f8-ad08-4c04-9876-c616e6d9a490",
+                  "type": "text",
+                  "content": "<p>Le logiciel dispose de plein de paramètres qui indiquent les calculs à faire sur ces valeurs. <br>Au départ, les calculs sont faits au hasard.&nbsp;🎲</p><p><br>Progressivement, le logiciel ajuste les paramètres de calcul, pour parvenir à prédire la bonne étiquette.&nbsp;🧮</p><p>Comment fait-il ? Il compare ses prédictions aux réponses correctes et ajuste les paramètres pour se rapprocher de la bonne réponse.<br><br></p>"
+                }
+              ]
+            },
+            {
+              "elements": [
+                {
+                  "id": "b3d22c1d-d09e-4f92-8691-5cf7bcddcb96",
+                  "type": "text",
+                  "content": "<p>🤔 Le saviez-vous ?</p><p><br> Ce type de modèle de calcul s’appelle un “<strong>réseau de neurone</strong>” car il imite le cerveau.&nbsp;🧠<br></p><p><br></p>"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d11b5bf5-bd63-40d2-92dd-d03b5d5b7bf2",
+      "type": "discovery",
+      "title": "Découverte 3 : Généralisation",
+      "components": [
+        {
+          "type": "stepper",
+          "steps": [
+            {
+              "elements": [
+                {
+                  "id": "7f771c91-272f-42e9-875c-97640fcb7809",
+                  "type": "text",
+                  "content": "<p>Lila se demande si ces exemples seront suffisants pour reconnaître la bonne plante. 🥕</p><p><br>Elle a entraîné son programme avec des centaines d’images ressemblant à celles ci-dessous.<br></p>"
+                },
+                {
+                  "id": "1b67fab0-9ad4-45a6-aded-160b77b24993",
+                  "type": "image",
+                  "url": "",
+                  "alt": "",
+                  "alternativeText": "",
+                  "legend": "",
+                  "licence": ""
+                }
+              ]
+            },
+            {
+              "elements": [
+                {
+                  "id": "9d1e71cd-8787-439d-9dc7-d9b395435fad",
+                  "type": "text",
+                  "content": "<p>Elle veut maintenant tester son programme sur une nouvelle image.&nbsp;<br></p>"
+                },
+                {
+                  "id": "4fc2b7dc-0cc9-4e29-bb93-9c7ab25bcc60",
+                  "type": "image",
+                  "url": "",
+                  "alt": "",
+                  "alternativeText": "",
+                  "legend": "",
+                  "licence": ""
+                },
+                {
+                  "id": "9f0116d7-03e8-4657-ac04-9b310c4562f1",
+                  "type": "qcu-discovery",
+                  "instruction": "<p>A votre avis, cette IA va-t-elle reconnaître que cette image est un ail des ours ?</p>",
+                  "proposals": [
+                    {
+                      "id": "1",
+                      "content": "<p>Probablement oui&nbsp;</p>",
+                      "feedback": {
+                        "diagnosis": "<p>Bien vu ! Mais savez-vous pourquoi ?</p>"
+                      }
+                    },
+                    {
+                      "id": "2",
+                      "content": "<p>Probablement non<br></p>",
+                      "feedback": {
+                        "diagnosis": "<p>Et non ! Et savez-vous pourquoi ?</p>"
+                      }
+                    }
+                  ],
+                  "solution": "2"
+                }
+              ]
+            },
+            {
+              "elements": [
+                {
+                  "id": "a990944f-d268-4eac-99cc-8f4e88123baa",
+                  "type": "qcu-discovery",
+                  "instruction": "<p>A votre avis, pourquoi ce logiciel ne va pas reconnaître l’image comme un ail des ours ? <br></p>",
+                  "proposals": [
+                    {
+                      "id": "1",
+                      "content": "<p>Les images d'entraînement ne comportent pas de photos de bulbes.<br></p>",
+                      "feedback": {
+                        "diagnosis": "<p>C'est ça ! Ces données manquent de diversité et d’exhaustivité !<br><br></p>"
+                      }
+                    },
+                    {
+                      "id": "2",
+                      "content": "<p>Les images ne sont pas d’assez bonne qualité : elles sont souvent flous.<br></p>",
+                      "feedback": {
+                        "diagnosis": "<p>Si les images étaient flous, ça serait un problème ! </p><p> Mais ce n’est pas le cas ici, le problème principal est que les photos d'entraînement ne comportent pas de bulbes !</p>"
+                      }
+                    },
+                    {
+                      "id": "3",
+                      "content": "<p>Plusieurs photos d’ail des ours ont été étiquetées comme étant du muguet.<br></p>",
+                      "feedback": {
+                        "diagnosis": "<p>Bien sûr, si les images étaient mal étiquetées, ça serait un problème !<br>Mais ce n’est pas le cas ici, le problème principal est que les photos d'entraînement ne contiennent pas de bulbes !<br></p>"
+                      }
+                    }
+                  ],
+                  "solution": "1"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "08c2f199-5026-487b-9c27-9f16d4ab481f",
+      "type": "lesson",
+      "title": "Lesson 3 : Généralisation",
+      "components": [
+        {
+          "type": "stepper",
+          "steps": [
+            {
+              "elements": [
+                {
+                  "id": "4f15ba33-8b56-49de-a277-be097b576d94",
+                  "type": "text",
+                  "content": "<p>Le but du logiciel est d’obtenir des calculs qui marcheront sur des exemples autres (de nouvelles photos) que ceux de son entraînement. C’est la <strong>généralisation.</strong> 🚀</p><p><br>Pour atteindre une <strong>bonne généralisation,</strong> il faut lui donner des <strong>exemples </strong>différents entre eux, <strong>variés </strong>et représentant tous les cas typiques.</p><p><br>Mais la prédiction est <strong>statistique </strong>et il y a toujours un risque d’erreur. Les <strong>erreurs </strong>peuvent&nbsp; aussi être liées à la <strong>qualité </strong>et à  la <strong>diversité </strong>des données.<br><br></p>"
+                }
+              ]
+            },
+            {
+              "elements": [
+                {
+                  "id": "f31ca24b-f958-4c77-bc38-6024c832b4c3",
+                  "type": "text",
+                  "content": "<p>Une <strong>phase de test </strong>consiste à <strong>vérifier la performance</strong> du logiciel sur d’autres exemples. &nbsp;</p><p>C'est ce que fait Lila en donnant une nouvelle photo au logiciel,et vérifiant qu’il arrive à bien trouver s’il s’agit d’ail des ours. <br>Parfois, il faut encore l'entraîner avant de pouvoir l’utiliser.</p><p><br>N.B : En revanche, <strong>le logiciel ne peut trouver que les étiquettes qu’il a appris à prédire.</strong><br>Si le logiciel ne connaît que les étiquettes “ail des ours” et “muguet” et qu’on lui présente une image de “tournesol”, il ne peut pas prédire que c’est un tournesol. Il va seulement donner une prédiction qui s’approche des étiquettes qu’il connaît.<br><br></p>"
+                },
+                {
+                  "id": "f9543a65-1749-4ebb-ae02-7dbf1b8ca4d8",
+                  "type": "image",
+                  "url": "",
+                  "alt": "",
+                  "alternativeText": "",
+                  "legend": "",
+                  "licence": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e41f6414-5ef6-44ee-8501-31077ec9d258",
+      "type": "transition",
+      "title": "Transition 3",
+      "components": [
+        {
+          "type": "element",
+          "element": {
+            "id": "f071912a-b067-4d03-8217-cc087d3cdbff",
+            "type": "text",
+            "content": "<p>Avec beaucoup de nouvelles données, et quelques corrections, le logiciel est prêt ! 🎉<br>Lila, curieuse, se demande :&nbsp;que pourrait-on faire d’autre avec l’apprentissage supervisé ? 🤔<br></p>"
+          }
+        }
+      ]
+    },
+    {
+      "id": "f62d3175-8837-4713-996f-34c1e9846c98",
+      "type": "discovery",
+      "title": "Découverte 4 - D’autres cas d’usages, dont le texte",
+      "components": [
+        {
+          "type": "element",
+          "element": {
+            "id": "5ec6e39a-0852-4ee9-b892-5a4b66b890e3",
+            "type": "text",
+            "content": "<p>Lila se dit qu’elle pourrait générer le texte de description de ces plantes.<br>Mais l’apprentissage sur du texte ne nécessite pas les mêmes données.&nbsp;<br></p>"
+          }
+        },
+        {
+          "type": "element",
+          "element": {
+            "id": "191e100f-8a78-4ad9-b6d0-65533eba3ad8",
+            "type": "custom-draft",
+            "title": "",
+            "url": "",
+            "instruction": "<p>A vous de jouer, complétez le tableau avec les bonnes données pour le bon objectif !<br></p>",
+            "height": 550
+          }
+        }
+      ]
+    },
+    {
+      "id": "4b313eb6-b343-47ea-983d-dd82fe7ac03c",
+      "type": "transition",
+      "title": "Transition 4",
+      "components": [
+        {
+          "type": "element",
+          "element": {
+            "id": "136e86b1-cc7d-4e9c-a5f4-a3f1e5808757",
+            "type": "text",
+            "content": "<p>Lila est contente, son logiciel est terminé.🚀  Elle va pouvoir le faire tester à Arthur !</p>"
+          }
+        }
+      ]
+    },
+    {
+      "id": "3f86b7a5-8df1-48a0-94ef-2a28c8c0c010",
+      "type": "lesson",
+      "title": "Leçon #4 : D’autres cas d’usages, dont le texte",
+      "components": [
+        {
+          "type": "stepper",
+          "steps": [
+            {
+              "elements": [
+                {
+                  "id": "a041b7dc-9566-4bee-aaf4-106de9a98662",
+                  "type": "text",
+                  "content": "<p>L’apprentissage supervisé n'est pas utilisé que pour la reconnaissance d’image.</p><p>Les logiciels d’IA génératives conversationnels sont entraînés à <strong>générer du texte </strong>selon un <strong>principe proche</strong> : <br></p><ul><li>On leur donne des <strong>textes</strong>, dans lesquels il y a des <strong>trous </strong>(<strong>exemples</strong>),🕳️</li><li> et chaque trous est associé au <strong>mot manquant</strong> (<strong>étiquette</strong>).&nbsp;🏷️ </li></ul><p>Ces logiciels analysent les caractéristiques des textes et s'entraînent à prédire le mot manquant.&nbsp;📃<br></p>"
+                }
+              ]
+            },
+            {
+              "elements": [
+                {
+                  "id": "6c7d45cc-dc13-40d7-abc3-ef396c31f54c",
+                  "type": "text",
+                  "content": "<p>La technique d’<strong>apprentissage supervisé</strong> peut être utilisée dans <strong>beaucoup d’autres cas</strong> :</p><ul><li>la prédiction de la météo 🌦️, </li><li>la reconnaissance vocale 💬, </li><li>l’identification de tumeurs dans des images médicales 🩻…</li></ul><p>Des <strong>données différentes</strong> sont nécessaires pour chacun de ces cas.</p>"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4d0abb22-6ba4-4905-9f94-0a5ce818789e",
+      "type": "summary",
+      "title": "Récapitulatif",
+      "components": [
+        {
+          "type": "element",
+          "element": {
+            "id": "c68dc04d-69b2-4ca6-9635-e38fea109723",
+            "type": "text",
+            "content": "<ul><li>L’<strong>apprentissage automatique</strong> est l’une des <strong>branches de l’intelligence </strong><strong>artificielle</strong>. Il permet de donner aux machines <strong>la capacité d'adapter</strong> ce qu'elles savent faire à une situations qu'elles n'ont pas encore rencontrées.</li><li>L'<strong>apprentissage supervisé</strong> est l’une des méthodes de l’apprentissage automatique. Il consiste à fournir au logiciel un <strong>jeu de donnée</strong>s pour l’entraîner à prédire l’étiquette associée à une donnée. 🏷️📈</li><li>Au départ, le logiciel fait ses <strong>calculs </strong>de prédiction au hasard. Progressivement, il <strong>ajuste les paramètres</strong> de calcul pour parvenir à prédire la bonne étiquette. Il peut ainsi <strong>généraliser</strong> ses prédictions sur d'autres exemples. 🚀</li><li>La <strong>qualité </strong>des exemples et<strong> des données</strong> fournies est primordiale. 🚨</li><li>L'apprentissage supervisé est utilisé pour l'entraînement de<strong> nombreux logiciels</strong> qui réalisent des tâches telles que la reconnaissance d'image, des tâches de classement, des tâches de prédiction, etc.</li></ul>"
+          }
+        }
+      ]
+    },
+    {
+      "id": "3320dd18-77d1-4272-8f3d-ff110466f288",
+      "type": "activity",
+      "title": "S'exercer  : As-tu compris ce qu’est l’apprentissage supervisé ?",
+      "components": [
+        {
+          "type": "element",
+          "element": {
+            "id": "c75c175f-c7d9-4328-84ca-410369b1fef7",
+            "type": "qab",
+            "instruction": "<p>Répondez aux affirmations suivantes. <br></p>",
+            "cards": [
+              {
+                "id": "393892dc-10cc-465d-992e-ff624049ba76",
+                "text": "L’apprentissage supervisé est une technique d’intelligence artificielle.",
+                "image": {
+                  "url": "",
+                  "altText": ""
+                },
+                "proposalA": "Vrai",
+                "proposalB": "Faux",
+                "solution": "A"
+              },
+              {
+                "id": "4f54b9e7-260f-4f7e-a1eb-31508e8ae1e7",
+                "text": "L’apprentissage supervisé sert souvent à faire des prédictions.",
+                "image": {
+                  "url": "",
+                  "altText": ""
+                },
+                "proposalA": "Vrai",
+                "proposalB": "Faux",
+                "solution": "A"
+              },
+              {
+                "id": "b9a58e53-52d2-44f1-84ec-2855ab8ffc34",
+                "text": "Dans l’apprentissage supervisé, le logiciel commence par choisir des paramètres au hasard, puis les ajuste.",
+                "image": {
+                  "url": "",
+                  "altText": ""
+                },
+                "proposalA": "Vrai",
+                "proposalB": "Faux",
+                "solution": "A"
+              },
+              {
+                "id": "77f1da71-9011-4cde-a3f9-0f14dec707f3",
+                "text": "Une fois qu’un modèle est entraîné, il ne peut plus se tromper.",
+                "image": {
+                  "url": "",
+                  "altText": ""
+                },
+                "proposalA": "Vrai",
+                "proposalB": "Faux",
+                "solution": "B"
+              },
+              {
+                "id": "b5776fad-8fec-405c-bfc6-c8d05aaf7d27",
+                "text": "Un algorithme d’apprentissage supervisé peut apprendre tout seul, sans aide.",
+                "image": {
+                  "url": "",
+                  "altText": ""
+                },
+                "proposalA": "Vrai",
+                "proposalB": "Faux",
+                "solution": "B"
+              }
+            ],
+            "feedback": {
+              "diagnosis": "<p>Si tu as eu des erreurs, n'hésite pas à remonter pour lire le récapitulatif.&nbsp;👆</p>"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "3cfbafc0-3501-495f-af79-ca93b8c9668c",
+      "type": "challenge",
+      "title": "Défi : et pour l'exemple des oiseaux ?",
+      "components": [
+        {
+          "type": "element",
+          "element": {
+            "id": "c4b4a5c3-265e-4387-839b-73a27c0ecf34",
+            "type": "text",
+            "content": "<p>Arthur a été très inspiré par l’application de Lila.&nbsp;🌱</p><p>Il a téléchargé une application pour reconnaître le chant des oiseaux, comme <a href=\"https://play.google.com/store/apps/details?id=de.tu_chemnitz.mi.kahst.birdnet&amp;hl=fr\" target=\"_blank\">celle-ci.</a>🐦</p>"
+          }
+        },
+        {
+          "type": "element",
+          "element": {
+            "id": "bcc71c8a-4954-4705-959e-3e0c4d65832b",
+            "type": "qrocm",
+            "instruction": "<p>A votre avis, de quelles données a-t-on besoin pour créer un logiciel comme celui-ci ?<br></p>",
+            "proposals": [
+              {
+                "type": "text",
+                "content": "<p>Type de données :<br></p>"
+              },
+              {
+                "input": "8c61f879-6db9-4b4a-9817-9a567fe7ef34",
+                "type": "input",
+                "inputType": "text",
+                "size": 10,
+                "display": "inline",
+                "placeholder": "",
+                "ariaLabel": "",
+                "defaultValue": "",
+                "tolerances": [
+                  "t1",
+                  "t2",
+                  "t3"
+                ],
+                "solutions": [
+                  "Chant d'oiseau",
+                  "Des chants d'oiseaux",
+                  "Chants d'oiseaux",
+                  "Plein de chants d'oiseaux",
+                  "Beaucoup de chants d'oiseaux"
+                ]
+              },
+              {
+                "type": "text",
+                "content": "<p>Etiquette associée :&nbsp;&nbsp;</p>"
+              },
+              {
+                "input": "1f4f4ac7-71c2-4cd0-943d-a906f9780f0c",
+                "type": "input",
+                "inputType": "text",
+                "size": 10,
+                "display": "inline",
+                "placeholder": "",
+                "ariaLabel": "",
+                "defaultValue": "",
+                "tolerances": [
+                  "t1",
+                  "t2",
+                  "t3"
+                ],
+                "solutions": [
+                  "Nom d'oiseau",
+                  "Noms des oiseaux",
+                  "Le nom des oiseaux"
+                ]
+              }
+            ],
+            "feedbacks": {
+              "valid": {
+                "state": "<p>Bonne réponse !</p>",
+                "diagnosis": "<p><br></p>"
+              },
+              "invalid": {
+                "state": "<p>Mauvaise réponse !</p>",
+                "diagnosis": "<p>Et non, il va falloir le nom des oiseaux correspondants.</p>"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
