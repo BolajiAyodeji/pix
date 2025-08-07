@@ -4,7 +4,7 @@
   "title": "Une IA apprentie botaniste : l'histoire d'un apprentissage supervisé 🌱",
   "isBeta": true,
   "details": {
-    "image": "",
+    "image": "https://images.pix.fr/modulix/placeholder-details.svg",
     "description": "<p>L’intelligence artificielle a de multiples applications : génération de texte, recommandation de contenus, reconnaissance d’image … 🖼️ </p><p>Dans ce module, vous découvrirez l’une des techniques d’intelligence artificielle qui rend tout cela possible : l’apprentissage automatique supervisé. 🤖<br><br></p>",
     "duration": 10,
     "level": "Intermédiaire",
@@ -185,7 +185,7 @@
         {
           "type": "element",
           "element": {
-            "id": "e5badfae-bca4-421a-ae72-299891ef31da",
+            "id": "bfd4c766-52aa-449d-876e-8970972999c9",
             "type": "image",
             "url": "https://assets.pix.org/draft/modules/ia-def-ind/futur-poi-ajustement-parametres.png",
             "alt": "futur POI",
