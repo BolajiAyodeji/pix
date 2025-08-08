@@ -125,7 +125,7 @@
                 {
                   "id": "e2964222-34ba-41d5-a8f4-d52b30c22bd2",
                   "type": "text",
-                  "content": "<p>Pour apprendre, un logiciel d’IA fonctionne de façon similaire à ce que vous avez fait.&nbsp;&nbsp;</p><p>Il <strong>se base sur les exemples</strong> déjà vus et <strong>analyse l’image </strong>en cherchant des<strong> caractéristiques</strong> communes pour pouvoir répondre.&nbsp;🧐</p><p><br>Il n’a donc pas besoin d’être programmé pour chaque situation. Il peut<strong> s’adapter à des cas nouveaux.</strong> Par exemple, de nouvelles photos d’ail des ours ou de muguet.&nbsp;🌼</p>"
+                  "content": "<p>Pour apprendre à reconnaître des images, un logiciel d’IA fait un peu ce que vous avez fait.</p><p>On lui donne<strong> beaucoup d’exemples </strong>de photographies de ce qu’il doit reconnaître. Chaque exemple est associé à un nom ou son étiquette. 🏷️</p><br><p>C'est ce qu’on appelle<strong> jeu de données </strong>.</p>"
                 }
               ]
             },
@@ -134,7 +134,7 @@
                 {
                   "id": "e089a941-4bfb-473f-879a-892f1be410ce",
                   "type": "text",
-                  "content": "<p>On appelle ces exemples <strong>le jeu de données.</strong> Le jeu de données est composé de <strong>données étiquetées</strong>.&nbsp;🏷️</p><p>Par exemple, pour apprendre à reconnaître les images d’une plante, il faut : </p><ul><li>beaucoup de photos de cette plante avec la bonne étiquette (par exemple, l’ail des ours)</li><li>mais aussi beaucoup de photos de contre-exemple avec aussi son étiquette (muguet…).&nbsp;</li></ul>"
+                  "content": "<p>Comme vous, le logiciel d’IA analyse les caractéristiques de tous les exemples (forme, couleur...) pour ensuite associer chaque photographie à son étiquette</p><br><p>C'est la phrase d'entraînement</p>"
                 }
               ]
             },
@@ -143,7 +143,7 @@
                 {
                   "id": "a7118db8-ea1e-4b7d-b2e9-12903eaa12b3",
                   "type": "text",
-                  "content": "<p>On parle alors d’<strong>apprentissage supervisé</strong>.<br> Pourquoi ? Parce que ce sont des humains qui mettent les <strong>étiquettes </strong>sur les données. Ils <strong>“supervisent”</strong> le travail de l’IA.<br></p><p>L’apprentissage automatique supervisé est l’une des branches de l’<strong>intelligence artificielle</strong>. <br><br></p>"
+                  "content": "<p>On parle alors d’<strong>apprentissage supervisé</strong>.<br> Pourquoi ? Parce qu’à l’origine, ce sont des humains qui mettent les <strong>étiquettes </strong>sur les données. Ils <strong>“supervisent”</strong> le travail de l’IA.<br></p><p>L’apprentissage automatique supervisé est l’une des techniques de l’<strong>intelligence artificielle</strong>. <br><br></p>"
                 }
               ]
             }
