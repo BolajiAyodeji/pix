@@ -88,7 +88,7 @@
           "element": {
             "id": "365d0e92-7b9e-406a-920b-4d12e08c7a28",
             "type": "text",
-            "content": "<p>Mettez-vous un instant à la place du logiciel de Lila. 🤖&nbsp;</p><p>Comme lui, vous allez avoir plein d’images d’ail des ours et de muguet.<br><br></p>"
+            "content": "<p>Comme le logiciel de Lila, vous allez tout d’abord vous entraîner.<br><br></p>"
           }
         },
         {
@@ -96,9 +96,9 @@
           "element": {
             "id": "21c10c6e-591b-43f5-8894-6818ffdf5581",
             "type": "custom-draft",
-            "title": "Elément interactif où il faut apprendre à reconnaître l'ail des ours du muguet",
+            "title": "Elément interactif où il faut apprendre à reconnaître l’ail des ours du muguet",
             "url": "https://1024pix.github.io/atelier-contenus/JTE/poi-ailours-ou-muguet.html",
-            "instruction": "<p>Observez bien, puis, vous devrez classer ces images.&nbsp;👀</p>",
+            "instruction": "<p>Observez ses photographies d’ail des ours et de muguet. Vous devrez ensuite les reconnaître.👀 Vous êtes prêt ?</p>",
             "height": 550
           }
         },
@@ -107,7 +107,7 @@
           "element": {
             "id": "5f687ff0-e980-4b61-bbdb-33b89e5beffe",
             "type": "text",
-            "content": "<p>Pas si facile, n’est-ce pas ? Mais si c’était déjà difficile pour nous, comment font les machines ?<br>Voyons de plus près comment ça marche. 🔍</p>"
+            "content": "Vous vous êtes entraîné à reconnaître des photos, voyons maintenant comment fait un logiciel d'IA. 🔍</p>"
           }
         }
       ]
