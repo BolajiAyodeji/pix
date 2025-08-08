@@ -48,24 +48,29 @@
                   "content": "Pas vraiment… Ce n’est pas si facile, ça ressemble à la colchique et au muguet, des plantes toxiques ! 🥴"
                 },
                 {
-                  "userName": "Arthur",
-                  "direction": "incoming",
-                  "content": "Mais, comment faire alors ?"
-                },
-                {
                   "userName": "Lila",
                   "direction": "outgoing",
-                  "content": "Tu tombes bien, justement, je suis en train de créer un logiciel d’IA qui reconnait les plantes !"
+                  "content": "Mais tu tombes bien, justement, je viens de créer un logiciel d’IA qui reconnait les plantes !"
                 },
                 {
                   "userName": "Arthur",
                   "direction": "incoming",
-                  "content": "Ah bon, mais comment fais-tu ?"
+                  "content": "Un logiciel ? Comment pourrait-il faire mieux que nous ?"
                 },
                 {
                   "userName": "Lila",
                   "direction": "outgoing",
-                  "content": "Il faut l’entraîner avec plein de données, mais attention, il peut se tromper !"
+                  "content": "Il reconnaît en un clin d’œil les moindres détails des feuilles. Tu veux l’essayer ?"
+                },
+                {
+                  "userName": "Arthur",
+                  "direction": "incoming",
+                  "content": "J’hésite… Tu crois vraiment qu’on peut lui faire confiance ? "
+                },
+                {
+                  "userName": "Lila",
+                  "direction": "outgoing",
+                  "content": "Écoute, je t’explique comment ça marche, tu verras s’il est fiable."
                 }
               ]
             }
