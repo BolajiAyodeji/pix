@@ -176,7 +176,7 @@
           "element": {
             "id": "9e2e1178-89e5-4c87-beb1-b7548e6d3937",
             "type": "text",
-            "content": "<p>Le logiciel ajuste ses paramètres.&nbsp;⚙️</p><p>D’accord, mais comment fait-il ?<br>Mettons-nous de nouveau à la place du logiciel qui est en train d’apprendre.&nbsp;🤖 </p>"
+            "content": "<p>Mettons-nous de nouveau à la place du logiciel qui est en train d’apprendre.&nbsp;🤖 </p>"
           }
         },
         {
@@ -184,7 +184,7 @@
           "element": {
             "id": "e5badfae-bca4-421a-ae72-299891ef31da",
             "type": "text",
-            "content": "<p>Cette photo montre un ail des ours.&nbsp;🌱 </p><p>Ajustez les paramètres jusqu’à ce que la prédiction soit correcte.</p><p><u><a href=\"https://chatgpt.com/canvas/shared/68938299db4c81918a29a187e641d506\" target=\"_blank\">[Pour tester le POI, non fonctionnel pour l'instant... cliquer ici]</a></u></p>"
+            "content": "<p>Cette photo montre un ail des ours.&nbsp;🌱 </p><p>Ajustez les paramètres de calculs, jusqu’à ce que la prédiction soit de correct.</p><p><u><a href=\"https://chatgpt.com/canvas/shared/68938299db4c81918a29a187e641d506\" target=\"_blank\">[Pour tester le POI, non fonctionnel pour l'instant... cliquer ici]</a></u></p>"
           }
         },
         {
@@ -232,7 +232,7 @@
                 {
                   "id": "b3d22c1d-d09e-4f92-8691-5cf7bcddcb96",
                   "type": "text",
-                  "content": "<p>🤔 Le saviez-vous ?</p><p><br> Ce type de modèle de calcul s’appelle un “<strong>réseau de neurone</strong>” car il imite le cerveau.&nbsp;🧠<br></p>"
+                  "content": "<p>🤔 Le saviez-vous ?</p><p><br> Ce type de modèle de calcul s’appelle un “<strong>réseau de neurone</strong>” car les chercheurs se sont inspirés du cerveau humain.&nbsp;🧠<br></p>"
                 }
               ]
             }
@@ -253,14 +253,14 @@
                 {
                   "id": "7f771c91-272f-42e9-875c-97640fcb7809",
                   "type": "text",
-                  "content": "<p>Lila se demande si ces exemples seront suffisants pour reconnaître la bonne plante. 🥕</p><p><br>Elle a entraîné son programme avec des centaines d’images ressemblant à celles ci-dessous.<br></p>"
+                  "content": "<p>Lila a donné&nbsp;à son logiciel des centaines de photographies ressemblant à celles ci-dessous.</p><p>Elle se demande si cet entrainement suffit pour qu'il&nbsp;reconnaisse l’ail des ours. 🥕</p>"
                 },
                 {
                   "id": "1b67fab0-9ad4-45a6-aded-160b77b24993",
                   "type": "image",
                   "url": "https://assets.pix.org/draft/modules/ia-def-ind/jeudedonne-sanslegende.png",
                   "alt": "Une illustration du jeu de données avec des exemples",
-                  "alternativeText": "<p>On peut des photos d'ail des ours (avec des fleurs, avec des feuilles) et de muguet (avec des feuilles, avec des fleurs)</p>",
+                  "alternativeText": "<p>On voit des photos d'ail des ours (avec des fleurs, avec des feuilles) et de muguet (avec des feuilles, avec des fleurs)</p>",
                   "legend": "Une photo de bulbes d'ail des ours",
                   "licence": ""
                 }
@@ -271,7 +271,7 @@
                 {
                   "id": "9d1e71cd-8787-439d-9dc7-d9b395435fad",
                   "type": "text",
-                  "content": "<p>Elle veut maintenant tester son programme sur une nouvelle image.&nbsp;<br></p>"
+                  "content": "<p>Elle veut maintenant tester son programme sur une nouvelle photographie d'ail des ours.&nbsp;<br></p>"
                 },
                 {
                   "id": "4fc2b7dc-0cc9-4e29-bb93-9c7ab25bcc60",
@@ -285,7 +285,7 @@
                 {
                   "id": "9f0116d7-03e8-4657-ac04-9b310c4562f1",
                   "type": "qcu-discovery",
-                  "instruction": "<p>A votre avis, cette IA va-t-elle reconnaître que cette image est un ail des ours ?</p>",
+                  "instruction": "<p>A votre avis, cette IA va-t-elle reconnaître que cette image est de l'ail des ours ?</p>",
                   "proposals": [
                     {
                       "id": "1",
@@ -311,7 +311,7 @@
                 {
                   "id": "a990944f-d268-4eac-99cc-8f4e88123baa",
                   "type": "qcu-discovery",
-                  "instruction": "<p>A votre avis, pourquoi ce logiciel ne va pas reconnaître l’image comme un ail des ours ? <br></p>",
+                  "instruction": "<p>A votre avis, pourquoi ce logiciel n'est pas capable de dire que cette photographie est de l'ail des ours ?  <br></p>",
                   "proposals": [
                     {
                       "id": "1",
