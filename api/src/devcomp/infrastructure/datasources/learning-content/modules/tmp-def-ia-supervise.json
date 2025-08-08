@@ -55,7 +55,7 @@
                 {
                   "userName": "Arthur",
                   "direction": "incoming",
-                  "content": "Un logiciel ? Comment pourrait-il faire mieux que nous ?"
+                  "content": "Un logiciel ? Comment ça marche ? Comment pourrait-il faire mieux que nous ?"
                 },
                 {
                   "userName": "Lila",
@@ -88,7 +88,7 @@
           "element": {
             "id": "365d0e92-7b9e-406a-920b-4d12e08c7a28",
             "type": "text",
-            "content": "<p>Comme le logiciel de Lila, vous allez tout d’abord vous entraîner.<br><br></p>"
+            "content": "<p>Mettez-vous un instant à la place du logiciel de Lila. 🤖&nbsp; </p>"
           }
         },
         {
@@ -98,7 +98,7 @@
             "type": "custom-draft",
             "title": "Elément interactif où il faut apprendre à reconnaître l’ail des ours du muguet",
             "url": "https://1024pix.github.io/atelier-contenus/JTE/poi-ailours-ou-muguet.html",
-            "instruction": "<p>Observez ses photographies d’ail des ours et de muguet. Vous devrez ensuite les reconnaître.👀 Vous êtes prêt ?</p>",
+            "instruction": "<p>Observez ces photographies d’ail des ours et de muguet. Vous devrez ensuite les reconnaître.👀 Vous êtes prêt ?</p>",
             "height": 550
           }
         },
@@ -125,7 +125,7 @@
                 {
                   "id": "e2964222-34ba-41d5-a8f4-d52b30c22bd2",
                   "type": "text",
-                  "content": "<p>Pour apprendre à reconnaître des images, un logiciel d’IA fait un peu ce que vous avez fait&nbsp;:</p><ul><li>On vous a donné <strong>plusieurs exemples</strong> de photographies de plantes.</li><li>Chaque photographie était <strong>accompagnée de son nom</strong>.</li><li>On vous a demandé de <strong>d'identifer</strong> le nom de la plante sur chaque photographie. Pour cela, vous avez repéré les caractéristiques de chaque plante et vous les avez reconnues ensuite.</li></ul>"
+                  "content": "<p>Pour apprendre à reconnaître des images, un logiciel d’IA fait un peu ce que vous avez fait&nbsp;:</p><ul><li>On vous a donné <strong>plusieurs exemples</strong> de photographies de plantes.🌼</li><li>Chaque photographie était <strong>accompagnée de son nom</strong>.</li><li>On vous a demandé de <strong>d'identifer</strong> le nom de la plante sur chaque photographie. Pour cela, vous avez repéré les caractéristiques de chaque plante et vous les avez reconnues ensuite.&nbsp;🧐</li></ul>"
                 }
               ]
             },
@@ -134,7 +134,7 @@
                 {
                   "id": "e089a941-4bfb-473f-879a-892f1be410ce",
                   "type": "text",
-                  "content": "<p>C’est pareil pour un logiciel d’IA&nbsp;:&nbsp; </p><ul><li>On lui donne <strong>beaucoup d’exemples </strong>de ce qu’il doit reconnaître. C’est ce que l’on appelle <strong>un jeu de données.</strong>&nbsp;</li><li>Chaque exemple est associé à une <strong>étiquette</strong>. Ce sont <strong>des données étiquetées</strong>.</li><li>Le logiciel d’IA<strong> analyse les caractéristiques</strong> de tous les exemples (forme, couleur, texture...) pour ensuite associer lui-même chaque exemple à son étiquette.</li></ul>"
+                  "content": "<p>C’est un peu pareil pour un logiciel d’IA&nbsp;:&nbsp; </p><ul><li>On lui donne <strong>beaucoup d’exemples </strong>de ce qu’il doit reconnaître. C’est ce que l’on appelle <strong>un jeu de données.</strong>&nbsp;</li><li>Chaque exemple est associé à une <strong>étiquette</strong>. Ce sont <strong>des données étiquetées</strong>.🏷️</li><li>Le logiciel d’IA<strong> analyse les caractéristiques</strong> de tous les exemples (forme, couleur, texture...) pour ensuite associer lui-même chaque exemple à son étiquette.🧩</li></ul>"
                 }
               ]
             },
@@ -143,7 +143,7 @@
                 {
                   "id": "a7118db8-ea1e-4b7d-b2e9-12903eaa12b3",
                   "type": "text",
-                  "content": "<p>On parle alors d’<strong>apprentissage supervisé</strong>. </p><p>Pourquoi ? Parce qu’au départ, ce sont des humains qui attribuent les étiquettes aux données&nbsp;: ils “<strong>supervisent</strong>” ainsi l’apprentissage du logiciel. </p><p>L’apprentissage supervisé est l’une des techniques de&nbsp;l'intelligence artificielle.</p><br>"
+                  "content": "<p>On parle alors d’<strong>apprentissage supervisé</strong>. </p><p>Pourquoi ? Parce qu’au départ, ce sont des humains qui attribuent les étiquettes aux données&nbsp;: ils “<strong>supervisent</strong>” ainsi l’apprentissage du logiciel.👨🏽‍💻 </p><p>L’apprentissage supervisé est l’une des techniques de&nbsp;l'intelligence artificielle.&nbsp;🤖</p><br>"
                 }
               ]
             }
