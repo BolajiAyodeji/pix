@@ -356,7 +356,7 @@
                 {
                   "id": "4f15ba33-8b56-49de-a277-be097b576d94",
                   "type": "text",
-                  "content": "<p>Le but du logiciel est d’obtenir des calculs qui marcheront sur des exemples autres (de nouvelles photos) que ceux de son entraînement. C’est la <strong>généralisation.</strong> 🚀</p><p><br>Pour atteindre une <strong>bonne généralisation,</strong> il faut lui donner des <strong>exemples </strong>différents entre eux, <strong>variés </strong>et représentant tous les cas typiques.</p><p><br>Mais la prédiction est <strong>statistique </strong>et il y a toujours un risque d’erreur. Les <strong>erreurs </strong>peuvent aussi être liées à la <strong>qualité </strong>et à  la <strong>diversité </strong>des données.<br><br></p>"
+                  "content": "<p>Le but du logiciel est d’obtenir des calculs qui lui permettront de trouver la bonne étiquette sur des exemples qu'on ne lui a pas donné lors de son entraînement. C’est la <strong>généralisation.</strong> 🚀</p><br><p>Pour atteindre une<strong> bonne généralisation,</strong> il faut lui donner des<strong> exemples </strong>différents entre eux,<strong> variés </strong>et représentant tous les cas typiques.</p><br><p>Ceci réduit le risque d'erreur. Mais la prédiction est<strong> statistique </strong>et il y a toujours un risque d’erreur.</p>"
                 }
               ]
             },
@@ -365,7 +365,7 @@
                 {
                   "id": "f31ca24b-f958-4c77-bc38-6024c832b4c3",
                   "type": "text",
-                  "content": "<p>Une <strong>phase de test </strong>consiste à <strong>vérifier la performance</strong> du logiciel sur d’autres exemples. </p><p>C'est ce que fait Lila en donnant une nouvelle photo au logiciel,et vérifiant qu’il arrive à bien trouver s’il s’agit d’ail des ours. <br>Parfois, il faut encore l'entraîner avant de pouvoir l’utiliser.</p><p><br>N.B. : En revanche, <strong>le logiciel ne peut trouver que les étiquettes qu’il a appris à prédire.</strong><br>Si le logiciel ne connaît que les étiquettes “ail des ours” et “muguet” et qu’on lui présente une image de “tournesol”, il ne peut pas prédire que c’est un tournesol. Il va seulement donner une prédiction qui s’approche des étiquettes qu’il connaît.<br><br></p>"
+                  "content": "<p>Une <strong>phase de test </strong>consiste à <strong>vérifier la performance</strong> du logiciel sur d’autres exemples. </p><p>C'est ce que fait Lila en donnant une nouvelle photo au logiciel, et vérifiant qu’il arrive à bien trouver s’il s’agit d’ail des ours. <br>Parfois, il faut encore l'entraîner avant de pouvoir l’utiliser.</p><p><br>N.B. : En revanche, <strong>le logiciel ne peut trouver que les étiquettes qu’il a appris à prédire.</strong><br>Si le logiciel ne connaît que les étiquettes “ail des ours” et “muguet” et qu’on lui présente une image de “tournesol”, il ne peut pas prédire que c’est un tournesol. Il va seulement donner une prédiction qui s’approche des étiquettes qu’il connaît.<br><br></p>"
                 },
                 {
                   "id": "f9543a65-1749-4ebb-ae02-7dbf1b8ca4d8",
