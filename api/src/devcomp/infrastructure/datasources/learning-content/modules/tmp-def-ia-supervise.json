@@ -143,7 +143,7 @@
                 {
                   "id": "a7118db8-ea1e-4b7d-b2e9-12903eaa12b3",
                   "type": "text",
-                  "content": "<p>On parle alors d’<strong>apprentissage supervisé</strong>. </p><p>Pourquoi ? Parce qu’au départ, ce sont des humains qui attribuent les étiquettes aux données : ils “<strong>supervisent</strong>” ainsi l’apprentissage du logiciel.👨🏽‍💻 </p><p>L’apprentissage supervisé est l’une des techniques de l'intelligence artificielle.🤖</p><br>"
+                  "content": "<p>On parle alors d’<strong>apprentissage supervisé</strong>. </p><p>Pourquoi ? Parce qu’au départ, ce sont des humains qui attribuent les étiquettes aux données : ils “<strong>supervisent</strong>” ainsi l’apprentissage du logiciel.👨🏽‍💻 </p><p>L’apprentissage supervisé est <strong>l’une des techniques de l'intelligence artificielle</strong>.🤖</p><br>"
                 }
               ]
             }
