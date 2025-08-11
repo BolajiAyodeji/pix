@@ -152,6 +152,39 @@
       ]
     },
     {
+      "id": "db006d48-ab80-407b-92c3-65094b635c9e",
+      "type": "discovery",
+      "title": "Découverte 2a - décomposition en valeurs numérique",
+      "components": [
+        {
+          "type": "element",
+          "element": {
+            "id": "0021ca26-1ddb-4a0f-a3de-2c9a5ad6b9f0",
+            "type": "custom-draft",
+            "title": "Décomposition de l'image en valeur numérique",
+            "url": "https://1024pix.github.io/atelier-contenus/JTE/poi-decomposition-image.html",
+            "instruction": "<p><br></p>",
+            "height": 550
+          }
+        }
+      ]
+    },
+    {
+      "id": "b0076163-02ae-4805-af3e-dd82781347ba",
+      "type": "lesson",
+      "title": "Lesson 2a : décomposition en valeurs numériques",
+      "components": [
+        {
+          "type": "element",
+          "element": {
+            "id": "8e0084cb-c38a-49db-8126-4d3bb0b3077f",
+            "type": "text",
+            "content": "<p>Dans le cas de l’apprentissage automatique, pas besoin d'expliquer au logiciel comment associer une image à son étiquette : il analyse les pixels, détecte les caractéristiques visuelles et les convertit en valeurs numériques.🔢</p>"
+          }
+        }
+      ]
+    },
+    {
       "id": "3b2f5ec0-e70b-422a-9d55-84b741885c40",
       "type": "transition",
       "title": "transition n°1 ",
@@ -161,7 +194,7 @@
           "element": {
             "id": "bde3a389-1875-4e42-9c06-1cab0c51be96",
             "type": "text",
-            "content": "<p>Maintenant, regardons de plus près</p><br><p>Comment le logiciel fait le lien entre la donnée d’entrée (la photo) et la donnée de sortie (son nom) ?</p>"
+            "content": "<p>Maintenant, regardons de plus près : comment le logiciel fait le lien entre la donnée d’entrée (la photo) et la donnée de sortie (son nom) ?</p>"
           }
         }
       ]
@@ -169,7 +202,7 @@
     {
       "id": "ee2eb6fe-6740-45f4-886a-994545855110",
       "type": "discovery",
-      "title": "Découverte 2 : Ajustement des paramètres",
+      "title": "Découverte 2b : Ajustement des paramètres",
       "components": [
         {
           "type": "element",
@@ -204,19 +237,13 @@
     {
       "id": "bdc51924-26ee-4f22-b302-fe4dec080387",
       "type": "lesson",
-      "title": "Lesson 2 : Ajustement des paramètres",
+      "title": "Lesson 2b : Ajustement des paramètres",
       "components": [
         {
           "type": "stepper",
           "steps": [
             {
-              "elements": [
-                {
-                  "id": "fa7f85fb-aa87-4e40-a967-ced438d2507c",
-                  "type": "text",
-                  "content": "<p>Dans le cas de l’a<strong>pprentissage automatique</strong>, pas besoin d'expliquer au logiciel comment associer une image à son étiquette : il<strong> analyse </strong>les pixels, détecte les<strong> caractéristiques </strong>visuelles et les convertit en<strong> valeurs </strong>numériques.🔢<br></p>"
-                }
-              ]
+              "elements": []
             },
             {
               "elements": [
@@ -416,8 +443,8 @@
             "id": "191e100f-8a78-4ad9-b6d0-65533eba3ad8",
             "type": "custom-draft",
             "title": "Un tableau interactif pour associez les bonnes données à la bonne IA",
-            "url": "https://1024pix.github.io/atelier-contenus/JTE/poi-tableau-interactif-ia.html",
-            "instruction": "<p>A vous de jouer, complétez le tableau avec les bonnes données pour le bon objectif !<br></p>",
+            "url": "https://1024pix.github.io/atelier-contenus/JTE/poi-generalisation-texte.html",
+            "instruction": "<p>A vous de jouer, complétez le schéma avec les bonnes données pour le bon objectif !<br></p>",
             "height": 550
           }
         }
