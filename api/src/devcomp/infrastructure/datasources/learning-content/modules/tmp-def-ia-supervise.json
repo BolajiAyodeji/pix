@@ -134,7 +134,7 @@
                 {
                   "id": "e089a941-4bfb-473f-879a-892f1be410ce",
                   "type": "text",
-                  "content": "<p>C’est un peu pareil pour un logiciel d’IA : </p><ul><li>On lui donne <strong>beaucoup d’exemples </strong>de ce qu’il doit reconnaître. C’est ce que l’on appelle <strong>un jeu de données.</strong> </li><li>Chaque exemple est associé à une <strong>étiquette</strong>. Ce sont <strong>des données étiquetées</strong>.🏷️</li><li>Le logiciel d’IA<strong> analyse les caractéristiques</strong> de tous les exemples (forme, couleur, texture...) pour ensuite associer lui-même chaque exemple à son étiquette.🧩</li></ul>"
+                  "content": "<p>C’est un peu pareil pour un logiciel d’IA : </p><ul><li>On lui donne <strong>beaucoup d’exemples </strong>de ce qu’il doit reconnaître. C’est ce que l’on appelle <strong>un jeu de données.</strong> </li><li>Chaque<strong> photographie </strong>est associé à une <strong>étiquette</strong>. Ce sont <strong>des données étiquetées</strong>.🏷️</li><li>Le logiciel d’IA<strong> analyse les caractéristiques</strong> de tous les exemples (forme, couleur, texture...) pour ensuite associer lui-même chaque exemple à son étiquette.🔍</li></ul>"
                 }
               ]
             },
@@ -161,7 +161,7 @@
           "element": {
             "id": "bde3a389-1875-4e42-9c06-1cab0c51be96",
             "type": "text",
-            "content": "<p>Maintenant, regardons de plus près : avec toutes ces images, comment le logiciel fait le lien entre la donnée d’entrée (la photo) et la donnée de sortie (son nom) ?<br><br></p>"
+            "content": "<p>Maintenant, regardons de plus près</p><br><p>Comment le logiciel fait le lien entre la donnée d’entrée (la photo) et la donnée de sortie (son nom) ?</p>"
           }
         }
       ]
@@ -184,7 +184,7 @@
           "element": {
             "id": "e5badfae-bca4-421a-ae72-299891ef31da",
             "type": "text",
-            "content": "<p>Cette photo montre un ail des ours.🌱 </p><p>Ajustez les paramètres de calculs, jusqu’à ce que la prédiction soit de correct.</p><p><u><a href=\"https://chatgpt.com/canvas/shared/68938299db4c81918a29a187e641d506\" target=\"_blank\">[Pour tester le POI, non fonctionnel pour l'instant... cliquer ici]</a></u></p>"
+            "content": "<p>Cette photo montre un ail des ours.🌱 </p><p>Ajustez les paramètres de calculs, jusqu’à ce que la prédiction soit correct.</p><p><u><a href=\"https://chatgpt.com/canvas/shared/68938299db4c81918a29a187e641d506\" target=\"_blank\">[Pour tester le POI, non fonctionnel pour l'instant... cliquer ici]</a></u></p>"
           }
         },
         {
