@@ -214,7 +214,7 @@
                 {
                   "id": "fa7f85fb-aa87-4e40-a967-ced438d2507c",
                   "type": "text",
-                  "content": "<p>Dans le cas de l’a<strong>pprentissage automatique</strong>, on n’explique pas précisément au logiciel comment associer l’image à l’étiquette.<br>On ne lui dit pas : “les pétales des fleurs des ours sont pointues et celles de muguets en forme de clochettes”. 🌼</p><p>Pas besoin d'expliquer au logiciel comment associer une image à son étiquette : il <strong>analyse </strong>les pixels, détecte les <strong>caractéristiques </strong>visuelles et les convertit en <strong>valeurs </strong>numériques.🔢<br></p>"
+                  "content": "<p>Dans le cas de l’a<strong>pprentissage automatique</strong>, pas besoin d'expliquer au logiciel comment associer une image à son étiquette : il<strong> analyse </strong>les pixels, détecte les<strong> caractéristiques </strong>visuelles et les convertit en<strong> valeurs </strong>numériques.🔢<br></p>"
                 }
               ]
             },
@@ -223,7 +223,7 @@
                 {
                   "id": "58f708f8-ad08-4c04-9876-c616e6d9a490",
                   "type": "text",
-                  "content": "<p>Le logiciel dispose de plein de paramètres qui indiquent les calculs à faire sur ces valeurs. <br>Au départ, les calculs sont faits au hasard.🎲</p><p><br>Progressivement, le logiciel ajuste les paramètres de calcul, pour parvenir à prédire la bonne étiquette.🧮</p><p>Comment fait-il ? Il compare ses prédictions aux réponses correctes et ajuste les paramètres pour se rapprocher de la bonne réponse.<br><br></p>"
+                  "content": "<p>Le logiciel dispose de plusieurs de paramètres pour faire des calculs sur ces valeurs.</p><br><p>Au départ, les paramétres sont ajustés au hasard et à chaque fois, Le logiciel compare les résultats des calculs -ses prédictions-, aux réponses attendues🎲</p><br><p>Ainsi, le logiciel ajuste progressivement les paramètres jusqu'à obtenir le bon résultat.🧮</p>"
                 }
               ]
             },
