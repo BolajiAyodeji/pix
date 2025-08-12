@@ -380,7 +380,7 @@
                 {
                   "id": "4f15ba33-8b56-49de-a277-be097b576d94",
                   "type": "text",
-                  "content": "<p>Le but du logiciel est de prédire la bonne étiquettes sur des exemples qu'on ne lui a pas donné lors de son entraînement. C’est la <strong>généralisation.</strong> 🚀</p><p>Pour atteindre une<strong> bonne généralisation</strong>, il faut lui donner des<strong> exemples variés</strong>, différents entre eux et représentant tous les cas typiques. Ceci réduit le risque d'erreur. </p><p>📌<strong>Important&nbsp;:</strong></p><p>Une prédiction est<strong> statistique,</strong> il y a donc toujours un risque d’erreur.</p>"
+                  "content": "<p>Le but du logiciel est de prédire la bonne étiquette sur des exemples qu'on ne lui a pas donné lors de son entraînement. C’est la <strong>généralisation.</strong> 🚀</p><p>Pour atteindre une<strong> bonne généralisation</strong>, il faut lui donner des<strong> exemples variés</strong>, différents entre eux et représentant tous les cas typiques. Ceci réduit le risque d'erreur. </p><p>📌<strong>Important&nbsp;:</strong></p><p>Une prédiction est<strong> statistique,</strong> il y a donc toujours un risque d’erreur.</p>"
                 }
               ]
             },
