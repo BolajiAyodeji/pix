@@ -1,5 +1,7 @@
 import Knex from 'knex';
 
+// @ts-expect-error Get database-builder from API project
+import { DatabaseBuilder } from '../../../api/db/database-builder/database-builder.js';
 // @ts-expect-error getUserHashedPassword from API project
 import { getUserHashedPassword } from '../../../api/db/database-builder/factory/build-authentication-method.js';
 // @ts-expect-error NON_OIDC_IDENTITY_PROVIDERS from API project
@@ -9,6 +11,8 @@ import { AuthenticationMethod } from '../../../api/src/identity-access-managemen
 import { PIX_APP_USER_DATA, PIX_CERTIF_PRO_DATA, PIX_ORGA_ADMIN_DATA, PIX_ORGA_MEMBER_DATA } from './db-data.js';
 
 export const knex = Knex({ client: 'postgresql', connection: process.env.DATABASE_URL });
+
+export const databaseBuilder = await DatabaseBuilder.create({ knex, emptyFirst: false });
 
 export async function buildStaticData() {
   const hasDataAlreadyBeenBuilt = await knex('users').select({ id: PIX_APP_USER_DATA.id }).first();
