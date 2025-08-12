@@ -389,10 +389,19 @@
                 {
                   "id": "f31ca24b-f958-4c77-bc38-6024c832b4c3",
                   "type": "text",
-                  "content": "<p>On appelle<strong> phase de test</strong> l'étape de vérification de&nbsp;la performance du logiciel confronté à des <strong>nouveaux exemples non étiquetés</strong>.  <br>Parfois, on constate qu'on a encore besoin de l'entraîner&nbsp;pour pouvoir l’utiliser de façon fiable.</p><p>💡<strong>Bon à savoir&nbsp;:</strong><br> <strong>le logiciel ne peut trouver que les étiquettes qu’il a appris à prédire.</strong><br></p>"
+                  "content": "<p>On appelle<strong> phase de test</strong> l'étape de vérification de&nbsp;la performance du logiciel confronté à des <strong>nouveaux exemples non étiquetés</strong>.  <br>Parfois, on constate qu'on a encore besoin de l'entraîner&nbsp;pour pouvoir l’utiliser de façon fiable.</p>"
+                }
+              ]
+            },
+            {
+              "elements": [
+                {
+                  "id": "06144dc9-610d-483a-a79c-62d17de1749e",
+                  "type": "text",
+                  "content": "<p>💡<strong>Bon à savoir&nbsp;:</strong><br> <strong>le logiciel ne peut trouver que les étiquettes qu’il a appris à prédire.</strong></p>"
                 },
                 {
-                  "id": "f9543a65-1749-4ebb-ae02-7dbf1b8ca4d8",
+                  "id": "fdc063a3-de25-43e4-ab22-007339ad8d68",
                   "type": "image",
                   "url": "https://assets.pix.org/draft/modules/ia-def-ind/schema-nouvelle-etiquette.png",
                   "alt": "Un schéma ",
