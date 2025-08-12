@@ -5,11 +5,11 @@
   "isBeta": true,
   "details": {
     "image": "https://images.pix.fr/modulix/placeholder-details.svg",
-    "description": "<p>L’intelligence artificielle a de multiples applications : génération de texte, recommandation de contenus, reconnaissance d’image … 🖼️ </p><p>Dans ce module, vous découvrirez l’une des techniques d’intelligence artificielle qui rend tout cela possible : l’apprentissage automatique supervisé. 🤖<br><br></p>",
+    "description": "<p>L’intelligence artificielle a de multiples applications&nbsp;: génération de texte, recommandation de contenus, reconnaissance d’image … 🖼️ </p><p>Dans ce module, vous découvrirez l’une des techniques d’intelligence artificielle qui rend tout cela possible&nbsp;: l’apprentissage automatique supervisé. 🤖<br><br></p>",
     "duration": 10,
     "level": "Intermédiaire",
     "objectives": [
-      "<p>Décrire le fonctionnement de l’apprentissage automatique supervisé grâce à un exemple : la reconnaissance d’image (données étiquetées, entraînement, prédiction)<br><br></p>",
+      "<p>Décrire le fonctionnement de l’apprentissage automatique supervisé grâce à un exemple&nbsp;: la reconnaissance d’image (données étiquetées, entraînement, prédiction)<br><br></p>",
       "<p>Identifier les limites de l’apprentissage automatique supervisé</p>"
     ],
     "tabletSupport": "comfortable"
@@ -55,7 +55,7 @@
                 {
                   "userName": "Arthur",
                   "direction": "incoming",
-                  "content": "Un logiciel ? Comment ça marche ? Comment pourrait-il faire mieux que nous ?"
+                  "content": "Un logiciel ? Comment ça marche ? Comment pourrait-il faire mieux que nous ?"
                 },
                 {
                   "userName": "Lila",
@@ -88,7 +88,7 @@
           "element": {
             "id": "365d0e92-7b9e-406a-920b-4d12e08c7a28",
             "type": "text",
-            "content": "<p>Mettez-vous un instant à la place du logiciel de Lila. 🤖 </p>"
+            "content": "<p>Mettez-vous un instant à la place du logiciel de Lila. 🤖 </p>"
           }
         },
         {
@@ -125,7 +125,7 @@
                 {
                   "id": "e2964222-34ba-41d5-a8f4-d52b30c22bd2",
                   "type": "text",
-                  "content": "<p>Pour apprendre à reconnaître des images, un logiciel d’IA fait un peu ce que vous avez fait :</p><ul><li>D'abord, on vous a donné <strong>plusieurs exemples</strong> de photographies de plantes.🌼</li><li>Chaque photographie était <strong>accompagnée de son nom</strong>.</li><li>Ensuite, on vous a demandé de <strong>reconnaître</strong> le nom de la plante sur chaque photographie. Pour cela, vous avez repéré les caractéristiques de chaque plante pour pouvoir les identifier par la suite. 🧐</li></ul>"
+                  "content": "<p>Pour apprendre à reconnaître des images, un logiciel d’IA fait un peu ce que vous avez fait&nbsp;:</p><ul><li>D'abord, on vous a donné <strong>plusieurs exemples</strong> de photographies de plantes.🌼</li><li>Chaque photographie était <strong>accompagnée de son nom</strong>.</li><li>Ensuite, on vous a demandé de <strong>reconnaître</strong> le nom de la plante sur chaque photographie. Pour cela, vous avez repéré les caractéristiques de chaque plante pour pouvoir les identifier par la suite. 🧐</li></ul>"
                 }
               ]
             },
@@ -134,7 +134,7 @@
                 {
                   "id": "e089a941-4bfb-473f-879a-892f1be410ce",
                   "type": "text",
-                  "content": "<p>C’est un peu pareil pour un logiciel d’IA : </p><ul><li>On lui donne <strong>beaucoup d’exemples </strong>de ce qu’il doit reconnaître. C’est ce que l’on appelle <strong>un jeu de données.</strong> </li><li>Chaque<strong> photographie </strong>est associé à une <strong>étiquette</strong>. Ce sont <strong>des données étiquetées</strong>.🏷️</li><li>Le logiciel d’IA<strong> analyse les caractéristiques</strong> de tous les exemples (forme, couleur, texture...) pour ensuite associer lui-même chaque exemple à son étiquette.🔍</li></ul>"
+                  "content": "<p>C’est un peu pareil pour un logiciel d’IA&nbsp;: </p><ul><li>On lui donne <strong>beaucoup d’exemples </strong>de ce qu’il doit reconnaître. C’est ce que l’on appelle <strong>un jeu de données.</strong> </li><li>Chaque<strong> photographie </strong>est associé à une <strong>étiquette</strong>. Ce sont <strong>des données étiquetées</strong>.🏷️</li><li>Le logiciel d’IA<strong> analyse les caractéristiques</strong> de tous les exemples (forme, couleur, texture...) pour ensuite associer lui-même chaque exemple à son étiquette.🔍</li></ul>"
                 }
               ]
             },
@@ -143,7 +143,7 @@
                 {
                   "id": "a7118db8-ea1e-4b7d-b2e9-12903eaa12b3",
                   "type": "text",
-                  "content": "<p>On parle alors d’<strong>apprentissage supervisé</strong>. </p><p>Pourquoi ? Parce qu’au départ, ce sont des humains qui attribuent les étiquettes aux données : ils “<strong>supervisent</strong>” ainsi l’apprentissage du logiciel.👨🏽‍💻 </p><p>L’apprentissage supervisé est <strong>l’une des techniques de l'intelligence artificielle</strong>.🤖</p><br>"
+                  "content": "<p>On parle alors d’<strong>apprentissage supervisé</strong>. </p><p>Pourquoi ? Parce qu’au départ, ce sont des humains qui attribuent les étiquettes aux données&nbsp;: ils “<strong>supervisent</strong>” ainsi l’apprentissage du logiciel.👨🏽‍💻 </p><p>L’apprentissage supervisé est <strong>l’une des techniques de l'intelligence artificielle</strong>.🤖</p><br>"
                 }
               ]
             }
@@ -163,7 +163,7 @@
             "type": "custom-draft",
             "title": "Décomposition de l'image en valeur numérique",
             "url": "https://1024pix.github.io/atelier-contenus/JTE/poi-decomposition-image.html",
-            "instruction": "<p><br></p>",
+            "instruction": "",
             "height": 550
           }
         }
@@ -172,14 +172,14 @@
     {
       "id": "b0076163-02ae-4805-af3e-dd82781347ba",
       "type": "lesson",
-      "title": "Lesson 2a : décomposition en valeurs numériques",
+      "title": "Lesson 2a : décomposition en valeurs numériques",
       "components": [
         {
           "type": "element",
           "element": {
             "id": "8e0084cb-c38a-49db-8126-4d3bb0b3077f",
             "type": "text",
-            "content": "<p>Dans le cas de l’apprentissage automatique, pas besoin d'expliquer au logiciel comment associer une image à son étiquette : il analyse les pixels, détecte les caractéristiques visuelles et les convertit en valeurs numériques.🔢</p>"
+            "content": "<p>En <strong>apprentissage automatique</strong>, on n'a pas besoin d'expliquer au logiciel comment associer une image à son étiquette&nbsp;: il <strong>analyse</strong> les pixels, détecte les caractéristiques visuelles et les convertit en <strong>valeurs numériques</strong>.🔢</p>"
           }
         }
       ]
@@ -194,7 +194,7 @@
           "element": {
             "id": "bde3a389-1875-4e42-9c06-1cab0c51be96",
             "type": "text",
-            "content": "<p>Maintenant, regardons de plus près : comment le logiciel fait le lien entre la donnée d’entrée (la photo) et la donnée de sortie (son nom) ?</p>"
+            "content": "<p>Maintenant, regardons de plus près&nbsp;: comment le logiciel fait le lien entre la donnée d’entrée (la photo) et la donnée de sortie (son nom) ?</p>"
           }
         }
       ]
@@ -247,7 +247,7 @@
                 {
                   "id": "58f708f8-ad08-4c04-9876-c616e6d9a490",
                   "type": "text",
-                  "content": "<p>Le logiciel dispose de plusieurs paramètres pour faire des calculs sur ces valeurs.</p><br><p>Au départ, les paramétres sont ajustés au hasard. A chaque fois, le logiciel compare les résultats de ses calculs -on les appelle prédictions- aux réponses attendues🎲</p><br><p>Ainsi, le logiciel ajuste progressivement les paramètres jusqu'à obtenir la bonne prédiction.🧮</p>"
+                  "content": "<p>Le logiciel dispose de plusieurs<strong> paramètres </strong>pour faire des<strong> calculs </strong>sur ces valeurs.</p><p>Au départ, les paramétres sont ajustés au hasard, produisant un<strong> résultat de calcul</strong>.</p><p>Le logiciel compare à chaque fois ces résultats, que l'on appelle<strong> des prédictions</strong>, aux réponses attendues🎲</p><p>Ainsi, par essai erreur,<strong> il ajuste progressivement les paramètres </strong>jusqu'à obtenir la bonne prédiction.🧮</p>"
                 }
               ]
             },
@@ -335,7 +335,7 @@
                 {
                   "id": "a990944f-d268-4eac-99cc-8f4e88123baa",
                   "type": "qcu-discovery",
-                  "instruction": "<p>A votre avis, pourquoi ce logiciel n'est pas capable de dire que cette photographie est de l'ail des ours ?  <br></p>",
+                  "instruction": "<p>A votre avis, pourquoi ce logiciel n'est pas capable de dire que cette photographie est de l'ail des ours ?  <br></p>",
                   "proposals": [
                     {
                       "id": "1",
@@ -346,7 +346,7 @@
                     },
                     {
                       "id": "2",
-                      "content": "<p>Les images ne sont pas d’assez bonne qualité : elles sont souvent flous.<br></p>",
+                      "content": "<p>Les images ne sont pas d’assez bonne qualité&nbsp;: elles sont souvent flous.<br></p>",
                       "feedback": {
                         "diagnosis": "<p>Si les images étaient flous, ça serait un problème ! </p><p> Mais ce n’est pas le cas ici, le problème principal est que les photos d'entraînement ne comportent pas de bulbes !</p>"
                       }
@@ -380,7 +380,7 @@
                 {
                   "id": "4f15ba33-8b56-49de-a277-be097b576d94",
                   "type": "text",
-                  "content": "<p>Le but du logiciel est d’obtenir des calculs qui lui permettront de trouver la bonne étiquette sur des exemples qu'on ne lui a pas donné lors de son entraînement. C’est la <strong>généralisation.</strong> 🚀</p><br><p>Pour atteindre une<strong> bonne généralisation,</strong> il faut lui donner des<strong> exemples </strong>différents entre eux,<strong> variés </strong>et représentant tous les cas typiques.</p><br><p>Ceci réduit le risque d'erreur. Mais la prédiction est<strong> statistique </strong>et il y a toujours un risque d’erreur.</p>"
+                  "content": "<p>Le but du logiciel est de prédire la bonne étiquettes sur des exemples qu'on ne lui a pas donné lors de son entraînement. C’est la <strong>généralisation.</strong> 🚀</p><p>Pour atteindre une<strong> bonne généralisation</strong>, il faut lui donner des<strong> exemples variés</strong>, différents entre eux et représentant tous les cas typiques. Ceci réduit le risque d'erreur. </p><p>📌<strong>Important&nbsp;:</strong></p><p>Une prédiction est<strong> statistique,</strong> il y a donc toujours un risque d’erreur.</p>"
                 }
               ]
             },
@@ -389,7 +389,7 @@
                 {
                   "id": "f31ca24b-f958-4c77-bc38-6024c832b4c3",
                   "type": "text",
-                  "content": "<p>Une <strong>phase de test </strong>consiste à <strong>vérifier la performance</strong> du logiciel sur d’autres exemples. </p><p>C'est ce que fait Lila en donnant une nouvelle photo au logiciel, et vérifiant qu’il arrive à bien trouver s’il s’agit d’ail des ours. <br>Parfois, il faut encore l'entraîner avant de pouvoir l’utiliser.</p><p><br>N.B. : En revanche, <strong>le logiciel ne peut trouver que les étiquettes qu’il a appris à prédire.</strong><br>Si le logiciel ne connaît que les étiquettes “ail des ours” et “muguet” et qu’on lui présente une image de “tournesol”, il ne peut pas prédire que c’est un tournesol. Il va seulement donner une prédiction qui s’approche des étiquettes qu’il connaît.<br><br></p>"
+                  "content": "<p>On appelle<strong> phase de test</strong> l'étape de vérification de&nbsp;la performance du logiciel confronté à des <strong>nouveaux exemples non étiquetés</strong>.  <br>Parfois, on constate qu'on a encore besoin de l'entraîner&nbsp;pour pouvoir l’utiliser de façon fiable.</p><p>💡<strong>Bon à savoir&nbsp;:</strong><br> <strong>le logiciel ne peut trouver que les étiquettes qu’il a appris à prédire.</strong><br></p>"
                 },
                 {
                   "id": "f9543a65-1749-4ebb-ae02-7dbf1b8ca4d8",
@@ -397,7 +397,7 @@
                   "url": "https://assets.pix.org/draft/modules/ia-def-ind/schema-nouvelle-etiquette.png",
                   "alt": "Un schéma ",
                   "alternativeText": "<p>Un schéma représentant le fait que le logiciel ne peut pas prédire \"Tournesol\" s'il n'a été entrainé qu'avec des étiquettes \"ail des ours\" ou \"muguet\".</p>",
-                  "legend": "",
+                  "legend": "Si le logiciel ne connaît que les étiquettes “ail des ours” et “muguet” et qu’on lui présente une image de “tournesol”, il ne peut pas prédire que c’est un tournesol. Il va seulement donner une prédiction qui s’approche des étiquettes qu’il connaît.",
                   "licence": ""
                 }
               ]
@@ -416,7 +416,7 @@
           "element": {
             "id": "f071912a-b067-4d03-8217-cc087d3cdbff",
             "type": "text",
-            "content": "<p>Avec beaucoup de nouvelles données, et quelques corrections, le logiciel est prêt ! 🎉<br>Lila, curieuse, se demande : que pourrait-on faire d’autre avec l’apprentissage supervisé ? 🤔<br></p>"
+            "content": "<p>Avec beaucoup de nouvelles données, et quelques corrections, le logiciel est prêt ! 🎉<br>Lila, curieuse, se demande&nbsp;: que pourrait-on faire d’autre avec l’apprentissage supervisé ? 🤔<br></p>"
           }
         }
       ]
@@ -475,7 +475,7 @@
                 {
                   "id": "a041b7dc-9566-4bee-aaf4-106de9a98662",
                   "type": "text",
-                  "content": "<p>L’apprentissage supervisé n'est pas utilisé que pour la reconnaissance d’image.</p><p>Les logiciels d’IA génératives conversationnels sont entraînés à <strong>générer du texte </strong>selon un <strong>principe proche</strong> : <br></p><ul><li>On leur donne des <strong>textes</strong>, dans lesquels il y a des <strong>trous </strong>(<strong>exemples</strong>),🕳️</li><li> et chaque trous est associé au <strong>mot manquant</strong> (<strong>étiquette</strong>). 🏷️ </li></ul><p>Ces logiciels analysent les caractéristiques des textes et s'entraînent à prédire le mot manquant. 📃<br></p>"
+                  "content": "<p>L’apprentissage supervisé n'est pas utilisé que pour la reconnaissance d’image.</p><p>Les logiciels d’IA génératives conversationnels sont entraînés à <strong>générer du texte </strong>selon un <strong>principe proche</strong>&nbsp;: <br></p><ul><li>On leur donne des <strong>textes</strong>, dans lesquels il y a des <strong>trous </strong>(<strong>exemples</strong>),🕳️</li><li> et chaque trous est associé au <strong>mot manquant</strong> (<strong>étiquette</strong>). 🏷️ </li></ul><p>Ces logiciels analysent les caractéristiques des textes et s'entraînent à prédire le mot manquant. 📃<br></p>"
                 }
               ]
             },
@@ -484,7 +484,7 @@
                 {
                   "id": "6c7d45cc-dc13-40d7-abc3-ef396c31f54c",
                   "type": "text",
-                  "content": "<p>La technique d’<strong>apprentissage supervisé</strong> peut être utilisée dans <strong>beaucoup d’autres cas</strong> :</p><ul><li>la prédiction de la météo 🌦️, </li><li>la reconnaissance vocale 💬, </li><li>l’identification de tumeurs dans des images médicales 🩻…</li></ul><p>Des <strong>données différentes</strong> sont nécessaires pour chacun de ces cas.</p>"
+                  "content": "<p>La technique d’<strong>apprentissage supervisé</strong> peut être utilisée dans <strong>beaucoup d’autres cas</strong>&nbsp;:</p><ul><li>la prédiction de la météo 🌦️, </li><li>la reconnaissance vocale 💬, </li><li>l’identification de tumeurs dans des images médicales 🩻…</li></ul><p>Des <strong>données différentes</strong> sont nécessaires pour chacun de ces cas.</p>"
                 }
               ]
             }
@@ -576,7 +576,7 @@
               }
             ],
             "feedback": {
-              "diagnosis": "<p>Si tu as eu des erreurs, n'hésite pas à remonter pour lire le récapitulatif. 👆</p>"
+              "diagnosis": "<p>Si tu as eu des erreurs, n'hésite pas à remonter pour lire le récapitulatif. 👆</p>"
             }
           }
         }
@@ -592,7 +592,7 @@
           "element": {
             "id": "c4b4a5c3-265e-4387-839b-73a27c0ecf34",
             "type": "text",
-            "content": "<p>Arthur a été très inspiré par l’application de Lila. 🌱</p><p>Il a téléchargé une application pour reconnaître le chant des oiseaux, comme <a href=\"https://play.google.com/store/apps/details?id=de.tu_chemnitz.mi.kahst.birdnet&amp;hl=fr\" target=\"_blank\">celle-ci.</a>🐦</p>"
+            "content": "<p>Arthur a été très inspiré par l’application de Lila. 🌱</p><p>Il a téléchargé une application pour reconnaître le chant des oiseaux, comme <a href=\"https://play.google.com/store/apps/details?id=de.tu_chemnitz.mi.kahst.birdnet&amp;hl=fr\" target=\"_blank\">celle-ci.</a>🐦</p>"
           }
         },
         {
@@ -604,7 +604,7 @@
             "proposals": [
               {
                 "type": "text",
-                "content": "<p>Type de données :<br></p>"
+                "content": "<p>Type de données&nbsp;:<br></p>"
               },
               {
                 "input": "8c61f879-6db9-4b4a-9817-9a567fe7ef34",
@@ -630,7 +630,7 @@
               },
               {
                 "type": "text",
-                "content": "<p>Etiquette associée :</p>"
+                "content": "<p>Etiquette associée&nbsp;:</p>"
               },
               {
                 "input": "1f4f4ac7-71c2-4cd0-943d-a906f9780f0c",
