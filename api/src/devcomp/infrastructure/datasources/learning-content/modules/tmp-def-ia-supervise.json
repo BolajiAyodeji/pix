@@ -250,7 +250,7 @@
                 {
                   "id": "58f708f8-ad08-4c04-9876-c616e6d9a490",
                   "type": "text",
-                  "content": "<p>Le logiciel dispose de plusieurs de paramètres pour faire des calculs sur ces valeurs.</p><br><p>Au départ, les paramétres sont ajustés au hasard et à chaque fois, Le logiciel compare les résultats des calculs -ses prédictions-, aux réponses attendues🎲</p><br><p>Ainsi, le logiciel ajuste progressivement les paramètres jusqu'à obtenir le bon résultat.🧮</p>"
+                  "content": "<p>Le logiciel dispose de plusieurs paramètres pour faire des calculs sur ces valeurs.</p><br><p>Au départ, les paramétres sont ajustés au hasard. A chaque fois, le logiciel compare les résultats de ses calculs -on les appelle prédictions- aux réponses attendues🎲</p><br><p>Ainsi, le logiciel ajuste progressivement les paramètres jusqu'à obtenir la bonne prédiction.🧮</p>"
                 }
               ]
             },
