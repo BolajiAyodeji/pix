@@ -57,3 +57,7 @@ export const findSkillsByTargetProfileIds = async (targetProfileIds) => {
 
   return skillsData.map((skill) => new TargetProfileSkill(skill));
 };
+
+export const findPaginatedFilteredOrganizationsByTargetProfileId = async ({ targetProfileId, filter, page }) => {
+  return await usecases.findPaginatedFilteredOrganizationByTargetProfileId({ targetProfileId, filter, page });
+};

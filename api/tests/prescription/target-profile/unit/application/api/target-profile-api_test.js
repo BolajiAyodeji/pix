@@ -117,4 +117,40 @@ describe('Unit | API | TargetProfile', function () {
       expect(result[0].difficulty).equals(18);
     });
   });
+
+  describe('#findPaginatedFilteredOrganizationsByTargetProfileId', function () {
+    it('should return an array of Organizations', async function () {
+      const findPaginatedFilteredOrganizationByTargetProfileIdStub = sinon.stub(
+        usecases,
+        'findPaginatedFilteredOrganizationByTargetProfileId',
+      );
+      const args = { targetProfileId: '1', filter: {}, page: '1' };
+
+      const expectedUsecaseResult = {
+        meta: { page: 1, pageSize: 10, rowCount: 50, pageCount: 5 },
+        models: [
+          {
+            id: 1,
+            name: 'Devcomp 1',
+            type: 'SCO',
+            externalId: 'SCO_DEVCOMP 1',
+          },
+          {
+            id: 2,
+            name: 'Devcomp 2',
+            type: 'SCO',
+            externalId: 'SCO_DEVCOMP 2',
+          },
+        ],
+      };
+      findPaginatedFilteredOrganizationByTargetProfileIdStub.withArgs(args).resolves(expectedUsecaseResult);
+
+      // when
+      const result = await targetProfileApi.findPaginatedFilteredOrganizationsByTargetProfileId(args);
+
+      // then
+      expect(result.models).to.have.lengthOf(2);
+      expect(result).to.deep.equal(expectedUsecaseResult);
+    });
+  });
 });
