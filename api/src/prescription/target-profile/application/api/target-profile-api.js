@@ -1,4 +1,5 @@
 import { usecases } from '../../domain/usecases/index.js';
+import { FilteredOrganization } from './FilteredOrganization.js';
 import { TargetProfile } from './TargetProfile.js';
 import { TargetProfileSkill } from './TargetProfileSkill.js';
 
@@ -56,8 +57,4 @@ export const findSkillsByTargetProfileIds = async (targetProfileIds) => {
   const skillsData = await usecases.findSkillsByTargetProfileIds({ targetProfileIds });
 
   return skillsData.map((skill) => new TargetProfileSkill(skill));
-};
-
-export const findPaginatedFilteredOrganizationsByTargetProfileId = async ({ targetProfileId, filter, page }) => {
-  return await usecases.findPaginatedFilteredOrganizationByTargetProfileId({ targetProfileId, filter, page });
 };

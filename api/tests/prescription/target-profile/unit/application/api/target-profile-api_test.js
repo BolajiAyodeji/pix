@@ -126,7 +126,29 @@ describe('Unit | API | TargetProfile', function () {
       );
       const args = { targetProfileId: '1', filter: {}, page: '1' };
 
-      const expectedUsecaseResult = {
+      const usecaseResult = {
+        meta: { page: 1, pageSize: 10, rowCount: 50, pageCount: 5 },
+        models: [
+          {
+            id: 1,
+            name: 'Devcomp 1',
+            type: 'SCO',
+            externalId: 'SCO_DEVCOMP 1',
+            provinceCode: '66',
+            isManagingStudents: true,
+          },
+          {
+            id: 2,
+            name: 'Devcomp 2',
+            type: 'SCO',
+            externalId: 'SCO_DEVCOMP 2',
+            provinceCode: '67',
+            isManagingStudents: false,
+          },
+        ],
+      };
+
+      const expectedInternalApiResult = {
         meta: { page: 1, pageSize: 10, rowCount: 50, pageCount: 5 },
         models: [
           {
@@ -143,14 +165,14 @@ describe('Unit | API | TargetProfile', function () {
           },
         ],
       };
-      findPaginatedFilteredOrganizationByTargetProfileIdStub.withArgs(args).resolves(expectedUsecaseResult);
+      findPaginatedFilteredOrganizationByTargetProfileIdStub.withArgs(args).resolves(usecaseResult);
 
       // when
       const result = await targetProfileApi.findPaginatedFilteredOrganizationsByTargetProfileId(args);
 
       // then
       expect(result.models).to.have.lengthOf(2);
-      expect(result).to.deep.equal(expectedUsecaseResult);
+      expect(result).to.deep.equal(expectedInternalApiResult);
     });
   });
 });
