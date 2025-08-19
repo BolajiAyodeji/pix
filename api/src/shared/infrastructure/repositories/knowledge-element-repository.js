@@ -51,46 +51,6 @@ const batchSave = async function ({ knowledgeElements }) {
   return savedKnowledgeElements.map((ke) => new KnowledgeElement(ke));
 };
 
-const saveForCampaignParticipation = async function ({
-  knowledgeElements,
-  campaignParticipationId,
-  campaignsAPI,
-  knowledgeElementSnapshotAPI,
-}) {
-  const knexConn = DomainTransaction.getConnection();
-  const campaign = await campaignsAPI.getByCampaignParticipationId(campaignParticipationId);
-  if (!campaign) {
-    throw new Error(`Invalid campaign participation ${campaignParticipationId}`);
-  }
-  if (campaign.isAssessment) {
-    const knowledgeElementsToSave = knowledgeElements.map((ke) => _.omit(ke, ['id', 'createdAt']));
-    await knex
-      .batchInsert(tableName, knowledgeElementsToSave)
-      .transacting(knexConn.isTransaction ? knexConn : null)
-      .returning('*');
-    return;
-  } else if (campaign.isExam) {
-    const currentSnapshot = await knowledgeElementSnapshotAPI.getByParticipation(campaignParticipationId);
-    const createdAt = new Date();
-    const previousKnowledgeElements = currentSnapshot.knowledgeElements ?? [];
-    await knowledgeElementSnapshotAPI.save({
-      userId: knowledgeElements[0].userId,
-      knowledgeElements: previousKnowledgeElements.concat(
-        knowledgeElements.map(
-          (ke) =>
-            new KnowledgeElement({
-              ...ke,
-              createdAt,
-            }),
-        ),
-      ),
-      campaignParticipationId,
-    });
-    return;
-  }
-  throw new Error(`Saving knowledge-elements for campaign of type ${campaign.type} not implemented`);
-};
-
 const findUniqByUserId = function ({ userId, limitDate, skillIds }) {
   return findAssessedByUserIdAndLimitDateQuery({ userId, limitDate, skillIds });
 };
@@ -103,11 +63,6 @@ const findUniqByUserIdAndAssessmentId = async function ({ userId, assessmentId }
     knowledgeElementRows.map((knowledgeElementRow) => new KnowledgeElement(knowledgeElementRow)),
   );
   return keCollection.latestUniqNonResetKnowledgeElements;
-};
-
-const findUniqByUserIdAndCompetenceId = async function ({ userId, competenceId }) {
-  const knowledgeElements = await findAssessedByUserIdAndLimitDateQuery({ userId });
-  return knowledgeElements.filter((knowledgeElement) => knowledgeElement.competenceId === competenceId);
 };
 
 const findUniqByUserIdGroupedByCompetenceId = async function ({ userId, limitDate }) {
@@ -163,9 +118,7 @@ export {
   findInvalidatedAndDirectByUserId,
   findUniqByUserId,
   findUniqByUserIdAndAssessmentId,
-  findUniqByUserIdAndCompetenceId,
   findUniqByUserIdForCampaignParticipation,
   findUniqByUserIdGroupedByCompetenceId,
   findUniqByUserIds,
-  saveForCampaignParticipation,
 };

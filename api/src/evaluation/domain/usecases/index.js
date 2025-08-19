@@ -66,7 +66,7 @@ const dependencies = {
   feedbackRepository,
   getCompetenceLevel,
   improvementService,
-  knowledgeElementRepository: injectedSharedRepositories.knowledgeElementRepository,
+  knowledgeElementRepository: repositories.knowledgeElementRepository,
   llmApi,
   pickChallengeService,
   scorecardService,
