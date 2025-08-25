@@ -20,7 +20,7 @@ export default class EvaluationResults extends Component {
   }
 
   get hasTrainings() {
-    return Boolean(this.args.model.trainings.length);
+    return Boolean(this.trainings.length);
   }
 
   get isSharableCampaign() {
@@ -30,7 +30,15 @@ export default class EvaluationResults extends Component {
 
   get trainingsForModal() {
     const MAX_TRAININGS_MODAL_DISPLAYED = 3;
-    return this.args.model.trainings.slice(0, MAX_TRAININGS_MODAL_DISPLAYED);
+    return this.trainings.slice(0, MAX_TRAININGS_MODAL_DISPLAYED);
+  }
+
+  get trainings() {
+    if (this.args.model.campaign.isPartOfCombinedCourse) {
+      return [];
+    } else {
+      return this.args.model.trainings;
+    }
   }
 
   @action
@@ -86,7 +94,7 @@ export default class EvaluationResults extends Component {
         @campaignParticipationResult={{@model.campaignParticipationResult}}
         @questResults={{@model.questResults}}
         @isSharableCampaign={{this.isSharableCampaign}}
-        @trainings={{@model.trainings}}
+        @trainings={{this.trainings}}
         @onResultsShared={{this.shareResults}}
       />
       {{#if this.isResultsSharedModalEnabled}}

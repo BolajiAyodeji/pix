@@ -113,6 +113,19 @@ module('Integration | Components | Routes | Campaigns | Assessment | Evaluation 
           screen.queryByRole('dialog', { name: t('pages.skill-review.tabs.trainings.shared-results-modal.title') }),
         );
       });
+      test('it should not display trainings tab', async function (assert) {
+        this.model.showTrainings = false;
+        this.model.campaign.customResultPageButtonUrl = 'https://app.pix.fr/parcours/COMBINIX1';
+        screen = await render(hbs`<Routes::Campaigns::Assessment::EvaluationResults @model={{this.model}} />`);
+        assert.notOk(screen.queryByRole('tab', { name: t('pages.skill-review.tabs.trainings.tab-label') }));
+      });
+      test('it should not display trainings information and button in the hero', async function (assert) {
+        this.model.showTrainings = false;
+        this.model.campaign.customResultPageButtonUrl = 'https://app.pix.fr/parcours/COMBINIX1';
+        screen = await render(hbs`<Routes::Campaigns::Assessment::EvaluationResults @model={{this.model}} />`);
+        assert.notOk(screen.queryByText(t('pages.skill-review.hero.explanations.trainings')));
+        assert.notOk(screen.queryByRole('button', { name: t('pages.skill-review.hero.see-trainings') }));
+      });
     });
   });
 
