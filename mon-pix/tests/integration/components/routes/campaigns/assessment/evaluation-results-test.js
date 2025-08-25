@@ -100,6 +100,20 @@ module('Integration | Components | Routes | Campaigns | Assessment | Evaluation 
         .dom(screen.getByRole('tab', { name: t('pages.skill-review.tabs.trainings.tab-label') }))
         .hasAttribute('aria-selected', 'true');
     });
+    module('when the campaign is part of a combined course', function (hooks) {
+      hooks.afterEach(async function () {
+        this.model.showTrainings = true;
+        this.model.campaign.customResultPageButtonUrl = undefined;
+      });
+      test('it should not display modal before show assessment result', async function (assert) {
+        this.model.showTrainings = false;
+        this.model.campaign.customResultPageButtonUrl = 'https://app.pix.fr/parcours/COMBINIX1';
+        screen = await render(hbs`<Routes::Campaigns::Assessment::EvaluationResults @model={{this.model}} />`);
+        assert.notOk(
+          screen.queryByRole('dialog', { name: t('pages.skill-review.tabs.trainings.shared-results-modal.title') }),
+        );
+      });
+    });
   });
 
   module('when the campaign has not been shared yet and has trainings', function () {

@@ -48,6 +48,9 @@ export default class EvaluationResults extends Component {
 
   @action
   shareResults() {
+    if (this.args.model.campaign.isPartOfCombinedCourse) {
+      return;
+    }
     this.showEvaluationResultsModal = true;
   }
 
