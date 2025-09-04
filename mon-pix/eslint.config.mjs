@@ -85,6 +85,18 @@ export default [
           message:
             "Please import 'render' from '@1024pix/ember-testing-library'.\n Please import 'visit' from '@1024pix/ember-testing-library'.\n. 'find' should be replaced with '@1024pix/ember-testing-library' 'find...'/'get...'/'query...' methods to enforce accessible usages.",
         },
+        {
+          name: '@1024pix/ember-testing-library',
+          importNames: ['click'],
+          message:
+            "Please prefer 'clickByRole' or another method respecting Testing Library recommandations: https://testing-library.com/docs/queries/about#priority.",
+        },
+        {
+          name: '@ember/test-helpers',
+          importNames: ['click'],
+          message:
+            "Please prefer 'clickByRole' or another method respecting Testing Library recommandations: https://testing-library.com/docs/queries/about#priority.",
+        },
       ],
 
       'ember/avoid-leaking-state-in-ember-objects': 'off',
