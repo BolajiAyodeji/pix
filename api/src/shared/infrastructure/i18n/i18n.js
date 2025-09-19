@@ -45,6 +45,10 @@ export function getI18n(locale) {
     i18n.setLocale = () => {
       logger.warn('Cannot change i18n locale instance, use getI18n(locale) instead.');
     };
+    const originalI18nTranslate = i18n.__
+    i18n.__ = (phrase) => {
+      return originalI18nTranslate({ phrase, locale: baseLocale })
+    };
     i18nInstances[baseLocale] = i18n;
   }
 
