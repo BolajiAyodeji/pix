@@ -2,7 +2,6 @@ import { service } from '@ember/service';
 import Component from '@glimmer/component';
 import { t } from 'ember-intl';
 import groupBy from 'lodash/groupBy';
-import uniq from 'lodash/uniq';
 
 import PageTitle from '../ui/page-title';
 import UiPixLoader from '../ui/pix-loader';
@@ -39,11 +38,11 @@ export default class Import extends Component {
       const warnings = [];
       const warningsByFields = groupBy(this.args.organizationImportDetail?.errors, 'field');
       if (warningsByFields.diploma) {
-        const diplomas = uniq(warningsByFields.diploma.map((warning) => warning.value)).join(', ');
+        const diplomas = [...new Set(warningsByFields.diploma.map((warning) => warning.value))].join(', ');
         warnings.push(this.intl.t('pages.organization-participants-import.warnings.diploma', { diplomas }));
       }
       if (warningsByFields['study-scheme']) {
-        const studySchemes = uniq(warningsByFields['study-scheme'].map((warning) => warning.value)).join(', ');
+        const studySchemes = [...new Set(warningsByFields['study-scheme'].map((warning) => warning.value))].join(', ');
         warnings.push(this.intl.t('pages.organization-participants-import.warnings.study-scheme', { studySchemes }));
       }
       return warnings;
