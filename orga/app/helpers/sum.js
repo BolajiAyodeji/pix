@@ -1,8 +1,7 @@
 import { helper } from '@ember/component/helper';
-import reduce from 'lodash/reduce';
 
 export function sum(numbers) {
-  return reduce(numbers, (a, b) => Number(a) + Number(b));
+  return numbers.reduce((a, b) => Number(a) + Number(b), 0);
 }
 
 export default helper(sum);
