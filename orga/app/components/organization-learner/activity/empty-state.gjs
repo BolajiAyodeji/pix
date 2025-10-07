@@ -1,6 +1,7 @@
 import PixBlock from '@1024pix/pix-ui/components/pix-block';
 import { t } from 'ember-intl';
-import capitalize from 'lodash/capitalize';
+
+const capitalize = (text = '') => text.charAt(0).toUpperCase() + text.slice(1);
 
 <template>
   <PixBlock class="empty-state" @variant="orga">
