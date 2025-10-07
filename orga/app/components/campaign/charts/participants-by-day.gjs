@@ -3,8 +3,7 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import dayjsFormat from 'ember-dayjs/helpers/dayjs-format';
 import { t } from 'ember-intl';
-import maxBy from 'lodash/maxBy';
-import minBy from 'lodash/minBy';
+import { maxBy, minBy } from 'pix-orga/utils/collection';
 
 import TableHeader from '../../table/header';
 import Chart from '../../ui/chart';

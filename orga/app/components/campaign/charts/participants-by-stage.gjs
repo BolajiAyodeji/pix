@@ -6,8 +6,7 @@ import { htmlSafe } from '@ember/template';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { t } from 'ember-intl';
-import maxBy from 'lodash/maxBy';
-import { sumBy } from 'pix-orga/utils/collection';
+import { maxBy, sumBy } from 'pix-orga/utils/collection';
 
 import ChartCard from '../../ui/chart-card';
 import ParticipantsByStageBar from './participants-by-stage-bar';
