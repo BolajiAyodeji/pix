@@ -2,7 +2,6 @@ import { service } from '@ember/service';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { t } from 'ember-intl';
-import remove from 'lodash/remove';
 import sumBy from 'lodash/sumBy';
 
 import Chart from '../../ui/chart';
@@ -92,20 +91,16 @@ export default class ParticipantsByMasteryPercentage extends Component {
     const accessibilityLabels = [];
 
     for (let i = 10; i <= 100; i += 10) {
-      let from = i - 9;
-      const to = i;
-      if (i === 10) {
-        from = 0.0;
-      }
-      labels.push(
-        this.intl.t('charts.participants-by-mastery-percentage.tooltip.legend', { from: from / 100, to: to / 100 }),
+      const from = i === 10 ? 0 : (i - 9) / 100;
+      const to = i / 100;
+      labels.push(this.intl.t('charts.participants-by-mastery-percentage.tooltip.legend', { from, to }));
+      const dataForStep = resultDistributions.filter(
+        ({ masteryRate }) => Number(masteryRate) >= from && Number(masteryRate) <= to,
       );
-
-      const dataForStep = remove(resultDistributions, ({ masteryRate }) => masteryRate * 100 <= i);
       const count = sumBy(dataForStep, 'count');
       steps.push(count);
       accessibilityLabels.push(
-        this.intl.t('charts.participants-by-mastery-percentage.label-a11y', { from: from / 100, to: to / 100, count }),
+        this.intl.t('charts.participants-by-mastery-percentage.label-a11y', { from, to, count }),
       );
     }
 
