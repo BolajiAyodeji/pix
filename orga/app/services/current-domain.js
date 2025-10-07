@@ -1,5 +1,4 @@
 import Service from '@ember/service';
-import last from 'lodash/last';
 import Location from 'pix-orga/utils/location';
 
 const FRANCE_TLD = 'fr';
@@ -15,7 +14,7 @@ export default class CurrentDomainService extends Service {
 
   getExtension() {
     const { hostname } = new URL(Location.getHref());
-    return last(hostname.split('.'));
+    return hostname.split('.').at(-1);
   }
 
   get domain() {
