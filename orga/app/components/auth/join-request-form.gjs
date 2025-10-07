@@ -6,15 +6,14 @@ import { service } from '@ember/service';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { t } from 'ember-intl';
-import isEmpty from 'lodash/isEmpty';
 
 export default class JoinRequestForm extends Component {
   @service session;
   @service store;
 
   @tracked uai;
-  @tracked firstName;
-  @tracked lastName;
+  @tracked firstName = '';
+  @tracked lastName = '';
   @tracked firstNameValidationMessage = null;
   @tracked lastNameValidationMessage = null;
   @tracked uaiValidationMessage = null;
@@ -30,8 +29,8 @@ export default class JoinRequestForm extends Component {
   @action
   validateFirstName(event) {
     this.firstNameValidationMessage = null;
-    this.firstName = event.target.value?.trim();
-    const isInvalidInput = isEmpty(this.firstName);
+    this.firstName = event.target.value?.trim() ?? '';
+    const isInvalidInput = this.firstName === '';
 
     if (isInvalidInput) {
       this.firstNameValidationMessage = this.validation.firstName;
@@ -41,8 +40,8 @@ export default class JoinRequestForm extends Component {
   @action
   validateLastName(event) {
     this.lastNameValidationMessage = null;
-    this.lastName = event.target.value?.trim();
-    const isInvalidInput = isEmpty(this.lastName);
+    this.lastName = event.target.value?.trim() ?? '';
+    const isInvalidInput = this.lastName === '';
 
     if (isInvalidInput) {
       this.lastNameValidationMessage = this.validation.lastName;
@@ -52,8 +51,8 @@ export default class JoinRequestForm extends Component {
   @action
   validateUai(event) {
     this.uaiValidationMessage = null;
-    this.uai = event.target.value?.trim();
-    const isInvalidInput = isEmpty(this.uai);
+    this.uai = event.target.value?.trim() ?? '';
+    const isInvalidInput = this.uai === '';
 
     if (isInvalidInput) {
       this.uaiValidationMessage = this.validation.uai;

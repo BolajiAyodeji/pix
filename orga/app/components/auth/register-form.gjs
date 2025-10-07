@@ -9,7 +9,6 @@ import { service } from '@ember/service';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { t } from 'ember-intl';
-import isEmpty from 'lodash/isEmpty';
 
 import isEmailValid from '../../utils/email-validator';
 import isPasswordValid from '../../utils/password-validator';
@@ -59,10 +58,10 @@ export default class RegisterForm extends Component {
   @service url;
 
   @tracked isLoading = false;
-  @tracked firstName = null;
-  @tracked lastName = null;
-  @tracked email = null;
-  @tracked password = null;
+  @tracked firstName = '';
+  @tracked lastName = '';
+  @tracked email = '';
+  @tracked password = '';
   @tracked cguValidationMessage = null;
   @tracked errorMessage = null;
   @tracked validation = new SignupFormValidation();
@@ -162,7 +161,7 @@ export default class RegisterForm extends Component {
     this.validation.firstName.status = STATUS.DEFAULT;
     this.validation.firstName.message = null;
     this.firstName = event.target.value?.trim();
-    const isInvalidInput = isEmpty(this.firstName);
+    const isInvalidInput = this.firstName === '';
 
     if (isInvalidInput) {
       this.validation.firstName.status = STATUS.ERROR;
@@ -177,7 +176,7 @@ export default class RegisterForm extends Component {
     this.validation.lastName.status = STATUS.DEFAULT;
     this.validation.lastName.message = null;
     this.lastName = event.target.value?.trim();
-    const isInvalidInput = isEmpty(this.lastName);
+    const isInvalidInput = this.lastName === '';
 
     if (isInvalidInput) {
       this.validation.lastName.status = STATUS.ERROR;
@@ -216,8 +215,8 @@ export default class RegisterForm extends Component {
 
   _isFormValid() {
     return (
-      !isEmpty(this.lastName) &&
-      !isEmpty(this.firstName) &&
+      this.lastName !== '' &&
+      this.firstName !== '' &&
       isEmailValid(this.email) &&
       isPasswordValid(this.password) &&
       Boolean(this.cgu)
