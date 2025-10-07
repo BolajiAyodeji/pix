@@ -3,7 +3,6 @@ import { click, currentURL } from '@ember/test-helpers';
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
 import { setupApplicationTest } from 'ember-qunit';
 import { currentSession } from 'ember-simple-auth/test-support';
-import times from 'lodash/times';
 import { module, test } from 'qunit';
 import sinon from 'sinon';
 
@@ -195,7 +194,7 @@ module('Acceptance | Team List', function (hooks) {
       await authenticateSession(user.id);
 
       const organizationId = server.db.organizations[0].id;
-      times(10, () => {
+      Array.from({ length: 10 }, () => {
         server.create('membership', {
           organizationId,
           createdAt: new Date(),
