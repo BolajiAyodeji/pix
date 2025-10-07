@@ -2,7 +2,6 @@ import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
-import get from 'lodash/get';
 
 export default class JoinRequestController extends Controller {
   @service store;
@@ -29,7 +28,7 @@ export default class JoinRequestController extends Controller {
   }
 
   _manageApiErrors(response = {}) {
-    const nbErrors = get(response, 'errors.length', 0);
+    const nbErrors = response?.errors.length ?? 0;
     if (nbErrors > 0) {
       const firstError = response.errors[0];
       this._showErrorMessages(firstError.status);

@@ -8,7 +8,6 @@ import { service } from '@ember/service';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { t } from 'ember-intl';
-import get from 'lodash/get';
 import isEmpty from 'lodash/isEmpty';
 import ENV from 'pix-orga/config/environment';
 
@@ -135,7 +134,7 @@ export default class LoginForm extends Component {
   }
 
   _handleApiError(responseError) {
-    const errors = get(responseError, 'responseJSON.errors');
+    const errors = responseError?.responseJSON?.errors;
     const error = Array.isArray(errors) && errors.length > 0 && errors[0];
     switch (error?.code) {
       case 'SHOULD_CHANGE_PASSWORD':

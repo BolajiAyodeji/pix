@@ -11,7 +11,6 @@ import { tracked } from '@glimmer/tracking';
 import CopyButton from 'ember-cli-clipboard/components/copy-button';
 import isClipboardSupported from 'ember-cli-clipboard/helpers/is-clipboard-supported';
 import { t } from 'ember-intl';
-import get from 'lodash/get';
 
 export default class ManageAuthenticationMethodModal extends Component {
   @service store;
@@ -92,7 +91,7 @@ export default class ManageAuthenticationMethodModal extends Component {
         this.isUniquePasswordVisible = !this.isUniquePasswordVisible;
       }
     } catch (response) {
-      const errorDetail = get(response, 'errors[0].detail', this.defaultErrorMessage);
+      const errorDetail = response?.errors[0]?.detail ?? this.defaultErrorMessage;
       this.notifications.sendError(errorDetail);
     }
   }

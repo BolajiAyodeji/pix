@@ -1,6 +1,5 @@
 import Route from '@ember/routing/route';
 import { service } from '@ember/service';
-import get from 'lodash/get';
 
 export default class AuthenticatedRoute extends Route {
   @service currentUser;
@@ -15,7 +14,7 @@ export default class AuthenticatedRoute extends Route {
       return;
     }
 
-    const pixOrgaTermsOfServiceStatus = get(this.currentUser, 'prescriber.pixOrgaTermsOfServiceStatus');
+    const pixOrgaTermsOfServiceStatus = this.currentUser?.prescriber?.pixOrgaTermsOfServiceStatus;
     if (pixOrgaTermsOfServiceStatus !== 'accepted') {
       return this.router.replaceWith('terms-of-service');
     }
