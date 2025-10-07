@@ -1,8 +1,6 @@
 import { setupTest } from 'ember-qunit';
-import { sum, sumBy } from 'pix-orga/utils/collection';
+import { maxBy, minBy, orderBy, sum, sumBy } from 'pix-orga/utils/collection';
 import { module, test } from 'qunit';
-
-import { maxBy, minBy } from '../../../app/utils/collection';
 
 module('Unit | Utils | collection', function (hooks) {
   setupTest(hooks);
@@ -98,6 +96,74 @@ module('Unit | Utils | collection', function (hooks) {
       const items = [{ id: 1, value: 10 }];
       const result = maxBy(items, 'value');
       assert.strictEqual(result, items[0], 'Should return the single item');
+    });
+  });
+
+  module('orderBy', function () {
+    test('it sorts objects by a single numeric property in ascending order', function (assert) {
+      const items = [
+        { id: 1, value: 10 },
+        { id: 2, value: 5 },
+        { id: 3, value: 8 },
+      ];
+      const result = orderBy(items, 'value');
+      assert.deepEqual(result, [items[1], items[2], items[0]], 'Should sort by value in ascending order');
+    });
+
+    test('it sorts objects by a single numeric property in descending order', function (assert) {
+      const items = [
+        { id: 1, value: 10 },
+        { id: 2, value: 5 },
+        { id: 3, value: 8 },
+      ];
+      const result = orderBy(items, 'value', 'desc');
+      assert.deepEqual(result, [items[0], items[2], items[1]], 'Should sort by value in descending order');
+    });
+
+    test('it sorts objects by a date property in ascending order', function (assert) {
+      const items = [
+        { id: 1, date: new Date('2023-01-01') },
+        { id: 2, date: new Date('2022-01-01') },
+        { id: 3, date: new Date('2024-01-01') },
+      ];
+      const result = orderBy(items, 'date');
+      assert.deepEqual(result, [items[1], items[0], items[2]], 'Should sort by date in ascending order');
+    });
+
+    test('it sorts objects by multiple properties', function (assert) {
+      const items = [
+        { id: 1, first: 'b', second: 2 },
+        { id: 2, first: 'a', second: 1 },
+        { id: 3, first: 'b', second: 1 },
+      ];
+      const result = orderBy(items, ['first', 'second']);
+      assert.deepEqual(result, [items[1], items[2], items[0]], 'Should sort by first then second property');
+    });
+
+    test('it sorts objects by multiple properties with different orders', function (assert) {
+      const items = [
+        { id: 1, first: 'b', second: 2 },
+        { id: 2, first: 'a', second: 1 },
+        { id: 3, first: 'b', second: 1 },
+      ];
+      const result = orderBy(items, ['first', 'second'], ['asc', 'desc']);
+      assert.deepEqual(result, [items[1], items[0], items[2]], 'Should sort by first asc then second desc');
+    });
+
+    test('it returns an empty array for empty input', function (assert) {
+      const items = [];
+      const result = orderBy(items, 'value');
+      assert.deepEqual(result, [], 'Should return empty array for empty input');
+    });
+
+    test('it handles string properties correctly', function (assert) {
+      const items = [
+        { id: 1, name: 'Charlie' },
+        { id: 2, name: 'Alice' },
+        { id: 3, name: 'Bob' },
+      ];
+      const result = orderBy(items, 'name');
+      assert.deepEqual(result, [items[1], items[2], items[0]], 'Should sort strings alphabetically');
     });
   });
 });

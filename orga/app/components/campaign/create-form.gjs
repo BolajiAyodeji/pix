@@ -12,8 +12,8 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { t } from 'ember-intl';
 import { eq, gt, not } from 'ember-truth-helpers';
-import _orderBy from 'lodash/orderBy';
 import { ID_PIX_TYPES } from 'pix-orga/helpers/id-pix-types.js';
+import { orderBy } from 'pix-orga/utils/collection';
 
 import displayCampaignErrors from '../../helpers/display-campaign-errors';
 import TargetProfileDetails from '../campaign/target-profile-details';
@@ -47,7 +47,7 @@ export default class CreateForm extends Component {
         order: 'OTHER' === targetProfile.category ? 1 : 0,
       };
     });
-    return _orderBy(options, ['order', 'category', 'label']);
+    return orderBy(options, ['order', 'category', 'label']);
   }
 
   get campaignOwnerOptions() {
