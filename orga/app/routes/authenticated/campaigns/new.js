@@ -1,6 +1,6 @@
 import Route from '@ember/routing/route';
 import { service } from '@ember/service';
-import pick from 'lodash/pick';
+import { pick } from 'pix-orga/utils/collection';
 import RSVP from 'rsvp';
 
 export default class NewRoute extends Route {
@@ -32,6 +32,7 @@ export default class NewRoute extends Route {
     if (params?.source) {
       try {
         const from = await this.store.findRecord('campaign', params.source);
+
         campaignAttributes = pick(from, [
           'type',
           'title',
@@ -43,6 +44,7 @@ export default class NewRoute extends Route {
           'externalIdType',
           'customLandingPageText',
         ]);
+
         campaignAttributes.name = `${this.intl.t('pages.campaign-creation.copy-of')} ${from.name}`;
         if (campaignAttributes.targetProfileId) {
           campaignAttributes.targetProfile = this.store.peekRecord(

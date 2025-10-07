@@ -51,3 +51,14 @@ export const orderBy = (collection, propertyNames, orders) => {
     return 0;
   });
 };
+
+export function pick(source, properties) {
+  const object = {};
+  properties.forEach((property) => {
+    if (!source[property] && !Object.hasOwn(source, property)) {
+      return;
+    }
+    object[property] = source[property];
+  });
+  return object;
+}

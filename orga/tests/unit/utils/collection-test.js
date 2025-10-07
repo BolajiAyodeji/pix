@@ -1,5 +1,5 @@
 import { setupTest } from 'ember-qunit';
-import { maxBy, minBy, orderBy, sum, sumBy } from 'pix-orga/utils/collection';
+import { maxBy, minBy, orderBy, pick, sum, sumBy } from 'pix-orga/utils/collection';
 import { module, test } from 'qunit';
 
 module('Unit | Utils | collection', function (hooks) {
@@ -164,6 +164,38 @@ module('Unit | Utils | collection', function (hooks) {
       ];
       const result = orderBy(items, 'name');
       assert.deepEqual(result, [items[1], items[2], items[0]], 'Should sort strings alphabetically');
+    });
+  });
+
+  module('pick', function () {
+    test('it picks specified properties from the source object', function (assert) {
+      const source = { id: 1, name: 'John', age: 30, city: 'New York' };
+      const result = pick(source, ['name', 'age']);
+      assert.deepEqual(result, { name: 'John', age: 30 }, 'Should pick name and age properties');
+    });
+
+    test('it returns an empty object when no properties are specified', function (assert) {
+      const source = { id: 1, name: 'John', age: 30 };
+      const result = pick(source, []);
+      assert.deepEqual(result, {}, 'Should return an empty object');
+    });
+
+    test('it returns an empty object when source is empty', function (assert) {
+      const source = {};
+      const result = pick(source, ['name', 'age']);
+      assert.deepEqual(result, {}, 'Should return an empty object');
+    });
+
+    test('it ignores properties that do not exist in the source', function (assert) {
+      const source = { id: 1, name: 'John' };
+      const result = pick(source, ['name', 'age']);
+      assert.deepEqual(result, { name: 'John' }, 'Should only pick existing properties');
+    });
+
+    test('it handles undefined and null values correctly', function (assert) {
+      const source = { id: 1, name: undefined, age: null };
+      const result = pick(source, ['name', 'age']);
+      assert.deepEqual(result, { name: undefined, age: null }, 'Should pick properties with undefined and null values');
     });
   });
 });
