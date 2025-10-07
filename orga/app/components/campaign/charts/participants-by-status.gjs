@@ -1,8 +1,8 @@
 import { service } from '@ember/service';
 import Component from '@glimmer/component';
 import { t } from 'ember-intl';
-import sumBy from 'lodash/sumBy';
 import pattern from 'patternomaly';
+import { sum } from 'pix-orga/utils/collection';
 
 import Chart from '../../ui/chart';
 import { TOOLTIP_CONFIG } from '../../ui/chart';
@@ -15,7 +15,7 @@ export default class ParticipantsByStatus extends Component {
   @service intl;
 
   get total() {
-    return sumBy(this.args.participantCountByStatus, ([_, count]) => count);
+    return sum(this.args.participantCountByStatus.map(([_, count]) => count));
   }
 
   get datasets() {

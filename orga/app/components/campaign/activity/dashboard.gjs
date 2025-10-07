@@ -1,13 +1,12 @@
 import { service } from '@ember/service';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import sumBy from 'lodash/sumBy';
+import { sum } from 'pix-orga/utils/collection';
 
 import ParticipantsCount from '../cards/participants-count';
 import SharedCount from '../cards/shared-count';
 import ParticipantsByDay from '../charts/participants-by-day';
 import ParticipantsByStatus from '../charts/participants-by-status';
-
 export default class Dashboard extends Component {
   @service store;
 
@@ -24,7 +23,7 @@ export default class Dashboard extends Component {
       const data = response.data.attributes;
       this.shared = data.shared;
       this.participantCountByStatus = Object.entries(data);
-      this.total = sumBy(this.participantCountByStatus, ([_, count]) => count);
+      this.total = sum(this.participantCountByStatus.map(([_, count]) => count));
       this.participantsByStatusLoading = false;
     });
   }

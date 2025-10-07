@@ -2,7 +2,7 @@ import { service } from '@ember/service';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { t } from 'ember-intl';
-import sumBy from 'lodash/sumBy';
+import { sumBy } from 'pix-orga/utils/collection';
 
 import Chart from '../../ui/chart';
 import ChartCard from '../../ui/chart-card';
