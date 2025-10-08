@@ -1259,6 +1259,7 @@ describe('Integration | Repository | Campaign Participation Overview', function 
           userId,
           updatedAt: new Date('2022-01-01'),
           status: CombinedCourseParticipationStatuses.STARTED,
+          combinedCourseId: combinedCourse.id,
         });
         const expectedSecondParticipation = databaseBuilder.factory.buildCombinedCourseParticipation({
           questId: secondCombinedCourse.questId,
@@ -1266,6 +1267,7 @@ describe('Integration | Repository | Campaign Participation Overview', function 
           userId,
           updatedAt: new Date('2022-02-02'),
           status: CombinedCourseParticipationStatuses.COMPLETED,
+          combinedCourseId: secondCombinedCourse.id,
         });
 
         await databaseBuilder.commit();

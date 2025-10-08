@@ -196,7 +196,7 @@ ${organizationId};"{""name"":""Combinix"",""successRequirements"":[],""descripti
       const userId = databaseBuilder.factory.buildUser().id;
       const organizationId = databaseBuilder.factory.buildOrganization().id;
       const organizationLearnerId = databaseBuilder.factory.buildOrganizationLearner({ userId, organizationId }).id;
-      const { questId } = databaseBuilder.factory.buildCombinedCourse({
+      const { questId, id: combinedCourseId } = databaseBuilder.factory.buildCombinedCourse({
         code: 'COMBINIX1',
         organizationId,
         successRequirements: [],
@@ -207,6 +207,7 @@ ${organizationId};"{""name"":""Combinix"",""successRequirements"":[],""descripti
         createdAt: new Date('2022-01-01'),
         updatedAt: new Date('2022-01-01'),
         status: CombinedCourseParticipationStatuses.STARTED,
+        combinedCourseId,
       });
       await databaseBuilder.commit();
 

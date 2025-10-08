@@ -1,7 +1,17 @@
 import { CombinedCourseParticipationStatuses } from '../../../prescription/shared/domain/constants.js';
 
 export class CombinedCourseParticipation {
-  constructor({ id, firstName, lastName, questId, organizationLearnerId, status, updatedAt, createdAt }) {
+  constructor({
+    id,
+    firstName,
+    lastName,
+    questId,
+    organizationLearnerId,
+    status,
+    updatedAt,
+    createdAt,
+    organizationLearnerParticipationId = null,
+  }) {
     this.id = id;
     this.questId = questId;
     this.organizationLearnerId = organizationLearnerId;
@@ -10,6 +20,7 @@ export class CombinedCourseParticipation {
     this.updatedAt = updatedAt;
     this.firstName = firstName;
     this.lastName = lastName;
+    this.organizationLearnerParticipationId = organizationLearnerParticipationId;
   }
 
   complete() {

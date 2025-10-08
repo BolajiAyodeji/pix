@@ -2,6 +2,7 @@ import { StatusesEnumValues } from '../../../devcomp/domain/models/module/UserMo
 
 export const OrganizationLearnerParticipationTypes = {
   PASSAGE: 'PASSAGE',
+  COMBINED_COURSE: 'COMBINED_COURSE',
 };
 
 export const OrganizationLearnerParticipationStatuses = {

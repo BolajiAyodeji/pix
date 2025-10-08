@@ -2,6 +2,7 @@ import _ from 'lodash';
 
 import { CombinedCourseParticipationStatuses } from '../../../src/prescription/shared/domain/constants.js';
 import { databaseBuffer } from '../database-buffer.js';
+import { buildCombinedCourse } from './build-combined-course.js';
 import { buildOrganizationLearner } from './build-organization-learner.js';
 import { buildQuest } from './build-quest.js';
 
@@ -14,9 +15,12 @@ const buildCombinedCourseParticipation = function ({
   status = STARTED,
   createdAt = new Date(),
   updatedAt = new Date(),
+  combinedCourseId,
+  organizationLearnerParticipationId = null,
 } = {}) {
   organizationLearnerId = _.isUndefined(organizationLearnerId) ? buildOrganizationLearner().id : organizationLearnerId;
   questId = _.isUndefined(questId) ? buildQuest().id : questId;
+  combinedCourseId = _.isUndefined(combinedCourseId) ? buildCombinedCourse().id : combinedCourseId;
 
   const values = {
     id,
@@ -25,6 +29,8 @@ const buildCombinedCourseParticipation = function ({
     status,
     createdAt,
     updatedAt,
+    combinedCourseId,
+    organizationLearnerParticipationId,
   };
 
   databaseBuffer.pushInsertable({
@@ -39,6 +45,8 @@ const buildCombinedCourseParticipation = function ({
     status,
     createdAt,
     updatedAt,
+    combinedCourseId,
+    organizationLearnerParticipationId,
   };
 };
 
