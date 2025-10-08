@@ -29,12 +29,16 @@ describe('Integration | Devcomp | Application | Api | Modules', function () {
         moduleId: existingModuleId2,
         userId,
         terminatedAt: null,
+        createdAt: new Date('2023-01-01'),
+        updatedAt: new Date('2023-02-01'),
       });
 
       databaseBuilder.factory.buildPassage({
         moduleId: existingModuleId3,
         userId,
         terminatedAt: now,
+        createdAt: new Date('2020-01-01'),
+        updatedAt: new Date('2020-02-01'),
       });
 
       await databaseBuilder.commit();
@@ -51,6 +55,9 @@ describe('Integration | Devcomp | Application | Api | Modules', function () {
           duration: 5,
           status: 'NOT_STARTED',
           image: 'https://assets.pix.org/modules/placeholder-details.svg',
+          createdAt: now,
+          updatedAt: now,
+          terminatedAt: null,
         },
         {
           id: existingModuleId2,
@@ -59,6 +66,9 @@ describe('Integration | Devcomp | Application | Api | Modules', function () {
           duration: 10,
           status: 'IN_PROGRESS',
           image: 'https://assets.pix.org/modules/bien-ecrire-son-adresse-mail-details.svg',
+          createdAt: new Date('2023-01-01'),
+          updatedAt: new Date('2023-02-01'),
+          terminatedAt: null,
         },
         {
           id: existingModuleId3,
@@ -67,6 +77,9 @@ describe('Integration | Devcomp | Application | Api | Modules', function () {
           duration: 10,
           status: 'COMPLETED',
           image: 'https://assets.pix.org/modules/placeholder-details.svg',
+          terminatedAt: now,
+          createdAt: new Date('2020-01-01'),
+          updatedAt: new Date('2020-02-01'),
         },
       ];
 

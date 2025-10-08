@@ -23,8 +23,8 @@ class UserModuleStatus {
 
     this.status = this.#computeStatus();
 
-    this.createdAt = this.#referencePassage?.createdAt ?? null;
-    this.updatedAt = this.#referencePassage?.updatedAt ?? null;
+    this.createdAt = this.#referencePassage?.createdAt ?? new Date();
+    this.updatedAt = this.#referencePassage?.updatedAt ?? new Date();
     this.terminatedAt = this.#referencePassage?.terminatedAt ?? null;
   }
 

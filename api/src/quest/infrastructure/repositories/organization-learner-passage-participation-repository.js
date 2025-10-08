@@ -12,6 +12,7 @@ export const synchronize = async ({ organizationLearnerId, moduleIds, modulesApi
   const modulePassages = await modulesApi.getUserModuleStatuses({ userId: learner.userId, moduleIds });
 
   const learnerParticipationsByModule = await knexConn('organization_learner_participations')
+    .select('organization_learner_participations.id', 'moduleId')
     .join(
       'organization_learner_passage_participations',
       'organization_learner_participations.id',

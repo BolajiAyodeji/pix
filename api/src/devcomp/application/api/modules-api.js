@@ -45,6 +45,9 @@ const getUserModuleStatuses = async ({ userId, moduleIds }) => {
       slug,
       title,
       status: userModuleStatus.status,
+      createdAt: userModuleStatus.createdAt,
+      updatedAt: userModuleStatus.updatedAt,
+      terminatedAt: userModuleStatus.terminatedAt,
       duration,
       image,
     });
