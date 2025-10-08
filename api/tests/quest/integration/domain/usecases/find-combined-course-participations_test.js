@@ -19,12 +19,16 @@ describe('Quest | Integration | Domain | Usecases | findCombinedCourseParticipat
     const participation1 = databaseBuilder.factory.buildCombinedCourseParticipation({
       organizationLearnerId: learner.id,
       questId,
+      combinedCourseId,
       status: CombinedCourseParticipationStatuses.COMPLETED,
     });
-    const { questId: anotherquestId } = databaseBuilder.factory.buildCombinedCourse({ code: 'COMBI2' });
+    const { questId: anotherquestId, id: anotherCombinedCourseId } = databaseBuilder.factory.buildCombinedCourse({
+      code: 'COMBI2',
+    });
     databaseBuilder.factory.buildCombinedCourseParticipation({
       organizationLearnerId: learner.id,
       questId: anotherquestId,
+      combinedCourseId: anotherCombinedCourseId,
       status: CombinedCourseParticipationStatuses.COMPLETED,
     });
 
@@ -45,6 +49,7 @@ describe('Quest | Integration | Domain | Usecases | findCombinedCourseParticipat
         createdAt: participation1.createdAt,
         updatedAt: participation1.updatedAt,
         organizationLearnerId: learner.id,
+        organizationLearnerParticipationId: null,
         questId,
       },
     ]);
@@ -64,6 +69,7 @@ describe('Quest | Integration | Domain | Usecases | findCombinedCourseParticipat
     databaseBuilder.factory.buildCombinedCourseParticipation({
       organizationLearnerId: learner.id,
       questId,
+      combinedCourseId,
       status: CombinedCourseParticipationStatuses.COMPLETED,
     });
     const anotherLearner = databaseBuilder.factory.buildOrganizationLearner({
@@ -74,12 +80,16 @@ describe('Quest | Integration | Domain | Usecases | findCombinedCourseParticipat
     const anotherParticipation = databaseBuilder.factory.buildCombinedCourseParticipation({
       organizationLearnerId: anotherLearner.id,
       questId,
+      combinedCourseId,
       status: CombinedCourseParticipationStatuses.STARTED,
     });
-    const { questId: anotherquestId } = databaseBuilder.factory.buildCombinedCourse({ code: 'COMBI2' });
+    const { questId: anotherquestId, id: anotherCombinedCourseId } = databaseBuilder.factory.buildCombinedCourse({
+      code: 'COMBI2',
+    });
     databaseBuilder.factory.buildCombinedCourseParticipation({
       organizationLearnerId: learner.id,
       questId: anotherquestId,
+      combinedCourseId: anotherCombinedCourseId,
       status: CombinedCourseParticipationStatuses.COMPLETED,
     });
 
@@ -101,6 +111,7 @@ describe('Quest | Integration | Domain | Usecases | findCombinedCourseParticipat
         firstName: anotherLearner.firstName,
         lastName: anotherLearner.lastName,
         status: CombinedCourseParticipationStatuses.STARTED,
+        organizationLearnerParticipationId: null,
         createdAt: anotherParticipation.createdAt,
         updatedAt: anotherParticipation.updatedAt,
         organizationLearnerId: anotherLearner.id,

@@ -24,18 +24,23 @@ describe('Quest | Integration | Domain | Usecases | getCombinedCourseStatistics'
     databaseBuilder.factory.buildCombinedCourseParticipation({
       organizationLearnerId: learner.id,
       questId,
+      combinedCourseId,
       status: CombinedCourseParticipationStatuses.COMPLETED,
     });
     databaseBuilder.factory.buildCombinedCourseParticipation({
       organizationLearnerId: learner2.id,
       questId,
+      combinedCourseId,
       status: CombinedCourseParticipationStatuses.STARTED,
     });
 
-    const anotherquestId = databaseBuilder.factory.buildCombinedCourse({ code: 'COMBI2' }).questId;
+    const { questId: anotherquestId, id: anotherCombinedCourseId } = databaseBuilder.factory.buildCombinedCourse({
+      code: 'COMBI2',
+    });
     databaseBuilder.factory.buildCombinedCourseParticipation({
       organizationLearnerId: learner.id,
       questId: anotherquestId,
+      combinedCourseId: anotherCombinedCourseId,
       status: CombinedCourseParticipationStatuses.COMPLETED,
     });
 

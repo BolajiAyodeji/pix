@@ -1494,6 +1494,7 @@ describe('Integration | Repository | Campaign Participation', function () {
       databaseBuilder.factory.buildCombinedCourseParticipation({
         organizationLearnerId,
         questId: combinedCourse.questId,
+        combinedCourseId: combinedCourse.id,
       });
 
       await databaseBuilder.commit();

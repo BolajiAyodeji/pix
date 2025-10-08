@@ -37,13 +37,16 @@ describe('Integration | Quest | Domain | UseCases | get-combined-courses-by-orga
     databaseBuilder.factory.buildCombinedCourseParticipation({
       questId: quest1,
       organizationLearnerId: organizationLearnerId1,
+      combinedCourseId: combinedCourseId1,
     });
     databaseBuilder.factory.buildCombinedCourseParticipation({
       questId: quest1,
+      combinedCourseId: combinedCourseId1,
       organizationLearnerId: organizationLearnerId2,
     });
     databaseBuilder.factory.buildCombinedCourseParticipation({
       questId: quest2,
+      combinedCourseId: combinedCourseId2,
       organizationLearnerId: organizationLearnerId3,
     });
 
@@ -160,10 +163,12 @@ describe('Integration | Quest | Domain | UseCases | get-combined-courses-by-orga
 
     databaseBuilder.factory.buildCombinedCourseParticipation({
       questId: quest1,
+      combinedCourseId: combinedCourseId1,
       organizationLearnerId: organizationLearnerId1,
     });
     databaseBuilder.factory.buildCombinedCourseParticipation({
       questId: quest2,
+      combinedCourseId: combinedCourseId2,
       organizationLearnerId: organizationLearnerId2,
     });
 
