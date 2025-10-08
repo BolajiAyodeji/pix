@@ -121,6 +121,27 @@ describe('Quest | Integration | Infrastructure | repositories | Combined-Course-
       expect(result.status).to.deep.equal(CombinedCourseParticipationStatuses.COMPLETED);
     });
 
+    it('should organizationLearnerParticipationId when combined_course_particiaptions is linked', async function () {
+      // given
+      const userId = databaseBuilder.factory.buildUser().id;
+      const organizationLearnerId = databaseBuilder.factory.buildOrganizationLearner({ userId }).id;
+      const { questId, id: combinedCourseId } = databaseBuilder.factory.buildCombinedCourse();
+      const organizationLearnerParticipationId = databaseBuilder.factory.buildOrganizationLearnerParticipation({
+        organizationLearnerId,
+        questId,
+        type: OrganizationLearnerParticipationTypes.COMBINED_COURSE,
+        status: CombinedCourseParticipationStatuses.COMPLETED,
+        combinedCourseId,
+      }).id;
+      await databaseBuilder.commit();
+
+      // when
+      const result = await combinedCourseParticipationRepository.getByUserId({ userId, questId });
+
+      // then
+      expect(result.organizationLearnerParticipationId).equal(organizationLearnerParticipationId);
+    });
+
     it('should throw NotFound error when quest participation does not exist for given user and quest', async function () {
       // given
       const userId = 1;

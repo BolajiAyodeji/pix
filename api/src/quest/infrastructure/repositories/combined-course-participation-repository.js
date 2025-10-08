@@ -44,6 +44,7 @@ export const getByUserId = async function ({ userId, questId }) {
       'combined_course_participations.status',
       'combined_course_participations.createdAt',
       'combined_course_participations.updatedAt',
+      'combined_course_participations.organizationLearnerParticipationId',
     )
     .join(
       'view-active-organization-learners',
