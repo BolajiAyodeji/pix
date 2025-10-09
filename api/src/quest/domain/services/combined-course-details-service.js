@@ -66,7 +66,6 @@ async function getCombinedCourseDetails({
       });
     }
   }
-
   const modules = await moduleRepository.getByUserIdAndModuleIds({ userId, moduleIds });
 
   const combinedCourseUrl = '/parcours/' + combinedCourseDetails.code;

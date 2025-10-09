@@ -38,6 +38,7 @@ describe('Quest | Integration | Infrastructure | repositories | Combined-Course-
           'combined_course_participations.questId as combinedCourseParticipationsQuestId',
           'combined_course_participations.createdAt as combinedCourseParticipationsCreatedAt',
           'combined_course_participations.updatedAt as combinedCourseParticipationsUpdatedAt',
+          'attributes',
         )
         .join(
           'combined_course_participations',
@@ -64,6 +65,8 @@ describe('Quest | Integration | Infrastructure | repositories | Combined-Course-
 
       expect(participation.organizationLearnerId).equal(organizationLearnerId);
       expect(participation.combinedCourseParticipationsOrganizationLearnerId).equal(organizationLearnerId);
+
+      expect(participation.attributes).to.deep.equal({ id: combinedCourseId });
     });
 
     it('should left intact combined course participation for given organization learner and quest ids', async function () {
