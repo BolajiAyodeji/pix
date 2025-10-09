@@ -34,6 +34,7 @@ export const synchronize = async ({ organizationLearnerId, moduleIds, modulesApi
       status: modulePassage.status,
       updatedAt: modulePassage.updatedAt,
       terminatedAt: modulePassage.terminatedAt,
+      moduleId: modulePassage.id,
     });
 
     if (organizationLearnerPassageParticipation.id) {

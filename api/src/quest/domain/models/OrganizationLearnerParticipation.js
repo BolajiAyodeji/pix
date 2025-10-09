@@ -12,7 +12,18 @@ export const OrganizationLearnerParticipationStatuses = {
 };
 
 export class OrganizationLearnerParticipation {
-  constructor({ id, organizationLearnerId, createdAt, updatedAt, completedAt, deletedAt, deletedBy, status, type }) {
+  constructor({
+    id,
+    organizationLearnerId,
+    createdAt,
+    updatedAt,
+    completedAt,
+    deletedAt,
+    deletedBy,
+    status,
+    type,
+    attributes,
+  }) {
     this.id = id;
     this.organizationLearnerId = organizationLearnerId;
     this.createdAt = createdAt;
@@ -22,6 +33,7 @@ export class OrganizationLearnerParticipation {
     this.deletedBy = deletedBy;
     this.status = status;
     this.type = type;
+    this.attributes = attributes;
   }
 
   static buildFromPassage({
@@ -33,6 +45,7 @@ export class OrganizationLearnerParticipation {
     deletedAt,
     deletedBy,
     status,
+    moduleId,
   }) {
     let participationStatus;
 
@@ -53,6 +66,7 @@ export class OrganizationLearnerParticipation {
       deletedBy,
       status: participationStatus,
       type: OrganizationLearnerParticipationTypes.PASSAGE,
+      attributes: JSON.stringify({ id: moduleId }),
     });
   }
 }

@@ -66,6 +66,7 @@ describe('Quest | Integration | Infrastructure | repositories | organization lea
       expect(result[0].updatedAt).deep.equal(now);
       expect(result[0].createdAt).deep.equal(dayjs().subtract('30', 'days').toDate());
       expect(result[0].completedAt).equal(null);
+      expect(result[0].attributes).deep.equal({ id: 1234 });
     });
 
     it('should update passage when participation already exists', async function () {
