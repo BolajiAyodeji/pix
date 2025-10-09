@@ -10,10 +10,8 @@ describe('Unit | Identity Access Management | Serializer | JSONAPI | certificati
       const habilitation2 = { id: 2, label: 'Certif comp 2', key: 'CERTIF_COMP_2' };
       sinon.stub(settings.features, 'pixCertifScoBlockedAccessDateCollege').value('2022-06-01');
       sinon.stub(settings.features, 'pixCertifScoBlockedAccessDateLycee').value('2022-08-01');
-      sinon.stub(settings.features, 'pixCertifBlockedAccessUntilDate').value('2022-07-01');
 
       settings.features.pixCertifScoBlockedAccessDateLycee = '2022-08-01';
-      settings.features.pixCertifBlockedAccessUntilDate = '2022-07-01';
 
       const allowedCertificationCenterAccess1 = domainBuilder.buildAllowedCertificationCenterAccess({
         id: 123,
