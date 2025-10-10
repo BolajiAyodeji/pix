@@ -4,7 +4,7 @@
   "title": "Une IA apprentie botaniste : un cas d'un apprentissage supervisé.",
   "isBeta": true,
   "details": {
-    "image": "https://images.pix.fr/modulix/placeholder-details.svg",
+    "image": "https://assets.pix.org/modules/IAGenDef_IND/picto_moduleIA_img.svg",
     "description": "<p>L’intelligence artificielle a de multiples applications : génération de texte, recommandation de contenus… Dans ce module, vous découvrirez l’une des techniques d’intelligence artificielle qui rend tout cela possible : l’apprentissage automatique supervisé. 🤖</p><p>A travers l’exemple de la reconnaissance d’image, vous allez voir les coulisses de cet apprentissage : de l’entraînement sur des données étiquetées jusqu’à des prédictions efficaces. 🖼️</p>",
     "duration": 10,
     "level": "independent",
@@ -266,7 +266,7 @@
         {
           "id": "db006d48-ab80-407b-92c3-65094b635c9e",
           "type": "discovery",
-          "title": "Découverte 2a - décomposition en valeurs numérique",
+          "title": "Découverte 2 - décomposition en valeurs numérique",
           "components": [
             {
               "type": "stepper",
@@ -332,7 +332,7 @@
         {
           "id": "b0076163-02ae-4805-af3e-dd82781347ba",
           "type": "lesson",
-          "title": "Lesson 2a : décomposition en valeurs numériques",
+          "title": "Lesson 2 : décomposition en valeurs numériques",
           "components": [
             {
               "type": "element",
@@ -362,7 +362,7 @@
         {
           "id": "ee2eb6fe-6740-45f4-886a-994545855110",
           "type": "discovery",
-          "title": "Découverte 2b : Ajustement des paramètres",
+          "title": "Découverte 3 : Ajustement des paramètres",
           "components": [
             {
               "type": "element",
@@ -397,7 +397,7 @@
         {
           "id": "bdc51924-26ee-4f22-b302-fe4dec080387",
           "type": "lesson",
-          "title": "Lesson 2b : Ajustement des paramètres",
+          "title": "Lesson 3 : Ajustement des paramètres",
           "components": [
             {
               "type": "element",
@@ -412,7 +412,7 @@
         {
           "id": "d11b5bf5-bd63-40d2-92dd-d03b5d5b7bf2",
           "type": "discovery",
-          "title": "Découverte 3 : Généralisation",
+          "title": "Découverte 4 : Généralisation",
           "components": [
             {
               "type": "stepper",
@@ -427,7 +427,7 @@
                     {
                       "id": "1b67fab0-9ad4-45a6-aded-160b77b24993",
                       "type": "image",
-                      "url": "https://assets.pix.org/draft/modules/ia-def-ind/jeudedonne-sanslegende.png",
+                      "url": "https://assets.pix.org/modules/IAGenDef_IND/dec4_bdd.png",
                       "alt": "Une illustration du jeu de données avec des exemples",
                       "alternativeText": "<p>On voit des photos d'ail des ours (avec des fleurs, avec des feuilles) et de muguet (avec des feuilles, avec des fleurs)</p>",
                       "legend": "",
@@ -440,14 +440,14 @@
                     {
                       "id": "df83f537-de47-43da-8087-480f5b44bc8f",
                       "type": "text",
-                      "content": "<p>Lila a testé son logiciel sur cette nouvelle photographie d'ail des ours.</p><p>Le logiciel n'arrive pas à trancher avec certitude. </p><p>Il indique un score 0,60 pour ail des ours et de 0,40 pour muguet.</p>"
+                      "content": "<p>Lila a testé son logiciel sur cette nouvelle photographie d'ail des ours.</p><p>Le logiciel n'arrive pas à trancher avec certitude. </p><p>Il indique un score 0,4 pour ail des ours et de 0,6 pour muguet.</p>"
                     },
                     {
                       "id": "50a81069-df2e-4d31-86b5-9b885dad1099",
                       "type": "image",
-                      "url": "https://assets.pix.org/draft/modules/apprentissage-supervise/jeunepousseaildesours.jpg",
+                      "url": "https://assets.pix.org/draft/modules/ia-def-ind/IAGenDefIndDec4b.png",
                       "alt": "",
-                      "alternativeText": "<p>Une photo d'une jeune pousse d'ail des ours.</p>",
+                      "alternativeText": "<p>Une photo d'une jeune pousse d'ail des ours, son&nbsp;score est de 0,4 pour ail des ours et de 0,6 pour muguet.</p>",
                       "legend": "",
                       "licence": "Unsplash"
                     },
@@ -482,7 +482,7 @@
         {
           "id": "08c2f199-5026-487b-9c27-9f16d4ab481f",
           "type": "lesson",
-          "title": "Lesson 3 : Généralisation",
+          "title": "Lesson 4 : Généralisation",
           "components": [
             {
               "type": "stepper",
@@ -545,7 +545,7 @@
         {
           "id": "f62d3175-8837-4713-996f-34c1e9846c98",
           "type": "discovery",
-          "title": "Découverte 4 - D’autres cas d’usages, dont le texte",
+          "title": "Découverte 5 - D’autres cas d’usages, dont le texte",
           "components": [
             {
               "type": "element",
@@ -632,7 +632,7 @@
         {
           "id": "4b313eb6-b343-47ea-983d-dd82fe7ac03c",
           "type": "transition",
-          "title": "Transition 4",
+          "title": "Transition 5",
           "components": [
             {
               "type": "element",
@@ -647,7 +647,7 @@
         {
           "id": "3f86b7a5-8df1-48a0-94ef-2a28c8c0c010",
           "type": "lesson",
-          "title": "Leçon #4 : D’autres cas d’usages, dont le texte",
+          "title": "Leçon #5 : D’autres cas d’usages, dont le texte",
           "components": [
             {
               "type": "stepper",
