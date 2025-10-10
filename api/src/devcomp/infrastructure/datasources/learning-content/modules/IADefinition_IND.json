@@ -612,7 +612,7 @@
               "element": {
                 "id": "f071912a-b067-4d03-8217-cc087d3cdbff",
                 "type": "text",
-                "content": "<p>Avec beaucoup de nouvelles données, et quelques corrections, le logiciel est prêt ! 🎉<br><br></p>"
+                "content": "<p>Avec beaucoup de nouvelles données, et quelques corrections, le logiciel est prêt ! 🎉</p>"
               }
             }
           ]
@@ -983,19 +983,19 @@
                     "id": "1",
                     "content": "<p>J’ai très confiance car il y a une phase de test.</p>",
                     "feedback": {
-                      "diagnosis": "<p> Gardez de la prudence, car la phase de test n’empêche pas les erreurs.<br></p>"
+                      "diagnosis": "<p> Gardez de la prudence, car la phase de test n’empêche pas les erreurs.</p>"
                     }
                   },
                   {
                     "id": "2",
-                    "content": "<p>J’ai confiance car les logiciels d'intelligence artificielle sont entraînés sur beaucoup d’exemples.<br></p>",
+                    "content": "<p>J’ai confiance car les logiciels d'intelligence artificielle sont entraînés sur beaucoup d’exemples.</p>",
                     "feedback": {
-                      "diagnosis": "<p>Gardez de la prudence, car le nombre d’exemples n’empêche pas les erreurs.<br></p>"
+                      "diagnosis": "<p>Gardez de la prudence, car le nombre d’exemples n’empêche pas les erreurs.</p>"
                     }
                   },
                   {
                     "id": "3",
-                    "content": "<p>Je n’ai pas confiance car les logiciels d’intelligence artificielle peuvent toujours se tromper.<br></p>",
+                    "content": "<p>Je n’ai pas confiance car les logiciels d’intelligence artificielle peuvent toujours se tromper.</p>",
                     "feedback": {
                       "diagnosis": "<p>C’est vrai ! Même si la réponse de l’IA sera souvent juste, une erreur peut être dangereuse !</p>"
                     }
