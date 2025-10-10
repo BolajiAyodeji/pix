@@ -140,72 +140,147 @@
                       "licence": ""
                     }
                   ]
+                },
+                {
+                  "elements": [
+                    {
+                      "id": "5c25263f-14ec-4407-a1cf-ab2b97275476",
+                      "type": "image",
+                      "url": "https://assets.pix.org/draft/modules/ia-def-ind/ailours2.jpg",
+                      "alt": "Une photo d'une plante",
+                      "alternativeText": "",
+                      "legend": "",
+                      "licence": ""
+                    },
+                    {
+                      "id": "d057728c-18fd-4891-a53c-9f6413917bd9",
+                      "type": "qcu-discovery",
+                      "instruction": "<p>Selon vous, est-ce de l’ail des ours ou du muguet ?<br></p>",
+                      "proposals": [
+                        {
+                          "id": "1",
+                          "content": "<p>Ail des ours</p>",
+                          "feedback": {
+                            "diagnosis": "<p>Bien vu !</p>"
+                          }
+                        },
+                        {
+                          "id": "2",
+                          "content": "<p>Muguet</p>",
+                          "feedback": {
+                            "diagnosis": "<p>Eh non ! Vous aurez peut-être plus de chance avec la prochaine !</p>"
+                          }
+                        }
+                      ],
+                      "solution": "1"
+                    }
+                  ]
+                },
+                {
+                  "elements": [
+                    {
+                      "id": "9d5cc2dd-24fc-49b7-9eb9-fa20228d04a2",
+                      "type": "image",
+                      "url": "https://assets.pix.org/draft/modules/ia-def-ind/muguet2.jpg",
+                      "alt": "Une photo d'une plante",
+                      "alternativeText": "",
+                      "legend": "",
+                      "licence": ""
+                    },
+                    {
+                      "id": "bec3bcf1-0a25-49a7-a5f0-c322ccb271b3",
+                      "type": "qcu-discovery",
+                      "instruction": "<p>Selon vous, est-ce de l’ail des ours ou du muguet ?</p>",
+                      "proposals": [
+                        {
+                          "id": "1",
+                          "content": "<p>Ail des ours</p>",
+                          "feedback": {
+                            "diagnosis": "<p>Eh non, plus de chance avec la prochaine ?</p>"
+                          }
+                        },
+                        {
+                          "id": "2",
+                          "content": "<p>Muguet</p>",
+                          "feedback": {
+                            "diagnosis": "<p>Bien vu !&nbsp;</p>"
+                          }
+                        }
+                      ],
+                      "solution": "2"
+                    }
+                  ]
+                },
+                {
+                  "elements": [
+                    {
+                      "id": "84204059-07f5-4303-a6e5-a48c484a2919",
+                      "type": "image",
+                      "url": "https://assets.pix.org/draft/modules/ia-def-ind/muguet4.jpg",
+                      "alt": "Une photo d'une feuille",
+                      "alternativeText": "<p><br></p>",
+                      "legend": "",
+                      "licence": ""
+                    },
+                    {
+                      "id": "8c43b33f-c031-4349-ab87-a15c9ffb15ca",
+                      "type": "qcu-declarative",
+                      "instruction": "<p>Selon vous, est-ce de l’ail des ours ou du muguet ?</p>",
+                      "proposals": [
+                        {
+                          "id": "1",
+                          "content": "<p>Ail des ours</p>",
+                          "feedback": {
+                            "diagnosis": "<p>Eh non !</p>"
+                          }
+                        },
+                        {
+                          "id": "2",
+                          "content": "<p>Muguet</p>",
+                          "feedback": {
+                            "diagnosis": "<p>Bien vu !</p>"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "elements": [
+                    {
+                      "id": "799d55e3-6f85-4480-b1e5-bc6bc80eb9bf",
+                      "type": "image",
+                      "url": "https://assets.pix.org/draft/modules/ia-def-ind/ailours4.jpg",
+                      "alt": "Une photo d'une plante",
+                      "alternativeText": "<p><br></p>",
+                      "legend": "",
+                      "licence": ""
+                    },
+                    {
+                      "id": "706832ba-14ae-4a7d-886a-39e562e66557",
+                      "type": "qcu-discovery",
+                      "instruction": "<p>Selon vous, est-ce de l’ail des ours ou du muguet ?</p>",
+                      "proposals": [
+                        {
+                          "id": "1",
+                          "content": "<p>Ail des ours</p>",
+                          "feedback": {
+                            "diagnosis": "<p>Bien vu !&nbsp;</p><p>Vous vous êtes entraîné à reconnaître des photos, voyons maintenant comment fait un logiciel d'IA. 🔍</p>"
+                          }
+                        },
+                        {
+                          "id": "2",
+                          "content": "<p>Muguet</p>",
+                          "feedback": {
+                            "diagnosis": "<p>Pas de chance !</p><p>Vous vous êtes entraîné à reconnaître des photos, voyons maintenant comment fait un logiciel d'IA. 🔍</p>"
+                          }
+                        }
+                      ],
+                      "solution": "1"
+                    }
+                  ]
                 }
               ]
-            }
-          ]
-        },
-        {
-          "id": "8832f25f-422e-4e09-9790-8cff61d7b27f",
-          "type": "discovery",
-          "title": "Découverte n°1bis - Données étiquetées : le jeu",
-          "components": [
-            {
-              "type": "element",
-              "element": {
-                "id": "365d0e92-7b9e-406a-920b-4d12e08c7a28",
-                "type": "qab",
-                "instruction": "<p>Regardez l’image et identifiez si c’est de l’ail des ours ou du muguet.<br></p>",
-                "cards": [
-                  {
-                    "id": "993c38a2-b94e-42e8-966c-28b2ce8376f7",
-                    "text": "",
-                    "image": {
-                      "url": "https://assets.pix.org/draft/modules/ia-def-ind/ailours2.jpg",
-                      "altText": "Une photo d'une plante"
-                    },
-                    "proposalA": "Ail des ours",
-                    "proposalB": "Muguet",
-                    "solution": "A"
-                  },
-                  {
-                    "id": "dba2358a-c5d9-4d46-a026-f1266ae270b7",
-                    "text": "",
-                    "image": {
-                      "url": "https://assets.pix.org/draft/modules/ia-def-ind/muguet2.jpg",
-                      "altText": "Une photo d'une plante"
-                    },
-                    "proposalA": "Ail des ours",
-                    "proposalB": "Muguet",
-                    "solution": "B"
-                  },
-                  {
-                    "id": "f222d212-cf40-4d56-b582-f7f30893fb00",
-                    "text": "",
-                    "image": {
-                      "url": "https://assets.pix.org/draft/modules/ia-def-ind/muguet4.jpg",
-                      "altText": "Une photo d'une plante"
-                    },
-                    "proposalA": "Ail des ours ",
-                    "proposalB": "Muguet",
-                    "solution": "B"
-                  },
-                  {
-                    "id": "24bebede-539b-44d3-a5a3-fe75a2181aef",
-                    "text": "",
-                    "image": {
-                      "url": "https://assets.pix.org/draft/modules/ia-def-ind/ailours4.jpg",
-                      "altText": "Une photo d'une plante"
-                    },
-                    "proposalA": "Ail des ours",
-                    "proposalB": "Muguet",
-                    "solution": "A"
-                  }
-                ],
-                "feedback": {
-                  "diagnosis": "<p>Vous vous êtes entraîné à reconnaître des photos, voyons maintenant comment fait un logiciel d'IA. 🔍</p>"
-                }
-              }
             }
           ]
         },
