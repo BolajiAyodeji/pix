@@ -47,7 +47,7 @@
   "devDependencies": {
     "@1024pix/ember-testing-library": "^3.0.20",
     "@1024pix/epreuves-components": "^1.4.5",
-    "@1024pix/eslint-plugin": "^2.1.11",
+    "@1024pix/eslint-plugin": "^2.1.12",
     "@1024pix/pix-ui": "^55.29.0",
     "@1024pix/stylelint-config": "^5.1.37",
     "@babel/eslint-parser": "^7.26.5",
