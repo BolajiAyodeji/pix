@@ -86,7 +86,7 @@
                     "id": "3",
                     "content": "<p>une information importante</p>",
                     "feedback": {
-                      "diagnosis": "<p>Eh non, ce message ne donne aucune information réelle. Attention, de nombreux messages cachent une tentative d’arnaque.</p>"
+                      "diagnosis": "<p>Eh non, ce message ne donne aucune information importante, cette livraison de colis n'existe pas. Attention, de nombreux messages cachent une tentative d’arnaque.</p>"
                     }
                   },
                   {
