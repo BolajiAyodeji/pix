@@ -57,7 +57,8 @@ export default {
   isAutoShareEnabled: {
     type: 'boolean',
     description: 'Enable automatic campaign sharing.',
-    defaultValue: false,
+    defaultValue: true,
+    devDefaultValues: { test: true, reviewApp: true },
     tags: ['frontend', 'team-prescription', 'pix-app'],
   },
   isSurveyEnabledForCombinedCourses: {

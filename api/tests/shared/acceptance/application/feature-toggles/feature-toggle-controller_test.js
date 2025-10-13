@@ -22,7 +22,7 @@ describe('Acceptance | Shared | Application | Controller | feature-toggle', func
           attributes: {
             'dynamic-feature-toggle-system': false,
             'is-async-quest-rewarding-calculation-enabled': false,
-            'is-auto-share-enabled': false,
+            'is-auto-share-enabled': true,
             'is-filtering-recommended-training-by-organizations-enabled': false,
             'is-survey-enabled-for-combined-courses': true,
             'is-quest-enabled': true,
