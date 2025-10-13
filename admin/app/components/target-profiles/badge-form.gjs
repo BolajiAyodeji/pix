@@ -18,7 +18,7 @@ export default class BadgeForm extends Component {
   @service store;
   @service router;
 
-  BASE_URL = 'https://images.pix.fr/badges/';
+  BASE_URL = 'https://assets.pix.org/badges/';
 
   badge = {
     key: '',
@@ -113,7 +113,7 @@ export default class BadgeForm extends Component {
             <p class="badge-form__information">
               <a
                 class="badge-form__information--link"
-                href="https://1024pix.github.io/pix-images-list/viewer.html?directory=badges"
+                href="https://pix-assets-manager-tmp-poc.osc-fr1.scalingo.io/list/badges"
                 target="_blank"
                 rel="noopener noreferrer"
               >

@@ -32,7 +32,7 @@ export default class Badge extends Component {
     });
   }
 
-  IMAGE_BASE_URL = 'https://images.pix.fr/badges/';
+  IMAGE_BASE_URL = 'https://assets.pix.org/badges/';
 
   get isCertifiableText() {
     return this.args.badge.isCertifiable ? 'Certifiable' : 'Non certifiable';

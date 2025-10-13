@@ -14,7 +14,7 @@ export default Factory.extend({
   },
 
   imageUrl() {
-    return 'https://images.pix.fr/badges/mon_badge_qui_nexiste_probablement_pas.png';
+    return 'https://assets.pix.org/badges/mon_badge_qui_nexiste_probablement_pas.png';
   },
 
   altMessage() {
@@ -41,7 +41,7 @@ export default Factory.extend({
       });
       badge.update({
         criteria: [criteriaCampaign],
-        imageUrl: `https://images.pix.fr/badges/${badge.imageUrl}`,
+        imageUrl: `https://assets.pix.org/badges/${badge.imageUrl}`,
       });
     }
   },
