@@ -6,6 +6,8 @@ import { tracked } from '@glimmer/tracking';
 import { t } from 'ember-intl';
 import { htmlUnsafe } from 'mon-pix/helpers/html-unsafe';
 
+import { resizeImage } from '../../../utils/resize-image';
+
 export default class ModulixImageElement extends Component {
   @tracked modalIsOpen = false;
 
@@ -30,22 +32,8 @@ export default class ModulixImageElement extends Component {
     return this.args.image.legend?.length > 0 || this.args.image.licence?.length > 0;
   }
 
-  get width() {
-    if (this.args.image.infos && this.hasDimensions) {
-      return ModulixImageElement.MAX_WIDTH;
-    }
-    return null;
-  }
-
-  get height() {
-    if (this.args.image.infos && this.hasDimensions) {
-      return Math.round((ModulixImageElement.MAX_WIDTH * this.args.image.infos.height) / this.args.image.infos.width);
-    }
-    return null;
-  }
-
-  get hasDimensions() {
-    return this.args.image.infos.width > 0 && this.args.image.infos.height > 0;
+  get dimensions() {
+    return resizeImage(this.args.image.infos, { MAX_WIDTH: ModulixImageElement.MAX_WIDTH });
   }
 
   <template>
@@ -55,8 +43,8 @@ export default class ModulixImageElement extends Component {
           class="element-image-container__image"
           alt={{@image.alt}}
           src={{@image.url}}
-          width={{this.width}}
-          height={{this.height}}
+          width={{this.dimensions.width}}
+          height={{this.dimensions.height}}
         />
         {{#if this.hasCaption}}
           <figcaption class="element-image-container__caption">{{@image.legend}}<span
