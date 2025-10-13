@@ -1,5 +1,21 @@
 # Pix Changelog
 
+# [5.232.0](https://github.com/1024pix/pix/compare/v5.231.0...v5.232.0) (2025-10-13)
+
+### :rocket: Amélioration
+
+- [#13833](https://github.com/1024pix/pix/pull/13833) Ajouter un délai sur le bouton "Suivant" du stepper horizontal (PIX-19424). 
+- [#13855](https://github.com/1024pix/pix/pull/13855) Update IADefinition_IND.json 
+
+### :bug: Correction
+
+- [#13873](https://github.com/1024pix/pix/pull/13873) Ajouter le scope dans la cacheKey du référentiel (PIX-19990). 
+- [#13867](https://github.com/1024pix/pix/pull/13867) Modifier le lien d'accès aux badges sur Pix Admin (PIX-19984). 
+
+### :arrow_up: Montée de version
+
+- [#13878](https://github.com/1024pix/pix/pull/13878) Update dependency @1024pix/pix-ui to ^55.29.1 (admin)
+
 # [5.231.0](https://github.com/1024pix/pix/compare/v5.230.0...v5.231.0) (2025-10-13)
 
 ### :rocket: Amélioration
