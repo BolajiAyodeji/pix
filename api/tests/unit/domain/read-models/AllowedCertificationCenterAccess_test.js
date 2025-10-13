@@ -749,38 +749,4 @@ describe('Unit | Domain | Read-Models | AllowedCertificationCenterAccess', funct
       });
     });
   });
-
-  context('#pixCertifBlockedAccessUntilDate', function () {
-    describe('when pixCertifBlockedAccessUntilDate is defined', function () {
-      it('should return the french formated pixCertifBlockedAccessUntilDate', function () {
-        // given
-        sinon.stub(settings.features, 'pixCertifBlockedAccessUntilDate').value('2022-02-01');
-        const allowedCertificationCenterAccess = domainBuilder.buildAllowedCertificationCenterAccess({
-          id: 1,
-        });
-
-        // when
-        const result = allowedCertificationCenterAccess.pixCertifBlockedAccessUntilDate;
-
-        // then
-        expect(result).to.be.equal('2022-02-01');
-      });
-    });
-
-    describe('when pixCertifBlockedAccessUntilDate is not defined', function () {
-      it('should return null', function () {
-        // given
-        sinon.stub(settings.features, 'pixCertifBlockedAccessUntilDate').value(undefined);
-        const allowedCertificationCenterAccess = domainBuilder.buildAllowedCertificationCenterAccess({
-          id: 1,
-        });
-
-        // when
-        const result = allowedCertificationCenterAccess.pixCertifBlockedAccessUntilDate;
-
-        // then
-        expect(result).to.be.null;
-      });
-    });
-  });
 });
