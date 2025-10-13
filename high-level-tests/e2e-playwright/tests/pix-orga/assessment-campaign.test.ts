@@ -74,7 +74,6 @@ test('Assessment campaign', async ({ page }) => {
 
       const campaignResultsPage = new CampaignResultsPage(page);
       globalMasteryPercentage = await campaignResultsPage.getGlobalMasteryPercentage();
-      await campaignResultsPage.sendResults();
       await expect(page.getByRole('paragraph').filter({ hasText: 'Vos résultats ont été envoyés' })).toBeVisible();
     });
   });

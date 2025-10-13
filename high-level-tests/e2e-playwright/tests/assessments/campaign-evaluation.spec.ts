@@ -96,8 +96,9 @@ test(
           );
         }
 
-        await campaignResultsPage.sendResults();
-        await expect(pixAppPage.getByText('Vos résultats ont été envoyés')).toBeVisible();
+        await expect(
+          pixAppPage.getByRole('paragraph').filter({ hasText: 'Vos résultats ont été envoyés' }),
+        ).toBeVisible();
       });
     });
     await snapshotHandler.expectOrRecord('campaign-evaluation.json');
