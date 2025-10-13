@@ -1,6 +1,7 @@
 import { knex } from '../../../../db/knex-database-connection.js';
 import { getVersionNumber } from '../../../certification/configuration/domain/services/get-version-number.js';
 import { ComplementaryCertificationKeys } from '../../../certification/shared/domain/models/ComplementaryCertificationKeys.js';
+import { Frameworks } from '../../../certification/shared/domain/models/Frameworks.js';
 import { config } from '../../config.js';
 import { NotFoundError } from '../../domain/errors.js';
 import { Accessibility } from '../../domain/models/Challenge.js';
@@ -126,21 +127,35 @@ export async function findActiveFlashCompatible({
   successProbabilityThreshold = config.features.successProbabilityThreshold,
   accessibilityAdjustmentNeeded = false,
   complementaryCertificationKey,
+  dependencies = {
+    getInstance,
+  },
 } = {}) {
   _assertLocaleIsDefined(locale);
-  const cacheKey = `findActiveFlashCompatible({ locale: ${locale}, accessibilityAdjustmentNeeded: ${accessibilityAdjustmentNeeded} })`;
+
+  const hasCoreScope =
+    !complementaryCertificationKey || complementaryCertificationKey === ComplementaryCertificationKeys.CLEA;
+
+  const cacheKey = `findActiveFlashCompatible({ scope: ${hasCoreScope ? Frameworks.CORE : complementaryCertificationKey}, locale: ${locale}, accessibilityAdjustmentNeeded: ${accessibilityAdjustmentNeeded}})`;
+
   let challengeDtos;
 
-  if (complementaryCertificationKey && complementaryCertificationKey !== ComplementaryCertificationKeys.CLEA) {
+  if (hasCoreScope) {
+    challengeDtos = await _findChallengesForCoreCertification({
+      locale,
+      accessibilityAdjustmentNeeded,
+      cacheKey,
+      dependencies,
+    });
+  } else {
     const version = getVersionNumber(date);
 
     challengeDtos = await _findValidChallengesForComplementaryCertification({
       complementaryCertificationKey,
       cacheKey,
       version,
+      dependencies,
     });
-  } else {
-    challengeDtos = await _findChallengesForCoreCertification({ locale, accessibilityAdjustmentNeeded, cacheKey });
   }
   const challengesDtosWithSkills = await loadChallengeDtosSkills(challengeDtos);
   return challengesDtosWithSkills.map(([challengeDto, skill]) =>
@@ -148,7 +163,12 @@ export async function findActiveFlashCompatible({
   );
 }
 
-async function _findValidChallengesForComplementaryCertification({ complementaryCertificationKey, cacheKey, version }) {
+async function _findValidChallengesForComplementaryCertification({
+  complementaryCertificationKey,
+  cacheKey,
+  version,
+  dependencies,
+}) {
   const { closestVersion } = await knex('certification-frameworks-challenges')
     .where({ complementaryCertificationKey })
     .andWhere('version', '<=', version)
@@ -170,7 +190,7 @@ async function _findValidChallengesForComplementaryCertification({ complementary
     return knex.whereIn('id', complementaryCertificationChallengesIds).orderBy('id');
   };
 
-  const challengeDtos = await getInstance().find(cacheKey, findCallback);
+  const challengeDtos = await dependencies.getInstance().find(cacheKey, findCallback);
   const validChallengeDtos = challengeDtos.filter((challenge) => challenge.status === VALIDATED_STATUS);
 
   return decorateWithCertificationCalibration({
@@ -179,7 +199,7 @@ async function _findValidChallengesForComplementaryCertification({ complementary
   });
 }
 
-function _findChallengesForCoreCertification({ locale, accessibilityAdjustmentNeeded, cacheKey }) {
+function _findChallengesForCoreCertification({ locale, accessibilityAdjustmentNeeded, cacheKey, dependencies }) {
   const findCallback = (knex) =>
     knex
       .whereRaw('?=ANY(??)', [locale, 'locales'])
@@ -192,7 +212,7 @@ function _findChallengesForCoreCertification({ locale, accessibilityAdjustmentNe
         }
       })
       .orderBy('id');
-  return getInstance().find(cacheKey, findCallback);
+  return dependencies.getInstance().find(cacheKey, findCallback);
 }
 
 function decorateWithCertificationCalibration({ validChallengeDtos, complementaryCertificationChallenges }) {
