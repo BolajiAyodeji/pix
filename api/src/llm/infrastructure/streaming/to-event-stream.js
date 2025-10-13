@@ -52,7 +52,7 @@ export async function fromLLMResponse({
 }) {
   const writableStream = new PassThrough();
   writableStream.on('error', (err) => {
-    logger.error({ err, prompt }, 'error while streaming response');
+    logger.warn({ err, prompt }, 'error while streaming response');
   });
   if (attachmentMessageType !== ATTACHMENT_MESSAGE_TYPES.NONE) {
     writableStream.write(events.getAttachmentMessage(attachmentMessageType === ATTACHMENT_MESSAGE_TYPES.IS_VALID));
@@ -75,7 +75,7 @@ export async function fromLLMResponse({
     writableStream,
     async (err) => {
       if (err || !streamCapture.done || streamCapture.errorOccurredDuringStream) {
-        logger.error({ err, prompt }, 'error in stream');
+        logger.warn({ err: err ?? streamCapture.errorOccurredDuringStream, prompt }, 'error in stream');
       }
       await onStreamDone(streamCapture, !err);
     },
