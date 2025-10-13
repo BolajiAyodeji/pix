@@ -1,6 +1,8 @@
 import Component from '@glimmer/component';
 import { t } from 'ember-intl';
 
+import { resizeImage } from '../../../../utils/resize-image';
+
 export default class QabCard extends Component {
   static MAX_HEIGHT = 190;
 
@@ -12,10 +14,6 @@ export default class QabCard extends Component {
     return this.args.status === 'success';
   }
 
-  get hasDimensions() {
-    return this.args.card.image.information.width > 0 && this.args.card.image.information.height > 0;
-  }
-
   get hasImage() {
     return this.args.card.image?.url?.length > 0;
   }
@@ -25,20 +23,8 @@ export default class QabCard extends Component {
     return userPrefersReducedMotion.matches;
   }
 
-  get height() {
-    if (this.args.card.image.information && this.hasDimensions) {
-      return QabCard.MAX_HEIGHT;
-    }
-    return null;
-  }
-
-  get width() {
-    if (this.args.card.image.information && this.hasDimensions) {
-      return Math.round(
-        (QabCard.MAX_HEIGHT * this.args.card.image.information.width) / this.args.card.image.information.height,
-      );
-    }
-    return null;
+  get dimensions() {
+    return resizeImage(this.args.card.image.information, { MAX_HEIGHT: QabCard.MAX_HEIGHT });
   }
 
   <template>
@@ -62,8 +48,8 @@ export default class QabCard extends Component {
               class="qab-card-container-content__image"
               src={{@card.image.url}}
               alt={{@card.image.altText}}
-              height={{this.height}}
-              width={{this.width}}
+              height={{this.dimensions.height}}
+              width={{this.dimensions.width}}
             />
           {{/if}}
           <p class="qab-card-container-content__text">{{@card.text}}</p>
