@@ -37,6 +37,8 @@ import * as sessionRepository from './session-repository.js';
 import * as sessionSummaryRepository from './session-summary-repository.js';
 import * as supervisorAccessRepository from './supervisor-access-repository.js';
 import * as v3CertificationCourseDetailsForAdministrationRepository from './v3-certification-course-details-for-administration-repository.js';
+import * as certificationCenterAccessApi from '../../../../identity-access-management/application/api/certification-center-access-api.js';
+import * as certificationCenterAccessRepository from './certification-center-access-repository.js';
 
 /**
  * Using {@link https://jsdoc.app/tags-type "Closure Compiler's syntax"} to document injected dependencies
@@ -78,6 +80,8 @@ import * as v3CertificationCourseDetailsForAdministrationRepository from './v3-c
  * @typedef {certificationCandidateRepository} CertificationCandidateRepository
  * @typedef {typeof certificationCompanionAlertRepository} CertificationCompanionAlertRepository
  * @typedef {certificationRescoringRepository} CertificationRescoringRepository
+ * @typedef {certificationCenterAccessApi} CertificationCenterAccessApi
+ * @typedef {certificationCenterAccessRepository} CertificationCenterAccessRepository
  */
 const repositoriesWithoutInjectedDependencies = {
   assessmentRepository,
@@ -113,14 +117,17 @@ const repositoriesWithoutInjectedDependencies = {
   certificationCandidateRepository,
   certificationCompanionAlertRepository,
   certificationRescoringRepository,
+  certificationCenterAccessRepository,
 };
 
 /**
  * Using {@link https://jsdoc.app/tags-type "Closure Compiler's syntax"} to document injected dependencies
  * @typedef {certificationEvaluationApi} CertificationEvaluationApi
+ * @typedef {certificationCenterAccessApi} CertificationCenterAccessApi
  */
 const dependencies = {
   certificationEvaluationApi,
+  certificationCenterAccessApi,
 };
 
 const repositories = injectDependencies(repositoriesWithoutInjectedDependencies, dependencies);
@@ -128,6 +135,7 @@ export {
   answerRepository,
   assessmentRepository,
   assessmentResultRepository,
+  certificationCenterAccessRepository,
   certificationChallengeRepository,
   certificationIssueReportRepository,
   certificationRepository,

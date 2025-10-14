@@ -28,6 +28,7 @@ export const superviseSession = async ({
   supervisorAccessRepository,
   certificationCenterRepository,
 }) => {
+  // should use a specific get from sessionRepository instead
   const session = await sessionRepository.get({ id: sessionId });
 
   const certificationCenter = await certificationCenterRepository.getBySessionId({ sessionId });
