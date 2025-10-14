@@ -54,13 +54,9 @@ describe('Quest | Integration | Infrastructure | repositories | organization lea
       });
 
       // then
-      const result = await knex('organization_learner_participations')
-        .join(
-          'organization_learner_passage_participations',
-          'organization_learner_participations.id',
-          'organization_learner_passage_participations.organizationLearnerParticipationId',
-        )
-        .where({ organizationLearnerId: organizationLearner.id });
+      const result = await knex('organization_learner_participations').where({
+        organizationLearnerId: organizationLearner.id,
+      });
 
       expect(result).lengthOf(1);
       expect(result[0].updatedAt).deep.equal(now);
@@ -105,11 +101,6 @@ describe('Quest | Integration | Infrastructure | repositories | organization lea
       // then
       const result = await knex('organization_learner_participations')
         .select('organization_learner_participations.id', 'updatedAt', 'createdAt', 'completedAt', 'status')
-        .join(
-          'organization_learner_passage_participations',
-          'organization_learner_participations.id',
-          'organization_learner_passage_participations.organizationLearnerParticipationId',
-        )
         .where({ organizationLearnerId: organizationLearner.id });
 
       expect(result).lengthOf(1);
@@ -150,13 +141,9 @@ describe('Quest | Integration | Infrastructure | repositories | organization lea
       });
 
       // then
-      const result = await knex('organization_learner_participations')
-        .join(
-          'organization_learner_passage_participations',
-          'organization_learner_participations.id',
-          'organization_learner_passage_participations.organizationLearnerParticipationId',
-        )
-        .where({ organizationLearnerId: organizationLearner.id });
+      const result = await knex('organization_learner_participations').where({
+        organizationLearnerId: organizationLearner.id,
+      });
 
       expect(result).lengthOf(2);
     });

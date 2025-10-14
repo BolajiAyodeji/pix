@@ -3,7 +3,6 @@ import _ from 'lodash';
 import { OrganizationLearnerParticipationTypes } from '../../../src/quest/domain/models/OrganizationLearnerParticipation.js';
 import { databaseBuffer } from '../database-buffer.js';
 import { buildCombinedCourseParticipation } from './build-combined-course-participation.js';
-import { buildOrganizationLearnerPassageParticipation } from './build-organization-learner-passage-participation.js';
 import { buildOrganizationLearner } from './prescription/organization-learners/build-organization-learner.js';
 
 const buildOrganizationLearnerParticipation = function ({
@@ -16,7 +15,6 @@ const buildOrganizationLearnerParticipation = function ({
   deletedBy = null,
   organizationLearnerId,
   status,
-  moduleId,
   combinedCourseId,
   questId,
 } = {}) {
@@ -38,13 +36,7 @@ const buildOrganizationLearnerParticipation = function ({
     tableName: 'organization_learner_participations',
     values,
   });
-  let organizationLearnerPassageId, organizationLearnerCombinedCourseParticipationId;
-  if (type === OrganizationLearnerParticipationTypes.PASSAGE) {
-    organizationLearnerPassageId = buildOrganizationLearnerPassageParticipation({
-      moduleId,
-      organizationLearnerParticipationId: organizationLearnerParticipation.id,
-    }).id;
-  }
+  let organizationLearnerCombinedCourseParticipationId;
 
   if (type === OrganizationLearnerParticipationTypes.COMBINED_COURSE) {
     organizationLearnerCombinedCourseParticipationId = buildCombinedCourseParticipation({
@@ -60,7 +52,6 @@ const buildOrganizationLearnerParticipation = function ({
 
   return {
     ...organizationLearnerParticipation,
-    organizationLearnerPassageId,
     organizationLearnerCombinedCourseParticipationId,
   };
 };

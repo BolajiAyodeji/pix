@@ -12,15 +12,10 @@ export const synchronize = async ({ organizationLearnerId, moduleIds, modulesApi
   const modulePassages = await modulesApi.getUserModuleStatuses({ userId: learner.userId, moduleIds });
 
   const learnerParticipationsByModule = await knexConn('organization_learner_participations')
-    .select('organization_learner_participations.id', 'moduleId')
-    .join(
-      'organization_learner_passage_participations',
-      'organization_learner_participations.id',
-      'organization_learner_passage_participations.organizationLearnerParticipationId',
-    )
+    .select('organization_learner_participations.id', knexConn.raw("attributes->>'moduleId' as moduleId"))
     .where({ organizationLearnerId: organizationLearnerId })
     .whereNull('deletedAt')
-    .whereIn('moduleId', moduleIds);
+    .whereIn('attributes->>moduleId', moduleIds);
 
   for (const modulePassage of modulePassages) {
     const learnerParticipationModule = learnerParticipationsByModule.find(
@@ -42,14 +37,7 @@ export const synchronize = async ({ organizationLearnerId, moduleIds, modulesApi
         .update(organizationLearnerPassageParticipation)
         .where('id', organizationLearnerPassageParticipation.id);
     } else {
-      const [{ id: organizationLearnerParticipationId }] = await knexConn('organization_learner_participations')
-        .insert(organizationLearnerPassageParticipation)
-        .returning('id');
-
-      await knexConn('organization_learner_passage_participations').insert({
-        moduleId: modulePassage.id,
-        organizationLearnerParticipationId,
-      });
+      await knexConn('organization_learner_participations').insert(organizationLearnerPassageParticipation);
     }
   }
 };
