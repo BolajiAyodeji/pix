@@ -41,9 +41,15 @@ export default class LoginSessionSupervisor extends Component {
         supervisorPassword: this.supervisorPasswordValue,
       });
     } catch ({ errors }) {
-      switch (errors[0].code) {
+      const error = errors[0];
+      switch (error.code) {
         case 'CERTIFICATION_CENTER_IS_ARCHIVED':
           this.formError = this.intl.t('pages.session-supervising.login.form.errors.certification-center-archived');
+          break;
+        case 'SESSION_NOT_ACCESSIBLE':
+          this.formError = this.intl.t('pages.session-supervising.login.form.errors.session-not-accessible', {
+            date: error.meta?.blockedAccessDate,
+          });
           break;
         default:
           this.formError = this.intl.t('pages.session-supervising.login.form.errors.incorrect-data');

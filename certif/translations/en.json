@@ -568,7 +568,8 @@
           "errors": {
             "certification-center-archived": "“You cannot access the certification centre because it is disabled.”",
             "incorrect-data": "The session number and/or the session password entered are incorrect.",
-            "mandatory-fields": "The fields “Session number” and “Session password” are required."
+            "mandatory-fields": "The fields “Session number” and “Session password” are required.",
+            "session-not-accessible": "Opening of your PixCertif space on {date} (00:00, Metropolitan France time)."
           },
           "session-number": "Session number",
           "session-password": {
