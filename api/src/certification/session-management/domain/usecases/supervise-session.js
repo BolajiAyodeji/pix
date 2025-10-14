@@ -3,6 +3,7 @@
  * @typedef {import('./index.js').SessionRepository} SessionRepository
  * @typedef {import('./index.js').SupervisorAccessRepository} SupervisorAccessRepository
  * @typedef {import('./index.js').CertificationCenterRepository} CertificationCenterRepository
+ * @typedef {import('./index.js').CertificationCenterAccessRepository} CertificationCenterAccessRepository
  */
 
 import {
@@ -19,6 +20,7 @@ import {
  * @param {SessionRepository} params.sessionRepository
  * @param {SupervisorAccessRepository} params.supervisorAccessRepository
  * @param {CertificationCenterRepository} params.certificationCenterRepository
+ * @param {CertificationCenterAccessRepository} params.certificationCenterAccessRepository
  */
 export const superviseSession = async ({
   sessionId,
@@ -27,11 +29,32 @@ export const superviseSession = async ({
   sessionRepository,
   supervisorAccessRepository,
   certificationCenterRepository,
+  certificationCenterAccessRepository,
 }) => {
   // should use a specific get from sessionRepository instead
   const session = await sessionRepository.get({ id: sessionId });
 
   const certificationCenter = await certificationCenterRepository.getBySessionId({ sessionId });
+
+  const certificationCenterAccess = await certificationCenterAccessRepository.getCertificationCenterAccess({
+    certificationCenterId: certificationCenter.id,
+  });
+
+  if (certificationCenterAccess.isAccessBlockedCollege) {
+    throw new SessionNotAccessible(certificationCenterAccess.pixCertifScoBlockedAccessDateCollege);
+  }
+
+  if (certificationCenterAccess.isAccessBlockedLycee) {
+    throw new SessionNotAccessible(certificationCenterAccess.pixCertifScoBlockedAccessDateLycee);
+  }
+
+  if (certificationCenterAccess.isAccessBlockedAEFE) {
+    throw new SessionNotAccessible(certificationCenterAccess.pixCertifScoBlockedAccessDateLycee);
+  }
+
+  if (certificationCenterAccess.isAccessBlockedAgri) {
+    throw new SessionNotAccessible(certificationCenterAccess.pixCertifScoBlockedAccessDateLycee);
+  }
 
   if (!session.isSupervisable(invigilatorPassword)) {
     throw new InvalidSessionSupervisingLoginError();

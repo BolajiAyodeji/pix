@@ -13,7 +13,14 @@ describe('Session Management | Integration | Infrastructure | Repository | certi
           certificationCenterId: certificationCenter.id,
         });
 
-      expect(certificationCenterAccess).to.deep.equal({});
+      expect(certificationCenterAccess).to.deep.equal({
+        isAccessBlockedCollege: false,
+        isAccessBlockedLycee: false,
+        isAccessBlockedAEFE: false,
+        isAccessBlockedAgri: false,
+        pixCertifScoBlockedAccessDateCollege: null,
+        pixCertifScoBlockedAccessDateLycee: null,
+      });
     });
   });
 });

@@ -17,9 +17,17 @@ export const getCertificationCenterAccess = async ({
   certificationCenterId,
   dependencies = { certificationPointOfContactRepository },
 }) => {
-  await dependencies.certificationPointOfContactRepository.getCertificationCenterAccess({
-    certificationCenterId,
-  });
+  const allowedCertificationCenterAccess =
+    await dependencies.certificationPointOfContactRepository.getCertificationCenterAccess({
+      certificationCenterId,
+    });
 
-  return new AllowedCertificationCenterAccessDTO({});
+  return new AllowedCertificationCenterAccessDTO({
+    isAccessBlockedCollege: allowedCertificationCenterAccess.isAccessBlockedCollege(),
+    isAccessBlockedLycee: allowedCertificationCenterAccess.isAccessBlockedLycee(),
+    isAccessBlockedAEFE: allowedCertificationCenterAccess.isAccessBlockedAEFE(),
+    isAccessBlockedAgri: allowedCertificationCenterAccess.isAccessBlockedAgri(),
+    pixCertifScoBlockedAccessDateCollege: allowedCertificationCenterAccess.pixCertifScoBlockedAccessDateCollege,
+    pixCertifScoBlockedAccessDateLycee: allowedCertificationCenterAccess.pixCertifScoBlockedAccessDateLycee,
+  });
 };
