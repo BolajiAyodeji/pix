@@ -90,6 +90,42 @@ export class CommonOrganizations {
 
     return this.pro;
   }
+  static async getSup({ databaseBuilder }) {
+    if (!this.sup) {
+      this.sup = {};
+      const organizationMember = await new CommonOrganizations({ databaseBuilder }).#initOrgaMember();
+
+      const administrationTeam = databaseBuilder.factory.buildAdministrationTeam({ name: 'SUP administration team' });
+      await databaseBuilder.commit();
+
+      const organization = new OrganizationForAdmin({
+        name: 'Certification SUP organization',
+        type: CenterTypes.SUP,
+        isManagingStudents: false,
+        externalId: 'SUP_EXTERNAL_ID',
+        administrationTeamId: administrationTeam.id,
+      });
+
+      const supOrganization = await organizationalEntitiesUsecases.createOrganization({
+        organization,
+        organizationCreationValidator,
+      });
+
+      const supOrganizationMembership = await teamUsecases.createMembership({
+        organizationRole: Membership.roles.ADMIN,
+        userId: organizationMember.id,
+        organizationId: supOrganization.id,
+      });
+
+      this.sup = {
+        organizationMember,
+        organization: supOrganization,
+        organizationMembership: supOrganizationMembership,
+      };
+    }
+
+    return this.sup;
+  }
 
   async #initOrgaMember() {
     if (!CommonOrganizations.#organizationMember) {

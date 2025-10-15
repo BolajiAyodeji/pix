@@ -8,13 +8,13 @@ import { setupConfigurations } from './shared/setup-configuration.js';
 async function teamCertificationDataBuilder({ databaseBuilder }) {
   // Pix platform configuration
   await setupConfigurations({ databaseBuilder });
+  await new ComplementaryCertificationSeed({ databaseBuilder }).create();
 
   // Cases
+  await new SupWithHabilitationsSeed({ databaseBuilder }).create();
   await new ProSeed({ databaseBuilder }).create();
   await new ScoManagingStudent({ databaseBuilder }).create();
   await new CleaV3Seed({ databaseBuilder }).create();
-  await new ComplementaryCertificationSeed({ databaseBuilder }).create();
-  await new SupWithHabilitationsSeed({ databaseBuilder }).create();
 }
 
 export { teamCertificationDataBuilder };

@@ -18,6 +18,7 @@ import {
   PIX_EDU_1ER_DEGRE_COMPLEMENTARY_CERTIFICATION_ID,
 } from '../../common/complementary-certification-builder.js';
 import { CommonCertifiableUser } from '../shared/common-certifiable-user.js';
+import { CommonOrganizations } from '../shared/common-organisations.js';
 import {
   STARTED_PIX_DROIT_CERTIFICATION_SESSION,
   STARTED_PIX_EDU_1ER_DEGRE_CERTIFICATION_SESSION,
@@ -39,7 +40,11 @@ export class SupWithHabilitationsSeed {
   }
 
   async create() {
-    const { certificationCenter, certificationCenterMember } = await this.#addCertificationCenter();
+    const { organization, organizationMember } = await this.#addOrganization();
+    const { certificationCenter, certificationCenterMember } = await this.#addCertificationCenter({
+      organization,
+      organizationMember,
+    });
     const certifiableUsers = await this.#addCertifiableUsers();
 
     /**
@@ -94,13 +99,20 @@ export class SupWithHabilitationsSeed {
     );
   }
 
-  async #addCertificationCenter() {
+  async #addOrganization() {
+    const { organization, organizationMember } = await CommonOrganizations.getSup({
+      databaseBuilder: this.databaseBuilder,
+    });
+    return { organization, organizationMember };
+  }
+
+  async #addCertificationCenter({ organization, organizationMember }) {
     const certificationCenter = await organizationalEntitiesUsecases.createCertificationCenter({
       certificationCenter: new CertificationCenter({
         id: SUP_CERTIFICATION_CENTER_ID,
         name: 'SUP Certification Center (with habilitations)',
         type: certificationCenterTypes.SUP,
-        externalId: 'SUP_EXTERNAL_ID',
+        externalId: organization.externalId,
         createdAt: new Date('2024-01-30'),
         habilitations: [
           ComplementaryCertificationKeys.PIX_PLUS_DROIT,
@@ -115,7 +127,7 @@ export class SupWithHabilitationsSeed {
 
     const certificationCenterMember = await teamUsecases.createCertificationCenterMembershipByEmail({
       certificationCenterId: certificationCenter.id,
-      email: 'certif-prescriptor@example.net',
+      email: organizationMember.email,
     });
 
     return { certificationCenter, certificationCenterMember };
