@@ -25,11 +25,11 @@ describe('Certification | Session-management | Unit | Domain | UseCases | uncanc
         rescoreV2Certification: sinon.stub(),
       };
       const sessionRepository = {
-        get: sinon.stub(),
+        isFinalized: sinon.stub(),
       };
       certificationCourseRepository.get.withArgs({ id: 123 }).resolves(certificationCourse);
       certificationRescoringRepository.rescoreV2Certification.resolves();
-      sessionRepository.get.withArgs({ id: certificationCourse.getSessionId() }).resolves(session);
+      sessionRepository.isFinalized.withArgs({ id: certificationCourse.getSessionId() }).resolves(true);
 
       // when
       await uncancel({
@@ -66,10 +66,10 @@ describe('Certification | Session-management | Unit | Domain | UseCases | uncanc
           get: sinon.stub(),
         };
         const sessionRepository = {
-          get: sinon.stub(),
+          isFinalized: sinon.stub(),
         };
         certificationCourseRepository.get.withArgs({ id: 123 }).resolves(certificationCourse);
-        sessionRepository.get.withArgs({ id: certificationCourse.getSessionId() }).resolves(session);
+        sessionRepository.isFinalized.withArgs({ id: certificationCourse.getSessionId() }).resolves(false);
 
         // when
         const error = await catchErr(uncancel)({
@@ -105,11 +105,11 @@ describe('Certification | Session-management | Unit | Domain | UseCases | uncanc
         rescoreV3Certification: sinon.stub(),
       };
       const sessionRepository = {
-        get: sinon.stub(),
+        isFinalized: sinon.stub(),
       };
       certificationCourseRepository.get.withArgs({ id: 123 }).resolves(certificationCourse);
       certificationRescoringRepository.rescoreV3Certification.resolves();
-      sessionRepository.get.withArgs({ id: certificationCourse.getSessionId() }).resolves(session);
+      sessionRepository.isFinalized.withArgs({ id: certificationCourse.getSessionId() }).resolves(true);
 
       // when
       await uncancel({
@@ -146,10 +146,10 @@ describe('Certification | Session-management | Unit | Domain | UseCases | uncanc
           get: sinon.stub(),
         };
         const sessionRepository = {
-          get: sinon.stub(),
+          isFinalized: sinon.stub(),
         };
         certificationCourseRepository.get.withArgs({ id: 123 }).resolves(certificationCourse);
-        sessionRepository.get.withArgs({ id: certificationCourse.getSessionId() }).resolves(session);
+        sessionRepository.isFinalized.withArgs({ id: certificationCourse.getSessionId() }).resolves(false);
 
         // when
         const error = await catchErr(uncancel)({

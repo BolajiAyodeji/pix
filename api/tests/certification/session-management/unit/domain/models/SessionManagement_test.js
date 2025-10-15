@@ -23,7 +23,6 @@ const SESSION_PROPS = [
   'certificationCandidates',
   'certificationCenterId',
   'assignedCertificationOfficerId',
-  'invigilatorPassword',
   'version',
   'createdBy',
 ];
@@ -185,30 +184,6 @@ describe('Unit | Certification | Session | Domain | Models | SessionManagement',
 
       // then
       expect(isAccessible).to.be.false;
-    });
-  });
-
-  context('#isSupervisable', function () {
-    it('should return true when the invigilator password match', function () {
-      // given
-      const session = domainBuilder.certification.sessionManagement.buildSession.created();
-
-      // when
-      const isSupervisable = session.isSupervisable(session.invigilatorPassword);
-
-      // then
-      expect(isSupervisable).to.be.true;
-    });
-
-    it('should return false when the invigilator password does not match', function () {
-      // given
-      const session = domainBuilder.certification.sessionManagement.buildSession.created();
-
-      // when
-      const isSupervisable = session.isSupervisable('NOT_MATCHING-SUPERVISOR_PASSWORD');
-
-      // then
-      expect(isSupervisable).to.be.false;
     });
   });
 });

@@ -3,16 +3,21 @@ import {
   InvalidSessionSupervisingLoginError,
   SessionNotAccessible,
 } from '../../../../../../src/certification/session-management/domain/errors.js';
+import { InvigilatorSession } from '../../../../../../src/certification/session-management/domain/read-models/InvigilatorSession.js';
 import { superviseSession } from '../../../../../../src/certification/session-management/domain/usecases/supervise-session.js';
+import { DomainTransaction } from '../../../../../../src/shared/domain/DomainTransaction.js';
 import { catchErr, domainBuilder, expect, sinon } from '../../../../../test-helper.js';
 
 describe('Unit | UseCase | supervise-session', function () {
-  let sessionRepository;
+  let invigilatorSessionRepository;
   let supervisorAccessRepository;
   let certificationCenterRepository;
 
   beforeEach(function () {
-    sessionRepository = {
+    sinon.stub(DomainTransaction, 'execute').callsFake((callback) => {
+      return callback();
+    });
+    invigilatorSessionRepository = {
       get: sinon.stub(),
     };
     supervisorAccessRepository = {
@@ -28,13 +33,13 @@ describe('Unit | UseCase | supervise-session', function () {
     const sessionId = 123;
     const invigilatorPassword = 'NOT_MATCHING_INVIGILATOR_PASSWORD';
     const certificationCenter = domainBuilder.buildCertificationCenter();
-    const session = domainBuilder.certification.sessionManagement.buildSession({
-      id: sessionId,
-      certificationCenterId: certificationCenter.id,
+    const session = new InvigilatorSession({
+      finalizedAt: null,
+      invigilatorPassword: 'CORRECT_PASSWORD',
     });
     const userId = 434;
 
-    sessionRepository.get.resolves(session);
+    invigilatorSessionRepository.get.resolves(session);
     certificationCenterRepository.getBySessionId.resolves(certificationCenter);
 
     // when
@@ -42,7 +47,7 @@ describe('Unit | UseCase | supervise-session', function () {
       sessionId,
       invigilatorPassword,
       userId,
-      sessionRepository,
+      invigilatorSessionRepository,
       supervisorAccessRepository,
       certificationCenterRepository,
     });
@@ -56,10 +61,13 @@ describe('Unit | UseCase | supervise-session', function () {
     // given
     const sessionId = 123;
     const certificationCenter = domainBuilder.buildCertificationCenter();
-    const session = domainBuilder.certification.sessionManagement.buildSession.processed({ id: sessionId });
+    const session = new InvigilatorSession({
+      finalizedAt: new Date(),
+      invigilatorPassword: 'PASSWORD',
+    });
     const userId = 434;
 
-    sessionRepository.get.resolves(session);
+    invigilatorSessionRepository.get.resolves(session);
     certificationCenterRepository.getBySessionId.resolves(certificationCenter);
 
     // when
@@ -67,7 +75,7 @@ describe('Unit | UseCase | supervise-session', function () {
       sessionId,
       invigilatorPassword: session.invigilatorPassword,
       userId,
-      sessionRepository,
+      invigilatorSessionRepository,
       supervisorAccessRepository,
       certificationCenterRepository,
     });
@@ -79,10 +87,13 @@ describe('Unit | UseCase | supervise-session', function () {
   it('should a Certification center is archived error when certification center is archived', async function () {
     // given
     const sessionId = 123;
-    const session = domainBuilder.certification.sessionManagement.buildSession.created({ id: sessionId });
+    const session = new InvigilatorSession({
+      finalizedAt: null,
+      invigilatorPassword: 'PASSWORD',
+    });
     const userId = 434;
 
-    sessionRepository.get.resolves(session);
+    invigilatorSessionRepository.get.resolves(session);
     certificationCenterRepository.getBySessionId.resolves({ archivedAt: new Date(), archivedBy: 1234 });
 
     // when
@@ -90,7 +101,7 @@ describe('Unit | UseCase | supervise-session', function () {
       sessionId,
       invigilatorPassword: session.invigilatorPassword,
       userId,
-      sessionRepository,
+      invigilatorSessionRepository,
       supervisorAccessRepository,
       certificationCenterRepository,
     });
@@ -103,9 +114,12 @@ describe('Unit | UseCase | supervise-session', function () {
     // given
     const sessionId = 123;
     const userId = 434;
-    const session = domainBuilder.certification.sessionManagement.buildSession.created({ id: sessionId });
+    const session = new InvigilatorSession({
+      finalizedAt: null,
+      invigilatorPassword: 'PASSWORD',
+    });
 
-    sessionRepository.get.resolves(session);
+    invigilatorSessionRepository.get.resolves(session);
     certificationCenterRepository.getBySessionId.resolves({ archivedAt: null, archivedBy: null });
 
     // when
@@ -113,7 +127,7 @@ describe('Unit | UseCase | supervise-session', function () {
       sessionId,
       invigilatorPassword: session.invigilatorPassword,
       userId,
-      sessionRepository,
+      invigilatorSessionRepository,
       supervisorAccessRepository,
       certificationCenterRepository,
     });
