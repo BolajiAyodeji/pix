@@ -45,6 +45,7 @@ import * as sessionPublicationService from '../services/session-publication-serv
  * @typedef {import('../../infrastructure/repositories/index.js').IssueReportCategoryRepository} IssueReportCategoryRepository
  * @typedef {import('../../infrastructure/repositories/index.js').SessionJuryCommentRepository} SessionJuryCommentRepository
  * @typedef {import('../../infrastructure/repositories/index.js').SessionRepository} SessionRepository
+ * @typedef {import('../../infrastructure/repositories/index.js').InvigilatorSessionRepository} InvigilatorSessionRepository
  * @typedef {import('../../infrastructure/repositories/index.js').SessionForSupervisingRepository} SessionForSupervisingRepository
  * @typedef {import('../../infrastructure/repositories/index.js').CertificationReportRepository} CertificationReportRepository
  * @typedef {import('../../infrastructure/repositories/index.js').CompetenceMarkRepository} CompetenceMarkRepository
@@ -94,6 +95,7 @@ import * as sessionPublicationService from '../services/session-publication-serv
  * @typedef {complementaryCertificationCourseResultRepository} ComplementaryCertificationCourseResultRepository
  * @typedef {sessionJuryCommentRepository} SessionJuryCommentRepository
  * @typedef {sessionRepository} SessionRepository
+ * @typedef {invigilatorSessionRepository} InvigilatorSessionRepository
  * @typedef {sessionSummaryRepository} SessionSummaryRepository
  * @typedef {certificationReportRepository} CertificationReportRepository
  * @typedef {certificationCpfCountryRepository} CertificationCpfCountryRepository

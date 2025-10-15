@@ -6,7 +6,31 @@ import { SessionManagement } from '../../domain/models/SessionManagement.js';
 
 const get = async function ({ id }) {
   const knexConn = DomainTransaction.getConnection();
-  const foundSession = await knexConn.select('*').from('sessions').where({ id }).first();
+  const foundSession = await knexConn
+    .select(
+      'id',
+      'accessCode',
+      'address',
+      'certificationCenter',
+      'date',
+      'description',
+      'examiner',
+      'room',
+      'time',
+      'examinerGlobalComment',
+      'hasIncident',
+      'hasJoiningIssue',
+      'finalizedAt',
+      'resultsSentToPrescriberAt',
+      'publishedAt',
+      'certificationCandidates',
+      'certificationCenterId',
+      'assignedCertificationOfficerId',
+      'createdBy',
+    )
+    .from('sessions')
+    .where({ id })
+    .first();
   if (!foundSession) {
     throw new NotFoundError("La session n'existe pas ou son accès est restreint");
   }

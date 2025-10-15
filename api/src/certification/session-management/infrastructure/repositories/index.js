@@ -29,6 +29,7 @@ import * as competenceMarkRepository from './competence-mark-repository.js';
 import * as courseAssessmentResultRepository from './course-assessment-result-repository.js';
 import * as cpfExportRepository from './cpf-export-repository.js';
 import * as finalizedSessionRepository from './finalized-session-repository.js';
+import * as invigilatorSessionRepository from './invigilator-session-repository.js';
 import * as juryCertificationRepository from './jury-certification-repository.js';
 import * as juryCertificationSummaryRepository from './jury-certification-summary-repository.js';
 import * as jurySessionRepository from './jury-session-repository.js';
@@ -60,6 +61,7 @@ import * as v3CertificationCourseDetailsForAdministrationRepository from './v3-c
  * @typedef {sessionJuryCommentRepository} SessionJuryCommentRepository
  * @typedef {sessionSummaryRepository} SessionSummaryRepository
  * @typedef {sessionRepository} SessionRepository
+ * @typedef {invigilatorSessionRepository} InvigilatorSessionRepository
  * @typedef {supervisorAccessRepository} SupervisorAccessRepository
  * @typedef {certificationReportRepository} CertificationReportRepository
  * @typedef {certificationRepository} CertificationRepository
@@ -97,6 +99,7 @@ const repositoriesWithoutInjectedDependencies = {
   sessionForInvigilatorKitRepository,
   issueReportCategoryRepository,
   sessionRepository,
+  invigilatorSessionRepository,
   sessionSummaryRepository,
   sessionForSupervisingRepository,
   sessionJuryCommentRepository,

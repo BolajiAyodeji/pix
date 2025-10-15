@@ -1,6 +1,6 @@
 //@ts-check
 /**
- * @typedef {import('./index.js').SessionRepository} SessionRepository
+ * @typedef {import('./index.js').InvigilatorSessionRepository} InvigilatorSessionRepository
  * @typedef {import('./index.js').SupervisorAccessRepository} SupervisorAccessRepository
  * @typedef {import('./index.js').CertificationCenterRepository} CertificationCenterRepository
  */
@@ -18,7 +18,7 @@ export const superviseSession = withTransaction(
    * @param {number} params.sessionId
    * @param {string} params.invigilatorPassword
    * @param {number} params.userId
-   * @param {SessionRepository} params.sessionRepository
+   * @param {InvigilatorSessionRepository} params.invigilatorSessionRepository
    * @param {SupervisorAccessRepository} params.supervisorAccessRepository
    * @param {CertificationCenterRepository} params.certificationCenterRepository
    */
@@ -26,21 +26,20 @@ export const superviseSession = withTransaction(
     sessionId,
     invigilatorPassword,
     userId,
-    sessionRepository,
+    invigilatorSessionRepository,
     supervisorAccessRepository,
     certificationCenterRepository,
   }) => {
-    // should use a specific get from sessionRepository instead
-    const session = await sessionRepository.get({ id: sessionId });
+    const session = await invigilatorSessionRepository.get({ id: sessionId });
 
     const certificationCenter = await certificationCenterRepository.getBySessionId({ sessionId });
 
-    if (!session.isSupervisable(invigilatorPassword)) {
-      throw new InvalidSessionSupervisingLoginError();
-    }
-
     if (!session.isAccessible()) {
       throw new SessionNotAccessible();
+    }
+
+    if (!session.checkPassword(invigilatorPassword)) {
+      throw new InvalidSessionSupervisingLoginError();
     }
 
     if (certificationCenter.archivedAt || certificationCenter.archivedBy) {

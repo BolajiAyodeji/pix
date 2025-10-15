@@ -23,7 +23,6 @@ class SessionManagement {
     certificationCandidates,
     certificationCenterId,
     assignedCertificationOfficerId,
-    invigilatorPassword,
     version = AlgorithmEngineVersion.V3,
     createdBy,
   } = {}) {
@@ -45,7 +44,6 @@ class SessionManagement {
     this.certificationCandidates = certificationCandidates;
     this.certificationCenterId = certificationCenterId;
     this.assignedCertificationOfficerId = assignedCertificationOfficerId;
-    this.invigilatorPassword = invigilatorPassword;
     this.version = version;
     this.createdBy = createdBy;
   }
@@ -73,10 +71,6 @@ class SessionManagement {
 
   get isFinalized() {
     return this.finalizedAt !== null;
-  }
-
-  isSupervisable(invigilatorPassword) {
-    return this.invigilatorPassword === invigilatorPassword;
   }
 }
 
