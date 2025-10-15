@@ -1,16 +1,19 @@
-import { knex } from '../../../../../db/knex-database-connection.js';
+import { DomainTransaction } from '../../../../shared/domain/DomainTransaction.js';
 
 const create = async function ({ sessionId, userId }) {
-  await knex('supervisor-accesses').insert({ sessionId, userId });
+  const knexConn = DomainTransaction.getConnection();
+  await knexConn('supervisor-accesses').insert({ sessionId, userId });
 };
 
 const isUserSupervisorForSession = async function ({ sessionId, userId }) {
-  const result = await knex.select(1).from('supervisor-accesses').where({ sessionId, userId }).first();
+  const knexConn = DomainTransaction.getConnection();
+  const result = await knexConn.select(1).from('supervisor-accesses').where({ sessionId, userId }).first();
   return Boolean(result);
 };
 
 const isUserSupervisorForSessionCandidate = async function ({ supervisorId, certificationCandidateId }) {
-  const result = await knex
+  const knexConn = DomainTransaction.getConnection();
+  const result = await knexConn
     .select(1)
     .from('supervisor-accesses')
     .innerJoin('certification-candidates', 'supervisor-accesses.sessionId', 'certification-candidates.sessionId')
