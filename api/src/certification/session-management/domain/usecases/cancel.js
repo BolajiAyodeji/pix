@@ -26,8 +26,8 @@ export const cancel = async function ({
   courseAssessmentResultRepository,
 }) {
   const certificationCourse = await certificationCourseRepository.get({ id: certificationCourseId });
-  const session = await sessionRepository.get({ id: certificationCourse.getSessionId() });
-  if (!session.isFinalized) {
+  const isSessionFinalized = await sessionRepository.isFinalized({ id: certificationCourse.getSessionId() });
+  if (!isSessionFinalized) {
     throw new NotFinalizedSessionError();
   }
 
