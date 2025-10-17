@@ -1,10 +1,10 @@
-import { Version } from '../../../../../../src/certification/configuration/domain/models/Version.js';
-import * as versionsRepository from '../../../../../../src/certification/configuration/infrastructure/repositories/versions-repository.js';
 import { Frameworks } from '../../../../../../src/certification/shared/domain/models/Frameworks.js';
+import { Version } from '../../../../../../src/certification/shared/domain/models/Version.js';
+import * as versionsRepository from '../../../../../../src/certification/shared/infrastructure/repositories/versions-repository.js';
 import { NotFoundError } from '../../../../../../src/shared/domain/errors.js';
 import { catchErr, databaseBuilder, expect } from '../../../../../test-helper.js';
 
-describe('Certification | Configuration | Integration | Repository | Versions', function () {
+describe('Certification | Shared | Integration | Repository | Versions', function () {
   describe('#getByScopeAndReconciliationDate', function () {
     it('should return the most recent version before or equal to the reconciliation date', async function () {
       // given

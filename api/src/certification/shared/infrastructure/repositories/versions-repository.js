@@ -4,7 +4,7 @@ import { Version } from '../../domain/models/Version.js';
 
 /**
  * @param {Object} params
- * @param {import('../../../shared/domain/models/Frameworks.js').Frameworks} params.scope
+ * @param {import('../../domain/models/Frameworks.js').Frameworks} params.scope
  * @param {Date} params.reconciliationDate
  * @returns {Promise<Version>}
  */

@@ -66,7 +66,7 @@ describe('Unit | Domain | Use Cases | get-next-challenge', function () {
 
       certificationCandidateRepository.findByAssessmentId.withArgs({ assessmentId: assessment.id }).resolves(candidate);
 
-      version = domainBuilder.certification.configuration.buildVersion();
+      version = domainBuilder.certification.shared.buildVersion().challengesConfiguration;
     });
 
     context('when there are challenges left to answer', function () {
