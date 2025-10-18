@@ -55,21 +55,21 @@
                     "id": "1",
                     "content": "<p>« Plutôt mer du Nord ou mer Méditerranée ? 🌊 »</p>",
                     "feedback": {
-                      "diagnosis": "<p>C’est le rôle d’une intelligence artificielle&nbsp;: on pose une question, elle fournit une réponse.</p>"
+                      "diagnosis": "<p>C’est le rôle d’une intelligence artificielle&nbsp;: proposer de l'aide.</p>"
                     }
                   },
                   {
                     "id": "2",
                     "content": "<p>« Oui ! à partir de quand veux-tu partir ? ⛵ »</p>",
                     "feedback": {
-                      "diagnosis": "<p>C’est le rôle d’une intelligence artificielle&nbsp;: on pose une question, elle fournit une réponse.</p>"
+                      "diagnosis": "<p>C’est le rôle d’une intelligence artificielle&nbsp;: proposer de l'aide.</p>"
                     }
                   },
                   {
                     "id": "3",
                     "content": "<p>Je ne sais pas.</p>",
                     "feedback": {
-                      "diagnosis": "<p>C’est le rôle d’une intelligence artificielle&nbsp;: on pose une question, elle fournit une réponse.</p>"
+                      "diagnosis": "<p>C’est le rôle d’une intelligence artificielle&nbsp;: proposer de l'aide.</p>"
                     }
                   }
                 ],
@@ -100,28 +100,28 @@
                     "id": "1",
                     "content": "<p>Gemini</p>",
                     "feedback": {
-                      "diagnosis": "<p>Ce sont tous des <strong>logiciels d’Intelligence Artificielle générative</strong>. Il en existe beaucoup d’autres, par exemple&nbsp;: microsoft Copilot, Perplexity, Claude, etc.</p>"
+                      "diagnosis": "<p>Ce sont tous des <strong>logiciels d’Intelligence Artificielle générative</strong>. Il en existe beaucoup d’autres, par exemple&nbsp;: Microsoft Copilot, Perplexity, Claude, etc.</p>"
                     }
                   },
                   {
                     "id": "2",
                     "content": "<p>Deepseek</p>",
                     "feedback": {
-                      "diagnosis": "<p>Ce sont tous des <strong>logiciels d’Intelligence Artificielle générative</strong>. Il en existe beaucoup d’autres, par exemple&nbsp;: microsoft Copilot, Perplexity, Claude, etc.</p>"
+                      "diagnosis": "<p>Ce sont tous des <strong>logiciels d’Intelligence Artificielle générative</strong>. Il en existe beaucoup d’autres, par exemple&nbsp;: Microsoft Copilot, Perplexity, Claude, etc.</p>"
                     }
                   },
                   {
                     "id": "3",
                     "content": "<p>Mistral<br></p>",
                     "feedback": {
-                      "diagnosis": "<p>Ce sont tous des <strong>logiciels d’Intelligence Artificielle générative</strong>. Il en existe beaucoup d’autres, par exemple&nbsp;: microsoft Copilot, Perplexity, Claude, etc.</p>"
+                      "diagnosis": "<p>Ce sont tous des <strong>logiciels d’Intelligence Artificielle générative</strong>. Il en existe beaucoup d’autres, par exemple&nbsp;: Microsoft Copilot, Perplexity, Claude, etc.</p>"
                     }
                   },
                   {
                     "id": "4",
                     "content": "<p>Je ne sais pas</p>",
                     "feedback": {
-                      "diagnosis": "<p>Ce sont tous des <strong>logiciels d’Intelligence Artificielle générative</strong>. Il en existe beaucoup d’autres, par exemple&nbsp;: microsoft Copilot, Perplexity, Claude, etc.</p>"
+                      "diagnosis": "<p>Ce sont tous des <strong>logiciels d’Intelligence Artificielle générative</strong>. Il en existe beaucoup d’autres, par exemple&nbsp;: Microsoft Copilot, Perplexity, Claude, etc.</p>"
                     }
                   }
                 ],
@@ -140,7 +140,7 @@
               "element": {
                 "id": "898ab86a-15d3-468f-a0fd-eb1644e7aef6",
                 "type": "text",
-                "content": "<p>Un logiciel d’<strong>Intelligence Artificielle générative</strong> est capable de <strong>répondre de façon pertinente</strong> à des demandes écrites sur des <strong>sujets très variés</strong> (transports, visites, cuisine…).</p><p>Il en existe de nombreux à disposition du grand public&nbsp;: ChatGPT, microsoft Copilot, Le Chat (Mistral), Deepseek, Perplexity, Claude...  </p>"
+                "content": "<p>Un logiciel d’<strong>Intelligence Artificielle générative</strong> est capable de <strong>répondre de façon pertinente</strong> à des demandes écrites sur des <strong>sujets très variés</strong> (transports, visites, cuisine…).</p><p>Il en existe de nombreux à disposition du grand public&nbsp;: ChatGPT, Microsoft Copilot, Le Chat (Mistral), Deepseek, Perplexity, Claude...  </p>"
               }
             },
             {
@@ -482,7 +482,7 @@
               "element": {
                 "id": "b0fd9eb1-ca19-4052-b5a3-6f1b83b33fca",
                 "type": "text",
-                "content": "<p>Si on donne à un logiciel d'IA générative  <strong>des milliards de textes variés pour s’entraîner</strong>, il pourra apporter des réponses pertinentes à presque toutes les demandes des utilisateurs. </p><p>⚠️ Mais attention&nbsp;: <strong>l</strong><strong>es textes sur internet ont parfois des erreurs</strong> ❌</p><p>Et un logiciel d'IA générative ne repère pas ces erreurs pendant l’entraînement. Il peut donc <strong>reproduire ces erreurs</strong> dans ses réponses.<br><br></p>"
+                "content": "<p>Si on donne à un logiciel d'IA générative  <strong>des milliards de textes variés pour s’entraîner</strong>, il pourra apporter des réponses pertinentes à presque toutes les demandes des utilisateurs. </p><p>⚠️ Mais attention&nbsp;: <strong>l</strong><strong>es textes sur internet contiennent parfois des erreurs</strong> ❌</p><p>Et un logiciel d'IA générative ne repère pas ces erreurs pendant l’entraînement. Il peut donc <strong>reproduire ces erreurs</strong> dans ses réponses.<br><br></p>"
               }
             }
           ]
@@ -551,10 +551,10 @@
                   },
                   {
                     "id": "2",
-                    "content": "<p>Un outil qui produit du texte, des images ou du son avec les consignes d’un utilisateur.</p>",
+                    "content": "<p>Un outil qui produit du texte, des images ou du son selon les consignes d’un utilisateur.</p>",
                     "feedback": {
                       "state": "<p>Bonne réponse ! ✨</p>",
-                      "diagnosis": "<p>On appelle ces consignes données par l'utilisateur des prompts.</p>"
+                      "diagnosis": "<p>Ces consignes données par l'utilisateur s'appellent des prompts.\n\n</p>"
                     }
                   },
                   {
