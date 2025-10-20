@@ -40,8 +40,8 @@ export class TargetProfileToCalibratedFrameworkScript extends Script {
     }
 
     logger.info(`Handle retrieving tubes to create ${tubeIds.length} new certification frameworks challenges`);
-    await usecases.createConsolidatedFramework({
-      complementaryCertificationKey: options.complementaryCertificationKey,
+    await usecases.createCertificationVersion({
+      scope: options.complementaryCertificationKey,
       tubeIds,
     });
   }

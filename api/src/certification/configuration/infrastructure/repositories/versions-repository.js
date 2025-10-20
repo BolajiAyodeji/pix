@@ -43,3 +43,14 @@ export async function create({ version, challenges }) {
 
   return id;
 }
+
+/**
+ * @param {Object} params
+ * @param {Version} params.version
+ * @returns {Promise<void>}
+ */
+export async function updateExpirationDate({ version }) {
+  const knexConn = DomainTransaction.getConnection();
+
+  await knexConn('certification_versions').where({ id: version.id }).update({ expirationDate: version.expirationDate });
+}

@@ -64,4 +64,39 @@ describe('Certification | Configuration | Integration | Repository | Versions', 
       });
     });
   });
+
+  describe('#updateExpirationDate', function () {
+    it('should update the expiration date of a certification version', async function () {
+      // given
+      const existingVersion = databaseBuilder.factory.buildCertificationVersion({
+        scope: Frameworks.PIX_PLUS_DROIT,
+        startDate: new Date('2024-01-01'),
+        expirationDate: null,
+        assessmentDuration: DEFAULT_SESSION_DURATION_MINUTES,
+        challengesConfiguration: {},
+      });
+
+      await databaseBuilder.commit();
+
+      const newExpirationDate = new Date('2025-10-21T10:00:00Z');
+      const versionToUpdate = domainBuilder.certification.shared.buildVersion({
+        id: existingVersion.id,
+        scope: existingVersion.scope,
+        startDate: existingVersion.startDate,
+        expirationDate: newExpirationDate,
+        assessmentDuration: existingVersion.assessmentDuration,
+        challengesConfiguration: JSON.parse(existingVersion.challengesConfiguration),
+      });
+
+      // when
+      await versionsRepository.updateExpirationDate({ version: versionToUpdate });
+
+      // then
+      const updatedVersion = await knex('certification_versions').where({ id: existingVersion.id }).first();
+
+      expect(updatedVersion.expirationDate).to.deep.equal(newExpirationDate);
+      expect(updatedVersion.scope).to.equal(existingVersion.scope);
+      expect(updatedVersion.startDate).to.deep.equal(existingVersion.startDate);
+    });
+  });
 });

@@ -4,6 +4,7 @@ import * as tubeRepository from '../../../../shared/infrastructure/repositories/
 import { injectDependencies } from '../../../../shared/infrastructure/utils/dependency-injection.js';
 import * as flashAlgorithmConfigurationRepository from '../../../configuration/infrastructure/repositories/flash-algorithm-configuration-repository.js';
 import * as sharedFlashAlgorithmConfigurationRepository from '../../../shared/infrastructure/repositories/flash-algorithm-configuration-repository.js';
+import * as sharedVersionsRepository from '../../../shared/infrastructure/repositories/versions-repository.js';
 import * as activeCalibratedChallengeRepository from '../../infrastructure/repositories/active-calibrated-challenge-repository.js';
 import * as attachableTargetProfileRepository from '../../infrastructure/repositories/attachable-target-profiles-repository.js';
 import * as candidateRepository from '../../infrastructure/repositories/candidate-repository.js';
@@ -11,6 +12,7 @@ import * as centerRepository from '../../infrastructure/repositories/center-repo
 import * as complementaryCertificationRepository from '../../infrastructure/repositories/complementary-certification-repository.js';
 import * as consolidatedFrameworkRepository from '../../infrastructure/repositories/consolidated-framework-repository.js';
 import * as learningContentRepository from '../../infrastructure/repositories/learning-content-repository.js';
+import * as versionsRepository from '../../infrastructure/repositories/versions-repository.js';
 
 /**
  *
@@ -28,6 +30,8 @@ import * as learningContentRepository from '../../infrastructure/repositories/le
  * @typedef {tubeRepository} TubeRepository
  * @typedef {flashAlgorithmConfigurationRepository} FlashAlgorithmConfigurationRepository
  * @typedef {sharedFlashAlgorithmConfigurationRepository} SharedFlashAlgorithmConfigurationRepository
+ * @typedef {sharedVersionsRepository} SharedVersionsRepository
+ * @typedef {versionsRepository} VersionsRepository
  **/
 const dependencies = {
   activeCalibratedChallengeRepository,
@@ -42,6 +46,8 @@ const dependencies = {
   tubeRepository,
   flashAlgorithmConfigurationRepository,
   sharedFlashAlgorithmConfigurationRepository,
+  sharedVersionsRepository,
+  versionsRepository,
 };
 
 import { calibrateConsolidatedFramework } from './calibrate-consolidated-framework.js';

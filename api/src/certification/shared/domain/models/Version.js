@@ -9,7 +9,7 @@ import { Frameworks } from './Frameworks.js';
 
 export class Version {
   static #schema = Joi.object({
-    id: Joi.number().required(),
+    id: Joi.number().optional(),
     scope: Joi.string()
       .required()
       .valid(...Object.values(Frameworks)),
@@ -23,7 +23,7 @@ export class Version {
 
   /**
    * @param {Object} params
-   * @param {number} params.id - version identifier
+   * @param {number} [params.id] - version identifier (optional for new versions)
    * @param {Frameworks} params.scope - Framework scope (CORE, DROIT, etc.)
    * @param {Date} params.startDate - When this version becomes active
    * @param {Date|null} [params.expirationDate] - When this version expires (null if current)

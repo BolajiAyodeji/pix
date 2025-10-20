@@ -1,5 +1,6 @@
 import _ from 'lodash';
 
+import { DEFAULT_SESSION_DURATION_MINUTES } from '../../../../../src/certification/shared/domain/constants.js';
 import { ComplementaryCertificationKeys } from '../../../../../src/certification/shared/domain/models/ComplementaryCertificationKeys.js';
 import {
   createServer,
@@ -296,8 +297,20 @@ describe('Certification | Configuration | Acceptance | API | complementary-certi
       expect(response.result.data.type).to.equal('certification-consolidated-framework');
       expect(response.result.data.id).to.exist;
 
+      const certificationVersion = await knex('certification_versions')
+        .where({ scope: complementaryCertification.key })
+        .orderBy('startDate', 'desc')
+        .first();
+
+      expect(certificationVersion).to.exist;
+      expect(certificationVersion.scope).to.equal(complementaryCertification.key);
+      expect(certificationVersion.expirationDate).to.be.null;
+      expect(certificationVersion.assessmentDuration).to.equal(DEFAULT_SESSION_DURATION_MINUTES);
+      expect(certificationVersion.challengesConfiguration).to.deep.equal({});
+      expect(certificationVersion.startDate).to.exist;
+
       const consolidatedFramework = await knex('certification-frameworks-challenges')
-        .select('discriminant', 'difficulty', 'challengeId', 'complementaryCertificationKey')
+        .select('discriminant', 'difficulty', 'challengeId', 'complementaryCertificationKey', 'versionId')
         .where({
           complementaryCertificationKey: complementaryCertification.key,
         });
@@ -307,6 +320,86 @@ describe('Certification | Configuration | Acceptance | API | complementary-certi
           difficulty: null,
           challengeId: challenge.id,
           complementaryCertificationKey: complementaryCertification.key,
+          versionId: certificationVersion.id,
+        },
+      ]);
+    });
+
+    it('should create a new version and expire the previous one when a version already exists', async function () {
+      // given
+      const superAdmin = await insertUserWithRoleSuperAdmin();
+      const complementaryCertification = databaseBuilder.factory.buildComplementaryCertification();
+
+      const existingVersionStartDate = new Date('2024-01-01');
+      const existingVersion = databaseBuilder.factory.buildCertificationVersion({
+        scope: complementaryCertification.key,
+        startDate: existingVersionStartDate,
+        expirationDate: null,
+        assessmentDuration: DEFAULT_SESSION_DURATION_MINUTES,
+      });
+
+      const tubeId = 'myTubeId';
+      const skill = databaseBuilder.factory.learningContent.buildSkill({
+        tubeId,
+        status: 'actif',
+      });
+      const tube1 = databaseBuilder.factory.learningContent.buildTube({ id: tubeId, skillIds: [skill.id] });
+      const challenge = databaseBuilder.factory.learningContent.buildChallenge({
+        skillId: skill.id,
+        status: 'validé',
+        locales: ['fr-fr'],
+      });
+
+      await databaseBuilder.commit();
+
+      const options = {
+        method: 'POST',
+        url: `/api/admin/complementary-certifications/${complementaryCertification.key}/consolidated-framework`,
+        headers: generateAuthenticatedUserRequestHeaders({ userId: superAdmin.id }),
+        payload: {
+          data: {
+            attributes: {
+              tubeIds: [tube1.id],
+            },
+          },
+        },
+      };
+
+      // when
+      const response = await server.inject(options);
+
+      // then
+      expect(response.statusCode).to.equal(201);
+
+      const versions = await knex('certification_versions')
+        .where({ scope: complementaryCertification.key })
+        .orderBy('startDate', 'asc');
+
+      expect(versions).to.have.lengthOf(2);
+
+      const [oldVersion, newVersion] = versions;
+
+      expect(oldVersion.id).to.equal(existingVersion.id);
+      expect(oldVersion.expirationDate).to.exist;
+      expect(oldVersion.expirationDate).to.be.instanceOf(Date);
+
+      expect(newVersion.expirationDate).to.be.null;
+      expect(newVersion.startDate).to.exist;
+      expect(newVersion.startDate).to.be.instanceOf(Date);
+      expect(newVersion.startDate.getTime()).to.equal(oldVersion.expirationDate.getTime());
+
+      const consolidatedFramework = await knex('certification-frameworks-challenges')
+        .select('challengeId', 'complementaryCertificationKey', 'versionId')
+        .where({
+          complementaryCertificationKey: complementaryCertification.key,
+          versionId: newVersion.id,
+        });
+
+      expect(consolidatedFramework).to.deep.equal([
+        {
+          challengeId: challenge.id,
+          complementaryCertificationKey: complementaryCertification.key,
+          versionId: newVersion.id,
         },
       ]);
     });
