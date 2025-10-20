@@ -1,7 +1,7 @@
 {
   "id": "a1eea948-2125-488f-8006-9f85e646830d",
   "slug": "tmp-ia-bias-ind",
-  "title": "Les biais des lA",
+  "title": "Les biais des IA génératives",
   "isBeta": true,
   "details": {
     "image": "https://assets.pix.org/modules/IAGenBiais_IND/picto_moduleIA_biais.svg",
@@ -151,7 +151,7 @@
                       "type": "image",
                       "url": "https://assets.pix.org/modules/IAGenBiais_IND/wikipediatiersmonde.png",
                       "alt": "Capture d'écran de la page « Tiers Monde » de Wikipédia",
-                      "alternativeText": "<p>Voici les paragraphe lisibles de la capture d'écran de la page Tiers Monde de Wikipédia&nbsp;:&nbsp;</p><p>«&nbsp;L'expression&nbsp;tiers monde, ou&nbsp;tiers-monde, lancée en 1952, se rapporte à l'ensemble des pays&nbsp;africains,&nbsp;asiatiques,&nbsp;océaniens&nbsp;ou du&nbsp;continent américain&nbsp;en carence de&nbsp;développement. Ce terme est considéré comme obsolète par certains,&nbsp;au profit de celui de&nbsp;pays les moins avancés&nbsp;(PMA). <br><br>Les termes&nbsp;premier monde,&nbsp;second monde&nbsp;et tiers monde ont été employés pour regrouper les nations en trois grandes catégories. Ces trois termes ne sont pas apparus simultanément. Après la&nbsp;Seconde Guerre mondiale, l’OTAN&nbsp;et le&nbsp;Pacte de Varsovie&nbsp;ont été considérés comme les deux grands blocs. Le nombre de pays faisant partie de ces deux blocs n’étant pas fixé de manière précise, on s’est finalement aperçu qu’un grand nombre de pays ne rentraient dans aucune de ces deux catégories. </p><p>En 1952, le&nbsp;démographe&nbsp;français&nbsp;Alfred Sauvy&nbsp;et le&nbsp;sociologue&nbsp;Georges Balandier&nbsp;inventent le terme «&nbsp;tiers monde&nbsp;» pour désigner ces pays. La fameuse expression «&nbsp;Tiers Monde&nbsp;», est initialement publiée dans un article dans&nbsp;L'Obs&nbsp;écrit en 1952 par Sauvy&nbsp;:&nbsp;«&nbsp;Nous parlons volontiers des deux mondes en présence, de leur guerre possible, de leur coexistence, etc. oubliant trop souvent qu'il en existe un troisième, le plus important […] C'est l'ensemble de ceux que l'on appelle […] les pays sous-développés […]. Ce Tiers Monde ignoré, exploité, méprisé […] veut, lui aussi, être quelque chose&nbsp;». L'expression «&nbsp;le tiers monde&nbsp;», du fait de son caractère générique ne doit toutefois pas occulter les spécificités historiques et le contexte socio-politique de chacun des pays censés y correspondre.&nbsp;»</p>",
+                      "alternativeText": "<p>Voici les paragraphes lisibles de la capture d'écran de la page Tiers Monde de Wikipédia&nbsp;:&nbsp;</p><p>«&nbsp;L'expression&nbsp;tiers monde, ou&nbsp;tiers-monde, lancée en 1952, se rapporte à l'ensemble des pays&nbsp;africains,&nbsp;asiatiques,&nbsp;océaniens&nbsp;ou du&nbsp;continent américain&nbsp;en carence de&nbsp;développement. Ce terme est considéré comme obsolète par certains,&nbsp;au profit de celui de&nbsp;pays les moins avancés&nbsp;(PMA). <br><br>Les termes&nbsp;premier monde,&nbsp;second monde&nbsp;et tiers monde ont été employés pour regrouper les nations en trois grandes catégories. Ces trois termes ne sont pas apparus simultanément. Après la&nbsp;Seconde Guerre mondiale, l’OTAN&nbsp;et le&nbsp;Pacte de Varsovie&nbsp;ont été considérés comme les deux grands blocs. Le nombre de pays faisant partie de ces deux blocs n’étant pas fixé de manière précise, on s’est finalement aperçu qu’un grand nombre de pays ne rentraient dans aucune de ces deux catégories. </p><p>En 1952, le&nbsp;démographe&nbsp;français&nbsp;Alfred Sauvy&nbsp;et le&nbsp;sociologue&nbsp;Georges Balandier&nbsp;inventent le terme «&nbsp;tiers monde&nbsp;» pour désigner ces pays. La fameuse expression «&nbsp;Tiers Monde&nbsp;», est initialement publiée dans un article dans&nbsp;L'Obs&nbsp;écrit en 1952 par Sauvy&nbsp;:&nbsp;«&nbsp;Nous parlons volontiers des deux mondes en présence, de leur guerre possible, de leur coexistence, etc. oubliant trop souvent qu'il en existe un troisième, le plus important […] C'est l'ensemble de ceux que l'on appelle […] les pays sous-développés […]. Ce Tiers Monde ignoré, exploité, méprisé […] veut, lui aussi, être quelque chose&nbsp;». L'expression «&nbsp;le tiers monde&nbsp;», du fait de son caractère générique ne doit toutefois pas occulter les spécificités historiques et le contexte socio-politique de chacun des pays censés y correspondre.&nbsp;»</p>",
                       "legend": "",
                       "licence": ""
                     },
@@ -200,27 +200,27 @@
                     {
                       "id": "e7221438-eda2-4b5f-a587-ec525317070d",
                       "type": "qcu-discovery",
-                      "instruction": "<p>À votre avis, si l’IA générative est entraînée sur des sources à propos des prix Nobels, comme celle-ci, ses réponses pourront-elles contenir des biais ?</p>",
+                      "instruction": "<p>À votre avis, si l’IA générative est entraînée sur des sources à propos des prix Nobel, comme celle-ci, ses réponses pourront-elles contenir des biais ?</p>",
                       "proposals": [
                         {
                           "id": "1",
                           "content": "<p>oui</p>",
                           "feedback": {
-                            "diagnosis": "<p><strong>Bien vu !</strong> <br>Dans cet article, on voit que la majorité des lauréats des prix Nobel sont des hommes, blancs occidentaux et âgés. Si l’IA est entraînée sur ces données, elle pourrait en déduire que d’autres catégories de personnes ne peuvent pas recevoir de prix Nobel.</p>"
+                            "diagnosis": "<p><strong>Bien vu !</strong> <br>Dans cet article, on voit que la majorité des lauréats des prix Nobel sont des hommes, blancs et âgés. Si l’IA est entraînée sur ces données, elle pourrait en déduire que d’autres catégories de personnes ne peuvent pas recevoir de prix Nobel.</p>"
                           }
                         },
                         {
                           "id": "2",
                           "content": "<p>non</p>",
                           "feedback": {
-                            "diagnosis": "<p><strong>Et pourtant si </strong><strong>! <br></strong>Dans cet article, on voit que la majorité des lauréats des prix Nobel sont des hommes, blancs occidentaux et âgés. Si l’IA est entraînée sur ces données, elle pourrait en déduire que d’autres catégories de personnes ne peuvent pas recevoir de prix Nobel.</p>"
+                            "diagnosis": "<p><strong>Et pourtant si </strong><strong>! <br></strong>Dans cet article, on voit que la majorité des lauréats des prix Nobel sont des hommes, blancs et âgés. Si l’IA est entraînée sur ces données, elle pourrait en déduire que d’autres catégories de personnes ne peuvent pas recevoir de prix Nobel.</p>"
                           }
                         },
                         {
                           "id": "3",
                           "content": "<p>Je ne sais pas.</p>",
                           "feedback": {
-                            "diagnosis": "<p><strong>C'était oui.<br></strong>Dans cet article, on voit que la majorité des lauréats des prix Nobel sont des hommes, blancs occidentaux et âgés. Si l’IA est entraînée sur ces données, elle pourrait en déduire que d’autres catégories de personnes ne peuvent pas recevoir de prix Nobel.</p>"
+                            "diagnosis": "<p><strong>C'était oui.<br></strong>Dans cet article, on voit que la majorité des lauréats des prix Nobel sont des hommes, blancs et âgés. Si l’IA est entraînée sur ces données, elle pourrait en déduire que d’autres catégories de personnes ne peuvent pas recevoir de prix Nobel.</p>"
                           }
                         }
                       ],
@@ -242,7 +242,7 @@
               "element": {
                 "id": "7e8ef97e-9782-4eba-bc2c-806c4020caa3",
                 "type": "text",
-                "content": "<p>Les IA génératives sont <strong>entraînées </strong>sur une très <strong>grande quantité</strong> de données.</p><p> Ces données proviennent d'internet et sont très diverses (articles Wikipédia, forums, banque d’images, etc.). 🌐</p><p><br></p><p>Ces données peuvent&nbsp;:</p><ul>    <li>Montrer des <strong>situations de discrimination </strong>déjà <strong>existantes&nbsp;</strong></li>    <li>Exprimer les <strong>expériences</strong>, ou les <strong>opinions </strong>des contributeurs qui les ont produites.</li></ul><p>    <strong>Elles peuvent aussi présenter un manque de représentation de la diversité culturelle</strong></p><ul>    <br></ul>"
+                "content": "<p>Les IA génératives sont <strong>entraînées </strong>sur une très <strong>grande quantité</strong> de données.</p><p> Ces données proviennent d'internet et sont très diverses (articles Wikipédia, forums, banque d’images, etc.). 🌐</p><p><br></p><p>Ces données peuvent&nbsp;:</p><ul>    <li>Montrer des <strong>situations de discrimination </strong>déjà <strong>existantes&nbsp;</strong></li>    <li>Exprimer les <strong>expériences</strong>, ou les <strong>opinions </strong>des contributeurs qui les ont produites.</li></ul><p>    <strong>Elles peuvent aussi présenter un manque de représentation de la diversité culturelle.</strong></p></ul>"
               }
             }
           ]
@@ -299,14 +299,14 @@
                     "id": "1",
                     "content": "<p>la semoule</p>",
                     "feedback": {
-                      "diagnosis": "<p><strong>C’est normal que vous ayez fait cette hypothèse.</strong><br> Car, vous n’aviez accès qu’aux recettes présentes sur le web. Les données observées ici ont un biais&nbsp;: les taboulés à la semoule sont sur-représentés sur le web. Au Liban le résultat aurait été différent car le taboulé y est fait principalement avec du persil.</p>"
+                      "diagnosis": "<p><strong>C’est normal que vous ayez fait cette hypothèse.</strong><br>Vous n’aviez accès qu’aux recettes présentes dans les données d’entraînement : ces recettes étaient issues du web français. Or, elles ont un biais : les taboulés à la semoule sont sur-représentés sur le web français. Au Liban, le résultat aurait été différent car le taboulé y est fait principalement avec du persil.</p>"
                     }
                   },
                   {
                     "id": "2",
                     "content": "<p>le persil</p>",
                     "feedback": {
-                      "diagnosis": "<p><strong>Eh non.<br></strong>Car, vous n’aviez accès qu’aux recettes présentes sur le web. Les données observées ici ont un biais&nbsp;: les taboulés à la semoule sont sur-représentés sur le web.&nbsp;Au Liban le résultat aurait été différent car le taboulé y est fait principalement avec du persil.</p>"
+                      "diagnosis": "<p><strong>Eh non.<br></strong>Vous n’aviez accès qu’aux recettes présentes dans les données d’entraînement : ces recettes étaient issues du web français. Or, elles ont un biais : les taboulés à la semoule sont sur-représentés sur le web français. Au Liban, le résultat aurait été différent car le taboulé y est fait principalement avec du persil.</p>"
                     }
                   }
                 ],
@@ -325,7 +325,7 @@
               "element": {
                 "id": "aba8fd9b-a0fd-42db-abfc-89ebc37fa983",
                 "type": "text",
-                "content": "<p>L’IA générative construit ses réponses à partir des éléments les plus fréquents dans ses données d’entraînement.</p><p><br>Cette méthode donne souvent de bons résultats 👍 mais les données du web sont déséquilibrées : certains faits ou opinions sont sur-représentés, d’autres sous-représentés.&nbsp;De plus, la sélection des données par les personnes qui conçoivent des IA peut accentuer ces déséquilibres. Par exemple, si on ne prend que le web en anglais, la vision anglophone sera majoritaire.</p><p><br>L’IA peut donc produire des réponses biaisées : idées reçues, stéréotypes, discriminations ou biais culturels.<br></p>"
+                "content": "<p>L’IA générative construit ses réponses à partir des éléments les plus fréquents dans ses données d’entraînement.</p><p><br>Cette méthode donne souvent de bons résultats 👍 mais les données du web sont déséquilibrées : certains faits ou opinions sont sur-représentés, d’autres sous-représentés.&nbsp;De plus, la sélection des données par les personnes qui conçoivent des IA peut accentuer ces déséquilibres. Par exemple, si on ne prend que le web en anglais, la vision anglophone sera majoritaire.</p><p><br>L’IA peut donc produire des réponses biaisées : idées reçues, stéréotypes, discriminations, biais linguistiques et culturels.<br></p>"
               }
             }
           ]
@@ -437,7 +437,7 @@
                           "id": "1",
                           "content": "<p>Car il n’y a pas de biais dans la création de l’IA.</p>",
                           "feedback": {
-                            "diagnosis": "<p><strong>Pas exactement.</strong></p><p>Ici, le logiciel d'IA générative a produit une vision stéréotypée des français avec un couple à Paris, portant des bérêts.&nbsp; Si Satô n'a jamais rencontré de français, il risque de ne pas remettre en question ce cliché.<br></p>"
+                            "diagnosis": "<p><strong>Pas exactement.</strong></p><p>Ici, le logiciel d'IA générative a produit une vision stéréotypée des français avec un couple à Paris, portant des bérets.&nbsp; Si Satô n'a jamais rencontré de français, il risque de ne pas remettre en question ce cliché.<br></p>"
                           }
                         },
                         {
