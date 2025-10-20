@@ -151,5 +151,8 @@
   "exports": {
     "./tests/*": "./tests/*",
     "./*": "./app/*"
+  },
+  "dependencies": {
+    "@zumer/snapdom": "^1.9.14"
   }
 }
