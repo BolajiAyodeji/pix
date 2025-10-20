@@ -15,11 +15,11 @@ const searchAttachableTargetProfilesForComplementaryCertifications = async funct
   return attachableTargetProfilesSerializer.serialize(attachableTargetProfiles);
 };
 
-const createConsolidatedFramework = async function (request, h) {
+const createCertificationVersion = async function (request, h) {
   const { complementaryCertificationKey } = request.params;
   const { tubeIds } = request.payload.data.attributes;
 
-  await usecases.createConsolidatedFramework({ complementaryCertificationKey, tubeIds });
+  await usecases.createCertificationVersion({ scope: complementaryCertificationKey, tubeIds });
 
   return h
     .response({
@@ -61,7 +61,7 @@ const getFrameworkHistory = async function (request) {
 
 const complementaryCertificationController = {
   calibrateConsolidatedFramework,
-  createConsolidatedFramework,
+  createCertificationVersion,
   findComplementaryCertifications,
   getCurrentConsolidatedFramework,
   getFrameworkHistory,

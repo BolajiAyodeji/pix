@@ -1,9 +1,9 @@
-import { createConsolidatedFramework } from '../../../../../../src/certification/configuration/domain/usecases/create-consolidated-framework.js';
-import { ComplementaryCertificationKeys } from '../../../../../../src/certification/shared/domain/models/ComplementaryCertificationKeys.js';
+import { createCertificationVersion } from '../../../../../../src/certification/configuration/domain/usecases/create-consolidated-framework.js';
+import { Frameworks } from '../../../../../../src/certification/shared/domain/models/Frameworks.js';
 import { FRENCH_FRANCE, FRENCH_SPOKEN } from '../../../../../../src/shared/domain/services/locale-service.js';
 import { domainBuilder, expect, sinon } from '../../../../../test-helper.js';
 
-describe('Certification | Configuration | Unit | UseCase | create-consolidated-framework', function () {
+describe('Certification | Configuration | Unit | UseCase | create-certification-version', function () {
   let challengeRepository, consolidatedFrameworkRepository, tubeRepository, skillRepository;
 
   beforeEach(function () {
@@ -21,9 +21,9 @@ describe('Certification | Configuration | Unit | UseCase | create-consolidated-f
     };
   });
 
-  it('should create a new consolidated framework', async function () {
+  it('should create a new certification version', async function () {
     // given
-    const complementaryCertificationKey = ComplementaryCertificationKeys.PIX_PLUS_PRO_SANTE;
+    const scope = Frameworks.PIX_PLUS_PRO_SANTE;
 
     const tube1 = domainBuilder.buildTube({
       id: 'recTube1',
@@ -49,8 +49,8 @@ describe('Certification | Configuration | Unit | UseCase | create-consolidated-f
     const version = '20190101050607';
 
     // when
-    await createConsolidatedFramework({
-      complementaryCertificationKey,
+    await createCertificationVersion({
+      scope,
       tubeIds,
       tubeRepository,
       skillRepository,
@@ -69,7 +69,7 @@ describe('Certification | Configuration | Unit | UseCase | create-consolidated-f
       FRENCH_FRANCE,
     );
     expect(consolidatedFrameworkRepository.create).to.have.been.calledOnceWithExactly({
-      complementaryCertificationKey,
+      complementaryCertificationKey: scope,
       challenges: frFrChallenges,
       version,
     });

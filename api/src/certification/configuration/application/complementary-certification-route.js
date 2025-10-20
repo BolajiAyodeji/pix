@@ -88,7 +88,7 @@ const register = async function (server) {
             },
           }),
         },
-        handler: complementaryCertificationController.createConsolidatedFramework,
+        handler: complementaryCertificationController.createCertificationVersion,
         tags: ['api', 'admin'],
         notes: [
           'Cette route est restreinte aux utilisateurs authentifiés avec le rôle Super Admin',

@@ -85,7 +85,7 @@ describe('Certification | Configuration | Unit | Application | Router | compleme
         sinon
           .stub(securityPreHandlers, 'hasAtLeastOneAccessOf')
           .returns((request, h) => h.response().code(403).takeover());
-        sinon.stub(complementaryCertificationController, 'createConsolidatedFramework').returns('ok');
+        sinon.stub(complementaryCertificationController, 'createCertificationVersion').returns('ok');
         const httpTestServer = new HttpTestServer();
         await httpTestServer.register(moduleUnderTest);
 
@@ -98,7 +98,7 @@ describe('Certification | Configuration | Unit | Application | Router | compleme
 
         // then
         expect(response.statusCode).to.equal(403);
-        sinon.assert.notCalled(complementaryCertificationController.createConsolidatedFramework);
+        sinon.assert.notCalled(complementaryCertificationController.createCertificationVersion);
       });
     });
   });
@@ -110,7 +110,7 @@ describe('Certification | Configuration | Unit | Application | Router | compleme
         sinon
           .stub(securityPreHandlers, 'hasAtLeastOneAccessOf')
           .returns((request, h) => h.response().code(403).takeover());
-        sinon.stub(complementaryCertificationController, 'createConsolidatedFramework').returns('ok');
+        sinon.stub(complementaryCertificationController, 'calibrateConsolidatedFramework').returns('ok');
         const httpTestServer = new HttpTestServer();
         await httpTestServer.register(moduleUnderTest);
 
@@ -123,7 +123,7 @@ describe('Certification | Configuration | Unit | Application | Router | compleme
 
         // then
         expect(response.statusCode).to.equal(403);
-        sinon.assert.notCalled(complementaryCertificationController.createConsolidatedFramework);
+        sinon.assert.notCalled(complementaryCertificationController.calibrateConsolidatedFramework);
       });
     });
   });

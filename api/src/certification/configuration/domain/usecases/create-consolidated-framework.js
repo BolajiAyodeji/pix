@@ -1,5 +1,5 @@
 /**
- * @typedef {import ('../../../shared/domain/models/ComplementaryCertificationKeys.js').ComplementaryCertificationKeys} ComplementaryCertificationKeys
+ * @typedef {import ('../../../shared/domain/models/Frameworks.js').Frameworks} Frameworks
  * @typedef {import ('./index.js').TubeRepository} TubeRepository
  * @typedef {import ('./index.js').SkillRepository} SkillRepository
  * @typedef {import ('./index.js').ChallengeRepository} ChallengeRepository
@@ -11,15 +11,15 @@ import { getVersionNumber } from '../services/get-version-number.js';
 
 /**
  * @param {Object} params
- * @param {ComplementaryCertificationKeys} params.complementaryCertificationKey
+ * @param {Frameworks} params.scope
  * @param {Array<string>} params.tubeIds
  * @param {TubeRepository} params.tubeRepository
  * @param {SkillRepository} params.skillRepository
  * @param {ChallengeRepository} params.challengeRepository
  * @param {ConsolidatedFrameworkRepository} params.consolidatedFrameworkRepository
  */
-export const createConsolidatedFramework = async ({
-  complementaryCertificationKey,
+export const createCertificationVersion = async ({
+  scope,
   tubeIds,
   tubeRepository,
   skillRepository,
@@ -34,7 +34,7 @@ export const createConsolidatedFramework = async ({
   const challenges = await challengeRepository.findValidatedBySkills(skills, FRENCH_FRANCE);
 
   return consolidatedFrameworkRepository.create({
-    complementaryCertificationKey,
+    complementaryCertificationKey: scope,
     challenges,
     version: getVersionNumber(),
   });

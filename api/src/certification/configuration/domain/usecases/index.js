@@ -46,7 +46,7 @@ const dependencies = {
 
 import { calibrateConsolidatedFramework } from './calibrate-consolidated-framework.js';
 import { catchingUpCandidateReconciliation } from './catching-up-candidate-reconciliation.js';
-import { createConsolidatedFramework } from './create-consolidated-framework.js';
+import { createCertificationVersion } from './create-consolidated-framework.js';
 import { createFlashAssessmentConfiguration } from './create-flash-assessment-configuration.js';
 import { exportScoWhitelist } from './export-sco-whitelist.js';
 import { findComplementaryCertifications } from './find-complementary-certifications.js';
@@ -59,7 +59,7 @@ import { searchAttachableTargetProfiles } from './search-attachable-target-profi
 const usecasesWithoutInjectedDependencies = {
   calibrateConsolidatedFramework,
   catchingUpCandidateReconciliation,
-  createConsolidatedFramework,
+  createCertificationVersion,
   createFlashAssessmentConfiguration,
   exportScoWhitelist,
   findComplementaryCertifications,
