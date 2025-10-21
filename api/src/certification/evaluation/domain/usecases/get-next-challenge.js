@@ -6,7 +6,7 @@
  * @typedef {import('../../../evaluation/domain/usecases/index.js').SharedChallengeRepository} SharedChallengeRepository
  * @typedef {import('../../../evaluation/domain/usecases/index.js').FlashAlgorithmConfigurationRepository} FlashAlgorithmConfigurationRepository
  * @typedef {import('../../../evaluation/domain/usecases/index.js').SessionManagementCertificationChallengeRepository} SessionManagementCertificationChallengeRepository
- * @typedef {import('../../../configuration/domain/usecases/index.js').VersionsRepository} VersionsRepository
+ * @typedef {import('../../../evaluation/domain/usecases/index.js').VersionRepository} VersionRepository
  * @typedef {import('../../../evaluation/domain/usecases/index.js').FlashAlgorithmService} FlashAlgorithmService
  * @typedef {import('../../../evaluation/domain/usecases/index.js').PickChallengeService} PickChallengeService
  */
@@ -27,7 +27,7 @@ const debugGetNextChallenge = Debug('pix:certif:get-next-challenge');
  * @param {CertificationChallengeLiveAlertRepository} params.certificationChallengeLiveAlertRepository
  * @param {CertificationCourseRepository} params.certificationCourseRepository
  * @param {SharedChallengeRepository} params.sharedChallengeRepository
- * @param {VersionsRepository} params.versionsRepository
+ * @param {VersionRepository} params.versionRepository
  * @param {SessionManagementCertificationChallengeRepository} params.sessionManagementCertificationChallengeRepository
  * @param {FlashAlgorithmService} params.flashAlgorithmService
  * @param {PickChallengeService} params.pickChallengeService
@@ -41,7 +41,7 @@ const getNextChallenge = async function ({
   certificationCourseRepository,
   sessionManagementCertificationChallengeRepository,
   sharedChallengeRepository,
-  versionsRepository,
+  versionRepository,
   flashAlgorithmService,
   pickChallengeService,
 }) {
@@ -76,7 +76,7 @@ const getNextChallenge = async function ({
   const complementaryCertificationKey =
     candidate.subscriptionScope !== Frameworks.CORE ? candidate.subscriptionScope : undefined;
 
-  const version = await versionsRepository.getByScopeAndReconciliationDate({
+  const version = await versionRepository.getByScopeAndReconciliationDate({
     scope: candidate.subscriptionScope,
     reconciliationDate: candidate.reconciledAt,
   });
