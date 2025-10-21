@@ -242,7 +242,7 @@
               "element": {
                 "id": "7e8ef97e-9782-4eba-bc2c-806c4020caa3",
                 "type": "text",
-                "content": "<p>Les IA génératives sont <strong>entraînées </strong>sur une très <strong>grande quantité</strong> de données.</p><p> Ces données proviennent d'internet et sont très diverses (articles Wikipédia, forums, banque d’images, etc.). 🌐</p><p><br></p><p>Ces données peuvent&nbsp;:</p><ul>    <li>Montrer des <strong>situations de discrimination </strong>déjà <strong>existantes&nbsp;</strong></li>    <li>Exprimer les <strong>expériences</strong>, ou les <strong>opinions </strong>des contributeurs qui les ont produites.</li></ul><p>    <strong>Elles peuvent aussi présenter un manque de représentation de la diversité culturelle.</strong></p></ul>"
+                "content": "<p>Les IA génératives sont <strong>entraînées </strong>sur une très <strong>grande quantité</strong> de données.</p><p> Ces données proviennent d'internet et sont très diverses (articles Wikipédia, forums, banque d’images, etc.). 🌐</p><p><br></p><p>Ces données peuvent&nbsp;:</p><ul>    <li>Montrer des <strong>situations de discrimination </strong>déjà <strong>existantes&nbsp;</strong></li>    <li>Exprimer les <strong>expériences</strong>, ou les <strong>opinions </strong>des contributeurs qui les ont produites.</li></ul><p>    <strong>Elles peuvent aussi présenter un manque de représentation de la diversité culturelle.</strong></p>"
               }
             }
           ]
@@ -299,14 +299,14 @@
                     "id": "1",
                     "content": "<p>la semoule</p>",
                     "feedback": {
-                      "diagnosis": "<p><strong>C’est normal que vous ayez fait cette hypothèse.</strong><br>Vous n’aviez accès qu’aux recettes présentes dans les données d’entraînement : ces recettes étaient issues du web français. Or, elles ont un biais : les taboulés à la semoule sont sur-représentés sur le web français. Au Liban, le résultat aurait été différent car le taboulé y est fait principalement avec du persil.</p>"
+                      "diagnosis": "<p><strong>C’est normal que vous ayez fait cette hypothèse.</strong><br>Vous n’aviez accès qu’aux recettes présentes dans les données d’entraînement&nbsp;: ces recettes étaient issues du web français. Or, elles ont un biais&nbsp;: les taboulés à la semoule sont sur-représentés sur le web français. Au Liban, le résultat aurait été différent car le taboulé y est fait principalement avec du persil.</p>"
                     }
                   },
                   {
                     "id": "2",
                     "content": "<p>le persil</p>",
                     "feedback": {
-                      "diagnosis": "<p><strong>Eh non.<br></strong>Vous n’aviez accès qu’aux recettes présentes dans les données d’entraînement : ces recettes étaient issues du web français. Or, elles ont un biais : les taboulés à la semoule sont sur-représentés sur le web français. Au Liban, le résultat aurait été différent car le taboulé y est fait principalement avec du persil.</p>"
+                      "diagnosis": "<p><strong>Eh non.<br></strong>Vous n’aviez accès qu’aux recettes présentes dans les données d’entraînement&nbsp;: ces recettes étaient issues du web français. Or, elles ont un biais&nbsp;: les taboulés à la semoule sont sur-représentés sur le web français. Au Liban, le résultat aurait été différent car le taboulé y est fait principalement avec du persil.</p>"
                     }
                   }
                 ],
@@ -364,52 +364,65 @@
                 {
                   "elements": [
                     {
-                      "id": "0acc6d61-54b6-4a88-a5bb-c86ee663745f",
-                      "type": "image",
-                      "url": "https://assets.pix.org/modules/IAGenBiais_IND/pix-modulix-ia-biais-conversation-ia-gen-v2-img1.png",
-                      "alt": "Conversation entre Captain America et une IA générative, détaillée dans l'alternative textuelle",
-                      "alternativeText": "<p>Captain America&nbsp;:&nbsp;<br>Pourquoi l'Amérique est le meilleur pays du monde ?<br><br></p><p>Réponse de l'IA générative&nbsp;:&nbsp;<br>Beaucoup considèrent l’Amérique comme le meilleur pays du monde pour plusieurs raisons&nbsp;: </p><ul><li><strong>Un pays de liberté</strong>, où chacun peut réaliser son rêve s’il travaille dur.</li><li><strong>Une puissance économique et militaire</strong>, qui donne une image de force et de sécurité.</li><li><strong>Un mode de vie très attractif, avec les fast-foods</strong>, les grandes maisons et les grosses voitures.</li><li><strong>Une culture populaire mondiale</strong>, grâce à Hollywood, la musique et le sport.</li></ul><p>L’Amérique est un modèle pour les autres pays.</p><p>Captain America a réagi à la réponse avec les émoji&nbsp;: 🦅,&nbsp;🇺🇸  et 😄</p>",
-                      "legend": "",
-                      "licence": ""
+                      "id": "9365da9a-4ef8-4448-a6b6-d17ab0292a8b",
+                      "type": "custom",
+                      "instruction": "<p><br></p>",
+                      "tagName": "llm-messages",
+                      "props": {
+                        "messages": [
+                          {
+                            "direction": "outbound",
+                            "content": "Pourquoi le jus de pomme est-elle la meilleure boisson du monde ?"
+                          },
+                          {
+                            "direction": "inbound",
+                            "content": "Excellente question 😄🍎 <br>Voici quelques arguments (scientifiques et gustatifs) en faveur du jus de pomme : <br>🧃 <strong> Un goût universellement apprécié </strong> <br>Le jus de pomme a ce parfait équilibre entre sucre et acidité, ce qui le rend agréable pour presque tout le monde — enfants, adultes, personnes âgées. Pas trop fort, pas trop fade. <br>💪 <strong> Plein de bienfaits </strong>  : <br>- Riche en antioxydants (notamment la quercétine, utile contre l’inflammation). <br>- Source de vitamine C (surtout s’il est non filtré ou pressé à froid). <br> - Aide à hydrater tout en apportant un petit coup d’énergie naturelle. <br> - Contient des polyphénols bons pour le cœur."
+                          },
+                          {
+                            "direction": "outbound",
+                            "content": "C'est bien ce que je me disais ! Je vais aller m'en servir un verre ! "
+                          }
+                        ]
+                      }
                     },
                     {
                       "id": "54e415d3-a447-4c30-821d-75a54ecaff56",
                       "type": "qcu-discovery",
-                      "instruction": "<p>Pourquoi Captain America est d’accord avec la réponse de l’IA ?</p>",
+                      "instruction": "<p>Pourquoi l'utilisateur est d’accord avec la réponse de l’IA ?</p>",
                       "proposals": [
                         {
                           "id": "1",
                           "content": "<p>Car il n’y a pas de biais dans la réponse de l’IA.</p>",
                           "feedback": {
-                            "diagnosis": "<p><strong>Pas exactement.</strong><br>Ici, la question posée par Captain America comportait déjà un biais «&nbsp;l'Amérique est le meilleur pays du monde&nbsp;». Donc le logiciel d’IA générative a confirmé ce biais en lui répondant.</p>"
+                            "diagnosis": "<p><strong>Pas exactement.</strong><br>Ici, la question posée par l'utilisateur comportait déjà un biais «&nbsp;le jus de pomme est la meilleure boisson au monde». Donc le logiciel d’IA générative a confirmé ce biais en lui répondant.</p>"
                           }
                         },
                         {
                           "id": "2",
-                          "content": "<p>Car l’IA a confirmé ce que Captain America pensait déjà.</p>",
+                          "content": "<p>Car l’IA a confirmé ce que l'utilisateur pensait déjà.</p>",
                           "feedback": {
-                            "diagnosis": "<p><strong>Bien vu !</strong><br>Ici, la question posée par Captain America comportait déjà un biais «&nbsp;l'Amérique est le meilleur pays du monde&nbsp;». Donc le logiciel d’IA générative a confirmé ce biais en lui répondant.</p>"
+                            "diagnosis": "<p><strong>Bien vu !</strong></p><p>Ici, la question posée par l'utilisateur comportait déjà un biais «&nbsp;le jus de pomme est la meilleure boisson au monde». Donc le logiciel d’IA générative a confirmé ce biais en lui répondant.<br></p>"
                           }
                         },
                         {
                           "id": "3",
                           "content": "<p>Car la réponse de l’IA est claire et structurée, ça l’a convaincu.</p>",
                           "feedback": {
-                            "diagnosis": "<p><strong>Pas exactement.</strong><br>Ici, la question posée par Captain America comportait déjà un biais «&nbsp;l'Amérique est le meilleur pays du monde&nbsp;». Donc le logiciel d’IA générative a confirmé ce biais en lui répondant.</p>"
+                            "diagnosis": "<p><strong>Pas exactement.</strong></p><p>Ici, la question posée par l'utilisateur comportait déjà un biais «&nbsp;le jus de pomme est la meilleure boisson au monde». Donc le logiciel d’IA générative a confirmé ce biais en lui répondant.<br><br></p>"
                           }
                         },
                         {
                           "id": "4",
                           "content": "<p>Car la question posée dans le prompt comportait déjà un biais.</p>",
                           "feedback": {
-                            "diagnosis": "<p><strong>Bien vu !</strong><br>Ici, la question posée par Captain America comportait déjà un biais «&nbsp;l'Amérique est le meilleur pays du monde&nbsp;». Donc le logiciel d’IA générative a confirmé ce biais en lui répondant.</p>"
+                            "diagnosis": "<p><strong>Bien vu !</strong></p><p>Ici, la question posée par l'utilisateur comportait déjà un biais «&nbsp;le jus de pomme est la meilleure boisson au monde». Donc le logiciel d’IA générative a confirmé ce biais en lui répondant.<br></p>"
                           }
                         },
                         {
                           "id": "5",
                           "content": "<p>Je ne sais pas.</p>",
                           "feedback": {
-                            "diagnosis": "<p>Ici, la question posée par Captain America comportait déjà un biais «&nbsp;l'Amérique est le meilleur pays du monde&nbsp;». Donc le logiciel d’IA générative a confirmé ce biais en lui répondant.</p>"
+                            "diagnosis": "<p>Ici, la question posée par l'utilisateur comportait déjà un biais «&nbsp;le jus de pomme est la meilleure boisson au monde». Donc le logiciel d’IA générative a confirmé ce biais en lui répondant.<br></p>"
                           }
                         }
                       ],
