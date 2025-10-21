@@ -66,7 +66,7 @@
                     {
                       "userName": "Nathan",
                       "direction": "outgoing",
-                      "content": " Oui ! J’ai demandé à ChatGPT de trouver une salle d'arcades pour se retrouver là-bas samedi soir... Mais une fois arrivés à l'adresse donnée par ChatGPT, c'était une agence immobilière. 😤"
+                      "content": " Oui ! J’ai demandé à ChatGPT de trouver un bowling pour se retrouver là-bas samedi soir... Mais une fois arrivés à l'adresse donnée par ChatGPT, c'était une agence immobilière. 😤"
                     }
                   ]
                 }
@@ -122,11 +122,11 @@
                         "messages": [
                           {
                             "direction": "outbound",
-                            "content": "Quand l'URSS a-t-elle officiellement cessé d'exister ?"
+                            "content": "Qui a inventé internet ?"
                           },
                           {
                             "direction": "inbound",
-                            "content": "L'Union des républiques socialistes soviétiques (URSS) a officiellement cessé d'exister le <strong>31 octobre 1991</strong>, lorsque <strong>Mikhail Gorbatchev</strong> a annoncé sa <strong>démission</strong> de son poste de président de l'URSS. <br><br>À partir de ce moment, la Fédération de Russie a repris la place de l'URSS au sein des institutions internationales, notamment au Conseil de sécurité de l'ONU."
+                            "content": "Internet a été inventé par <strong>Bill Gates</strong> afin de relier les ordinateurs <strong>pour faciliter la communication universelle.</strong>"
                           }
                         ]
                       }
@@ -147,28 +147,28 @@
                             "label": "Pas du tout",
                             "feedback": {
                               "type": "neutral",
-                              "text": "Effectivement, il vaut mieux être vigilant car même si cette réponse est bien écrite, avec des mots en gras, et présentée avec assurance, elle est fausse !"
+                              "text": "Effectivement, il vaut mieux être vigilant car même si cette réponse est bien écrite, avec des mots en gras, et présentée avec assurance, elle est fausse ! Internet est le résultat d’un travail collectif dans le cadre du projet ARPANET."
                             }
                           },
                           {
                             "label": "Pas trop",
                             "feedback": {
                               "type": "neutral",
-                              "text": "Effectivement, il vaut mieux être vigilant car même si cette réponse est bien écrite, avec des mots en gras, et présentée avec assurance, elle est fausse !"
+                              "text": "Effectivement, il vaut mieux être vigilant car même si cette réponse est bien écrite, avec des mots en gras, et présentée avec assurance, elle est fausse ! Internet est le résultat d’un travail collectif dans le cadre du projet ARPANET."
                             }
                           },
                           {
                             "label": "Un peu",
                             "feedback": {
                               "type": "neutral",
-                              "text": "En fait, il vaut mieux être vigilant car même si cette réponse est bien écrite, avec des mots en gras, et présentée avec assurance, elle est fausse !"
+                              "text": "En fait, il vaut mieux être vigilant car même si cette réponse est bien écrite, avec des mots en gras, et présentée avec assurance, elle est fausse ! Internet est le résultat d’un travail collectif dans le cadre du projet ARPANET."
                             }
                           },
                           {
                             "label": "Complètement",
                             "feedback": {
                               "type": "neutral",
-                              "text": "En fait, il vaut mieux être vigilant car même si cette réponse est bien écrite, avec des mots en gras, et présentée avec assurance, elle est fausse !"
+                              "text": "En fait, il vaut mieux être vigilant car même si cette réponse est bien écrite, avec des mots en gras, et présentée avec assurance, elle est fausse ! Internet est le résultat d’un travail collectif dans le cadre du projet ARPANET."
                             }
                           }
                         ]
@@ -187,11 +187,11 @@
                         "messages": [
                           {
                             "direction": "outbound",
-                            "content": "Comment s'appelle la première femme de Tom Cruise ?"
+                            "content": "Comment s'appelle le mari de Marie Curie ?"
                           },
                           {
                             "direction": "inbound",
-                            "content": "La première épouse de Tom Cruise est Mimi Rogers. Ils se sont mariés le 9 mai 1987 et ont divorcé le 4 février 1990."
+                            "content": "Le mari de Marie Curie était Pierre Curie, physicien français. Ensemble, ils ont découvert la radioactivité et reçu le prix Nobel de physique en 1903."
                           }
                         ]
                       }
@@ -342,28 +342,28 @@
                             "label": "Pas du tout",
                             "feedback": {
                               "type": "neutral",
-                              "text": "Effectivement ! Même si la réponse de l'IA confirme le raisonnement de la personne, cette réponse n'est pas correcte."
+                              "text": "Effectivement ! Même si la réponse de l'IA confirme le raisonnement de la personne, cette réponse n'est pas correcte. Si quelque chose augmente de 10 %, puis encore de 10 %, alors au final, ce n’est pas +20 %, mais +21 %."
                             }
                           },
                           {
                             "label": "Pas trop",
                             "feedback": {
                               "type": "neutral",
-                              "text": "Effectivement ! Même si la réponse de l'IA confirme le raisonnement de la personne, cette réponse n'est pas correcte."
+                              "text": "Effectivement ! Même si la réponse de l'IA confirme le raisonnement de la personne, cette réponse n'est pas correcte. Si quelque chose augmente de 10 %, puis encore de 10 %, alors au final, ce n’est pas +20 %, mais +21 %."
                             }
                           },
                           {
                             "label": "Un peu",
                             "feedback": {
                               "type": "neutral",
-                              "text": "En fait, même si la réponse de l'IA confirme le raisonnement de la personne, cette réponse n'est pas correcte."
+                              "text": "En fait, même si la réponse de l'IA confirme le raisonnement de la personne, cette réponse n'est pas correcte. Si quelque chose augmente de 10 %, puis encore de 10 %, alors au final, ce n’est pas +20 %, mais +21 %."
                             }
                           },
                           {
                             "label": "Complètement",
                             "feedback": {
                               "type": "neutral",
-                              "text": "En fait, même si la réponse de l'IA confirme le raisonnement de la personne, cette réponse n'est pas correcte."
+                              "text": "En fait, même si la réponse de l'IA confirme le raisonnement de la personne, cette réponse n'est pas correcte. Si quelque chose augmente de 10 %, puis encore de 10 %, alors au final, ce n’est pas +20 %, mais +21 %."
                             }
                           }
                         ]
@@ -470,9 +470,9 @@
                   },
                   {
                     "id": "3",
-                    "content": "<p>Le logiciel ne compte pas la victoire de 2025 car il était pour l’autre finaliste, Jannik Sinner.</p>",
+                    "content": "<p>La question d'Irène n'était pas assez précise elle aurait du préciser l'année.</p>",
                     "feedback": {
-                      "diagnosis": "<p>Eh non, le logiciel d'IA générative n'a pas de préférence pour un joueur plutôt qu'un autre. <br>Par contre, l'erreur peut venir des données avec lesquelles le logiciel a été entraîné. Si ces données datent d'avant 2025, le logiciel ne connaît qu'une seule victoire de Carlos Alcaraz à Roland-Garros.</p>"
+                      "diagnosis": "<p>Non, la question d’Irène était claire. <br>Par contre, l'erreur peut venir des données avec lesquelles le logiciel a été entraîné. Si ces données datent d'avant 2025, le logiciel ne connaît qu'une seule victoire de Carlos Alcaraz à Roland-Garros.</p>"
                     }
                   }
                 ],
@@ -521,7 +521,7 @@
               "element": {
                 "id": "337317e2-a1cf-471b-8182-4914fa6b7360",
                 "type": "text",
-                "content": "<p>Au fil du temps, la réponse d'un logiciel d'IA générative à une même question peut évoluer.<br><strong>Observez les deux discussions ci-dessous et répondez à la question.</strong></p>"
+                "content": "<p>Un logiciel d’IA générative ne donne jamais exactement la même réponse, mais d'une version à l'autre, ses réponses peuvent être très différentes.<br><strong>Observez les deux discussions ci-dessous et répondez à la question.</strong></p>"
               }
             },
             {
@@ -634,7 +634,7 @@
               "element": {
                 "id": "ecffdbbe-78c7-4da7-9b7d-2426eb9daf3c",
                 "type": "text",
-                "content": "<p> Nathan n'a plus confiance et n'utilise plus l'IA générative. Asma, elle, veut laisser encore une chance à l'IA, mais pour elle, pas question de se laisser avoir !&nbsp;<br>Pour la préparation d'un document important, elle interroge un logiciel d'IA générative.</p>"
+                "content": "<p> Nathan n'a plus confiance et n'utilise plus l'IA générative. Asma, elle, veut continuer à l'utiliser, mais avec plus de prudence.&nbsp;<br>Pour la préparation d'un document important, elle interroge un logiciel d'IA générative.</p>"
               }
             },
             {
@@ -666,7 +666,7 @@
                           "id": "2",
                           "content": "<p>mauvais réflexe</p>",
                           "feedback": {
-                            "diagnosis": "<p>Eh oui, c'est un mauvais réflexe ! Il faut toujours lire l’ensemble des réponses données par un logiciel d’IA générative.</p>"
+                            "diagnosis": "<p>Eh oui, c'est un mauvais réflexe ! Mieux vaut&nbsp;lire, comprendre et vérifier la réponse d’un logiciel d’IA avant de la réutiliser, même si elle semble correcte.</p>"
                           }
                         }
                       ],
@@ -705,7 +705,7 @@
                     {
                       "id": "ff81face-e51c-4bf6-8b49-50c9abd5cfdd",
                       "type": "qcu-discovery",
-                      "instruction": "<p>Réflexe 3&nbsp;: Asma cherche la source de l’information sur le web pour comparer avec l’information donnée par le logiciel d'IA générative.</p>",
+                      "instruction": "<p>Réflexe 3&nbsp;: Asma cherche une autre source d'information (encyclopédie en ligne, livres...) pour comparer avec l’information donnée par le logiciel d'IA générative.</p>",
                       "proposals": [
                         {
                           "id": "1",
@@ -787,7 +787,7 @@
               "element": {
                 "id": "d889292f-a892-4ad8-b7e8-0ef529fe13cf",
                 "type": "text",
-                "content": "<ul><li>L'objectif d’une <strong>IA générative</strong> est de répondre aux demandes d’un utilisateur. <strong>Son objectif n’est pas de dire la vérité</strong>. 🤥</li><br><li>Une <strong>IA générative peut faire des erreurs</strong>, par exemple présenter des affirmations fausses comme étant vraies. ❌</li><br><li>Les développeurs d’IA génératives essaient de réduire les erreurs. Mais il n’existe <strong>pas de moyen technique pour empêcher complètement ces erreurs.</strong> 🔧</li><br><li>Face à ces erreurs, difficiles à détecter, c’est à l’utilisateur de <strong>faire preuve d’esprit critique</strong> et de <strong>croiser les sources</strong> d’informations pour les vérifier. 🔎</li><br></ul>"
+                "content": "<ul><li>L'objectif d’une <strong>IA générative</strong> est de répondre aux demandes d’un utilisateur. <strong>Son objectif n’est pas de dire la vérité</strong>. 🤥</li><br><li>Une <strong>IA générative peut faire des erreurs</strong>, par exemple présenter <strong>comme vraies des informations inventées</strong> : on appelle cela une <strong>hallucination</strong>. ❌</li><br><li>Les développeurs d’IA génératives essaient de réduire les erreurs. Mais il n’existe <strong>pas de moyen technique pour empêcher complètement ces erreurs.</strong> 🔧</li><br><li>Face à ces erreurs, difficiles à détecter, c’est à l’utilisateur de <strong>faire preuve d’esprit critique.</strong> Pour être sûr que l’information est juste<strong>, vérifiez aussi ailleurs </strong>: dans un journal, un manuel, une encyclopédie ou sur un <strong>site internet fiable</strong>. 🔎</li><br></ul>"
               }
             }
           ]
@@ -906,14 +906,14 @@
                     {
                       "id": "113b842e-f66b-43cf-a82a-d5484b37fe22",
                       "type": "qcu",
-                      "instruction": "<p>Quelle est la source de l'erreur du logiciel d'IA générative ?</p>",
+                      "instruction": "<p>Quelle est l'origine de l'erreur du logiciel d'IA générative ?</p>",
                       "proposals": [
                         {
                           "id": "1",
-                          "content": "<p>L’IA générative  génère une hallucination.</p>",
+                          "content": "<p>L’IA a confondu Djokovic avec un autre joueur.</p>",
                           "feedback": {
                             "state": "<p>Mauvaise réponse.</p>",
-                            "diagnosis": "<p>La réponse de l’IA ne comporte pas d'éléments inventés. La vérification de Léonie montre que le sportif s’était gravement blessé la veille de la question à l’IA.<br>N'hésitez pas à réessayer.</p>"
+                            "diagnosis": "<p>Le logiciel parle bien de Novak Djokovic, mais à partir d’informations trop anciennes. La vérification de Léonie montre que le sportif s’était gravement blessé la veille de la question à l’IA.<br>N'hésitez pas à réessayer.</p>"
                           }
                         },
                         {
@@ -960,7 +960,7 @@
                     {
                       "id": "53332773-3d53-4d86-8ab3-7af01a291d1d",
                       "type": "text",
-                      "content": "<p>❌ Amalia a vérifié la réponse de l'IA : ces auteurs n’ont rien écrit ensemble et l'article est introuvable.</p>"
+                      "content": "<p>❌ Amalia a vérifié la réponse de l'IA : ces auteurs n’ont jamais rien écrit ensemble et l'article est introuvable.</p>"
                     },
                     {
                       "id": "a8a788a2-f80a-4a3e-bd05-88fc46a64469",
@@ -980,15 +980,15 @@
                           "content": "<p>La demande d'Amalia comporte une erreur que l’IA n’a pas corrigée.</p>",
                           "feedback": {
                             "state": "<p>Mauvaise réponse.</p>",
-                            "diagnosis": "<p></p><p>La demande d’Amalia ne comprend pas d’erreur. La source de l’erreur se situe du côté du logiciel d’IA générative.<br>N'hésitez pas à réessayer.</p>"
+                            "diagnosis": "<p>La demande d’Amalia ne comprend pas d’erreur. La source de l’erreur se situe du côté du logiciel d’IA générative.<br>N'hésitez pas à réessayer.</p>"
                           }
                         },
                         {
                           "id": "3",
-                          "content": "<p>Les données d’entraînement de l’IA sont fausses ou trop anciennes.</p>",
+                          "content": "<p>L'IA a une ancienne version d'un article supprimé.</p>",
                           "feedback": {
                             "state": "<p>Mauvaise réponse.</p>",
-                            "diagnosis": "<p>L’erreur relevée par Amalia est que cet article ne semble pas exister. La source de l’erreur n’est donc pas un problème de données d’entraînement. <br>N'hésitez pas à réessayer.</p>"
+                            "diagnosis": "<p>L’erreur relevée par Amalia est que cet article ne semble pas exister et que les auteurs n'ont jamais collaborés. La source de l’erreur n’est donc pas un problème de données d’entraînement. <br>N'hésitez pas à réessayer.</p>"
                           }
                         }
                       ],
