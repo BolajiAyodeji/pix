@@ -470,7 +470,7 @@
                   },
                   {
                     "id": "3",
-                    "content": "<p>La question d'Irène n'était pas assez précise elle aurait du préciser l'année.</p>",
+                    "content": "<p>La question d'Irène n'était pas assez précise, elle aurait du préciser l'année.</p>",
                     "feedback": {
                       "diagnosis": "<p>Non, la question d’Irène était claire. <br>Par contre, l'erreur peut venir des données avec lesquelles le logiciel a été entraîné. Si ces données datent d'avant 2025, le logiciel ne connaît qu'une seule victoire de Carlos Alcaraz à Roland-Garros.</p>"
                     }
