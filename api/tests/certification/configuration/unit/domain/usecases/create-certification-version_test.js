@@ -1,4 +1,4 @@
-import { createCertificationVersion } from '../../../../../../src/certification/configuration/domain/usecases/create-consolidated-framework.js';
+import { createCertificationVersion } from '../../../../../../src/certification/configuration/domain/usecases/create-certification-version.js';
 import { DEFAULT_SESSION_DURATION_MINUTES } from '../../../../../../src/certification/shared/domain/constants.js';
 import { Frameworks } from '../../../../../../src/certification/shared/domain/models/Frameworks.js';
 import { Version } from '../../../../../../src/certification/shared/domain/models/Version.js';
