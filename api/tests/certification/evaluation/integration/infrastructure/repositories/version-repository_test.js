@@ -1,6 +1,6 @@
-import { Version } from '../../../../../../src/certification/evaluation/domain/models/Version.js';
 import * as versionRepository from '../../../../../../src/certification/evaluation/infrastructure/repositories/version-repository.js';
 import { Frameworks } from '../../../../../../src/certification/shared/domain/models/Frameworks.js';
+import { Version } from '../../../../../../src/certification/shared/domain/models/Version.js';
 import { NotFoundError } from '../../../../../../src/shared/domain/errors.js';
 import { catchErr, databaseBuilder, expect } from '../../../../../test-helper.js';
 

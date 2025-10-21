@@ -1,6 +1,13 @@
+/**
+ * @typedef {import ('../../../shared/domain/constants.js').SUBSCRIPTION_TYPES} SUBSCRIPTION_TYPES
+ * @typedef {import ('../../../shared/domain/errors.js').NotFoundError} NotFoundError
+ * @typedef {import ('../../../shared/domain/models/Frameworks.js').Frameworks} Frameworks
+ * @typedef {import ('../../../shared/domain/models/Version.js').Version} Version
+ */
+
 import { DomainTransaction } from '../../../../shared/domain/DomainTransaction.js';
 import { NotFoundError } from '../../../../shared/domain/errors.js';
-import { Version } from '../../domain/models/Version.js';
+import { Version } from '../../../shared/domain/models/Version.js';
 
 /**
  * @param {number} versionId
