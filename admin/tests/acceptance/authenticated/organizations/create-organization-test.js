@@ -25,6 +25,37 @@ module('Acceptance | Organizations | Create', function (hooks) {
     assert.dom(screen.getByRole('link', { name: 'Organisations' })).hasClass('active');
   });
 
+  module('when creating an organization without a parent organization', function () {
+    test('it shows the creation form without parent organization name', async function (assert) {
+      // when
+      const screen = await visit('/organizations/new');
+
+      // then
+      assert.dom(screen.queryByText('Organisation mère')).doesNotExist();
+      assert.dom(screen.getByText('Nouvelle organisation')).exists();
+      assert.dom(screen.getByRole('button', { name: 'Ajouter' })).exists();
+    });
+  });
+
+  module('when creating an organization with a parent organization', function () {
+    test('it shows the creation form with parent organization name', async function (assert) {
+      // given
+      const parentOrganization = server.create('organization', { name: 'Wayne Enterprises' });
+
+      // when
+      const screen = await visit(
+        `/organizations/new?parentOrganizationId=${parentOrganization.id}&parentOrganizationName=${encodeURIComponent(
+          parentOrganization.name,
+        )}`,
+      );
+
+      // then
+      assert.dom(screen.getByText(`Organisation mère : ${parentOrganization.name}`)).exists();
+      assert.dom(screen.getByText('Nouvelle organisation fille')).exists();
+      assert.dom(screen.getByRole('button', { name: 'Ajouter une organisation fille' })).exists();
+    });
+  });
+
   module('when an organization is created', function () {
     test('it redirects the user on the organization details page on tags tab', async function (assert) {
       // given

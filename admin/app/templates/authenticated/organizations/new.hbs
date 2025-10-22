@@ -1,6 +1,10 @@
 {{page-title "Nouvelle orga"}}
 <header class="page-header">
-  <Organizations::Breadcrumb @currentPageLabel="Nouvelle organisation" />
+  {{#if this.parentOrganizationName}}
+    <Organizations::Breadcrumb @currentPageLabel="Nouvelle organisation fille" />
+  {{else}}
+    <Organizations::Breadcrumb @currentPageLabel="Nouvelle organisation" />
+  {{/if}}
 </header>
 
 <main class="main-admin-form">
@@ -8,5 +12,6 @@
     @organization={{@model}}
     @onSubmit={{this.addOrganization}}
     @onCancel={{this.goBackToOrganizationList}}
+    @parentOrganizationName={{this.parentOrganizationName}}
   />
 </main>

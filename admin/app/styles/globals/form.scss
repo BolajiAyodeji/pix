@@ -112,6 +112,12 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--pix-spacing-6x);
+
+    .title {
+    color: var(--pix-neutral-800);
+    font-weight: var(--pix-font-bold);
+    font-size: 1.125rem;
+  }
 }
 
 .admin-form__card {

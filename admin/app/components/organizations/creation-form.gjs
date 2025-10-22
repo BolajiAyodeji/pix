@@ -83,6 +83,14 @@ export default class OrganizationCreationForm extends Component {
     <form class="admin-form" {{on "submit" @onSubmit}}>
       <section class="admin-form__content admin-form__content--with-counters">
         <Card class="admin-form__card" @title="Information générique">
+          {{#if @parentOrganizationName}}
+            <h2 class="admin-form__content title">
+              {{t
+                "components.organizations.creation.parent-organization-name"
+                parentOrganizationName=@parentOrganizationName
+              }}
+            </h2>
+          {{/if}}
           <PixInput
             @id="organizationName"
             onchange={{this.handleOrganizationNameChange}}
@@ -147,9 +155,16 @@ export default class OrganizationCreationForm extends Component {
         <PixButton @size="small" @variant="secondary" @triggerAction={{@onCancel}}>
           {{t "common.actions.cancel"}}
         </PixButton>
-        <PixButton @type="submit" @size="small" @variant="success">
-          {{t "common.actions.add"}}
-        </PixButton>
+
+        {{#if @parentOrganizationName}}
+          <PixButton @type="submit" @size="small" @variant="success">
+            {{t "components.organizations.creation.actions.add-child-organization"}}
+          </PixButton>
+        {{else}}
+          <PixButton @type="submit" @size="small" @variant="success">
+            {{t "common.actions.add"}}
+          </PixButton>
+        {{/if}}
       </section>
     </form>
   </template>

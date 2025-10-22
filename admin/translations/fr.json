@@ -558,13 +558,17 @@
         "table-name": "Liste des organisations filles"
       },
       "creation": {
+        "actions": {
+          "add-child-organization": "Ajouter une organisation fille"
+        },
         "administration-team": {
           "required-fields-error": "Veuillez remplir tous les champs obligatoires.",
           "selector": {
             "label": "Sélectionner une équipe en charge",
             "placeholder": "Équipe en charge"
           }
-        }
+        },
+        "parent-organization-name": "Organisation mère : {parentOrganizationName}"
       },
       "editing": {
         "administration-team": {

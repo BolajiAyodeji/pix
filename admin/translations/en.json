@@ -557,13 +557,17 @@
         "table-name": "List of children organisations"
       },
       "creation": {
+        "actions": {
+          "add-child-organization": "Add child organization"
+        },
         "administration-team": {
           "required-fields-error": "Please fill in all required fields.",
           "selector": {
             "label": "Choose an administration team",
             "placeholder": "Administration team"
           }
-        }
+        },
+        "parent-organization-name": "Parent organization: {parentOrganizationName}"
       },
       "editing": {
         "administration-team": {
