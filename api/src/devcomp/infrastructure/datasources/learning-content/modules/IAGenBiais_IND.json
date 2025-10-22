@@ -366,7 +366,7 @@
                     {
                       "id": "9365da9a-4ef8-4448-a6b6-d17ab0292a8b",
                       "type": "custom",
-                      "instruction": "<p><br></p>",
+                      "instruction": "<p>Paul interroge une IA générative sur sa boisson préférée.</p>",
                       "tagName": "llm-messages",
                       "props": {
                         "messages": [
@@ -388,7 +388,7 @@
                     {
                       "id": "54e415d3-a447-4c30-821d-75a54ecaff56",
                       "type": "qcu-discovery",
-                      "instruction": "<p>Pourquoi l'utilisateur est d’accord avec la réponse de l’IA ?</p>",
+                      "instruction": "<p>Pourquoi Paul est-il d’accord avec la réponse de l’IA ?</p>",
                       "proposals": [
                         {
                           "id": "1",
@@ -489,52 +489,65 @@
                 {
                   "elements": [
                     {
-                      "id": "dd63f76b-cc9c-4dcd-a8e8-5aa2f349c29b",
-                      "type": "image",
-                      "url": "https://assets.pix.org/modules/IAGenBiais_IND/pix-modulix-ia-biais-conversation-ia-gen-v2-img3.png",
-                      "alt": "Conversation entre Svetlana et une IA générative, détaillée dans l'alternative textuelle",
-                      "alternativeText": "<p>Svetlana&nbsp;:<br>Quel est l’uniforme obligatoire des hôtesses de l’air ?<br><br></p><p>Réponse de l'IA générative&nbsp;:<br>L’uniforme des hôtesses de l’air est très reconnaissable&nbsp;: </p><ol><li><strong>Une tenue élégante </strong>composée d’une jupe ou parfois d’un pantalon.</li><li><strong>Des </strong><strong>chaussures à talons</strong> qui donnent une allure soignée.</li><li><strong>Un foulard ou un </strong><strong>accessoire coloré</strong> pour distinguer la compagnie aérienne.</li><li><strong>Une apparence toujours impeccable</strong>, maquillage et coiffure compris.</li></ol><p>Cet uniforme est pensé pour refléter à la fois le professionnalisme et une image accueillante.</p><p>Svetlana&nbsp;:<br>Trop cool j'ai tout ce qu'il me faut pour mon déguisement !&nbsp;😄</p>",
-                      "legend": "",
-                      "licence": ""
+                      "id": "f2254890-a209-423b-8b8e-69c282550d9a",
+                      "type": "custom",
+                      "instruction": "<p>Enora s'interroge sur son avenir professionnel. Elle demande des idées à une IA générative.</p>",
+                      "tagName": "llm-messages",
+                      "props": {
+                        "messages": [
+                          {
+                            "direction": "outbound",
+                            "content": "Je suis une fille créative, j’ai beaucoup d'idées mais je ne sais pas trop quoi faire comme métier plus tard. J’aime beaucoup dessiner et inventer des objets. Quels métiers me conseilles-tu ?"
+                          },
+                          {
+                            "direction": "inbound",
+                            "content": "Voici quelques idées de métiers qui pourraient te plaire : styliste, décoratrice d’intérieur ou maquilleuse artistique ! Ce sont des métiers parfaits pour les filles créatives comme toi."
+                          },
+                          {
+                            "direction": "outbound",
+                            "content": " Bon conseil ! "
+                          }
+                        ]
+                      }
                     },
                     {
                       "id": "a19e2a08-9044-42b6-93b6-5a0f40cf65ac",
                       "type": "qcu-discovery",
-                      "instruction": "<p>Pourquoi Svetlana est d’accord avec la réponse de l’IA ?</p>",
+                      "instruction": "<p>Pourquoi l'utilisatrice est-elle d’accord avec la réponse de l’IA ?</p>",
                       "proposals": [
                         {
                           "id": "1",
                           "content": "<p>Car il n’y a pas de biais dans la réponse de l’IA.</p>",
                           "feedback": {
-                            "diagnosis": "<p><strong>Pas exactement.</strong><br>Les hôtesses de l’air ne sont pas toujours habillées ainsi. Svetlana n’a pas remarqué le biais dans la réponse de l’IA car elle a le souvenir de voir des hôtesses de l’air qui portaient des talons représentées dans des publicités, des séries ou des films. </p>"
+                            "diagnosis": "<p><strong>Et pourtant, il y a bien un biais.</strong><br></p><p>L’IA a proposé à Enora des métiers souvent considérés comme « féminins » par les clichés, en oubliant d’autres professions où le dessin est aussi utile, comme le design industriel, l’architecture ou la création de jeux vidéo. C’est ce qu’on appelle un <strong>biais de genre.</strong></p><p>Si Enora ne remet pas en question les choix de l’IA, elle risque de limiter ses idées de carrière et de renforcer les stéréotypes déjà présents dans le monde du travail.</p>"
                           }
                         },
                         {
                           "id": "2",
-                          "content": "<p>Car l’IA a confirmé ce que&nbsp;Svetlana pensait déjà.</p>",
+                          "content": "<p>Car l’IA a confirmé ce que l'utilisatrice pensait déjà.</p>",
                           "feedback": {
-                            "diagnosis": "<p><strong>Bien vu !</strong><br>Les hôtesses de l’air ne sont pas toujours habillées ainsi. Svetlana n’a pas remarqué le biais dans la réponse de l’IA car elle a le souvenir de voir des hôtesses de l’air qui portaient des talons représentées dans des publicités, des séries ou des films.</p>"
+                            "diagnosis": "<p><strong>C'est possible ! Et pourtant, il y a un biais.</strong></p><p>L’IA a proposé à Enora des métiers souvent considérés comme « féminins » par les clichés, en oubliant d’autres professions où le dessin est aussi utile, comme le design industriel, l’architecture ou la création de jeux vidéo. C’est ce qu’on appelle un biais de genre. Si Enora ne remet pas en question les choix de l’IA, elle risque de limiter ses idées de carrière et de renforcer les stéréotypes déjà présents dans le monde du travail.</p>"
                           }
                         },
                         {
                           "id": "3",
                           "content": "<p>Car la réponse de l’IA est claire et structurée, ça l’a convaincu.</p>",
                           "feedback": {
-                            "diagnosis": "<p><strong>Pas exactement, mais ça a pu contribuer.</strong><br>Les hôtesses de l’air ne sont pas toujours habillées ainsi. Svetlana n’a pas remarqué le biais dans la réponse de l’IA car elle a le souvenir de voir des hôtesses de l’air qui portaient des talons représentées dans des publicités, des séries ou des films. </p>"
+                            "diagnosis": "<p><strong>Cela a pu contribuer.</strong></p><p>L’IA a proposé à Enora des métiers souvent considérés comme « féminins » par les clichés, en oubliant d’autres professions où le dessin est aussi utile, comme le design industriel, l’architecture ou la création de jeux vidéo. C’est ce qu’on appelle un <strong>biais de genre.</strong> </p><p>Si Enora ne remet pas en question les choix de l’IA, elle risque de limiter ses idées de carrière et de renforcer les stéréotypes déjà présents dans le monde du travail.</p>"
                           }
                         },
                         {
                           "id": "4",
                           "content": "<p>Car la question posée dans le prompt comportait déjà un biais.</p>",
                           "feedback": {
-                            "diagnosis": "<p><strong>Pas exactement.</strong><br>Les hôtesses de l’air ne sont pas toujours habillées ainsi. Svetlana n’a pas remarqué le biais dans la réponse de l’IA car elle a le souvenir de voir des hôtesses de l’air qui portaient des talons représentées dans des publicités, des séries ou des films.</p>"
+                            "diagnosis": "<p><strong>Eh non, pourtant la réponse en comporte un.</strong><br></p><p>L’IA a proposé à Enora des métiers souvent considérés comme « féminins » par les clichés, en oubliant d’autres professions où le dessin est aussi utile, comme le design industriel, l’architecture ou la création de jeux vidéo. C’est ce qu’on appelle un <strong>biais de genre</strong>. </p><p> Si Enora ne remet pas en question les choix de l’IA, elle risque de limiter ses idées de carrière et de renforcer les stéréotypes déjà présents dans le monde du travail.</p>"
                           }
                         },
                         {
                           "id": "5",
                           "content": "<p>Je ne sais pas.<br></p>",
                           "feedback": {
-                            "diagnosis": "<p>Les hôtesses de l’air ne sont pas toujours habillées ainsi. Svetlana n’a pas remarqué le biais dans la réponse de l’IA car elle a le souvenir de voir des hôtesses de l’air qui portaient des talons représentées dans des publicités, des séries ou des films.</p>"
+                            "diagnosis": "<p>L’IA a proposé à Enora des métiers souvent considérés comme « féminins » par les clichés, en oubliant d’autres professions où le dessin est aussi utile, comme le design industriel, l’architecture ou la création de jeux vidéo. C’est ce qu’on appelle un <strong>biais de genre.</strong> </p><p>  Si Enora ne remet pas en question les choix de l’IA, elle risque de limiter ses idées de carrière et de renforcer les stéréotypes déjà présents dans le monde du travail.</p>"
                           }
                         }
                       ],
