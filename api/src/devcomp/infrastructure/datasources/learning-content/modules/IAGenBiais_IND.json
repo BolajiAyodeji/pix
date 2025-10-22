@@ -845,7 +845,7 @@
                 "feedbacks": {
                   "valid": {
                     "state": "<p>Bonne réponse !&nbsp;🎉</p>",
-                    "diagnosis": "<p>Vous avez repéré les biais du logiciel d'IA. Il suppose que le terme \"indien\" désigne une personne native d'Amérique, qu'il représente de façon stéréotypique.&nbsp;<br>Vous avez aussi remarqué que les sports associés aux prénoms étaient liés à des préjugés correspondant à leur genre.</p>"
+                    "diagnosis": "<p>Vous avez repéré les biais du logiciel d'IA. Il suppose que le terme \"indien\" désigne une personne native d'Amérique, qu'il représente de façon stéréotypique.&nbsp;<br>Vous avez aussi remarqué que les sports associés aux prénoms étaient liés à des préjugés correspondant à leur genre. En effet,&nbsp;l’IA a proposé&nbsp;des sports traditionnellement considérés comme plus féminins (danse, gymnastique…) seulement aux filles et pas aux garçons, alors que ces sports sont adaptés à tous.</p>"
                   },
                   "invalid": {
                     "state": "<p>Mauvaise réponse.</p>",
