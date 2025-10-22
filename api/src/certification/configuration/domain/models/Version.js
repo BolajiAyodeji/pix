@@ -1,11 +1,11 @@
 /**
- * @typedef {import('./Frameworks.js').Frameworks} Frameworks
+ * @typedef {import('../../../shared/domain/models/Frameworks.js').Frameworks} Frameworks
  */
 
 import Joi from 'joi';
 
 import { EntityValidationError } from '../../../../shared/domain/errors.js';
-import { Frameworks } from './Frameworks.js';
+import { Frameworks } from '../../../shared/domain/models/Frameworks.js';
 
 export class Version {
   static #schema = Joi.object({

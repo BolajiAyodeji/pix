@@ -1,9 +1,9 @@
+import { Version } from '../../../../../../src/certification/configuration/domain/models/Version.js';
 import { Frameworks } from '../../../../../../src/certification/shared/domain/models/Frameworks.js';
-import { Version } from '../../../../../../src/certification/shared/domain/models/Version.js';
 import { EntityValidationError } from '../../../../../../src/shared/domain/errors.js';
 import { catchErrSync, expect } from '../../../../../test-helper.js';
 
-describe('Unit | Certification | Shared | Domain | Models | Version', function () {
+describe('Unit | Certification | Configuration | Domain | Models | Version', function () {
   it('should build a Version with all fields', function () {
     // given
     const versionData = {

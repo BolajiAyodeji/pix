@@ -172,7 +172,6 @@ import { buildActiveCalibratedChallenge } from './certification/configuration/bu
 import { buildCenter as buildConfigurationCenter } from './certification/configuration/build-center.js';
 import { buildCertificationFrameworksChallenge } from './certification/configuration/build-certification-frameworks-challenge.js';
 import { buildConsolidatedFramework } from './certification/configuration/build-consolidated-framework.js';
-import { buildVersion } from './certification/shared/build-version.js';
 import { buildCandidate } from './certification/enrolment/build-candidate.js';
 import { buildCertificationEligibility } from './certification/enrolment/build-certification-eligibility.js';
 import { buildComplementaryCertificationBadgeWithOffsetVersion as buildComplementaryCertificationBadgeForEnrolment } from './certification/enrolment/build-complementary-certification-badge.js';
@@ -212,6 +211,7 @@ import { buildCompetenceForScoring } from './certification/shared/build-competen
 import { buildComplementaryCertification as buildSharedComplementaryCertification } from './certification/shared/build-complementary-certification.js';
 import { buildJuryComment } from './certification/shared/build-jury-comment.js';
 import { buildV3CertificationScoring } from './certification/shared/build-v3-certification-scoring.js';
+import { buildVersion } from './certification/shared/build-version.js';
 import {
   buildLtiPlatformRegistration,
   buildLtiPlatformRegistrationWithPlatformConfig,
@@ -239,6 +239,7 @@ const certification = {
     buildCenter: buildConfigurationCenter,
     buildCertificationFrameworksChallenge,
     buildConsolidatedFramework,
+    buildVersion,
   },
   complementaryCertification: {
     buildComplementaryCertificationBadge: buildComplementaryCertificationBadge,

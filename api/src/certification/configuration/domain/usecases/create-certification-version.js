@@ -3,7 +3,6 @@
  * @typedef {import ('./index.js').TubeRepository} TubeRepository
  * @typedef {import ('./index.js').SkillRepository} SkillRepository
  * @typedef {import ('./index.js').ChallengeRepository} ChallengeRepository
- * @typedef {import ('./index.js').SharedVersionsRepository} SharedVersionsRepository
  * @typedef {import ('./index.js').VersionsRepository} VersionsRepository
  */
 
@@ -12,16 +11,15 @@ import dayjs from 'dayjs';
 import { withTransaction } from '../../../../shared/domain/DomainTransaction.js';
 import { FRENCH_FRANCE, FRENCH_SPOKEN } from '../../../../shared/domain/services/locale-service.js';
 import { DEFAULT_SESSION_DURATION_MINUTES } from '../../../shared/domain/constants.js';
-import { Version } from '../../../shared/domain/models/Version.js';
+import { Version } from '../models/Version.js';
 
 /**
  * @param {Object} params
  * @param {Frameworks} params.scope
- * @param {SharedVersionsRepository} params.sharedVersionsRepository
  * @param {VersionsRepository} params.versionsRepository
  */
-const _buildNewVersion = async ({ scope, sharedVersionsRepository, versionsRepository }) => {
-  const currentVersion = await sharedVersionsRepository.findLatestByScope({ scope });
+const _buildNewVersion = async ({ scope, versionsRepository }) => {
+  const currentVersion = await versionsRepository.findLatestByScope({ scope });
 
   if (!currentVersion) {
     return new Version({
@@ -72,19 +70,10 @@ export const createCertificationVersion = withTransaction(
    * @param {TubeRepository} params.tubeRepository
    * @param {SkillRepository} params.skillRepository
    * @param {ChallengeRepository} params.challengeRepository
-   * @param {SharedVersionsRepository} params.sharedVersionsRepository
    * @param {VersionsRepository} params.versionsRepository
    */
-  async ({
-    scope,
-    tubeIds,
-    tubeRepository,
-    skillRepository,
-    challengeRepository,
-    sharedVersionsRepository,
-    versionsRepository,
-  }) => {
-    const version = await _buildNewVersion({ scope, sharedVersionsRepository, versionsRepository });
+  async ({ scope, tubeIds, tubeRepository, skillRepository, challengeRepository, versionsRepository }) => {
+    const version = await _buildNewVersion({ scope, versionsRepository });
     const challenges = await _getChallengesForTubes({ tubeIds, tubeRepository, skillRepository, challengeRepository });
     return versionsRepository.create({ version, challenges });
   },

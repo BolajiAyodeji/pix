@@ -1,13 +1,13 @@
+import { Version } from '../../../../../../src/certification/configuration/domain/models/Version.js';
 import { createCertificationVersion } from '../../../../../../src/certification/configuration/domain/usecases/create-certification-version.js';
 import { DEFAULT_SESSION_DURATION_MINUTES } from '../../../../../../src/certification/shared/domain/constants.js';
 import { Frameworks } from '../../../../../../src/certification/shared/domain/models/Frameworks.js';
-import { Version } from '../../../../../../src/certification/shared/domain/models/Version.js';
 import { DomainTransaction } from '../../../../../../src/shared/domain/DomainTransaction.js';
 import { FRENCH_FRANCE, FRENCH_SPOKEN } from '../../../../../../src/shared/domain/services/locale-service.js';
 import { domainBuilder, expect, sinon } from '../../../../../test-helper.js';
 
 describe('Certification | Configuration | Unit | UseCase | create-certification-version', function () {
-  let challengeRepository, sharedVersionsRepository, versionsRepository, tubeRepository, skillRepository;
+  let challengeRepository, versionsRepository, tubeRepository, skillRepository;
 
   beforeEach(function () {
     sinon.stub(DomainTransaction, 'execute').callsFake((callback) => {
@@ -23,10 +23,8 @@ describe('Certification | Configuration | Unit | UseCase | create-certification-
     challengeRepository = {
       findValidatedBySkills: sinon.stub(),
     };
-    sharedVersionsRepository = {
-      findLatestByScope: sinon.stub(),
-    };
     versionsRepository = {
+      findLatestByScope: sinon.stub(),
       create: sinon.stub(),
       updateExpirationDate: sinon.stub(),
     };
@@ -67,7 +65,7 @@ describe('Certification | Configuration | Unit | UseCase | create-certification-
       ];
       const frFrChallenges = challenges.filter((challenge) => challenge.locales.includes(FRENCH_FRANCE));
 
-      sharedVersionsRepository.findLatestByScope.resolves(currentVersion);
+      versionsRepository.findLatestByScope.resolves(currentVersion);
       tubeRepository.findActiveByRecordIds.resolves([tube1, tube2]);
       skillRepository.findActiveByRecordIds.resolves([...tube1.skills, ...tube2.skills]);
       challengeRepository.findValidatedBySkills.resolves(frFrChallenges);
@@ -80,12 +78,12 @@ describe('Certification | Configuration | Unit | UseCase | create-certification-
         tubeRepository,
         skillRepository,
         challengeRepository,
-        sharedVersionsRepository,
+        versionsRepository,
         versionsRepository,
       });
 
       // then
-      expect(sharedVersionsRepository.findLatestByScope).to.have.been.calledOnceWithExactly({ scope });
+      expect(versionsRepository.findLatestByScope).to.have.been.calledOnceWithExactly({ scope });
       expect(versionsRepository.updateExpirationDate).to.have.been.calledOnce;
       const expiredVersionArg = versionsRepository.updateExpirationDate.firstCall.args[0].version;
       expect(expiredVersionArg).to.be.instanceOf(Version);
@@ -138,7 +136,7 @@ describe('Certification | Configuration | Unit | UseCase | create-certification-
       ];
       const frFrChallenges = challenges.filter((challenge) => challenge.locales.includes(FRENCH_FRANCE));
 
-      sharedVersionsRepository.findLatestByScope.resolves(null);
+      versionsRepository.findLatestByScope.resolves(null);
       tubeRepository.findActiveByRecordIds.resolves([tube1, tube2]);
       skillRepository.findActiveByRecordIds.resolves([...tube1.skills, ...tube2.skills]);
       challengeRepository.findValidatedBySkills.resolves(frFrChallenges);
@@ -151,12 +149,12 @@ describe('Certification | Configuration | Unit | UseCase | create-certification-
         tubeRepository,
         skillRepository,
         challengeRepository,
-        sharedVersionsRepository,
+        versionsRepository,
         versionsRepository,
       });
 
       // then
-      expect(sharedVersionsRepository.findLatestByScope).to.have.been.calledOnceWithExactly({ scope });
+      expect(versionsRepository.findLatestByScope).to.have.been.calledOnceWithExactly({ scope });
       expect(tubeRepository.findActiveByRecordIds).to.have.been.calledOnceWithExactly(tubeIds, FRENCH_SPOKEN);
       expect(skillRepository.findActiveByRecordIds).to.have.been.calledOnceWithExactly([
         ...tube1.skillIds,

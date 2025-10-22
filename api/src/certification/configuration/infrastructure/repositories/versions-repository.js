@@ -1,9 +1,41 @@
 /**
- * @typedef {import('../../../shared/domain/models/Version.js').Version} Version
+ * @typedef {import('../../../shared/domain/models/Frameworks.js').Frameworks} Frameworks
+ * @typedef {import('../../domain/models/Version.js').Version} Version
  * @typedef {import('../../../../shared/domain/models/Challenge.js').Challenge} Challenge
  */
 import { knex } from '../../../../../db/knex-database-connection.js';
 import { DomainTransaction } from '../../../../shared/domain/DomainTransaction.js';
+import { Version } from '../../domain/models/Version.js';
+
+/**
+ * @param {Object} params
+ * @param {Frameworks} params.scope
+ * @returns {Promise<Version|null>}
+ */
+export async function findLatestByScope({ scope }) {
+  const knexConn = DomainTransaction.getConnection();
+
+  const versionData = await knexConn('certification_versions')
+    .select(
+      'id',
+      'scope',
+      'startDate',
+      'expirationDate',
+      'assessmentDuration',
+      'globalScoringConfiguration',
+      'competencesScoringConfiguration',
+      'challengesConfiguration',
+    )
+    .where({ scope })
+    .whereNull('expirationDate')
+    .first();
+
+  if (!versionData) {
+    return null;
+  }
+
+  return _toDomain(versionData);
+}
 
 /**
  * @param {Object} params
@@ -54,3 +86,25 @@ export async function updateExpirationDate({ version }) {
 
   await knexConn('certification_versions').where({ id: version.id }).update({ expirationDate: version.expirationDate });
 }
+
+const _toDomain = ({
+  id,
+  scope,
+  startDate,
+  expirationDate,
+  assessmentDuration,
+  globalScoringConfiguration,
+  competencesScoringConfiguration,
+  challengesConfiguration,
+}) => {
+  return new Version({
+    id,
+    scope,
+    startDate,
+    expirationDate,
+    assessmentDuration,
+    globalScoringConfiguration,
+    competencesScoringConfiguration,
+    challengesConfiguration,
+  });
+};
