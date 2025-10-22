@@ -8,7 +8,7 @@ describe('Certification | Configuration | Integration | Repository | Versions', 
   describe('#create', function () {
     it('should create a certification version and link challenges', async function () {
       // given
-      const version = domainBuilder.certification.shared.buildVersion({
+      const version = domainBuilder.certification.configuration.buildConfigurationVersion({
         scope: Frameworks.PIX_PLUS_DROIT,
         startDate: new Date('2025-06-01'),
         expirationDate: new Date('2025-12-31'),
@@ -80,7 +80,7 @@ describe('Certification | Configuration | Integration | Repository | Versions', 
       await databaseBuilder.commit();
 
       const newExpirationDate = new Date('2025-10-21T10:00:00Z');
-      const versionToUpdate = domainBuilder.certification.shared.buildVersion({
+      const versionToUpdate = domainBuilder.certification.configuration.buildConfigurationVersion({
         id: existingVersion.id,
         scope: existingVersion.scope,
         startDate: existingVersion.startDate,

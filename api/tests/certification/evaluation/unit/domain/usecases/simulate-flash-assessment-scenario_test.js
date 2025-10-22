@@ -13,7 +13,7 @@ describe('Unit | Domain | Usecases | simulate-flash-assessment-scenario', functi
       const accessibilityAdjustmentNeeded = false;
       const versionId = 1;
       const challengesConfiguration = { minimumEstimatedSuccessRateRanges: [] };
-      const version = domainBuilder.certification.configuration.buildVersion({
+      const version = domainBuilder.certification.evaluation.buildEvaluationVersion({
         id: versionId,
         scope: Frameworks.PIX_PLUS_DROIT,
         challengesConfiguration,

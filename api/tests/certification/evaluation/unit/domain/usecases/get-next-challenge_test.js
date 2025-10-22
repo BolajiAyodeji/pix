@@ -66,7 +66,7 @@ describe('Unit | Domain | Use Cases | get-next-challenge', function () {
 
       certificationCandidateRepository.findByAssessmentId.withArgs({ assessmentId: assessment.id }).resolves(candidate);
 
-      version = domainBuilder.certification.shared.buildVersion().challengesConfiguration;
+      version = domainBuilder.certification.evaluation.buildEvaluationVersion().challengesConfiguration;
     });
 
     context('when there are challenges left to answer', function () {
@@ -646,7 +646,7 @@ describe('Unit | Domain | Use Cases | get-next-challenge', function () {
         };
 
         const challengesConfiguration = domainBuilder.buildFlashAlgorithmConfiguration({ maximumAssessmentLength: 1 });
-        version = domainBuilder.certification.configuration.buildVersion({ challengesConfiguration });
+        version = domainBuilder.certification.evaluation.buildEvaluationVersion({ challengesConfiguration });
         versionRepository.getByScopeAndReconciliationDate.resolves(version);
 
         answerRepository.findByAssessmentExcludingChallengeIds
@@ -725,7 +725,7 @@ describe('Unit | Domain | Use Cases | get-next-challenge', function () {
             });
 
             const challengesConfiguration = domainBuilder.buildFlashAlgorithmConfiguration(flashConfiguration);
-            version = domainBuilder.certification.configuration.buildVersion({ challengesConfiguration });
+            version = domainBuilder.certification.evaluation.buildEvaluationVersion({ challengesConfiguration });
             versionRepository.getByScopeAndReconciliationDate.resolves(version);
 
             const assessment = domainBuilder.buildAssessment();
@@ -842,7 +842,7 @@ describe('Unit | Domain | Use Cases | get-next-challenge', function () {
           .withArgs({ assessmentId: assessment.id })
           .resolves(candidate);
 
-        version = domainBuilder.certification.configuration.buildVersion({ scope: Frameworks.PIX_PLUS_EDU_CPE });
+        version = domainBuilder.certification.evaluation.buildEvaluationVersion({ scope: Frameworks.PIX_PLUS_EDU_CPE });
         versionRepository.getByScopeAndReconciliationDate
           .withArgs({
             scope: Frameworks.PIX_PLUS_EDU_CPE,

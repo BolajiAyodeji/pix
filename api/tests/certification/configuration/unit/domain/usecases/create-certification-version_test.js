@@ -36,7 +36,7 @@ describe('Certification | Configuration | Unit | UseCase | create-certification-
       const clock = sinon.useFakeTimers({ now: new Date('2025-10-21T10:00:00Z'), toFake: ['Date'] });
       const scope = Frameworks.PIX_PLUS_PRO_SANTE;
 
-      const currentVersion = domainBuilder.certification.shared.buildVersion({
+      const currentVersion = domainBuilder.certification.configuration.buildConfigurationVersion({
         id: 123,
         scope,
         startDate: new Date('2024-01-01'),
@@ -78,7 +78,6 @@ describe('Certification | Configuration | Unit | UseCase | create-certification-
         tubeRepository,
         skillRepository,
         challengeRepository,
-        versionsRepository,
         versionsRepository,
       });
 
@@ -149,7 +148,6 @@ describe('Certification | Configuration | Unit | UseCase | create-certification-
         tubeRepository,
         skillRepository,
         challengeRepository,
-        versionsRepository,
         versionsRepository,
       });
 
