@@ -109,60 +109,39 @@ describe('Quest | Integration | Infrastructure | repositories | Combined-Course-
         lastName,
         id: organizationLearnerId,
       } = databaseBuilder.factory.buildOrganizationLearner({ userId });
-      const { questId, id: combinedCourseId } = databaseBuilder.factory.buildCombinedCourse();
-      databaseBuilder.factory.buildCombinedCourseParticipation({
+      const { id: combinedCourseId } = databaseBuilder.factory.buildCombinedCourse();
+      databaseBuilder.factory.buildOrganizationLearnerParticipation({
         organizationLearnerId,
-        questId,
-        status: CombinedCourseParticipationStatuses.COMPLETED,
+        status: OrganizationLearnerParticipationStatuses.COMPLETED,
+        type: OrganizationLearnerParticipationTypes.COMBINED_COURSE,
         combinedCourseId,
       });
       await databaseBuilder.commit();
 
       // when
-      const result = await combinedCourseParticipationRepository.getByUserId({ userId, questId });
+      const result = await combinedCourseParticipationRepository.getByUserId({ userId, combinedCourseId });
 
       // then
       expect(result.id).to.be.finite;
-      expect(result.questId).to.deep.equal(questId);
+      expect(result.combinedCourseId).to.deep.equal(combinedCourseId);
       expect(result.organizationLearnerId).to.deep.equal(organizationLearnerId);
       expect(result.firstName).equal(firstName);
       expect(result.lastName).equal(lastName);
-      expect(result.status).to.deep.equal(CombinedCourseParticipationStatuses.COMPLETED);
-    });
-
-    it('should return organizationLearnerParticipationId when combined_course_participations is linked', async function () {
-      // given
-      const userId = databaseBuilder.factory.buildUser().id;
-      const organizationLearnerId = databaseBuilder.factory.buildOrganizationLearner({ userId }).id;
-      const { questId, id: combinedCourseId } = databaseBuilder.factory.buildCombinedCourse();
-      const organizationLearnerParticipationId = databaseBuilder.factory.buildOrganizationLearnerParticipation({
-        organizationLearnerId,
-        questId,
-        type: OrganizationLearnerParticipationTypes.COMBINED_COURSE,
-        status: CombinedCourseParticipationStatuses.COMPLETED,
-        combinedCourseId,
-      }).id;
-      await databaseBuilder.commit();
-
-      // when
-      const result = await combinedCourseParticipationRepository.getByUserId({ userId, questId });
-
-      // then
-      expect(result.organizationLearnerParticipationId).equal(organizationLearnerParticipationId);
+      expect(result.status).to.deep.equal(OrganizationLearnerParticipationStatuses.COMPLETED);
     });
 
     it('should throw NotFound error when quest participation does not exist for given user and quest', async function () {
       // given
       const userId = 1;
-      const questId = 2;
+      const combinedCourseId = 2;
 
       // when
-      const error = await catchErr(combinedCourseParticipationRepository.getByUserId)({ userId, questId });
+      const error = await catchErr(combinedCourseParticipationRepository.getByUserId)({ userId, combinedCourseId });
 
       // then
       expect(error).to.be.instanceof(NotFoundError);
       expect(error.message).to.equal(
-        `CombinedCourseParticipation introuvable pour l'utilisateur d'id ${userId} et la quête d'id ${questId}`,
+        `CombinedCourseParticipation introuvable pour l'utilisateur d'id ${userId} et au parcours d'id ${combinedCourseId}`,
       );
     });
   });
