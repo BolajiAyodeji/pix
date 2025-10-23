@@ -48,19 +48,48 @@
                       "userName": "Adem",
                       "direction": "incoming",
                       "content": "Ah oui y a même le drapeau américain, haha ! Tu es tombée sur un biais."
-                    },
-                    {
-                      "userName": "Léane",
-                      "direction": "outgoing",
-                      "content": "C’est quoi un biais ?"
-                    },
-                    {
-                      "userName": "Adem",
-                      "direction": "incoming",
-                      "content": "C’est quand l'IA donne des réponses qui ne représentent pas bien la réalité. Ici ça donne l’impression que tous les procès ont lieu aux Etats-Unis ou que tous les juges sont vieux. Alors que ce n’est pas le cas !"
                     }
                   ]
                 }
+              }
+            }
+          ]
+        },
+        {
+          "id": "a1bdfb7a-6be9-44c8-ac61-8660c0863076",
+          "type": "discovery",
+          "title": "QCU : Qu'est-ce qu'un biais ?",
+          "components": [
+            {
+              "type": "element",
+              "element": {
+                "id": "1fa1fc4c-90c4-456c-bd19-f2b83ff07856",
+                "type": "qcu-discovery",
+                "instruction": "<p>Mais, qu'est-ce qu'un biais ?</p>",
+                "proposals": [
+                  {
+                    "id": "1",
+                    "content": "<p>C’est quand l’IA fait une erreur.<br></p>",
+                    "feedback": {
+                      "diagnosis": "<p><strong>Pas tout à fait. </strong></p><p>Un <strong>biais</strong>, c’est quand l'IA donne des <strong>r</strong><strong>éponses qui ne représentent pas bien la diversité de la réalité</strong>. </p><p>Ici, ça donne l’impression que tous les procès ont lieu aux Etats-Unis ou que tous les juges sont vieux. Alors que ce n’est pas toujours le cas ! Cependant, ce n’est pas tout à fait une erreur car c’est parfois le cas.<br></p>"
+                    }
+                  },
+                  {
+                    "id": "2",
+                    "content": "<p>C’est quand l'IA donne des réponses qui ne représentent pas bien la diversité de la réalité.</p>",
+                    "feedback": {
+                      "diagnosis": "<p><strong>Bien vu ! </strong></p><p>Ici, ça donne l’impression que tous les procès ont lieu aux Etats-Unis ou que tous les juges sont vieux. Alors que ce n’est pas toujours le cas !</p>"
+                    }
+                  },
+                  {
+                    "id": "3",
+                    "content": "<p>C’est quand l’IA refuse de répondre à une question.</p>",
+                    "feedback": {
+                      "diagnosis": "<p> <strong>Eh non. </strong></p><p>Un  <strong>biais</strong>, c’est quand l'IA donne des <strong>réponses qui ne représentent pas bien la diversité de la réalité.</strong></p><p><strong></strong> Ici, l’IA donne bien une réponse mais sa réponse donne l’impression que tous les procès ont lieu aux Etats-Unis ou que tous les juges sont vieux. Alors que ce n’est pas toujours le cas ! <br></p>"
+                    }
+                  }
+                ],
+                "solution": "2"
               }
             }
           ]
@@ -75,7 +104,7 @@
               "element": {
                 "id": "1fa1fc4c-90c4-456c-bd19-f2b83ff07856",
                 "type": "text",
-                "content": "<p>Les images ou textes générés par l’intelligence artificielle ne reflètent pas toujours la diversité du monde.&nbsp;🌍</p><p>Mais alors, d’où viennent les biais dans les réponses de l’IA générative ?</p>"
+                "content": "<p>Les biais de l’IA peuvent donc renforcer des stéréotypes (c’est-à-dire des clichés ou des idées toutes faites) et donc des discriminations.<br></p><p>Mais alors, d’où viennent les biais dans les réponses de l’IA générative ?</p>"
               }
             }
           ]
