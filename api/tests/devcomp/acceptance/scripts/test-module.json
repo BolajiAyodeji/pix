@@ -177,7 +177,7 @@
         },
         {
           "id": "73ac3644-7637-4cee-86d4-1a75f53f0b9c",
-          "type": "lesson",
+          "type": "short-lesson",
           "title": "Vidéo de présentation de Pix",
           "components": [
             {
@@ -465,7 +465,7 @@
         },
         {
           "id": "cf436761-f56d-4b01-83f9-942afe9ce72c",
-          "type": "lesson",
+          "type": "short-lesson",
           "title": "test qab",
           "components": [
             {

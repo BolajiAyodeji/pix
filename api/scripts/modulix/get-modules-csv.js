@@ -20,7 +20,8 @@ export async function getModulesListAsCsv(modules) {
       },
       {
         label: 'ModuleTotalLessons',
-        value: (row) => getGrains(row).filter((grain) => grain.type === 'lesson').length,
+        value: (row) =>
+          getGrains(row).filter((grain) => grain.type === 'lesson' || grain.type === 'short-lesson').length,
       },
       { label: 'ModuleDuration', value: (row) => `=TEXT(${row.details.duration}/24/60; "mm:ss")` },
       {
