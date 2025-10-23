@@ -49,7 +49,9 @@ module('Integration | Component | CombinedCourse | Header', function (hooks) {
       });
 
       // when
-      const screen = await render(<template><CombinedCourseHeader @model={{combinedCourse}} /></template>);
+      const screen = await render(
+        <template><CombinedCourseHeader @campaignIds={{combinedCourse.campaignIds}} /></template>,
+      );
 
       // then
       const link1 = screen.getByRole('link', { name: t('pages.combined-course.campaigns', { count: 2, index: 1 }) });
@@ -69,7 +71,9 @@ module('Integration | Component | CombinedCourse | Header', function (hooks) {
       });
 
       // when
-      const screen = await render(<template><CombinedCourseHeader @model={{combinedCourse}} /></template>);
+      const screen = await render(
+        <template><CombinedCourseHeader @campaignIds={{combinedCourse.campaignIds}} /></template>,
+      );
 
       // then
       assert.notOk(screen.queryByRole('link', { name: t('pages.combined-course.campaigns', { count: 0, index: 0 }) }));

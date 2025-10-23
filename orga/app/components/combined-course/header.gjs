@@ -43,15 +43,11 @@ export default class CombinedCourseHeader extends Component {
       <:subtitle>
         <div class="combined-course-page__header">
           <p class="combined-course-page__header-body">{{t "pages.combined-course.introduction"}}</p>
-          {{#if @model.campaignIds.length}}
+          {{#if @campaignIds.length}}
             <div class="combined-course-page__campaigns">
-              {{#each @model.campaignIds as |campaignId index|}}
+              {{#each @campaignIds as |campaignId index|}}
                 <PixButtonLink @route="authenticated.campaigns.campaign" @model={{campaignId}} @variant="primary">
-                  {{t
-                    "pages.combined-course.campaigns"
-                    count=@model.campaignIds.length
-                    index=(this.getCampaignIndex index)
-                  }}
+                  {{t "pages.combined-course.campaigns" count=@campaignIds.length index=(this.getCampaignIndex index)}}
                 </PixButtonLink>
               {{/each}}
             </div>

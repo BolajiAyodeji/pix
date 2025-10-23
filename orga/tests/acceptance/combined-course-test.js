@@ -34,6 +34,8 @@ module('Acceptance | Combined course page', function (hooks) {
 
     // then
     assert.ok(await screen.getByRole('heading', { name: new RegExp(combinedCourse.name) }));
+    assert.ok(screen.getByText(combinedCourse.code));
+    assert.ok(await screen.getByRole('link', { name: t('pages.combined-course.campaigns', { count: 1, index: 1 }) }));
   });
 
   test('it should display combined course statistics', async function (assert) {
