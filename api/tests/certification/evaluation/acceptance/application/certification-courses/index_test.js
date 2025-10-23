@@ -265,7 +265,7 @@ describe('Acceptance | Route | Certification Courses', function () {
       it('should return CREATED (201) and a certification course', async function () {
         // given
         databaseBuilder.factory.buildUser({ id: 1 });
-        databaseBuilder.factory.buildCertificationConfiguration();
+        databaseBuilder.factory.buildCertificationVersion();
         databaseBuilder.factory.buildSession({ id: 2, accessCode: 'FMKP39' });
         const candidate = databaseBuilder.factory.buildCertificationCandidate({
           sessionId: 2,

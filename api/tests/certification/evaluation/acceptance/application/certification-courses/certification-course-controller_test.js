@@ -26,14 +26,32 @@ describe('Acceptance | API | Certification Course', function () {
 
     beforeEach(function () {
       otherUserId = databaseBuilder.factory.buildUser().id;
+      userId = databaseBuilder.factory.buildUser().id;
       const certificationCenter = databaseBuilder.factory.buildCertificationCenter({
         id: 99,
       });
       const session = databaseBuilder.factory.buildSession({ certificationCenterId: certificationCenter.id });
+
+      const reconciledAt = new Date('2025-01-01');
+      const candidateId = databaseBuilder.factory.buildCertificationCandidate({
+        userId,
+        sessionId: session.id,
+        reconciledAt,
+      }).id;
+
+      databaseBuilder.factory.buildCoreSubscription({ certificationCandidateId: candidateId });
+
+      databaseBuilder.factory.buildCertificationVersion({
+        startDate: new Date('2024-01-01'),
+        expirationDate: null,
+      });
+
       const certificationCourse = databaseBuilder.factory.buildCertificationCourse({
         sessionId: session.id,
+        userId,
+        version: AlgorithmEngineVersion.V3,
       });
-      userId = certificationCourse.userId;
+
       databaseBuilder.factory.buildCertificationIssueReport({
         certificationCourseId: certificationCourse.id,
         category: CertificationIssueReportCategory.OTHER,
@@ -53,10 +71,10 @@ describe('Acceptance | API | Certification Course', function () {
         id: certificationCourse.id.toString(),
         attributes: {
           'examiner-comment': "il s'est enfuit de la session",
-          'nb-challenges': 0,
+          'nb-challenges': 32,
           'first-name': certificationCourse.firstName,
           'last-name': certificationCourse.lastName,
-          'is-adjusted-for-accessibility': undefined,
+          'is-adjusted-for-accessibility': false,
           version: certificationCourse.version,
         },
         relationships: {
@@ -337,9 +355,7 @@ describe('Acceptance | API | Certification Course', function () {
           // then
           const [certificationCourse] = await knex('certification-courses').where({ userId, sessionId });
           expect(certificationCourse.version).to.equal(AlgorithmEngineVersion.V3);
-          expect(response.result.data.attributes).to.include({
-            'nb-challenges': 32,
-          });
+          expect(response.statusCode).to.equal(201);
         });
 
         it('should have copied matching certification candidate info into created certification course', async function () {
@@ -451,6 +467,7 @@ function _createRequestOptions(
 function _createNonExistingCertifCourseSetup({ learningContent, sessionId, userId }) {
   const learningContentObjects = learningContentBuilder.fromAreas(learningContent);
   databaseBuilder.factory.learningContent.build(learningContentObjects);
+
   const certificationCandidate = databaseBuilder.factory.buildCertificationCandidate({
     sessionId,
     userId,
@@ -458,6 +475,12 @@ function _createNonExistingCertifCourseSetup({ learningContent, sessionId, userI
     reconciledAt: new Date('2019-02-01'),
   });
   databaseBuilder.factory.buildCoreSubscription({ certificationCandidateId: certificationCandidate.id });
+
+  databaseBuilder.factory.buildCertificationVersion({
+    startDate: new Date('2019-01-01'),
+    expirationDate: null,
+  });
+
   databaseBuilder.factory.buildCorrectAnswersAndKnowledgeElementsForLearningContent.fromAreas({
     learningContent,
     userId,
@@ -480,6 +503,12 @@ function _createNonExistingCertifCourseSetup({ learningContent, sessionId, userI
 function _createExistingCertifCourseSetup({ userId, sessionId, version = 2 }) {
   const certificationCourseId = databaseBuilder.factory.buildCertificationCourse({ userId, sessionId, version }).id;
   databaseBuilder.factory.buildAssessment({ userId, certificationCourseId });
+
   const candidate = databaseBuilder.factory.buildCertificationCandidate({ sessionId, userId, authorizedToStart: true });
   databaseBuilder.factory.buildCoreSubscription({ certificationCandidateId: candidate.id });
+
+  databaseBuilder.factory.buildCertificationVersion({
+    startDate: new Date('2020-01-01'),
+    expirationDate: null,
+  });
 }

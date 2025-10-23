@@ -30,7 +30,7 @@ function buildCertificationCourse({
   abortReason = null,
   complementaryCertificationCourse = null,
   maxReachableLevelOnCertificationDate = 7,
-  numberOfChallenges = 20,
+  numberOfChallenges,
   isAdjustedForAccessibility = false,
   lang,
 } = {}) {
@@ -45,6 +45,9 @@ function buildCertificationCourse({
       }),
     );
   }
+
+  const finalNumberOfChallenges =
+    numberOfChallenges !== undefined ? numberOfChallenges : AlgorithmEngineVersion.isV3(version) ? 20 : undefined;
 
   return new CertificationCourse({
     id,
@@ -72,7 +75,7 @@ function buildCertificationCourse({
     abortReason,
     complementaryCertificationCourse,
     maxReachableLevelOnCertificationDate,
-    numberOfChallenges,
+    numberOfChallenges: finalNumberOfChallenges,
     isAdjustedForAccessibility,
     lang,
   });

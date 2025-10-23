@@ -33,6 +33,7 @@ describe('Unit | UseCase | retrieve-last-or-create-certification-course', functi
   const placementProfileService = {};
   const verifyCertificateCodeService = {};
   const userRepository = {};
+  const versionsRepository = {};
 
   const injectables = {
     assessmentRepository,
@@ -45,6 +46,7 @@ describe('Unit | UseCase | retrieve-last-or-create-certification-course', functi
     placementProfileService,
     verifyCertificateCodeService,
     userRepository,
+    versionsRepository,
   };
 
   beforeEach(function () {
@@ -64,6 +66,7 @@ describe('Unit | UseCase | retrieve-last-or-create-certification-course', functi
     placementProfileService.getPlacementProfile = sinon.stub();
     verifyCertificateCodeService.generateCertificateVerificationCode = sinon.stub().resolves(verificationCode);
     certificationCenterRepository.getBySessionId = sinon.stub();
+    versionsRepository.getByScopeAndReconciliationDate = sinon.stub();
     sinon.stub(DomainTransaction, 'execute').callsFake((callback) => {
       return callback();
     });
@@ -267,6 +270,11 @@ describe('Unit | UseCase | retrieve-last-or-create-certification-course', functi
               .withArgs({ userId: 2, sessionId: 1 })
               .resolves(existingCertificationCourse);
 
+            const version = domainBuilder.certification.configuration.buildVersion({
+              challengesConfiguration: { maximumAssessmentLength: 25 },
+            });
+            versionsRepository.getByScopeAndReconciliationDate.resolves(version);
+
             // when
             const result = await retrieveLastOrCreateCertificationCourse({
               sessionId: 1,
@@ -284,6 +292,60 @@ describe('Unit | UseCase | retrieve-last-or-create-certification-course', functi
               created: false,
               certificationCourse: existingCertificationCourse,
             });
+            expect(sharedCertificationCandidateRepository.update).to.have.been.calledOnceWith(
+              domainBuilder.buildCertificationCandidate({
+                ...foundCertificationCandidate,
+                authorizedToStart: false,
+              }),
+            );
+          });
+
+          it('should set numberOfChallenges when existing certification course is V3', async function () {
+            // given
+            const foundSession = domainBuilder.certification.sessionManagement.buildSession.created({
+              id: 1,
+              accessCode: 'accessCode',
+            });
+            evaluationSessionRepository.get.withArgs({ id: 1 }).resolves(foundSession);
+
+            const foundCertificationCandidate = domainBuilder.buildCertificationCandidate({
+              userId: 2,
+              sessionId: 1,
+              authorizedToStart: true,
+              subscriptions: [domainBuilder.certification.enrolment.buildCoreSubscription()],
+              reconciledAt,
+            });
+            sharedCertificationCandidateRepository.getBySessionIdAndUserId
+              .withArgs({ sessionId: 1, userId: 2 })
+              .resolves(foundCertificationCandidate);
+
+            const existingCertificationCourse = domainBuilder.buildCertificationCourse({
+              userId: 2,
+              sessionId: 1,
+              version: AlgorithmEngineVersion.V3,
+            });
+            existingCertificationCourse.adjustForAccessibility = sinon.stub();
+
+            certificationCourseRepository.findOneCertificationCourseByUserIdAndSessionId
+              .withArgs({ userId: 2, sessionId: 1 })
+              .resolves(existingCertificationCourse);
+
+            const version = domainBuilder.certification.configuration.buildVersion({
+              challengesConfiguration: { maximumAssessmentLength: 25 },
+            });
+            versionsRepository.getByScopeAndReconciliationDate.resolves(version);
+
+            // when
+            const result = await retrieveLastOrCreateCertificationCourse({
+              sessionId: 1,
+              accessCode: 'accessCode',
+              userId: 2,
+              locale: 'fr',
+              ...injectables,
+            });
+
+            // then
+            expect(result.certificationCourse._numberOfChallenges).to.equal(25);
             expect(sharedCertificationCandidateRepository.update).to.have.been.calledOnceWith(
               domainBuilder.buildCertificationCandidate({
                 ...foundCertificationCandidate,
@@ -354,10 +416,16 @@ describe('Unit | UseCase | retrieve-last-or-create-certification-course', functi
 
           context('when a certification still has not been created meanwhile', function () {
             let user;
+            let version;
 
             beforeEach(function () {
               user = domainBuilder.buildUser({ id: 2, lang: FRENCH_SPOKEN });
               userRepository.get.withArgs({ id: user.id }).resolves(user);
+
+              version = domainBuilder.certification.configuration.buildVersion({
+                challengesConfiguration: { maximumAssessmentLength: 32 },
+              });
+              versionsRepository.getByScopeAndReconciliationDate.resolves(version);
             });
 
             it('should return it with flag created marked as true with related resources', async function () {
@@ -430,6 +498,7 @@ describe('Unit | UseCase | retrieve-last-or-create-certification-course', functi
                 certificationCourse: new CertificationCourse({
                   ...savedCertificationCourse.toDTO(),
                   assessment: savedAssessment,
+                  numberOfChallenges: 32,
                 }),
               });
             });
@@ -568,6 +637,7 @@ describe('Unit | UseCase | retrieve-last-or-create-certification-course', functi
                     version: 3,
                     lang: user.lang,
                     isAdjustedForAccessibility: true,
+                    numberOfChallenges: 32,
                   }),
                 );
               });
@@ -1007,6 +1077,7 @@ describe('Unit | UseCase | retrieve-last-or-create-certification-course', functi
                         certificationCourse: new CertificationCourse({
                           ...savedCertificationCourse.toDTO(),
                           assessment: savedAssessment,
+                          numberOfChallenges: 32,
                         }),
                       });
                       expect(result.certificationCourse._complementaryCertificationCourse).to.be.null;

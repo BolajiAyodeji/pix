@@ -1,13 +1,13 @@
 /**
- * @typedef {import('./index.js').EvaluationSessionRepository} EvaluationSessionRepository
+ * @typedef {import('./index.js').AssessmentRepository} AssessmentRepository
  * @typedef {import('./index.js').CertificationCandidateRepository} CertificationCandidateRepository
  * @typedef {import('./index.js').CertificationCourseRepository} CertificationCourseRepository
- * @typedef {import('./index.js').UserRepository} UserRepository
- * @typedef {import('./index.js').PlacementProfileService} PlacementProfileService
  * @typedef {import('./index.js').CertificationCenterRepository} CertificationCenterRepository
+ * @typedef {import('./index.js').EvaluationSessionRepository} EvaluationSessionRepository
+ * @typedef {import('./index.js').UserRepository} UserRepository
+ * @typedef {import('./index.js').VersionsRepository} VersionsRepository
  * @typedef {import('./index.js').CertificationBadgesService} CertificationBadgesService
  * @typedef {import('./index.js').VerifyCertificateCodeService} VerifyCertificateCodeService
- * @typedef {import('./index.js').AssessmentRepository} AssessmentRepository
  * @typedef {import('../../../src/shared/domain/models/CertificationCandidate.js').CertificationCandidate} CertificationCandidate
  */
 import { config } from '../../../../shared/config.js';
@@ -26,17 +26,19 @@ import { CenterHabilitationError } from '../../../shared/domain/errors.js';
 import { AlgorithmEngineVersion } from '../../../shared/domain/models/AlgorithmEngineVersion.js';
 import { CertificationCourse } from '../../../shared/domain/models/CertificationCourse.js';
 import { ComplementaryCertificationKeys } from '../../../shared/domain/models/ComplementaryCertificationKeys.js';
+import { Frameworks } from '../../../shared/domain/models/Frameworks.js';
 
 const { features } = config;
 
 /**
  * @param {Object} params
- * @param {EvaluationSessionRepository} params.evaluationSessionRepository
  * @param {AssessmentRepository} params.assessmentRepository
  * @param {CertificationCandidateRepository} params.sharedCertificationCandidateRepository
  * @param {CertificationCourseRepository} params.certificationCourseRepository
- * @param {UserRepository} params.userRepository
  * @param {CertificationCenterRepository} params.certificationCenterRepository
+ * @param {EvaluationSessionRepository} params.evaluationSessionRepository
+ * @param {UserRepository} params.userRepository
+ * @param {VersionsRepository} params.versionsRepository
  * @param {CertificationBadgesService} params.certificationBadgesService
  * @param {VerifyCertificateCodeService} params.verifyCertificateCodeService
  */
@@ -50,6 +52,7 @@ export const retrieveLastOrCreateCertificationCourse = async function ({
   evaluationSessionRepository,
   certificationCenterRepository,
   userRepository,
+  versionsRepository,
   certificationBadgesService,
   verifyCertificateCodeService,
 }) {
@@ -64,6 +67,15 @@ export const retrieveLastOrCreateCertificationCourse = async function ({
   });
 
   _validateUserIsCertificationCandidate(certificationCandidate);
+
+  const certificationScope = certificationCandidate.isEnrolledToComplementaryOnly()
+    ? certificationCandidate.complementaryCertification.key
+    : Frameworks.CORE;
+
+  const certificationVersion = await versionsRepository.getByScopeAndReconciliationDate({
+    scope: certificationScope,
+    reconciliationDate: certificationCandidate.reconciledAt,
+  });
 
   const existingCertificationCourse =
     await certificationCourseRepository.findOneCertificationCourseByUserIdAndSessionId({
@@ -80,6 +92,9 @@ export const retrieveLastOrCreateCertificationCourse = async function ({
 
   if (existingCertificationCourse) {
     existingCertificationCourse.adjustForAccessibility(certificationCandidate.accessibilityAdjustmentNeeded);
+    existingCertificationCourse.setNumberOfChallenges(
+      certificationVersion.challengesConfiguration.maximumAssessmentLength,
+    );
 
     return {
       created: false,
@@ -91,6 +106,7 @@ export const retrieveLastOrCreateCertificationCourse = async function ({
     session,
     userId,
     certificationCandidate,
+    certificationVersion,
     assessmentRepository,
     certificationCourseRepository,
     certificationCenterRepository,
@@ -158,6 +174,7 @@ async function _startNewCertification({
   session,
   userId,
   certificationCandidate,
+  certificationVersion,
   assessmentRepository,
   certificationCourseRepository,
   certificationCenterRepository,
@@ -218,6 +235,7 @@ async function _startNewCertification({
 
   return _createCertificationCourse({
     certificationCandidate,
+    certificationVersion,
     certificationCourseRepository,
     assessmentRepository,
     userId,
@@ -249,6 +267,7 @@ async function _getCertificationCourseIfCreatedMeanwhile(certificationCourseRepo
  */
 async function _createCertificationCourse({
   certificationCandidate,
+  certificationVersion,
   certificationCourseRepository,
   assessmentRepository,
   verifyCertificateCodeService,
@@ -285,6 +304,7 @@ async function _createCertificationCourse({
     const savedAssessment = await assessmentRepository.save({ assessment: newAssessment });
 
     const certificationCourse = savedCertificationCourse.withAssessment(savedAssessment);
+    certificationCourse.setNumberOfChallenges(certificationVersion.challengesConfiguration.maximumAssessmentLength);
 
     // FIXME : return CertificationCourseCreated or CertificationCourseRetrieved with only needed fields
     return {
