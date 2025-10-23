@@ -95,6 +95,9 @@ function addSearchFilters(queryBuilder, filters = {}) {
   if (filters.fullName) {
     filterByFullName(queryBuilder, filters.fullName, 'firstName', 'lastName');
   }
+  if (filters.statuses?.length > 0) {
+    queryBuilder.whereIn('combined_course_participations.status', filters.statuses);
+  }
 }
 
 export const update = async function ({ combinedCourseParticipation }) {

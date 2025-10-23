@@ -250,6 +250,16 @@ describe('Quest | Integration | Infrastructure | repositories | Combined-Course-
     });
 
     describe('filters', function () {
+      it('should return participations even with empty filters', async function () {
+        // when
+        const { userIds } = await combinedCourseParticipationRepository.findUserIdsById({
+          combinedCourseId,
+          filters: {},
+        });
+
+        // then
+        expect(userIds).deep.equal([userId2, userId3, userId1]);
+      });
       it('should return participation matching learner lastName', async function () {
         // when
         const { userIds } = await combinedCourseParticipationRepository.findUserIdsById({
@@ -269,6 +279,26 @@ describe('Quest | Integration | Infrastructure | repositories | Combined-Course-
 
         // then
         expect(userIds).deep.equal([userId1]);
+      });
+      it('should return participation matching participation status', async function () {
+        // when
+        const { userIds } = await combinedCourseParticipationRepository.findUserIdsById({
+          combinedCourseId,
+          filters: { statuses: [CombinedCourseParticipationStatuses.STARTED] },
+        });
+
+        // then
+        expect(userIds).deep.equal([userId2, userId1]);
+      });
+      it('should return participations even with empty status filter', async function () {
+        // when
+        const { userIds } = await combinedCourseParticipationRepository.findUserIdsById({
+          combinedCourseId,
+          filters: { statuses: [] },
+        });
+
+        // then
+        expect(userIds).deep.equal([userId2, userId3, userId1]);
       });
     });
   });
