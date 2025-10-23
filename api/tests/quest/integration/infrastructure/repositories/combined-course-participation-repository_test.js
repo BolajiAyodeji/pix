@@ -125,10 +125,10 @@ describe('Quest | Integration | Infrastructure | repositories | Combined-Course-
     });
   });
 
-  describe('#findUserIdsByQuestId', function () {
+  describe('#findUserIdsById', function () {
     it('should return user ids only for given quest id', async function () {
       //given
-      const { id: combinedCourseId, questId, organizationId } = databaseBuilder.factory.buildCombinedCourse();
+      const { id: combinedCourseId, organizationId } = databaseBuilder.factory.buildCombinedCourse();
 
       const { id: organizationLearnerId1, userId: userId1 } = databaseBuilder.factory.buildOrganizationLearner({
         organizationId,
@@ -137,25 +137,28 @@ describe('Quest | Integration | Infrastructure | repositories | Combined-Course-
         organizationId,
       });
 
-      databaseBuilder.factory.buildCombinedCourseParticipation({
+      databaseBuilder.factory.buildOrganizationLearnerParticipation({
         organizationLearnerId: organizationLearnerId1,
-        questId,
         combinedCourseId,
+        type: OrganizationLearnerParticipationTypes.COMBINED_COURSE,
+        status: OrganizationLearnerParticipationStatuses.STARTED,
       });
-      databaseBuilder.factory.buildCombinedCourseParticipation({
+      databaseBuilder.factory.buildOrganizationLearnerParticipation({
         organizationLearnerId: organizationLearnerId2,
-        questId,
         combinedCourseId,
+        type: OrganizationLearnerParticipationTypes.COMBINED_COURSE,
+        status: OrganizationLearnerParticipationStatuses.STARTED,
       });
 
-      const { questId: anotherQuestId, id: anotherCombinedCourseId } = databaseBuilder.factory.buildCombinedCourse({
+      const { id: anotherCombinedCourseId } = databaseBuilder.factory.buildCombinedCourse({
         organizationId,
         code: 'anotherQuest',
       });
-      databaseBuilder.factory.buildCombinedCourseParticipation({
+      databaseBuilder.factory.buildOrganizationLearnerParticipation({
         organizationLearnerId: organizationLearnerId1,
-        questId: anotherQuestId,
         combinedCourseId: anotherCombinedCourseId,
+        type: OrganizationLearnerParticipationTypes.COMBINED_COURSE,
+        status: OrganizationLearnerParticipationStatuses.STARTED,
       });
 
       await databaseBuilder.commit();

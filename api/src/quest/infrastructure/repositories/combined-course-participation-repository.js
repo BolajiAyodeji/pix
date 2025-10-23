@@ -1,3 +1,4 @@
+import { knex } from '../../../../db/knex-database-connection.js';
 import { DomainTransaction } from '../../../shared/domain/DomainTransaction.js';
 import { NotFoundError } from '../../../shared/domain/errors.js';
 import { fetchPage } from '../../../shared/infrastructure/utils/knex-utils.js';
@@ -59,12 +60,17 @@ export const findUserIdsById = async function ({ combinedCourseId, page }) {
 
   const queryBuilder = knexConnection('combined_courses')
     .select('users.id')
-    .join('quests', 'quests.id', 'combined_courses.questId')
-    .join('combined_course_participations', 'combined_course_participations.questId', 'quests.id')
+    .join('organization_learner_participations', function () {
+      this.on(
+        knex.raw('CAST(organization_learner_participations."referenceId" AS INTEGER)'),
+        '=',
+        'combined_courses.id',
+      );
+    })
     .join(
       'view-active-organization-learners',
       'view-active-organization-learners.id',
-      'combined_course_participations.organizationLearnerId',
+      'organization_learner_participations.organizationLearnerId',
     )
     .join('users', 'users.id', 'view-active-organization-learners.userId')
     .where('combined_courses.id', combinedCourseId);
