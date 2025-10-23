@@ -763,7 +763,89 @@
               "type": "element",
               "element": {
                 "id": "cc1559a4-2f33-45b3-9c07-bdf018e9fafb",
-                "type": "text"
+                "type": "custom",
+                "instruction": "",
+                "tagName": "pix-carousel",
+                "props": {
+                  "type": "image",
+                  "slides": [
+                    {
+                      "title": "Exemple 1",
+                      "description": "",
+                      "displayWidth": 0,
+                      "image": {
+                        "src": "https://assets.pix.org/modules/IAGenBiais_IND/pix-modulix-ia-biais-conversation-carrousel-img1.png",
+                        "alt": "Exemple 1 : un logo pour une boutique de hockey"
+                      },
+                      "license": {
+                        "name": "",
+                        "attribution": "",
+                        "url": ""
+                      }
+                    },
+                    {
+                      "title": "Exemple 2",
+                      "description": "",
+                      "displayWidth": 0,
+                      "image": {
+                        "src": "https://assets.pix.org/modules/IAGenBiais_IND/pix-modulix-ia-biais-conversation-carrousel-img2-v2.png",
+                        "alt": "Exemple 2 : une image d'un indien à cheval"
+                      },
+                      "license": {
+                        "name": "",
+                        "attribution": "",
+                        "url": ""
+                      }
+                    },
+                    {
+                      "title": "Exemple 3",
+                      "description": "",
+                      "displayWidth": 0,
+                      "image": {
+                        "src": "https://assets.pix.org/modules/IAGenBiais_IND/pix-modulix-ia-biais-conversation-carrousel-img3.png",
+                        "alt": "Exemple 3 : l'explication de la migration des cigognes"
+                      },
+                      "license": {
+                        "name": "",
+                        "attribution": "",
+                        "url": ""
+                      }
+                    },
+                    {
+                      "title": "Exemple 4",
+                      "description": "",
+                      "displayWidth": 0,
+                      "image": {
+                        "src": "https://assets.pix.org/modules/IAGenBiais_IND/pix-modulix-ia-biais-conversation-carrousel-img4-v2.png",
+                        "alt": "Exemple 4 : des conseils d'activité sportives pour 4 enfants"
+                      },
+                      "license": {
+                        "name": "",
+                        "attribution": "",
+                        "url": ""
+                      }
+                    },
+                    {
+                      "title": "Exemple 5",
+                      "description": "",
+                      "displayWidth": 0,
+                      "image": {
+                        "src": "https://assets.pix.org/modules/IAGenBiais_IND/pix-modulix-ia-biais-conversation-carrousel-img5-v2.png",
+                        "alt": "Exemple 5 : la liste des 5 plus hauts gratte-ciels du monde"
+                      },
+                      "license": {
+                        "name": "",
+                        "attribution": "",
+                        "url": ""
+                      }
+                    }
+                  ],
+                  "aspectRatio": 1.84,
+                  "randomSlides": false,
+                  "titleLevel": 2,
+                  "disableAnimation": false,
+                  "disableLoop": false
+                }
               }
             },
             {
