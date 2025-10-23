@@ -248,6 +248,29 @@ describe('Quest | Integration | Infrastructure | repositories | Combined-Course-
       // then
       expect(userIds).deep.equal([userId1]);
     });
+
+    describe('filters', function () {
+      it('should return participation matching learner lastName', async function () {
+        // when
+        const { userIds } = await combinedCourseParticipationRepository.findUserIdsById({
+          combinedCourseId,
+          filters: { fullName: 'are' },
+        });
+
+        // then
+        expect(userIds).deep.equal([userId2, userId3]);
+      });
+      it('should return participation matching learner firstName', async function () {
+        // when
+        const { userIds } = await combinedCourseParticipationRepository.findUserIdsById({
+          combinedCourseId,
+          filters: { fullName: 'GEO' },
+        });
+
+        // then
+        expect(userIds).deep.equal([userId1]);
+      });
+    });
   });
 
   describe('#update', function () {
