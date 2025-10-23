@@ -79,7 +79,8 @@ export const findUserIdsById = async function ({ combinedCourseId, page }) {
       'view-active-organization-learners.id',
       'combined_course_participations.organizationLearnerId',
     )
-    .where('combined_courses.id', combinedCourseId);
+    .where('combined_courses.id', combinedCourseId)
+    .orderBy(['lastName', 'firstName', 'userId']);
 
   const { results, pagination } = await fetchPage({ queryBuilder, paginationParams: page });
   return {

@@ -167,46 +167,86 @@ describe('Quest | Integration | Infrastructure | repositories | Combined-Course-
     });
   });
 
-  describe('#findUserIdsByQuestId', function () {
-    it('should return user ids only for given quest id', async function () {
+  describe('#findUserIdsById', function () {
+    let combinedCourseId;
+    const userId1 = 987;
+    const userId2 = 456;
+    const userId3 = 123;
+
+    beforeEach(async function () {
       //given
-      const { id: combinedCourseId, questId, organizationId } = databaseBuilder.factory.buildCombinedCourse();
+      const combinedCourse = databaseBuilder.factory.buildCombinedCourse();
+      combinedCourseId = combinedCourse.id;
 
-      const { id: organizationLearnerId1, userId: userId1 } = databaseBuilder.factory.buildOrganizationLearner({
-        organizationId,
+      databaseBuilder.factory.buildUser({ id: userId1 });
+      const organizationLearner1 = databaseBuilder.factory.buildOrganizationLearner({
+        userId: userId1,
+        firstName: 'Georges',
+        lastName: 'Zelio',
+        organizationId: combinedCourse.organizationId,
       });
-      const { id: organizationLearnerId2, userId: userId2 } = databaseBuilder.factory.buildOrganizationLearner({
-        organizationId,
+      databaseBuilder.factory.buildUser({ id: userId2 });
+      const organizationLearner2 = databaseBuilder.factory.buildOrganizationLearner({
+        userId: userId2,
+        firstName: 'Loubna',
+        lastName: 'Aresto',
+        organizationId: combinedCourse.organizationId,
+      });
+
+      databaseBuilder.factory.buildUser({ id: userId3 });
+      const organizationLearner3 = databaseBuilder.factory.buildOrganizationLearner({
+        userId: userId3,
+        firstName: 'Nour',
+        lastName: 'Aresto',
+        organizationId: combinedCourse.organizationId,
       });
 
       databaseBuilder.factory.buildCombinedCourseParticipation({
-        organizationLearnerId: organizationLearnerId1,
-        questId,
+        organizationLearnerId: organizationLearner1.id,
+        questId: combinedCourse.questId,
         combinedCourseId,
       });
       databaseBuilder.factory.buildCombinedCourseParticipation({
-        organizationLearnerId: organizationLearnerId2,
-        questId,
+        organizationLearnerId: organizationLearner2.id,
+        questId: combinedCourse.questId,
         combinedCourseId,
+      });
+      databaseBuilder.factory.buildCombinedCourseParticipation({
+        organizationLearnerId: organizationLearner3.id,
+        questId: combinedCourse.questId,
+        combinedCourseId,
+        status: CombinedCourseParticipationStatuses.COMPLETED,
       });
 
       const { questId: anotherQuestId, id: anotherCombinedCourseId } = databaseBuilder.factory.buildCombinedCourse({
-        organizationId,
+        organizationId: combinedCourse.organizationId,
         code: 'anotherQuest',
       });
       databaseBuilder.factory.buildCombinedCourseParticipation({
-        organizationLearnerId: organizationLearnerId1,
+        organizationLearnerId: organizationLearner1.id,
         questId: anotherQuestId,
         combinedCourseId: anotherCombinedCourseId,
       });
 
       await databaseBuilder.commit();
+    });
 
+    it('should return user ids only for given quest id', async function () {
       // when
       const { userIds } = await combinedCourseParticipationRepository.findUserIdsById({ combinedCourseId });
 
       // then
-      expect(userIds).deep.equal([userId1, userId2]);
+      expect(userIds).deep.equal([userId2, userId3, userId1]);
+    });
+
+    it('should return paginated user ids', async function () {
+      // when
+      const { userIds } = await combinedCourseParticipationRepository.findUserIdsById({
+        combinedCourseId,
+        page: { size: 1, number: 3 },
+      });
+      // then
+      expect(userIds).deep.equal([userId1]);
     });
   });
 
