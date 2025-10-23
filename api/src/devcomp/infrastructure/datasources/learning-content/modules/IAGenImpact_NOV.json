@@ -29,7 +29,7 @@
               "element": {
                 "id": "35a9be34-9b63-4cf5-b984-432010aff74e",
                 "type": "text",
-                "content": "<p>Enzo teste sur son smartphone une application d’intelligence artificielle générative.</p><p>    Il est impressionné par sa rapidité…</p>"
+                "content": "<p>Enzo teste sur son smartphone un logiciel d’intelligence artificielle générative.</p><p>    Il est impressionné par sa rapidité…</p>"
               }
             }
           ]
@@ -52,22 +52,22 @@
                     {
                       "userName": "Enzo",
                       "direction": "incoming",
-                      "content": "J’ai testé une appli d’IA sur mon téléphone, c’est fou comme ça répond vite ! 🤯"
+                      "content": "J’ai testé une IA sur mon téléphone, c’est fou comme ça répond vite ! 🤯"
                     },
                     {
                       "userName": "Alice",
                       "direction": "outgoing",
-                      "content": "Sur ton vieux smartphone ? Tu dois avoir installé un truc magique 😅"
+                      "content": "Sur ton vieux smartphone ? Et ça fonctionne correctement ? 😅"
                     },
                     {
                       "userName": "Enzo",
                       "direction": "incoming",
-                      "content": "Oui ! J’ai l’impression qu’il est super puissant maintenant, il arrive à répondre à toutes mes demandes. "
+                      "content": "Oui ! J’ai l’impression qu’il est super puissant maintenant, il arrive à répondre à toutes mes demandes. "
                     },
                     {
                       "userName": "Alice",
                       "direction": "outgoing",
-                      "content": "Ou alors… c’est peut-être pas ton téléphone qui travaille ? 🤔"
+                      "content": "Ou alors… Les réponses ne viennent pas de ton téléphone ? 🤔"
                     }
                   ]
                 }
@@ -91,7 +91,7 @@
               "element": {
                 "id": "fdf4e875-c31c-4637-b9e1-62a9b77046e7",
                 "type": "text",
-                "content": "<p>Même avec un ordinateur peu puissant, ou un smartphone basique, on peut obtenir des réponses à beaucoup de nos demandes grâce à l’IA. </p><p><strong>Mais comment est-ce possible ?</strong></p><p>Voyons où sont produites les réponses à nos demandes.</p>"
+                "content": "<p>Même avec un smartphone basique, ou un ordinateur peu puissant, on peut obtenir des réponses à beaucoup de nos demandes grâce à l’IA. </p><p><strong>Mais comment est-ce possible ?</strong></p><p>Voyons où sont produites les réponses à nos demandes.</p>"
               }
             }
           ]
@@ -259,7 +259,7 @@
               "element": {
                 "id": "6a585a2a-9d17-4307-befd-906559ec80b1",
                 "type": "qcu-discovery",
-                "instruction": "<p>Lorsqu’on fait une demande à un logiciel d’IA générative, la réponse est calculée&nbsp;:</p>",
+                "instruction": "<p>Lorsqu’on fait une demande à un logiciel d’IA générative en ligne, la réponse est calculée&nbsp;:</p>",
                 "proposals": [
                   {
                     "id": "1",
@@ -277,9 +277,9 @@
                   },
                   {
                     "id": "3",
-                    "content": "<p>Dans le site web de l'IA</p>",
+                    "content": "<p>Par une personne humaine qui relit vos questions</p>",
                     "feedback": {
-                      "diagnosis": "<p>En fait, non.</p><p>Le site web sert seulement de porte d’entrée.<br>    Votre demande voyage depuis votre ordinateur via internet <strong>jusqu’à un supercalculateur</strong>, peut-être situé à l’autre bout du monde. C’est là-bas que la réponse est calculée.</p>"
+                      "diagnosis": "<p>En fait, non.</p><p>Personne ne relit vos questions en direct. Tout est calculé automatiquement par des ordinateurs.    Votre demande voyage depuis votre ordinateur via internet <strong>jusqu’à un supercalculateur</strong>, peut-être situé à l’autre bout du monde. C’est là-bas que la réponse est calculée.</p>"
                     }
                   },
                   {
@@ -328,12 +328,12 @@
                     {
                       "userName": "Enzo",
                       "direction": "incoming",
-                      "content": "Ah, donc en fait… ce n’est pas mon téléphone qui est devenu puissant. 😞"
+                      "content": "Ah, donc en fait… ce n’est pas mon téléphone qui est devenu puissant. 😞"
                     },
                     {
                       "userName": "Alice",
                       "direction": "outgoing",
-                      "content": "Non, mais il te permet d’utiliser l’IA, ça suffit ! 😉"
+                      "content": "Non, mais il te permet d’utiliser l’IA, ça suffit ! 😉"
                     },
                     {
                       "userName": "Enzo",
@@ -343,7 +343,7 @@
                     {
                       "userName": "Enzo",
                       "direction": "incoming",
-                      "content": "Mais maintenant, je suis curieux : comment fait le serveur pour créer les réponses ? 🤔"
+                      "content": "Mais maintenant, je suis curieux : comment fait le supercalculateur pour créer les réponses ? 🤔"
                     }
                   ]
                 }
@@ -507,7 +507,7 @@
               "element": {
                 "id": "40de84e9-fc48-40c3-9d3f-499f6454d46a",
                 "type": "text",
-                "content": "<p><strong>⚡L’IA, ça calcule, ça chauffe, ça consomme.</strong></p><p>Le traitement d’une requête demande de <strong>nombreux calculs</strong>. Pour faire ces calculs, il faut du <strong>matériel très complexe</strong>, qui <strong>consomme de l’électricité</strong> et qui a <strong>besoin d’être refroidi</strong> en permanence avec <strong>de l‘eau</strong>.</p><p><strong>💡Bon à savoir :</strong>&nbsp;Et même <strong>si personne n'envoie de requête</strong>, <strong>les serveurs </strong>restent allumés et <strong>consomment toujours</strong>. </p>"
+                "content": "<p><strong>⚡L’IA, ça calcule, ça chauffe, ça consomme.</strong></p><p>Le traitement d’une instruction demande de <strong>nombreux calculs</strong>. Pour faire ces calculs, il faut du <strong>matériel très complexe</strong>, qui <strong>consomme de l’électricité</strong> et qui a <strong>besoin d’être refroidi</strong> en permanence avec <strong>de l‘eau</strong>.</p><p><strong>💡Bon à savoir&nbsp;:</strong>&nbsp;Et même <strong>si personne n’envoie d’instructions</strong>, <strong>les supercalculateurs </strong>restent allumés et <strong>consomment toujours</strong>. </p>"
               }
             }
           ]
@@ -530,7 +530,7 @@
                     {
                       "userName": "Enzo",
                       "direction": "incoming",
-                      "content": "Alors en fait, quand j’utilise un logiciel d’IA, je consomme de l’énergie à l’autre bout du monde ! 😮"
+                      "content": "Alors en fait, quand j’utilise un logiciel d’IA, je consomme de l’énergie à l’autre bout du monde ! 😮"
                     },
                     {
                       "userName": "Alice",
@@ -540,7 +540,7 @@
                     {
                       "userName": "Enzo",
                       "direction": "incoming",
-                      "content": "Et si on y pense, des milliers de personnes font pareil en même temps ! 😳"
+                      "content": "Et si on y pense, des milliers de personnes font pareil en même temps ! 😳"
                     }
                   ]
                 }
@@ -558,7 +558,7 @@
               "element": {
                 "id": "8286afa8-20b5-4e86-99bc-7daf29f91363",
                 "type": "text",
-                "content": "<p>Imaginons que <strong>plusieurs personnes utilisent une IA en même temps</strong>, que se passe-t-il côté calculs ? </p><p>En <strong>choisissant la demande</strong> envoyée <strong>et le</strong> <strong>nombre d‘utilisateurs</strong>, testez la <strong>capacité de calcul</strong> d’un supercalculateur pour répondre aux questions ci-dessous.</p>"
+                "content": "<p>Imaginons que <strong>plusieurs personnes utilisent une IA en même temps</strong>, que se passe-t-il côté calculs ? </p><p>En <strong>choisissant la demande</strong> envoyée <strong>et le</strong> <strong>nombre d‘utilisateurs</strong>, testez la <strong>capacité de calcul</strong> d’un supercalculateur pour répondre aux questions ci-dessous.</p>"
               }
             },
             {
@@ -642,21 +642,21 @@
                           "id": "1",
                           "content": "<p>Oui</p>",
                           "feedback": {
-                            "diagnosis": "<p>Eh non.</p><p>La création d'images demande beaucoup de calculs. Le supercalculateur ne pas peut pas créer 25 000 images en même temps.</p>"
+                            "diagnosis": "<p>Eh non.</p><p>La création d’images demande beaucoup de calculs. Le supercalculateur ne pas peut pas créer 25 000 images en même temps.</p>"
                           }
                         },
                         {
                           "id": "2",
                           "content": "<p>Non</p>",
                           "feedback": {
-                            "diagnosis": "<p>En effet !</p><p> La création d'images demande beaucoup de calculs. Le supercalculateur ne pas peut pas créer 25 000 images en même temps.</p>"
+                            "diagnosis": "<p>En effet !</p><p> La création d’images demande beaucoup de calculs. Le supercalculateur ne pas peut pas créer 25 000 images en même temps.</p>"
                           }
                         },
                         {
                           "id": "3",
                           "content": "<p>Je ne sais pas.</p>",
                           "feedback": {
-                            "diagnosis": "<p>La création d'images demande beaucoup de calculs. Le supercalculateur ne pas peut pas créer 25 000 images en même temps.</p><p>Sélectionnez la demande de création d‘un dessin et ajustez la quantité à 25 000 pour visualiser le résultat.</p>"
+                            "diagnosis": "<p>La création d’images demande beaucoup de calculs. Le supercalculateur ne pas peut pas créer 25 000 images en même temps.</p><p>Sélectionnez la demande de création d‘un dessin et ajustez la quantité à 25 000 pour visualiser le résultat.</p>"
                           }
                         }
                       ],
@@ -751,7 +751,7 @@
               "element": {
                 "id": "74be751a-51ef-4ed3-a8d4-a2e7e7b464a8",
                 "type": "text",
-                "content": "<p>💻 <strong>⚡ Beaucoup d’utilisateurs, beaucoup d’énergie !</strong> </p><p>Un supercalculateur reçoit <strong>des milliers de requêtes en même temps</strong>.&nbsp;Pour la fabrication d’images haute définition ou de vidéos, les calculs sont beaucoup plus importants que pour produire du texte.&nbsp; </p><p>Les serveurs d’un centre de calcul <strong>traitent de nombreuses demandes en même temps</strong>.Chaque réponse demande <strong>beaucoup de puissance de calcul</strong>, ce qui consomme <strong>beaucoup d’énergie</strong>. ⚡</p>"
+                "content": "<p>💻 <strong>⚡ Beaucoup d’utilisateurs, beaucoup d’énergie !</strong> </p><p>Un supercalculateur reçoit <strong>des milliers de requêtes en même temps</strong>.&nbsp;Pour la fabrication d’images haute définition ou de vidéos, les calculs sont beaucoup plus importants que pour produire du texte.&nbsp; </p><p>Les supercalculateurs&nbsp;<strong>traitent de nombreuses demandes en même temps</strong>. Chaque réponse demande <strong>beaucoup de puissance de calcul</strong>, ce qui consomme <strong>beaucoup d’énergie</strong>. ⚡</p>"
               }
             }
           ]
@@ -774,12 +774,12 @@
                     {
                       "userName": "Enzo",
                       "direction": "incoming",
-                      "content": "L’IA, c’est super pratique… mais j’aimerais pas qu’elle abîme la planète."
+                      "content": "L’IA, c’est super pratique… mais j’aimerais pas qu’elle épuise la planète."
                     },
                     {
                       "userName": "Alice",
                       "direction": "outgoing",
-                      "content": "Oui, moi aussi ça me fait réfléchir. Peut-être qu’il faudrait arrêter de l’utiliser ? 🤔"
+                      "content": "Oui, moi aussi ça me fait réfléchir. Peut-être qu’il faudrait arrêter de l’utiliser ? 🤔"
                     },
                     {
                       "userName": "Enzo",
@@ -907,14 +907,14 @@
                           "id": "1",
                           "content": "<p>utile</p>",
                           "feedback": {
-                            "diagnosis": "<p>Mauvais choix.</p><p>Pour savoir la météo, autant utiliser <strong>une appli météo</strong> ou <strong>regarder sur Internet</strong> : c’est <strong>plus rapide et précis</strong>.</p>"
+                            "diagnosis": "<p>Mauvais choix.</p><p>Pour connaître la météo, autant utiliser <strong>une appli météo</strong> ou <strong>regarder sur Internet</strong>&nbsp;: c’est <strong>plus rapide et précis</strong>.</p>"
                           }
                         },
                         {
                           "id": "2",
                           "content": "<p>pas utile</p>",
                           "feedback": {
-                            "diagnosis": "<p>En effet !</p><p>Pour savoir la météo, autant utiliser <strong>une appli météo</strong> ou <strong>regarder sur Internet</strong> : c’est <strong>plus rapide et précis</strong>.</p>"
+                            "diagnosis": "<p>En effet !</p><p>Pour connaître la météo, autant utiliser <strong>une appli météo</strong> ou <strong>regarder sur Internet</strong>&nbsp;: c’est <strong>plus rapide et précis</strong>.</p>"
                           }
                         }
                       ],
@@ -936,7 +936,7 @@
               "element": {
                 "id": "65f0620b-6632-480d-ad77-f4a2e7e59289",
                 "type": "text",
-                "content": "<p><strong>🌱Agir pour réduire la consommation d’énergie</strong></p><p> Pour réduire les coûts énergétiques des supercalculateurs, on peut essayer collectivement d’utiliser les IA génératives à un juste besoin&nbsp;:</p><ul><li>éviter les requêtes inutiles ou répétées</li><li>privilégier des solutions plus efficaces quand elles existent</li><li>éviter les demandes d‘images ou de vidéos</li></ul><p><strong>🤔Bon à savoir</strong> </p><p> Les concepteurs IA peuvent faire attention à <strong>consommer moins d’énergie</strong> en fabriquant des machines pour l'IA plus économes en énergie.Elles peuvent aussi utiliser de l’<strong>électricité verte</strong> plutot que des <strong>énergies fossiles</strong>.</p>"
+                "content": "<p><strong>🌱Agir pour réduire la consommation d’énergie</strong></p><p> Pour réduire les coûts énergétiques des supercalculateurs, on peut essayer collectivement d’utiliser les IA génératives à un juste besoin&nbsp;:</p><ul><li>éviter les requêtes inutiles </li><li>privilégier des solutions plus efficaces quand elles existent</li><li>éviter les demandes d‘images ou de vidéos</li></ul><p><strong>🤔Bon à savoir</strong> </p><p> Les créateurs d’IA peuvent faire attention à <strong>consommer moins d’énergie</strong> en fabriquant des machines pour l’IA plus économes en énergie. Elles peuvent aussi utiliser de l’<strong>électricité verte</strong> plutot que des <strong>énergies fossiles</strong>.</p>"
               }
             }
           ]
@@ -957,7 +957,7 @@
               "element": {
                 "id": "d705c485-ea6d-4109-a7c7-b236684b8330",
                 "type": "text",
-                "content": "<ul>    <li>Chaque <strong>question posée</strong> à une <strong>IA</strong> générative demande des <strong>millions de calculs</strong>, qui s’additionnent à ceux de <strong>millions d’autres utilisateurs</strong>.</li>    <li>Ils sont réalisés dans de <strong>grands centres de calcul</strong>, parfois situés à l’autre <strong>bout du monde</strong>.</li>    <li><strong>Pour fonctionner</strong> et être refroidis, ces centres consomment <strong>beaucoup d’énergie</strong> et parfois de <strong>grandes quantités d’eau</strong>.</li>    <li>Les <strong>demandes d’images</strong> en haute définition ou de <strong>vidéos</strong> consomment encore <strong>plus d’énergie</strong>.</li></ul>"
+                "content": "<ul>    <li>Chaque <strong>question posée</strong> à une <strong>IA</strong> générative demande des <strong>millions de calculs</strong>, qui s’additionnent à ceux de <strong>millions d’autres instructions</strong>.</li>    <li>Les calculs sont réalisés dans des&nbsp;<strong>supercalculateurs</strong>, parfois situés à l’autre <strong>bout du monde</strong>.</li>    <li><strong>Pour fonctionner</strong> et être refroidis, ces supercalculateurs consomment <strong>beaucoup d’énergie</strong> et parfois de <strong>grandes quantités d’eau</strong>.</li>    <li>Les <strong>demandes d’images</strong> en haute définition ou de <strong>vidéos</strong> consomment encore <strong>plus d’énergie</strong>.</li></ul>"
               }
             }
           ]
