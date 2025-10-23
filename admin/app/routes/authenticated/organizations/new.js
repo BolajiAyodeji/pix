@@ -1,7 +1,9 @@
 import Route from '@ember/routing/route';
 import { service } from '@ember/service';
+import { runTask } from 'ember-lifeline';
 
 export default class NewRoute extends Route {
+  @service router;
   @service store;
   @service accessControl;
 
@@ -14,6 +16,29 @@ export default class NewRoute extends Route {
     this.accessControl.restrictAccessTo(['isSuperAdmin', 'isSupport', 'isMetier'], 'authenticated');
   }
 
+  afterModel(_, transition) {
+    const queryParams = transition?.to?.queryParams ?? {};
+
+    if (Object.keys(queryParams).length === 0) {
+      return;
+    }
+
+    if (!queryParams.parentOrganizationId && !queryParams.parentOrganizationName) {
+      return;
+    }
+
+    if (_hasParentOrganizationQueryParamsAndOneIsMissing(queryParams)) {
+      runTask(this, () => {
+        this.router.replaceWith(this.routeName, {
+          queryParams: {
+            parentOrganizationId: null,
+            parentOrganizationName: null,
+          },
+        });
+      });
+    }
+  }
+
   model() {
     return this.store.createRecord('organization');
   }
@@ -24,4 +49,10 @@ export default class NewRoute extends Route {
       controller.parentOrganizationName = null;
     }
   }
+}
+
+function _hasParentOrganizationQueryParamsAndOneIsMissing(queryParams) {
+  return (
+    Object.keys(queryParams).length > 0 && (!queryParams.parentOrganizationName || !queryParams.parentOrganizationId)
+  );
 }
