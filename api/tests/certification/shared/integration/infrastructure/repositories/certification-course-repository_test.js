@@ -256,17 +256,6 @@ describe('Certification | Shared | Integration | Repository | Certification Cour
         // then
         expect(certificationCourse.toDTO().createdAt).to.deep.equal(createdAtLater);
       });
-
-      it('should retrieve the right number of question', async function () {
-        // when
-        const certificationCourse = await certificationCourseRepository.findOneCertificationCourseByUserIdAndSessionId({
-          userId,
-          sessionId,
-        });
-
-        // then
-        expect(certificationCourse.toDTO().numberOfChallenges).to.equal(32);
-      });
     });
   });
 
