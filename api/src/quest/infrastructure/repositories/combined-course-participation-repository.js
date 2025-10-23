@@ -71,7 +71,7 @@ export const findUserIdsById = async function ({ combinedCourseId, page }) {
   const knexConnection = DomainTransaction.getConnection();
 
   const queryBuilder = knexConnection('combined_courses')
-    .select('users.id')
+    .select('userId')
     .join('quests', 'quests.id', 'combined_courses.questId')
     .join('combined_course_participations', 'combined_course_participations.questId', 'quests.id')
     .join(
@@ -79,12 +79,11 @@ export const findUserIdsById = async function ({ combinedCourseId, page }) {
       'view-active-organization-learners.id',
       'combined_course_participations.organizationLearnerId',
     )
-    .join('users', 'users.id', 'view-active-organization-learners.userId')
     .where('combined_courses.id', combinedCourseId);
 
   const { results, pagination } = await fetchPage({ queryBuilder, paginationParams: page });
   return {
-    userIds: results.map((result) => result.id),
+    userIds: results.map((result) => result.userId),
     meta: pagination,
   };
 };
