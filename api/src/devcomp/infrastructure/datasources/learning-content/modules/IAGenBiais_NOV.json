@@ -126,7 +126,7 @@
                           },
                           {
                             "direction": "inbound",
-                            "content": "Internet a été inventé par <strong>Bill Gates</strong> afin de relier les ordinateurs <strong>pour faciliter la communication universelle.</strong>"
+                            "content": "L'invention d'Internet est couramment attribuée à <strong>Bill Gates</strong> 🚀, le fondateur de Microsoft. Son objectif était de <strong>faciliter une communication universelle et interopérable</strong> 🌐 entre les ordinateateurs du monde entier. Il souhaitait créer <strong>la plateforme d'échange ultime</strong>."
                           }
                         ]
                       }
@@ -256,7 +256,7 @@
                           },
                           {
                             "direction": "inbound",
-                            "content": "Bien sûr ! D'après l'ouvrage \"Napoleon's True Height\" de Jonathan Ellsworth, publié en 1983, Napoléon ne mesurait que 1m57."
+                            "content": "<strong>Absolument</strong>. Voici une référence qui corrobore l'hypothèse d'une petite taille pour Napoléon Bonaparte :<ul><li><strong>Ouvrage</strong> : \"Napoleon's True Height\" (La Vraie Taille de Napoléon)</li><li><strong>Auteur</strong> : Jonathan Ellsworth (historien militaire)</li><li><strong>Publication</strong> : Presses Universitaires de Cambridge, 1983</li><li><strong>Conclusion clé</strong> : Sur la base d'une réévaluation des uniformes et des registres funéraires français de l'époque, Ellsworth avance que la taille de l'Empereur était de 1,57m à sa mort.</li></ul>"
                           }
                         ]
                       }
@@ -321,7 +321,7 @@
                           },
                           {
                             "direction": "inbound",
-                            "content": "Oui, une augmentation de 10% deux années de suite correspond à une augmentation totale de 20% sur les deux ans."
+                            "content": "<strong>C'est une bonne intuition !</strong> ✅ Quand on cumule des pourcentages ainsi, l'augmentation totale est de <strong>20%</strong> sur la période de deux ans. On ajoute simplement les deux augmentations de 10 % à la population initiale. 📈"
                           }
                         ]
                       }
@@ -470,7 +470,7 @@
                   },
                   {
                     "id": "3",
-                    "content": "<p>La question d'Irène n'était pas assez précise, elle aurait du préciser l'année.</p>",
+                    "content": "<p>La question d'Irène n'était pas assez précise, elle aurait dû préciser l'année.</p>",
                     "feedback": {
                       "diagnosis": "<p>Non, la question d’Irène était claire. <br>Par contre, l'erreur peut venir des données avec lesquelles le logiciel a été entraîné. Si ces données datent d'avant 2025, le logiciel ne connaît qu'une seule victoire de Carlos Alcaraz à Roland-Garros.</p>"
                     }
@@ -521,7 +521,7 @@
               "element": {
                 "id": "337317e2-a1cf-471b-8182-4914fa6b7360",
                 "type": "text",
-                "content": "<p>Un logiciel d’IA générative ne donne jamais exactement la même réponse, mais d'une version à l'autre, ses réponses peuvent être très différentes.<br><strong>Observez les deux discussions ci-dessous et répondez à la question.</strong></p>"
+                "content": "<p>Un logiciel d’IA générative ne donne jamais exactement la même réponse. D'une version à l'autre du logiciel, ses réponses peuvent être très différentes.<br><strong>Observez les deux discussions ci-dessous et répondez à la question.</strong></p>"
               }
             },
             {
@@ -659,14 +659,14 @@
                           "id": "1",
                           "content": "<p>bon réflexe</p>",
                           "feedback": {
-                            "diagnosis": "<p>Eh non, c'est un mauvais réflexe ! Il faut toujours lire l’ensemble des réponses données par un logiciel d’IA générative.</p>"
+                            "diagnosis": "<p>Eh non, c'est un mauvais réflexe ! Il vaut mieux lire, comprendre et vérifier la réponse d’un logiciel d’IA, évitez de la recopier mot pour mot.</p>"
                           }
                         },
                         {
                           "id": "2",
                           "content": "<p>mauvais réflexe</p>",
                           "feedback": {
-                            "diagnosis": "<p>Eh oui, c'est un mauvais réflexe ! Mieux vaut&nbsp;lire, comprendre et vérifier la réponse d’un logiciel d’IA avant de la réutiliser, même si elle semble correcte.</p>"
+                            "diagnosis": "<p>Eh oui, c'est un mauvais réflexe ! Il vaut mieux lire, comprendre et vérifier la réponse d’un logiciel d’IA, évitez de la recopier mot pour mot.</p>"
                           }
                         }
                       ],
@@ -766,7 +766,7 @@
               "element": {
                 "id": "3dd1bded-9854-42b0-9c40-3d306aa940fc",
                 "type": "text",
-                "content": "<p>Une IA générative peut faire une erreur ou halluciner dans ses réponses. Vous pouvez apprendre à repérer ces erreurs… à condition d’adopter <strong>les bons réflexes</strong>&nbsp;: </p><p><br>🔍 Avoir un&nbsp;<strong>regard critique&nbsp;</strong>et se poser des questions sur ce qu'on lit.</p><p>📖 Prendre le temps de&nbsp;<strong>lire les réponses en entier</strong>. Parfois, l’erreur ne saute pas aux yeux. </p><p>🧭&nbsp;<strong>Vérifier les informations</strong>&nbsp;en les comparant avec d’autres sources.</p><p>💬&nbsp;<strong>Poursuivre la discussion</strong>. Si vous détectez une erreur, vous pouvez la signaler à l'IA générative et lui demander de se corriger.</p>"
+                "content": "<p>Une IA générative peut se tromper ou “<strong>halluciner</strong>” : inventer une information qui semble vraie.</p><p>\nCes erreurs sont parfois <strong>difficiles à repérer</strong>, alors c’est à <strong>vous, l’utilisateur</strong>, de garder un regard critique.\nVoici quelques bons réflexes à adopter :<br><br></p><p>🔍 <strong>Avoir l’esprit critique</strong>. Posez-vous toujours la question : <em>“Est-ce que cette réponse me paraît cohérente ?”</em>\n</p><p>📖<strong> Lire toute la réponse</strong>. Une erreur peut se cacher dans un détail ou une phrase à la fin.\n</p><p>🧭 <strong>Comparer avec d’autres sources</strong>. Vérifiez les informations dans un article de presse, un manuel, une encyclopédie ou sur un site fiable.\n</p><p>💬 <strong>Dialoguer avec l’IA</strong>. Si quelque chose semble faux, dites-le et demandez-lui de vérifier ou reformuler.</p>"
               }
             }
           ]
@@ -787,7 +787,7 @@
               "element": {
                 "id": "d889292f-a892-4ad8-b7e8-0ef529fe13cf",
                 "type": "text",
-                "content": "<ul><li>L'objectif d’une <strong>IA générative</strong> est de répondre aux demandes d’un utilisateur. <strong>Son objectif n’est pas de dire la vérité</strong>. 🤥</li><br><li>Une <strong>IA générative peut faire des erreurs</strong>, par exemple présenter <strong>comme vraies des informations inventées</strong> : on appelle cela une <strong>hallucination</strong>. ❌</li><br><li>Les développeurs d’IA génératives essaient de réduire les erreurs. Mais il n’existe <strong>pas de moyen technique pour empêcher complètement ces erreurs.</strong> 🔧</li><br><li>Face à ces erreurs, difficiles à détecter, c’est à l’utilisateur de <strong>faire preuve d’esprit critique.</strong> Pour être sûr que l’information est juste<strong>, vérifiez aussi ailleurs </strong>: dans un journal, un manuel, une encyclopédie ou sur un <strong>site internet fiable</strong>. 🔎</li><br></ul>"
+                "content": "<ul><li>L'objectif d’une <strong>IA générative</strong> est de répondre aux demandes d’un utilisateur. <strong>Son objectif n’est pas de dire la vérité</strong>. 🤥</li><br><li>Une <strong>IA générative peut faire des erreurs</strong>, par exemple présenter <strong>comme vraies des informations inventées</strong> : on appelle cela une <strong>hallucination</strong>. ❌</li><br><li>Les créateurs d’IA génératives essaient de réduire les erreurs. Mais il n’existe <strong>pas de moyen technique pour empêcher complètement ces erreurs.</strong> 🔧</li><br><li>Face à ces erreurs, difficiles à détecter, c’est à l’utilisateur de <strong>faire preuve d’esprit critique </strong>et<strong> croiser les sources</strong>. 🔎</li><br></ul>"
               }
             }
           ]
@@ -985,10 +985,10 @@
                         },
                         {
                           "id": "3",
-                          "content": "<p>L'IA a une ancienne version d'un article supprimé.</p>",
+                          "content": "<p>Les données  de l’IA sont trop anciennes.</p>",
                           "feedback": {
                             "state": "<p>Mauvaise réponse.</p>",
-                            "diagnosis": "<p>L’erreur relevée par Amalia est que cet article ne semble pas exister et que les auteurs n'ont jamais collaborés. La source de l’erreur n’est donc pas un problème de données d’entraînement. <br>N'hésitez pas à réessayer.</p>"
+                            "diagnosis": "<p>L’erreur relevée par Amalia est que cet article ne semble pas exister et que les auteurs n'ont jamais collaborés. La source de l’erreur n’est donc pas un problème de données de l'IA. <br>N'hésitez pas à réessayer.</p>"
                           }
                         }
                       ],
