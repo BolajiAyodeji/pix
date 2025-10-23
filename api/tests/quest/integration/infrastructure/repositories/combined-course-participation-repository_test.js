@@ -15,7 +15,7 @@ describe('Quest | Integration | Infrastructure | repositories | Combined-Course-
     it('should insert organization learner participations of type combined course', async function () {
       //given
       const organizationLearnerId = databaseBuilder.factory.buildOrganizationLearner().id;
-      const { id: combinedCourseId, questId } = databaseBuilder.factory.buildCombinedCourse();
+      const { id: combinedCourseId } = databaseBuilder.factory.buildCombinedCourse();
 
       await databaseBuilder.commit();
 
@@ -23,61 +23,43 @@ describe('Quest | Integration | Infrastructure | repositories | Combined-Course-
       await combinedCourseParticipationRepository.save({
         organizationLearnerId,
         combinedCourseId,
-        questId,
       });
 
       //then
       const participations = await knex('organization_learner_participations')
         .select(
-          'organization_learner_participations.*',
-          'combined_course_participations.id as combinedCourseParticipationId',
-          'combined_course_participations.combinedCourseId as combinedCourseParticipationsCombinedCourseId',
-          'combined_course_participations.organizationLearnerParticipationId as combinedCourseParticipationsOrganizationLearnerParticipationId',
-          'combined_course_participations.status as combinedCourseParticipationStatus',
-          'combined_course_participations.organizationLearnerId as combinedCourseParticipationsOrganizationLearnerId',
-          'combined_course_participations.questId as combinedCourseParticipationsQuestId',
-          'combined_course_participations.createdAt as combinedCourseParticipationsCreatedAt',
-          'combined_course_participations.updatedAt as combinedCourseParticipationsUpdatedAt',
-          'referenceId',
-        )
-        .join(
-          'combined_course_participations',
-          'combined_course_participations.organizationLearnerParticipationId',
-          'organization_learner_participations.id',
+          'id as combinedCourseParticipationId',
+          'referenceId as combinedCourseParticipationsCombinedCourseId',
+          'status as combinedCourseParticipationStatus',
+          'organizationLearnerId as combinedCourseParticipationsOrganizationLearnerId',
+          'createdAt as combinedCourseParticipationsCreatedAt',
+          'updatedAt as combinedCourseParticipationsUpdatedAt',
+          'type',
         )
         .where({
           'organization_learner_participations.organizationLearnerId': organizationLearnerId,
-          combinedCourseId,
+          referenceId: combinedCourseId,
         });
 
       expect(participations).to.have.lengthOf(1);
 
       const participation = participations[0];
-      expect(participation.combinedCourseParticipationsQuestId).equal(questId);
-      expect(participation.combinedCourseParticipationsCombinedCourseId).equal(combinedCourseId);
 
-      expect(participation.combinedCourseParticipationsOrganizationLearnerParticipationId).equal(participation.id);
-
-      expect(participation.status).equal(OrganizationLearnerParticipationStatuses.STARTED);
+      expect(participation.combinedCourseParticipationsCombinedCourseId).equal(combinedCourseId.toString());
       expect(participation.combinedCourseParticipationStatus).equal(CombinedCourseParticipationStatuses.STARTED);
-
       expect(participation.type).equal(OrganizationLearnerParticipationTypes.COMBINED_COURSE);
-
-      expect(participation.organizationLearnerId).equal(organizationLearnerId);
       expect(participation.combinedCourseParticipationsOrganizationLearnerId).equal(organizationLearnerId);
-
-      expect(participation.referenceId).to.deep.equal(combinedCourseId.toString());
     });
 
     it('should left intact combined course participation for given organization learner and quest ids', async function () {
       // given
       const organizationLearnerId = databaseBuilder.factory.buildOrganizationLearner().id;
       const { questId, id: combinedCourseId } = databaseBuilder.factory.buildCombinedCourse();
-      databaseBuilder.factory.buildCombinedCourseParticipation({
+      databaseBuilder.factory.buildOrganizationLearnerParticipation({
         organizationLearnerId,
-        questId,
         combinedCourseId,
         status: CombinedCourseParticipationStatuses.COMPLETED,
+        type: OrganizationLearnerParticipationTypes.COMBINED_COURSE,
       });
       await databaseBuilder.commit();
 
@@ -85,18 +67,15 @@ describe('Quest | Integration | Infrastructure | repositories | Combined-Course-
       await combinedCourseParticipationRepository.save({ organizationLearnerId, questId });
 
       // then
-      const participations = await knex('combined_course_participations').where({
+      const participations = await knex('organization_learner_participations').where({
         organizationLearnerId,
-        combinedCourseId,
-        questId,
+        referenceId: combinedCourseId.toString(),
       });
 
       expect(participations).to.have.lengthOf(1);
-      expect(participations[0].id).to.be.finite;
-      expect(participations[0].questId).to.deep.equal(questId);
       expect(participations[0].organizationLearnerId).to.deep.equal(organizationLearnerId);
       expect(participations[0].status).to.deep.equal(CombinedCourseParticipationStatuses.COMPLETED);
-      expect(participations[0].combinedCourseId).to.deep.equal(combinedCourseId);
+      expect(participations[0].referenceId).to.deep.equal(combinedCourseId.toString());
     });
   });
 
