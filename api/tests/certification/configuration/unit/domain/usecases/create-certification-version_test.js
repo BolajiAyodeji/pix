@@ -24,9 +24,9 @@ describe('Certification | Configuration | Unit | UseCase | create-certification-
       findValidatedBySkills: sinon.stub(),
     };
     versionsRepository = {
-      findLatestByScope: sinon.stub(),
+      findActiveByScope: sinon.stub(),
       create: sinon.stub(),
-      updateExpirationDate: sinon.stub(),
+      update: sinon.stub(),
     };
   });
 
@@ -65,7 +65,7 @@ describe('Certification | Configuration | Unit | UseCase | create-certification-
       ];
       const frFrChallenges = challenges.filter((challenge) => challenge.locales.includes(FRENCH_FRANCE));
 
-      versionsRepository.findLatestByScope.resolves(currentVersion);
+      versionsRepository.findActiveByScope.resolves(currentVersion);
       tubeRepository.findActiveByRecordIds.resolves([tube1, tube2]);
       skillRepository.findActiveByRecordIds.resolves([...tube1.skills, ...tube2.skills]);
       challengeRepository.findValidatedBySkills.resolves(frFrChallenges);
@@ -82,9 +82,9 @@ describe('Certification | Configuration | Unit | UseCase | create-certification-
       });
 
       // then
-      expect(versionsRepository.findLatestByScope).to.have.been.calledOnceWithExactly({ scope });
-      expect(versionsRepository.updateExpirationDate).to.have.been.calledOnce;
-      const expiredVersionArg = versionsRepository.updateExpirationDate.firstCall.args[0].version;
+      expect(versionsRepository.findActiveByScope).to.have.been.calledOnceWithExactly({ scope });
+      expect(versionsRepository.update).to.have.been.calledOnce;
+      const expiredVersionArg = versionsRepository.update.firstCall.args[0].version;
       expect(expiredVersionArg).to.be.instanceOf(Version);
       expect(expiredVersionArg.id).to.equal(currentVersion.id);
       expect(expiredVersionArg.expirationDate).to.deep.equal(new Date('2025-10-21T10:00:00Z'));
@@ -98,7 +98,7 @@ describe('Certification | Configuration | Unit | UseCase | create-certification-
         FRENCH_FRANCE,
       );
       expect(versionsRepository.create).to.have.been.calledOnce;
-      const { version, challenges: passedChallenges } = versionsRepository.create.firstCall.args[0];
+      const { version, challenges: versionFrameworkChallenges } = versionsRepository.create.firstCall.args[0];
       expect(version).to.deepEqualInstance(
         new Version({
           scope,
@@ -110,7 +110,7 @@ describe('Certification | Configuration | Unit | UseCase | create-certification-
           challengesConfiguration: currentVersion.challengesConfiguration,
         }),
       );
-      expect(passedChallenges).to.deep.equal(frFrChallenges);
+      expect(versionFrameworkChallenges).to.deep.equal(frFrChallenges);
 
       clock.restore();
     });
@@ -135,7 +135,7 @@ describe('Certification | Configuration | Unit | UseCase | create-certification-
       ];
       const frFrChallenges = challenges.filter((challenge) => challenge.locales.includes(FRENCH_FRANCE));
 
-      versionsRepository.findLatestByScope.resolves(null);
+      versionsRepository.findActiveByScope.resolves(null);
       tubeRepository.findActiveByRecordIds.resolves([tube1, tube2]);
       skillRepository.findActiveByRecordIds.resolves([...tube1.skills, ...tube2.skills]);
       challengeRepository.findValidatedBySkills.resolves(frFrChallenges);
@@ -152,7 +152,7 @@ describe('Certification | Configuration | Unit | UseCase | create-certification-
       });
 
       // then
-      expect(versionsRepository.findLatestByScope).to.have.been.calledOnceWithExactly({ scope });
+      expect(versionsRepository.findActiveByScope).to.have.been.calledOnceWithExactly({ scope });
       expect(tubeRepository.findActiveByRecordIds).to.have.been.calledOnceWithExactly(tubeIds, FRENCH_SPOKEN);
       expect(skillRepository.findActiveByRecordIds).to.have.been.calledOnceWithExactly([
         ...tube1.skillIds,
@@ -163,7 +163,7 @@ describe('Certification | Configuration | Unit | UseCase | create-certification-
         FRENCH_FRANCE,
       );
       expect(versionsRepository.create).to.have.been.calledOnce;
-      const { version, challenges: passedChallenges } = versionsRepository.create.firstCall.args[0];
+      const { version, challenges: versionFrameworkChallenges } = versionsRepository.create.firstCall.args[0];
       expect(version).to.deepEqualInstance(
         new Version({
           scope,
@@ -173,7 +173,7 @@ describe('Certification | Configuration | Unit | UseCase | create-certification-
           challengesConfiguration: {},
         }),
       );
-      expect(passedChallenges).to.deep.equal(frFrChallenges);
+      expect(versionFrameworkChallenges).to.deep.equal(frFrChallenges);
 
       clock.restore();
     });

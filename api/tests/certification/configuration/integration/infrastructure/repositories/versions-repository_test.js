@@ -66,7 +66,7 @@ describe('Certification | Configuration | Integration | Repository | Versions', 
     });
   });
 
-  describe('#updateExpirationDate', function () {
+  describe('#update', function () {
     it('should update the expiration date of a certification version', async function () {
       // given
       const existingVersion = databaseBuilder.factory.buildCertificationVersion({
@@ -90,7 +90,7 @@ describe('Certification | Configuration | Integration | Repository | Versions', 
       });
 
       // when
-      await versionsRepository.updateExpirationDate({ version: versionToUpdate });
+      await versionsRepository.update({ version: versionToUpdate });
 
       // then
       const updatedVersion = await knex('certification_versions').where({ id: existingVersion.id }).first();
@@ -101,7 +101,7 @@ describe('Certification | Configuration | Integration | Repository | Versions', 
     });
   });
 
-  describe('#findLatestByScope', function () {
+  describe('#findActiveByScope', function () {
     it('should return the current version for the given scope', async function () {
       // given
       const scope = Frameworks.PIX_PLUS_DROIT;
@@ -150,7 +150,7 @@ describe('Certification | Configuration | Integration | Repository | Versions', 
       await databaseBuilder.commit();
 
       // when
-      const result = await versionsRepository.findLatestByScope({ scope });
+      const result = await versionsRepository.findActiveByScope({ scope });
 
       // then
       expect(result).to.be.instanceOf(Version);
@@ -182,7 +182,7 @@ describe('Certification | Configuration | Integration | Repository | Versions', 
         await databaseBuilder.commit();
 
         // when
-        const result = await versionsRepository.findLatestByScope({ scope });
+        const result = await versionsRepository.findActiveByScope({ scope });
 
         // then
         expect(result).to.be.null;

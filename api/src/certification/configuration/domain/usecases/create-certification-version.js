@@ -13,13 +13,30 @@ import { FRENCH_FRANCE, FRENCH_SPOKEN } from '../../../../shared/domain/services
 import { DEFAULT_SESSION_DURATION_MINUTES } from '../../../shared/domain/constants.js';
 import { Version } from '../models/Version.js';
 
+export const createCertificationVersion = withTransaction(
+  /**
+   * @param {Object} params
+   * @param {Frameworks} params.scope
+   * @param {Array<string>} params.tubeIds
+   * @param {TubeRepository} params.tubeRepository
+   * @param {SkillRepository} params.skillRepository
+   * @param {ChallengeRepository} params.challengeRepository
+   * @param {VersionsRepository} params.versionsRepository
+   */
+  async ({ scope, tubeIds, tubeRepository, skillRepository, challengeRepository, versionsRepository }) => {
+    const version = await _buildNewVersion({ scope, versionsRepository });
+    const challenges = await _getChallengesForTubes({ tubeIds, tubeRepository, skillRepository, challengeRepository });
+    return versionsRepository.create({ version, challenges });
+  },
+);
+
 /**
  * @param {Object} params
  * @param {Frameworks} params.scope
  * @param {VersionsRepository} params.versionsRepository
  */
 const _buildNewVersion = async ({ scope, versionsRepository }) => {
-  const currentVersion = await versionsRepository.findLatestByScope({ scope });
+  const currentVersion = await versionsRepository.findActiveByScope({ scope });
 
   if (!currentVersion) {
     return new Version({
@@ -37,7 +54,7 @@ const _buildNewVersion = async ({ scope, versionsRepository }) => {
     ...currentVersion,
     expirationDate: transitionDate,
   });
-  await versionsRepository.updateExpirationDate({ version: expiredVersion });
+  await versionsRepository.update({ version: expiredVersion });
 
   return new Version({
     scope,
@@ -61,20 +78,3 @@ const _getChallengesForTubes = async ({ tubeIds, tubeRepository, skillRepository
   const skills = await skillRepository.findActiveByRecordIds(skillIds);
   return challengeRepository.findValidatedBySkills(skills, FRENCH_FRANCE);
 };
-
-export const createCertificationVersion = withTransaction(
-  /**
-   * @param {Object} params
-   * @param {Frameworks} params.scope
-   * @param {Array<string>} params.tubeIds
-   * @param {TubeRepository} params.tubeRepository
-   * @param {SkillRepository} params.skillRepository
-   * @param {ChallengeRepository} params.challengeRepository
-   * @param {VersionsRepository} params.versionsRepository
-   */
-  async ({ scope, tubeIds, tubeRepository, skillRepository, challengeRepository, versionsRepository }) => {
-    const version = await _buildNewVersion({ scope, versionsRepository });
-    const challenges = await _getChallengesForTubes({ tubeIds, tubeRepository, skillRepository, challengeRepository });
-    return versionsRepository.create({ version, challenges });
-  },
-);

@@ -12,7 +12,7 @@ import { Version } from '../../domain/models/Version.js';
  * @param {Frameworks} params.scope
  * @returns {Promise<Version|null>}
  */
-export async function findLatestByScope({ scope }) {
+export async function findActiveByScope({ scope }) {
   const knexConn = DomainTransaction.getConnection();
 
   const versionData = await knexConn('certification_versions')
@@ -81,7 +81,7 @@ export async function create({ version, challenges }) {
  * @param {Version} params.version
  * @returns {Promise<void>}
  */
-export async function updateExpirationDate({ version }) {
+export async function update({ version }) {
   const knexConn = DomainTransaction.getConnection();
 
   await knexConn('certification_versions').where({ id: version.id }).update({ expirationDate: version.expirationDate });
