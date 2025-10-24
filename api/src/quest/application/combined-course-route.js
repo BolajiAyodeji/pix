@@ -4,6 +4,7 @@ const ERRORS = {
   PAYLOAD_TOO_LARGE: 'PAYLOAD_TOO_LARGE',
 };
 
+import { CombinedCourseParticipationStatuses } from '../../prescription/shared/domain/constants.js';
 import { PayloadTooLargeError, sendJsonApiError } from '../../shared/application/http-errors.js';
 import { securityPreHandlers } from '../../shared/application/security-pre-handlers.js';
 import { MAX_FILE_SIZE_UPLOAD } from '../../shared/domain/constants.js';
@@ -116,6 +117,17 @@ const register = async function (server) {
             page: {
               number: Joi.number().integer().empty('').default(1),
               size: Joi.number().integer().empty('').default(10),
+            },
+            filters: {
+              fullName: Joi.string().empty('').optional(),
+              statuses: Joi.array()
+                .items(
+                  Joi.string().valid(
+                    CombinedCourseParticipationStatuses.STARTED,
+                    CombinedCourseParticipationStatuses.COMPLETED,
+                  ),
+                )
+                .optional(),
             },
           }),
         },

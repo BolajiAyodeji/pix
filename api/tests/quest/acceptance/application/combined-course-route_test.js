@@ -302,17 +302,32 @@ ${organizationId};"{""name"":""Combinix"",""successRequirements"":[],""descripti
           organizationId,
           successRequirements: [],
         });
-        const learner = databaseBuilder.factory.buildOrganizationLearner({ organizationId });
+        const learner = databaseBuilder.factory.buildOrganizationLearner({
+          organizationId,
+          firstName: 'Paul',
+          lastName: 'Azerty',
+        });
+        const learner2 = databaseBuilder.factory.buildOrganizationLearner({
+          organizationId,
+          firstName: 'Jacques',
+          lastName: 'Qwerty',
+        });
         databaseBuilder.factory.buildMembership({ userId, organizationId });
         databaseBuilder.factory.buildCombinedCourseParticipation({
           organizationLearnerId: learner.id,
           questId,
+          combinedCourseId,
+        });
+        databaseBuilder.factory.buildCombinedCourseParticipation({
+          organizationLearnerId: learner2.id,
+          questId,
+          combinedCourseId,
         });
         await databaseBuilder.commit();
 
         const options = {
           method: 'GET',
-          url: `/api/combined-courses/${combinedCourseId}/participations?page[number]=1&page[size]=5`,
+          url: `/api/combined-courses/${combinedCourseId}/participations?page[number]=1&page[size]=5&filters[fullName]=aze`,
           headers: generateAuthenticatedUserRequestHeaders({ userId }),
         };
 
