@@ -60,4 +60,33 @@ export default class AuthenticatedOrganizationsGetChildrenController extends Con
       this.pixToast.sendErrorNotification({ message });
     }
   }
+
+  @action
+  async detachChildOrganizationFromParent({ childOrganizationId }) {
+    const organizationAdapter = this.store.adapterFor('organization');
+
+    try {
+      await organizationAdapter.detachChildOrganizationFromParent({ childOrganizationId });
+
+      this.pixToast.sendSuccessNotification({
+        message: this.intl.t('pages.organization-children.notifications.success.detach-child-organization'),
+      });
+
+      await this.model.organization.hasMany('children').reload();
+    } catch (responseError) {
+      const error = get(responseError, 'errors[0]');
+
+      let errorMessage = this.intl.t('common.notifications.generic-error');
+
+      if (error?.code === 'UNABLE_TO_DETACH_PARENT_ORGANIZATION_FROM_CHILD_ORGANIZATION') {
+        errorMessage = this.intl.t(
+          'pages.organization-children.notifications.error.unable-to-detach-child-organization',
+        );
+      }
+
+      this.pixToast.sendErrorNotification({
+        message: errorMessage,
+      });
+    }
+  }
 }

@@ -168,4 +168,105 @@ module('Unit | Controller | authenticated/organizations/get/children', function 
       });
     });
   });
+
+  module('#detachChildOrganizationFromParent', function (hooks) {
+    let childOrganizationId;
+    let parentOrganization;
+    let reloadStub;
+
+    hooks.beforeEach(function () {
+      childOrganizationId = '1234';
+      parentOrganization = store.createRecord('organization', { id: '12' });
+
+      controller.model = { organization: parentOrganization };
+
+      reloadStub = sinon.stub();
+      controller.model.organization.hasMany = sinon.stub().returns({ reload: reloadStub });
+    });
+
+    test('it should detach child organization from parent and display success notification', async function (assert) {
+      // given
+      const detachChildOrganizationFromParent = sinon.stub().resolves();
+
+      const organizationAdapter = { detachChildOrganizationFromParent };
+
+      sinon.stub(store, 'adapterFor').returns(organizationAdapter);
+
+      sinon.stub(notifications, 'sendSuccessNotification');
+
+      // when
+      await controller.detachChildOrganizationFromParent({ childOrganizationId });
+
+      // then
+      assert.true(store.adapterFor.calledWithExactly('organization'));
+
+      assert.true(organizationAdapter.detachChildOrganizationFromParent.calledWithExactly({ childOrganizationId }));
+
+      assert.true(
+        notifications.sendSuccessNotification.calledWithExactly({
+          message: this.intl.t('pages.organization-children.notifications.success.detach-child-organization'),
+        }),
+      );
+
+      assert.true(reloadStub.calledOnce);
+    });
+
+    module('when there is an error', function () {
+      test('shoud display error notification for UNABLE_TO_DETACH_PARENT_ORGANIZATION_FROM_CHILD_ORGANIZATION error', async function (assert) {
+        // given
+        const detachChildOrganizationFromParent = sinon
+          .stub()
+          .rejects({ errors: [{ code: 'UNABLE_TO_DETACH_PARENT_ORGANIZATION_FROM_CHILD_ORGANIZATION' }] });
+
+        const organizationAdapter = { detachChildOrganizationFromParent };
+
+        sinon.stub(store, 'adapterFor').returns(organizationAdapter);
+
+        sinon.stub(notifications, 'sendErrorNotification');
+
+        // when
+        await controller.detachChildOrganizationFromParent({ childOrganizationId });
+
+        // then
+        assert.true(store.adapterFor.calledWithExactly('organization'));
+
+        assert.true(organizationAdapter.detachChildOrganizationFromParent.calledWithExactly({ childOrganizationId }));
+
+        assert.true(
+          notifications.sendErrorNotification.calledWithExactly({
+            message: this.intl.t('pages.organization-children.notifications.error.unable-to-detach-child-organization'),
+          }),
+        );
+
+        assert.true(reloadStub.notCalled);
+      });
+
+      test('shoud display generic error notification for any other error', async function (assert) {
+        // given
+        const detachChildOrganizationFromParent = sinon.stub().rejects({ errors: [{ code: 'ANY_CODE' }] });
+
+        const organizationAdapter = { detachChildOrganizationFromParent };
+
+        sinon.stub(store, 'adapterFor').returns(organizationAdapter);
+
+        sinon.stub(notifications, 'sendErrorNotification');
+
+        // when
+        await controller.detachChildOrganizationFromParent({ childOrganizationId });
+
+        // then
+        assert.true(store.adapterFor.calledWithExactly('organization'));
+
+        assert.true(organizationAdapter.detachChildOrganizationFromParent.calledWithExactly({ childOrganizationId }));
+
+        assert.true(
+          notifications.sendErrorNotification.calledWithExactly({
+            message: this.intl.t('common.notifications.generic-error'),
+          }),
+        );
+
+        assert.true(reloadStub.notCalled);
+      });
+    });
+  });
 });
