@@ -1,7 +1,6 @@
 import { certificationCourseController } from '../../../../../src/certification/session-management/application/certification-course-controller.js';
 import { CertificationCourseRejected } from '../../../../../src/certification/session-management/domain/events/CertificationCourseRejected.js';
 import { usecases } from '../../../../../src/certification/session-management/domain/usecases/index.js';
-import { usecases as certificationSharedUsecases } from '../../../../../src/certification/shared/domain/usecases/index.js';
 import { CertificationCourseUnrejected } from '../../../../../src/shared/domain/events/CertificationCourseUnrejected.js';
 import { domainBuilder, expect, hFake, sinon } from '../../../../test-helper.js';
 
@@ -135,9 +134,8 @@ describe('Certification | Session Management | Unit | Application | Controller |
 
     it('should modify the certification course candidate ', async function () {
       // given
-      sinon.stub(usecases, 'correctCandidateIdentityInCertificationCourse').resolves();
       const updatedCertificationCourse = domainBuilder.buildCertificationCourse();
-      sinon.stub(certificationSharedUsecases, 'getCertificationCourse').resolves(updatedCertificationCourse);
+      sinon.stub(usecases, 'correctCandidateIdentityInCertificationCourse').resolves(updatedCertificationCourse);
       certificationSerializer.deserializeCertificationCandidateModificationCommand.resolves({
         firstName: 'Phil',
         lastName: 'Defer',
@@ -175,9 +173,8 @@ describe('Certification | Session Management | Unit | Application | Controller |
     context('when certification course was modified', function () {
       it('should serialize and return saved certification course', async function () {
         // given
-        sinon.stub(usecases, 'correctCandidateIdentityInCertificationCourse').resolves();
         const updatedCertificationCourse = domainBuilder.buildCertificationCourse();
-        sinon.stub(certificationSharedUsecases, 'getCertificationCourse').resolves(updatedCertificationCourse);
+        sinon.stub(usecases, 'correctCandidateIdentityInCertificationCourse').resolves(updatedCertificationCourse);
         certificationSerializer.deserializeCertificationCandidateModificationCommand.resolves({
           firstName: 'Phil',
           lastName: 'Defer',

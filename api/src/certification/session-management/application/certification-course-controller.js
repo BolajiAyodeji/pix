@@ -61,10 +61,9 @@ const update = async function (request, h, dependencies = { certificationSeriali
     certificationCourseId,
     userId,
   );
-  await usecases.correctCandidateIdentityInCertificationCourse({ command });
-  const updatedCertificationCourse = await certificationSharedUsecases.getCertificationCourse({
-    certificationCourseId: command.certificationCourseId,
-  });
+
+  const updatedCertificationCourse = await usecases.correctCandidateIdentityInCertificationCourse({ command });
+
   return dependencies.certificationSerializer.serializeFromCertificationCourse(updatedCertificationCourse);
 };
 

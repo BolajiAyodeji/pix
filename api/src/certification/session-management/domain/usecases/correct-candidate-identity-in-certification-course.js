@@ -53,7 +53,9 @@ const correctCandidateIdentityInCertificationCourse = async function ({
 
   certificationCourse.correctBirthInformation(cpfBirthInformation);
 
-  await certificationCourseRepository.update({ certificationCourse });
+  const updatedCertificationCourse = await certificationCourseRepository.update({ certificationCourse });
+
+  return updatedCertificationCourse;
 };
 
 export { correctCandidateIdentityInCertificationCourse };
