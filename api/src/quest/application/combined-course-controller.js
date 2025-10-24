@@ -41,9 +41,11 @@ const getStatistics = async (request, _, dependencies = { combinedCourseStatisti
 const findParticipations = async (request, _, dependencies = { combinedCourseParticipationSerializer }) => {
   const combinedCourseId = request.params.combinedCourseId;
   const page = request.query.page;
+  const filters = request.query.filters;
   const { combinedCourseParticipations, meta } = await usecases.findCombinedCourseParticipations({
     combinedCourseId,
     page,
+    filters,
   });
   return dependencies.combinedCourseParticipationSerializer.serialize(combinedCourseParticipations, meta);
 };

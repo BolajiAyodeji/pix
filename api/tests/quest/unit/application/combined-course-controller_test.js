@@ -34,14 +34,15 @@ describe('Unit | Quest | Application | Controller | CombinedCourse', function ()
       const serializedCombinedCourseParticipations = Symbol('serializedCombinedCourseParticipations');
       const page = Symbol('page');
       const meta = Symbol('meta');
+      const filters = Symbol('filters');
       const request = {
         params: { combinedCourseId },
-        query: { page },
+        query: { page, filters },
       };
 
       sinon
         .stub(usecases, 'findCombinedCourseParticipations')
-        .withArgs({ combinedCourseId, page })
+        .withArgs({ combinedCourseId, page, filters })
         .resolves({ combinedCourseParticipations, meta });
       const combinedCourseParticipationSerializer = { serialize: sinon.stub() };
       combinedCourseParticipationSerializer.serialize
