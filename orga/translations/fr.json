@@ -1058,6 +1058,7 @@
       "organization-code": "UAI/RNE de l'établissement"
     },
     "login": {
+      "join-invitation": "Vous êtes invité(e) à rejoindre : {organizationName}",
       "title": "Connectez-vous",
       "with-pix-account": "avec votre compte Pix"
     },

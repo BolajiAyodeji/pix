@@ -1058,6 +1058,7 @@
       "organization-code": "UAI/RNE van de instelling"
     },
     "login": {
+      "join-invitation": "Je bent uitgenodigd om lid te worden van: {organizationName}",
       "title": "Inloggen",
       "with-pix-account": "met uw Pix-account"
     },
