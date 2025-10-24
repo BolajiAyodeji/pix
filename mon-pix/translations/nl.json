@@ -1123,7 +1123,7 @@
         "qcm": "Selecteer ten minste twee antwoorden om te bevestigen. Zo niet, sla dan over.",
         "qcu": "Selecteer een antwoord om te bevestigen. Sla anders over.",
         "qroc": "Vul het tekstveld in om te valideren. Sla anders over.",
-        "qroc-auto-reply": "\"U kunt valideren\" wordt weergegeven wanneer de test is geslaagd. Probeer het opnieuw of slaag.",
+        "qroc-auto-reply": "\"U kunt valideren\" wordt weergegeven wanneer de proef is geslaagd. Probeer het opnieuw of ga verder.",
         "qroc-positive-number": "Voer om te valideren een getal in dat groter is dan of gelijk is aan 0, sla anders over.",
         "qrocm": "Vul alle antwoordvelden in om te valideren. Zo niet, sla dan over."
       },
