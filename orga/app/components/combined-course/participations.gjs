@@ -1,6 +1,9 @@
+import PixFilterBanner from '@1024pix/pix-ui/components/pix-filter-banner';
 import PixPagination from '@1024pix/pix-ui/components/pix-pagination';
+import PixSelect from '@1024pix/pix-ui/components/pix-select';
 import PixTable from '@1024pix/pix-ui/components/pix-table';
 import PixTableColumn from '@1024pix/pix-ui/components/pix-table-column';
+import { action } from '@ember/object';
 import { service } from '@ember/service';
 import Component from '@glimmer/component';
 import { t } from 'ember-intl';
@@ -13,8 +16,32 @@ export default class CombinedCourse extends Component {
   @service locale;
   @service currentUser;
 
+  get statusOptions() {
+    return ['STARTED', 'COMPLETED'];
+  }
+
+  @action
+  onSelectStatus(status) {
+    this.args.onFilter('status', status);
+  }
+
   <template>
     {{#if @participations.length}}
+      <!-- filter banner-->
+      <!-- TODO: write tests on this part -->
+      <PixFilterBanner @onClearFilters={{@onFilter "statuses"}}>
+        <PixSelect
+          @screenReaderOnly={{true}}
+          @options={{this.statusOptions}}
+          @onChange={{this.onSelectStatus}}
+          @value={{@selectedStatus}}
+          @hideDefaultOption={{false}}
+        >
+          <:label></:label>
+        </PixSelect>
+      </PixFilterBanner>
+      <!-- end of filter banner-->
+
       <PixTable
         @variant="orga"
         @caption={{t "pages.combined-course.table.description"}}

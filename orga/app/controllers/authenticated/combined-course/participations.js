@@ -6,7 +6,7 @@ export default class ParticipationsController extends Controller {
   queryParams = ['fullName', 'statuses'];
 
   @tracked fullName = null;
-  @tracked statuses = null;
+  @tracked statuses = [];
 
   @tracked model;
 
