@@ -32,9 +32,8 @@ const createCertificationVersion = async function (request, h) {
 };
 
 const calibrateConsolidatedFramework = async function (request, h) {
-  const { complementaryCertificationKey } = request.params;
-  const { version, calibrationId } = request.payload.data.attributes;
-  await usecases.calibrateConsolidatedFramework({ version, calibrationId, complementaryCertificationKey });
+  const { versionId, calibrationId } = request.payload.data.attributes;
+  await usecases.calibrateConsolidatedFramework({ versionId, calibrationId });
 
   return h.response().code(200);
 };

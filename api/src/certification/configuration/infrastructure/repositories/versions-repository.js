@@ -5,7 +5,38 @@
  */
 import { knex } from '../../../../../db/knex-database-connection.js';
 import { DomainTransaction } from '../../../../shared/domain/DomainTransaction.js';
+import { NotFoundError } from '../../../../shared/domain/errors.js';
 import { Version } from '../../domain/models/Version.js';
+
+/**
+ * @param {Object} params
+ * @param {number} params.id
+ * @returns {Promise<Version>}
+ * @throws {NotFoundError}
+ */
+export async function getById({ id }) {
+  const knexConn = DomainTransaction.getConnection();
+
+  const versionData = await knexConn('certification_versions')
+    .select(
+      'id',
+      'scope',
+      'startDate',
+      'expirationDate',
+      'assessmentDuration',
+      'globalScoringConfiguration',
+      'competencesScoringConfiguration',
+      'challengesConfiguration',
+    )
+    .where({ id })
+    .first();
+
+  if (!versionData) {
+    throw new NotFoundError(`Version with id ${id} not found`);
+  }
+
+  return _toDomain(versionData);
+}
 
 /**
  * @param {Object} params

@@ -1,8 +1,8 @@
 /**
- * @typedef {import ('./index.js').ConsolidatedFrameworkRepository} ConsolidatedFrameworkRepository
  * @typedef {import ('./index.js').ActiveCalibratedChallengeRepository} ActiveCalibratedChallengeRepository
- * @typedef {import ('../models/ConsolidatedFramework.js').ConsolidatedFramework} ConsolidatedFramework
- * @typedef {import ('../../../shared/domain/models/ComplementaryCertificationKeys.js').ComplementaryCertificationKeys} ComplementaryCertificationKeys
+ * @typedef {import ('./index.js').FrameworkChallengesRepository} FrameworkChallengesRepository
+ * @typedef {import ('./index.js').VersionsRepository} VersionsRepository
+ * @typedef {import ('../models/FrameworkChallenges.js').FrameworkChallenges} FrameworkChallenges
  * @typedef {import ('../models/CertificationFrameworksChallenge.js').CertificationFrameworksChallenge} CertificationFrameworksChallenge
  * @typedef {import ('../read-models/ActiveCalibratedChallenge.js').ActiveCalibratedChallenge} ActiveCalibratedChallenge
  */
@@ -13,57 +13,53 @@ import { NotFoundError } from '../../../../shared/domain/errors.js';
 export const calibrateConsolidatedFramework = withTransaction(
   /**
    * @param {Object} params
-   * @param {String} params.version
+   * @param {number} params.versionId
    * @param {number} params.calibrationId
-   * @param {ComplementaryCertificationKeys} params.complementaryCertificationKey
-   * @param {ConsolidatedFrameworkRepository} params.consolidatedFrameworkRepository
+   * @param {FrameworkChallengesRepository} params.frameworkChallengesRepository
    * @param {ActiveCalibratedChallengeRepository} params.activeCalibratedChallengeRepository
+   * @param {VersionsRepository} params.versionsRepository
    * @returns {Promise<void>}
    */
   async ({
-    version,
+    versionId,
     calibrationId,
-    complementaryCertificationKey,
-    consolidatedFrameworkRepository,
+    frameworkChallengesRepository,
     activeCalibratedChallengeRepository,
+    versionsRepository,
   }) => {
-    const consolidatedFramework = await consolidatedFrameworkRepository.getByVersionAndComplementaryKey({
-      complementaryCertificationKey,
-      version,
-    });
+    const version = await versionsRepository.getById({ id: versionId });
+    const frameworkChallenges = await frameworkChallengesRepository.getByVersionId({ versionId });
 
     const activeCalibratedChallenges = await activeCalibratedChallengeRepository.getByComplementaryKeyAndCalibrationId({
-      complementaryCertificationKey,
+      scope: version.scope,
       calibrationId,
     });
 
-    _calibrateConsolidatedFramework({
-      consolidatedFramework,
-      calibrationId,
+    _calibrateFrameworkChallenges({
+      frameworkChallenges,
       activeCalibratedChallenges,
     });
 
-    return consolidatedFrameworkRepository.save(consolidatedFramework);
+    return frameworkChallengesRepository.save(frameworkChallenges);
   },
 );
 
 /**
+ * @param {FrameworkChallenges} frameworkChallenges
  * @param {Array<ActiveCalibratedChallenge>} activeCalibratedChallenges
- * @param {Array<CertificationFrameworksChallenge>} challengesToCalibrate
  */
-const _calibrateConsolidatedFramework = ({ consolidatedFramework, calibrationId, activeCalibratedChallenges }) => {
-  consolidatedFramework.calibrationId = calibrationId;
+const _calibrateFrameworkChallenges = ({ frameworkChallenges, activeCalibratedChallenges }) => {
   for (let source = 0, target = 0; source < activeCalibratedChallenges.length; source++, target++) {
-    while (activeCalibratedChallenges[source].challengeId !== consolidatedFramework.challenges[target]?.challengeId) {
-      if (!consolidatedFramework.challenges[target]) {
+    while (activeCalibratedChallenges[source].challengeId !== frameworkChallenges.challenges[target]?.challengeId) {
+      if (!frameworkChallenges.challenges[target]) {
         throw new NotFoundError(
-          `The challenge ${activeCalibratedChallenges[source].challengeId} does not exist in the consolidatedFramework challenges`,
+          `The challenge ${activeCalibratedChallenges[source].challengeId} does not exist in the framework challenges`,
         );
       }
       target++;
     }
 
-    const frameworkChallenge = consolidatedFramework.challenges[target];
+    const frameworkChallenge = frameworkChallenges.challenges[target];
     frameworkChallenge.calibrate(activeCalibratedChallenges[source]);
   }
 };

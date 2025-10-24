@@ -411,11 +411,14 @@ describe('Certification | Configuration | Acceptance | API | complementary-certi
       const superAdmin = await insertUserWithRoleSuperAdmin();
 
       const complementaryCertification = databaseBuilder.factory.buildComplementaryCertification();
-      const version = '20230618000000';
+      const certificationVersion = databaseBuilder.factory.buildCertificationVersion({
+        scope: complementaryCertification.key,
+      });
       const certificationFrameworkChallenge = databaseBuilder.factory.buildCertificationFrameworksChallenge({
         challengeId: 'recChallengeId',
         complementaryCertificationKey: complementaryCertification.key,
-        version,
+        version: '20230618000000',
+        versionId: certificationVersion.id,
       });
 
       await databaseBuilder.commit();
@@ -444,12 +447,12 @@ describe('Certification | Configuration | Acceptance | API | complementary-certi
 
       const options = {
         method: 'PATCH',
-        url: `/api/admin/complementary-certifications/${complementaryCertification.key}/consolidated-framework`,
+        url: '/api/admin/complementary-certifications/consolidated-framework',
         headers: generateAuthenticatedUserRequestHeaders({ userId: superAdmin.id }),
         payload: {
           data: {
             attributes: {
-              version,
+              versionId: certificationVersion.id,
               calibrationId: calibration.id,
             },
           },
@@ -463,18 +466,17 @@ describe('Certification | Configuration | Acceptance | API | complementary-certi
       expect(response.statusCode).to.equal(200);
 
       const certificationFrameworksChallenges = await knex('certification-frameworks-challenges').where({
-        complementaryCertificationKey: complementaryCertification.key,
-        version,
+        versionId: certificationVersion.id,
       });
       expect(certificationFrameworksChallenges).to.have.length(1);
       expect(_.omit(certificationFrameworksChallenges[0], 'id', 'createdAt')).to.deep.equal({
-        calibrationId: calibration.id,
+        calibrationId: null,
         discriminant: activeCalibratedChallenge.alpha,
         difficulty: activeCalibratedChallenge.delta,
         challengeId: certificationFrameworkChallenge.challengeId,
         complementaryCertificationKey: complementaryCertification.key,
-        version,
-        versionId: null,
+        version: '20230618000000',
+        versionId: certificationVersion.id,
       });
     });
   });

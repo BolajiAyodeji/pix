@@ -103,7 +103,7 @@ describe('Certification | Configuration | Unit | Application | Router | compleme
     });
   });
 
-  describe('PATCH /api/admin/complementary-certifications/{complementaryCertificationKey}/consolidated-framework', function () {
+  describe('PATCH /api/admin/complementary-certifications/consolidated-framework', function () {
     describe('when the user authenticated has no role', function () {
       it('should return 403 HTTP status code', async function () {
         // given
@@ -117,8 +117,8 @@ describe('Certification | Configuration | Unit | Application | Router | compleme
         // when
         const response = await httpTestServer.request(
           'PATCH',
-          `/api/admin/complementary-certifications/${ComplementaryCertificationKeys.PIX_PLUS_DROIT}/consolidated-framework`,
-          { data: { attributes: { version: '20200101080000', calibrationId: 1234 } } },
+          '/api/admin/complementary-certifications/consolidated-framework',
+          { data: { attributes: { versionId: 123, calibrationId: 1234 } } },
         );
 
         // then

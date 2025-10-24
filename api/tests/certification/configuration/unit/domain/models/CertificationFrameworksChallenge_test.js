@@ -1,6 +1,7 @@
 import { CertificationFrameworksChallenge } from '../../../../../../src/certification/configuration/domain/models/CertificationFrameworksChallenge.js';
 import { ActiveCalibratedChallenge } from '../../../../../../src/certification/configuration/domain/read-models/ActiveCalibratedChallenge.js';
-import { domainBuilder, expect } from '../../../../../test-helper.js';
+import { EntityValidationError } from '../../../../../../src/shared/domain/errors.js';
+import { catchErrSync, domainBuilder, expect } from '../../../../../test-helper.js';
 
 describe('Certification | Configuration | Unit | Domain | Models | CertificationFrameworksChallenge', function () {
   describe('#calibrate', function () {
@@ -25,6 +26,39 @@ describe('Certification | Configuration | Unit | Domain | Models | Certification
 
       expect(discriminant).to.equal(activeCalibratedChallenge.discriminant);
       expect(difficulty).to.equal(activeCalibratedChallenge.difficulty);
+    });
+  });
+
+  context('class invariants', function () {
+    it('should not allow CertificationFrameworksChallenge without challengeId', function () {
+      // given
+      // when
+      const error = catchErrSync(() => new CertificationFrameworksChallenge({ discriminant: 2.5, difficulty: 3.0 }))();
+
+      // then
+      expect(error).to.be.an.instanceOf(EntityValidationError);
+    });
+
+    it('should not allow CertificationFrameworksChallenge with null challengeId', function () {
+      // given
+      // when
+      const error = catchErrSync(
+        () => new CertificationFrameworksChallenge({ challengeId: null, discriminant: 2.5, difficulty: 3.0 }),
+      )();
+
+      // then
+      expect(error).to.be.an.instanceOf(EntityValidationError);
+    });
+
+    it('should not allow CertificationFrameworksChallenge with non-string challengeId', function () {
+      // given
+      // when
+      const error = catchErrSync(
+        () => new CertificationFrameworksChallenge({ challengeId: 123, discriminant: 2.5, difficulty: 3.0 }),
+      )();
+
+      // then
+      expect(error).to.be.an.instanceOf(EntityValidationError);
     });
   });
 });

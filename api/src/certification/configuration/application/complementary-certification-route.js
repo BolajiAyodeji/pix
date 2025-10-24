@@ -98,7 +98,7 @@ const register = async function (server) {
     },
     {
       method: 'PATCH',
-      path: '/api/admin/complementary-certifications/{complementaryCertificationKey}/consolidated-framework',
+      path: '/api/admin/complementary-certifications/consolidated-framework',
       config: {
         pre: [
           {
@@ -111,13 +111,10 @@ const register = async function (server) {
           },
         ],
         validate: {
-          params: Joi.object({
-            complementaryCertificationKey: Joi.string().valid(...Object.values(ComplementaryCertificationKeys)),
-          }),
           payload: Joi.object({
             data: {
               attributes: {
-                version: Joi.string().required(),
+                versionId: Joi.number().integer().required(),
                 calibrationId: Joi.number().required(),
               },
             },

@@ -7,18 +7,18 @@ import { ActiveCalibratedChallenge } from '../../domain/read-models/ActiveCalibr
 
 /**
  * @param {Object} params
- * @param {ComplementaryCertificationKeys} params.complementaryCertificationKey
+ * @param {ComplementaryCertificationKeys} params.scope
  * @param {number} params.calibrationId
  * @returns {Promise<Array<ActiveCalibratedChallenge>>}
  * @throws {NotFoundError}
  */
-export async function getByComplementaryKeyAndCalibrationId({ complementaryCertificationKey, calibrationId }) {
+export async function getByComplementaryKeyAndCalibrationId({ scope, calibrationId }) {
   const activeCalibratedChallengesDTO = await datamartKnex('data_active_calibrated_challenges')
     .select('scope', 'alpha as discriminant', 'delta as difficulty', 'challenge_id as challengeId')
     .innerJoin('data_calibrations', 'data_active_calibrated_challenges.calibration_id', 'data_calibrations.id')
     .where({
       calibration_id: calibrationId,
-      scope: complementaryCertificationKey,
+      scope,
       status: 'VALIDATED',
     })
     .orderBy('challengeId');

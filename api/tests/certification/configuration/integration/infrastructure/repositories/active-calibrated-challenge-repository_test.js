@@ -10,7 +10,7 @@ describe('Certification | Configuration | Integration | Repository | active-cali
       const complementaryCertificationKey = ComplementaryCertificationKeys.PIX_PLUS_DROIT;
 
       const calibratedChallenges = activeCalibratedChallengeRepository.getByComplementaryKeyAndCalibrationId({
-        complementaryCertificationKey,
+        scope: complementaryCertificationKey,
         calibrationId,
       });
       expect(calibratedChallenges).to.be.empty;
@@ -79,7 +79,7 @@ describe('Certification | Configuration | Integration | Repository | active-cali
 
       //when
       const calibratedChallenges = await activeCalibratedChallengeRepository.getByComplementaryKeyAndCalibrationId({
-        complementaryCertificationKey: ComplementaryCertificationKeys.PIX_PLUS_DROIT,
+        scope: ComplementaryCertificationKeys.PIX_PLUS_DROIT,
         calibrationId: calibration.id,
       });
 
@@ -102,7 +102,7 @@ describe('Certification | Configuration | Integration | Repository | active-cali
 
       //when
       const error = await catchErr(activeCalibratedChallengeRepository.getByComplementaryKeyAndCalibrationId)({
-        complementaryCertificationKey: ComplementaryCertificationKeys.PIX_PLUS_DROIT,
+        scope: ComplementaryCertificationKeys.PIX_PLUS_DROIT,
         calibrationId: calibration.id,
       });
 
@@ -125,7 +125,7 @@ describe('Certification | Configuration | Integration | Repository | active-cali
 
       //when
       const error = await catchErr(activeCalibratedChallengeRepository.getByComplementaryKeyAndCalibrationId)({
-        complementaryCertificationKey: ComplementaryCertificationKeys.PIX_PLUS_DROIT,
+        scope: ComplementaryCertificationKeys.PIX_PLUS_DROIT,
         calibrationId: toValidateCalibration.id,
       });
 

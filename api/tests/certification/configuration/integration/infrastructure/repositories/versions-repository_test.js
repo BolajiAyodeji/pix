@@ -1,8 +1,9 @@
 import { Version } from '../../../../../../src/certification/configuration/domain/models/Version.js';
 import * as versionsRepository from '../../../../../../src/certification/configuration/infrastructure/repositories/versions-repository.js';
+import { NotFoundError } from '../../../../../../src/shared/domain/errors.js';
 import { DEFAULT_SESSION_DURATION_MINUTES } from '../../../../../../src/certification/shared/domain/constants.js';
 import { Frameworks } from '../../../../../../src/certification/shared/domain/models/Frameworks.js';
-import { databaseBuilder, domainBuilder, expect, knex } from '../../../../../test-helper.js';
+import { catchErr, databaseBuilder, domainBuilder, expect, knex } from '../../../../../test-helper.js';
 
 describe('Certification | Configuration | Integration | Repository | Versions', function () {
   describe('#create', function () {
@@ -186,6 +187,51 @@ describe('Certification | Configuration | Integration | Repository | Versions', 
 
         // then
         expect(result).to.be.null;
+      });
+    });
+  });
+
+  describe('#getById', function () {
+    it('should return the version with the given id', async function () {
+      // given
+      const scope = Frameworks.PIX_PLUS_DROIT;
+      const versionId = databaseBuilder.factory.buildCertificationVersion({
+        scope,
+        startDate: new Date('2025-06-01'),
+        expirationDate: new Date('2025-12-31'),
+        assessmentDuration: 120,
+        globalScoringConfiguration: [{ config: 'test' }],
+        competencesScoringConfiguration: [{ config: 'test' }],
+        challengesConfiguration: { config: 'test' },
+      }).id;
+
+      await databaseBuilder.commit();
+
+      // when
+      const result = await versionsRepository.getById({ id: versionId });
+
+      // then
+      expect(result).to.be.instanceOf(Version);
+      expect(result.id).to.equal(versionId);
+      expect(result.scope).to.equal(scope);
+      expect(result.startDate).to.deep.equal(new Date('2025-06-01'));
+      expect(result.expirationDate).to.deep.equal(new Date('2025-12-31'));
+      expect(result.assessmentDuration).to.equal(120);
+      expect(result.globalScoringConfiguration).to.deep.equal([{ config: 'test' }]);
+      expect(result.competencesScoringConfiguration).to.deep.equal([{ config: 'test' }]);
+      expect(result.challengesConfiguration).to.deep.equal({ config: 'test' });
+    });
+
+    context('when the version does not exist', function () {
+      it('should throw a NotFoundError', async function () {
+        // given
+        const nonExistentVersionId = 99999;
+
+        // when
+        const error = await catchErr(versionsRepository.getById)({ id: nonExistentVersionId });
+
+        // then
+        expect(error).to.deepEqualInstance(new NotFoundError(`Version with id ${nonExistentVersionId} not found`));
       });
     });
   });

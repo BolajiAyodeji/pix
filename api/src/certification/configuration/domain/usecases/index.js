@@ -10,6 +10,7 @@ import * as candidateRepository from '../../infrastructure/repositories/candidat
 import * as centerRepository from '../../infrastructure/repositories/center-repository.js';
 import * as complementaryCertificationRepository from '../../infrastructure/repositories/complementary-certification-repository.js';
 import * as consolidatedFrameworkRepository from '../../infrastructure/repositories/consolidated-framework-repository.js';
+import * as frameworkChallengesRepository from '../../infrastructure/repositories/framework-challenges-repository.js';
 import * as learningContentRepository from '../../infrastructure/repositories/learning-content-repository.js';
 import * as versionsRepository from '../../infrastructure/repositories/versions-repository.js';
 
@@ -24,6 +25,7 @@ import * as versionsRepository from '../../infrastructure/repositories/versions-
  * @typedef {challengeRepository} ChallengeRepository
  * @typedef {complementaryCertificationRepository} ComplementaryCertificationRepository
  * @typedef {consolidatedFrameworkRepository} ConsolidatedFrameworkRepository
+ * @typedef {frameworkChallengesRepository} FrameworkChallengesRepository
  * @typedef {learningContentRepository} LearningContentRepository
  * @typedef {skillRepository} SkillRepository
  * @typedef {tubeRepository} TubeRepository
@@ -39,6 +41,7 @@ const dependencies = {
   challengeRepository,
   complementaryCertificationRepository,
   consolidatedFrameworkRepository,
+  frameworkChallengesRepository,
   learningContentRepository,
   skillRepository,
   tubeRepository,

@@ -41,53 +41,6 @@ export async function getFrameworkHistory({ complementaryCertificationKey }) {
   return frameworks.map(({ version }) => version);
 }
 
-/**
- * @param {Object} params
- * @param {String} params.version
- * @param {ComplementaryCertificationKeys} params.complementaryCertificationKey
- * @returns {Promise<ConsolidatedFramework>}
- * @throws {NotFoundError}
- */
-export async function getByVersionAndComplementaryKey({ version, complementaryCertificationKey }) {
-  const knexConn = DomainTransaction.getConnection();
-
-  const certificationFrameworksChallengesDTO = await knexConn('certification-frameworks-challenges')
-    .select('discriminant', 'difficulty', 'challengeId', 'version', 'complementaryCertificationKey')
-    .where({
-      complementaryCertificationKey,
-      version,
-    })
-    .orderBy('challengeId');
-
-  if (certificationFrameworksChallengesDTO.length === 0) {
-    throw new NotFoundError('Consolidated framework does not exist');
-  }
-
-  return _toDomain({ certificationFrameworksChallengesDTO });
-}
-
-/**
- * @param {ConsolidatedFramework} consolidatedFramework
- * @returns {Promise<void>}
- */
-export async function save(consolidatedFramework) {
-  const knexConn = DomainTransaction.getConnection();
-
-  for (const { discriminant, difficulty, challengeId } of consolidatedFramework.challenges) {
-    await knexConn('certification-frameworks-challenges')
-      .update({
-        discriminant,
-        difficulty,
-        calibrationId: consolidatedFramework.calibrationId,
-      })
-      .where({
-        complementaryCertificationKey: consolidatedFramework.complementaryCertificationKey,
-        version: consolidatedFramework.version,
-        challengeId,
-      });
-  }
-}
-
 function _toDomain({ certificationFrameworksChallengesDTO }) {
   const { complementaryCertificationKey, version, calibrationId } = certificationFrameworksChallengesDTO[0];
 
