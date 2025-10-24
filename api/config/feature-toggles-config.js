@@ -78,7 +78,7 @@ export default {
     type: 'boolean',
     description: 'Enables navigation for modules',
     defaultValue: false,
-    devDefaultValues: { test: false, reviewApp: false },
+    devDefaultValues: { test: false, reviewApp: true },
     tags: ['frontend', 'team-devcomp', 'modulix', 'pix-app'],
   },
 };
