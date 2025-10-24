@@ -1,4 +1,3 @@
-import { usecases as certificationSharedUsecases } from '../../shared/domain/usecases/index.js';
 import { usecases } from '../domain/usecases/index.js';
 import * as certificationCourseSerializer from '../infrastructure/serializers/certification-course-serializer.js';
 
@@ -20,7 +19,7 @@ const save = async function (request, h, dependencies = { certificationCourseSer
 
 const get = async function (request, h, dependencies = { certificationCourseSerializer }) {
   const { certificationCourseId } = request.params;
-  const certificationCourse = await certificationSharedUsecases.getCertificationCourse({ certificationCourseId });
+  const certificationCourse = await usecases.getCertificationCourse({ certificationCourseId });
   return dependencies.certificationCourseSerializer.serialize(certificationCourse);
 };
 

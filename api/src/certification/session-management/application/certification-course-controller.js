@@ -1,4 +1,3 @@
-import { usecases as certificationSharedUsecases } from '../../shared/domain/usecases/index.js';
 import { usecases } from '../domain/usecases/index.js';
 import * as certificationSerializer from '../infrastructure/serializers/certification-serializer.js';
 import * as juryCommentSerializer from '../infrastructure/serializers/jury-comment-serializer.js';
