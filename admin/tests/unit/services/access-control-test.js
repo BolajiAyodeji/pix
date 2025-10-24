@@ -288,4 +288,54 @@ module('Unit | Service | access-control', function (hooks) {
       });
     });
   });
+
+  module('#hasAccessToDetachChildOrganizationScope', function () {
+    module(`when user has role "SUPER_ADMIN"`, function () {
+      test(`returns "true"`, function (assert) {
+        // given
+        const currentUser = this.owner.lookup('service:currentUser');
+        const service = this.owner.lookup('service:access-control');
+        currentUser.adminMember = { isSuperAdmin: true };
+
+        // then
+        assert.true(service.hasAccessToDetachChildOrganizationScope);
+      });
+    });
+
+    module('when user has role "METIER"', function () {
+      test('returns "false"', function (assert) {
+        // given
+        const currentUser = this.owner.lookup('service:currentUser');
+        const service = this.owner.lookup('service:access-control');
+        currentUser.adminMember = { isMetier: true };
+
+        // then
+        assert.false(service.hasAccessToDetachChildOrganizationScope);
+      });
+    });
+
+    module('when user has role "CERTIF"', function () {
+      test('returns "false"', function (assert) {
+        // given
+        const currentUser = this.owner.lookup('service:currentUser');
+        const service = this.owner.lookup('service:access-control');
+        currentUser.adminMember = { isCertif: true };
+
+        // then
+        assert.false(service.hasAccessToDetachChildOrganizationScope);
+      });
+    });
+
+    module('when user has role "SUPPORT"', function () {
+      test('returns "false"', function (assert) {
+        // given
+        const currentUser = this.owner.lookup('service:currentUser');
+        const service = this.owner.lookup('service:access-control');
+        currentUser.adminMember = { isSupport: true };
+
+        // then
+        assert.false(service.hasAccessToDetachChildOrganizationScope);
+      });
+    });
+  });
 });

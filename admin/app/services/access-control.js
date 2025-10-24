@@ -71,4 +71,8 @@ export default class AccessControlService extends Service {
       this.currentUser.adminMember.isCertif
     );
   }
+
+  get hasAccessToDetachChildOrganizationScope() {
+    return !!this.currentUser.adminMember.isSuperAdmin;
+  }
 }
