@@ -486,12 +486,12 @@
       "clickOnTheButton": "Klik op de knop hieronder om een nieuw wachtwoord te kiezen.",
       "contactUs": "neem hier contact met ons op",
       "doNotAnswer": "Dit is een automatische e-mail, antwoord niet. Hulp nodig?",
-      "linkValidFor": "Deze link is 24 uur geldig. Als je dit verzoek niet hebt ingediend, negeer deze e-mail dan.",
+      "linkValidFor": "Deze link is 24 uur geldig. Heb je dit verzoek niet zelf ingediend? Negeer deze e-mail dan gewoon.",
       "moreOn": "Ontdek meer over",
       "pixPresentation": "Pix is de online overheidsdienst voor het beoordelen, ontwikkelen en certificeren van je digitale vaardigheden.",
       "resetMyPassword": "Een nieuw wachtwoord instellen",
       "title": "Wachtwoord opnieuw instellen",
-      "weCannotSendYourPassword": "Hallo, om veiligheidsredenen sturen we jouw wachtwoord niet per e-mail."
+      "weCannotSendYourPassword": "Hallo, Om veiligheidsredenen sturen we je wachtwoord niet per e-mail."
     },
     "subject": "Verzoek instellen nieuw wachtwoord Pix"
   },
