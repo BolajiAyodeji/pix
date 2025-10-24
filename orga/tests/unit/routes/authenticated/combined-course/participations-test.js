@@ -26,6 +26,10 @@ module('Unit | Route | authenticated/combined-course-participations', function (
             number: undefined,
             size: undefined,
           },
+          filters: {
+            fullName: undefined,
+            statuses: undefined,
+          },
         })
         .resolves(combinedCourseParticipations);
 
@@ -52,11 +56,15 @@ module('Unit | Route | authenticated/combined-course-participations', function (
             number: 2,
             size: 20,
           },
+          filters: {
+            fullName: 'fullName',
+            statuses: ['STARTED'],
+          },
         })
         .resolves(combinedCourseParticipations);
 
       // when
-      const result = await route.model({ pageNumber: 2, pageSize: 20 });
+      const result = await route.model({ pageNumber: 2, pageSize: 20, fullName: 'fullName', statuses: ['STARTED'] });
 
       // then
       assert.deepEqual(result, combinedCourseParticipations);

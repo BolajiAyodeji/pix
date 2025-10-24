@@ -8,6 +8,8 @@ export default class CombinedCourseRoute extends Route {
   queryParams = {
     pageNumber: { refreshModel: true },
     pageSize: { refreshModel: true },
+    fullName: { refreshModel: true },
+    statuses: { refreshModel: true },
   };
 
   async model(params) {
@@ -18,6 +20,10 @@ export default class CombinedCourseRoute extends Route {
         page: {
           number: params.pageNumber,
           size: params.pageSize,
+        },
+        filters: {
+          fullName: params.fullName,
+          statuses: params.statuses,
         },
       })
       .catch((error) => {
