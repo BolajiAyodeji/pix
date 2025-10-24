@@ -455,12 +455,12 @@
     "params": {
       "acceptInvitation": "Uitnodiging accepteren",
       "doNotAnswer": "Dit is een automatische e-mail, antwoord niet.",
-      "here": "hier",
+      "here": "Neem contact met ons op hier.",
       "moreAbout": "Ontdek meer over",
-      "needHelp": "Hulp nodig? Neem contact met ons op",
+      "needHelp": "Hulp nodig?",
       "oneTimeLink": "Deze link is voor eenmalig gebruik",
       "pixPresentation": "Pix is de openbare online service voor het beoordelen, ontwikkelen en certificeren van je digitale vaardigheden.",
-      "subtitle": "Met het Pix Orga platform kun je testcampagnes maken en beheren en de voortgang van je deelnemers volgen.",
+      "subtitle": "Met het Pix Orga-platform kun je testcampagnes aanmaken en beheren, en de voortgang van je deelnemers volgen.",
       "title": "Je bent uitgenodigd om lid te worden van Pix Orga",
       "yourOrganization": "Uw organisatie"
     },
