@@ -7,18 +7,18 @@ describe('Unit | Certification | Results | Domain | Usecases | get-certification
       // given
       const expectedCertificate = Symbol('certificate');
 
-      const resultsCertificationCourseRepository = {
+      const certificationCourseRepository = {
         getByVerificationCode: sinon.stub(),
       };
 
-      resultsCertificationCourseRepository.getByVerificationCode
+      certificationCourseRepository.getByVerificationCode
         .withArgs({ verificationCode: 'P-AXAXAXAX' })
         .resolves(expectedCertificate);
 
       // when
       const certificationCourse = await getCertificationCourseByVerificationCode({
         verificationCode: 'P-AXAXAXAX',
-        resultsCertificationCourseRepository,
+        certificationCourseRepository,
       });
 
       // then

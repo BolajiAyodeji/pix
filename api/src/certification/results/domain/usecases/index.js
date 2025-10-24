@@ -1,10 +1,10 @@
 import { injectDependencies } from '../../../../shared/infrastructure/utils/dependency-injection.js';
 import * as sessionEnrolmentRepository from '../../../enrolment/infrastructure/repositories/session-repository.js';
-import * as resultsCertificationCourseRepository from '../../../results/infrastructure/repositories/certification-course-repository.js';
-import * as certificationCourseRepository from '../../../shared/infrastructure/repositories/certification-course-repository.js';
+import * as sharedCertificationCourseRepository from '../../../shared/infrastructure/repositories/certification-course-repository.js';
 import * as certificationReportRepository from '../../../shared/infrastructure/repositories/certification-report-repository.js';
 import * as sharedSessionRepository from '../../../shared/infrastructure/repositories/session-repository.js';
 import * as certificateRepository from '../../infrastructure/repositories/certificate-repository.js';
+import * as certificationCourseRepository from '../../infrastructure/repositories/certification-course-repository.js';
 import * as certificationLivretScolaireRepository from '../../infrastructure/repositories/certification-livret-scolaire-repository.js';
 import * as certificationParcoursupRepository from '../../infrastructure/repositories/certification-parcoursup-repository.js';
 import * as certificationResultRepository from '../../infrastructure/repositories/certification-result-repository.js';
@@ -18,6 +18,7 @@ import * as scoCertificationCandidateRepository from '../../infrastructure/repos
  * @typedef {certificationResultRepository} CertificationResultRepository
  * @typedef {scoCertificationCandidateRepository} ScoCertificationCandidateRepository
  * @typedef {certificationCourseRepository} CertificationCourseRepository
+ * @typedef {sharedCertificationCourseRepository} SharedCertificationCourseRepository
  * @typedef {certificateRepository} CertificateRepository
  * @typedef {certificationParcoursupRepository} CertificationParcoursupRepository
  * @typedef {certificationReportRepository} CertificationReportRepository
@@ -29,8 +30,8 @@ import * as scoCertificationCandidateRepository from '../../infrastructure/repos
  **/
 
 const dependencies = {
-  resultsCertificationCourseRepository,
   certificationCourseRepository,
+  sharedCertificationCourseRepository,
   certificationResultRepository,
   scoCertificationCandidateRepository,
   certificateRepository,
@@ -50,6 +51,7 @@ import { findUserPrivateCertificates } from './find-user-private-certificates.js
 import { getCertificate } from './get-certificate.js';
 import { getCertificatesForSession } from './get-certificates-for-session.js';
 import { getCertificationCourseByVerificationCode } from './get-certification-course-by-verification-code.js';
+import { getCertificationCourseVersion } from './get-certification-course-version.js';
 import { getCertificationResultForParcoursup } from './get-certification-result-for-parcoursup.js';
 import { getCertificationsResultsForLivretScolaire } from './get-certifications-results-for-livret-scolaire.js';
 import { getCleaCertifiedCandidateBySession } from './get-clea-certified-candidate-by-session.js';
@@ -68,6 +70,7 @@ const usecasesWithoutInjectedDependencies = {
   getCertificate,
   getCertificatesForSession,
   getCertificationCourseByVerificationCode,
+  getCertificationCourseVersion,
   getCertificationResultForParcoursup,
   getCertificationsResultsForLivretScolaire,
   getCleaCertifiedCandidateBySession,

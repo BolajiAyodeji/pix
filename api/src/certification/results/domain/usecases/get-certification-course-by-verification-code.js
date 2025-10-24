@@ -1,15 +1,15 @@
 /**
- * @typedef {import ('../../domain/usecases/index.js').ResultsCertificationCourseRepository} ResultsCertificationCourseRepository
+ * @typedef {import ('../../domain/usecases/index.js').CertificationCourseRepository} CertificationCourseRepository
  */
 
 /**
  * @param {Object} params
  * @param {string} params.verificationCode
- * @param {ResultsCertificationCourseRepository} params.resultsCertificationCourseRepository
+ * @param {CertificationCourseRepository} params.certificationCourseRepository
  */
 export const getCertificationCourseByVerificationCode = async function ({
   verificationCode,
-  resultsCertificationCourseRepository,
+  certificationCourseRepository,
 }) {
-  return resultsCertificationCourseRepository.getByVerificationCode({ verificationCode });
+  return certificationCourseRepository.getByVerificationCode({ verificationCode });
 };

@@ -4,8 +4,14 @@ import isEmpty from 'lodash/isEmpty.js';
 import { NotFoundError } from '../../../../shared/domain/errors.js';
 import { PromiseUtils } from '../../../../shared/infrastructure/utils/promise-utils.js';
 
-const getCertificatesForSession = async function ({ sessionId, certificateRepository, certificationCourseRepository }) {
-  const certificationCourses = await certificationCourseRepository.findCertificationCoursesBySessionId({ sessionId });
+const getCertificatesForSession = async function ({
+  sessionId,
+  certificateRepository,
+  sharedCertificationCourseRepository,
+}) {
+  const certificationCourses = await sharedCertificationCourseRepository.findCertificationCoursesBySessionId({
+    sessionId,
+  });
 
   if (isEmpty(certificationCourses)) {
     throw new NotFoundError();

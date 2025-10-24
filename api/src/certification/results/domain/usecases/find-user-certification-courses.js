@@ -1,10 +1,10 @@
 /**
  * @param {Object} params
  * @param {number} params.userId
- * @param {import('./index.js').certificationCourseRepository} params.certificationCourseRepository
+ * @param {import('./index.js').sharedCertificationCourseRepository} params.sharedCertificationCourseRepository
  **/
-const findUserCertificationCourses = async function ({ userId, certificationCourseRepository }) {
-  return certificationCourseRepository.findAllByUserId({ userId });
+const findUserCertificationCourses = async function ({ userId, sharedCertificationCourseRepository }) {
+  return sharedCertificationCourseRepository.findAllByUserId({ userId });
 };
 
 export { findUserCertificationCourses };

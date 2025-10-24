@@ -1,9 +1,9 @@
 import dayjs from 'dayjs';
 
 import { certificateController } from '../../../../../src/certification/results/application/certificate-controller.js';
+import { CertificationCourseVersion } from '../../../../../src/certification/results/domain/read-models/CertificationCourseVersion.js';
 import { usecases } from '../../../../../src/certification/results/domain/usecases/index.js';
 import { AlgorithmEngineVersion } from '../../../../../src/certification/shared/domain/models/AlgorithmEngineVersion.js';
-import { usecases as certificationSharedUsecases } from '../../../../../src/certification/shared/domain/usecases/index.js';
 import { getI18n } from '../../../../../src/shared/infrastructure/i18n/i18n.js';
 import { domainBuilder, expect, hFake, sinon } from '../../../../test-helper.js';
 
@@ -89,15 +89,12 @@ describe('Certification | Results | Unit | Application | certificate-controller'
           auth: { credentials: { userId } },
           params: { certificationCourseId },
         };
-        const certificationCourse = domainBuilder.buildCertificationCourse({
-          id: certificationCourseId,
+        const certificationCourseVersion = new CertificationCourseVersion({
           version: AlgorithmEngineVersion.V2,
         });
         const certificate = Symbol('V2 private certificate');
-        sinon.stub(certificationSharedUsecases, 'getCertificationCourse');
-        certificationSharedUsecases.getCertificationCourse
-          .withArgs({ certificationCourseId })
-          .resolves(certificationCourse);
+        sinon.stub(usecases, 'getCertificationCourseVersion');
+        usecases.getCertificationCourseVersion.withArgs({ certificationCourseId }).resolves(certificationCourseVersion);
         sinon.stub(usecases, 'getPrivateCertificate');
         usecases.getPrivateCertificate.withArgs({ certificationCourseId, locale }).resolves(certificate);
 
@@ -129,16 +126,13 @@ describe('Certification | Results | Unit | Application | certificate-controller'
           params: { certificationCourseId },
         };
 
-        const certificationCourse = domainBuilder.buildCertificationCourse({
-          id: certificationCourseId,
+        const certificationCourseVersion = new CertificationCourseVersion({
           version: AlgorithmEngineVersion.V3,
         });
         const certificate = Symbol('V3 certificate');
 
-        sinon.stub(certificationSharedUsecases, 'getCertificationCourse');
-        certificationSharedUsecases.getCertificationCourse
-          .withArgs({ certificationCourseId })
-          .resolves(certificationCourse);
+        sinon.stub(usecases, 'getCertificationCourseVersion');
+        usecases.getCertificationCourseVersion.withArgs({ certificationCourseId }).resolves(certificationCourseVersion);
 
         sinon.stub(usecases, 'getCertificate');
         usecases.getCertificate.withArgs({ certificationCourseId, locale }).resolves(certificate);
@@ -237,16 +231,6 @@ describe('Certification | Results | Unit | Application | certificate-controller'
           query: { lang: 'fr' },
         };
 
-        const certificationCourse = domainBuilder.buildCertificationCourse({
-          id: request.params.certificationCourseId,
-          userId,
-          version: AlgorithmEngineVersion.V3,
-        });
-        sinon
-          .stub(certificationSharedUsecases, 'getCertificationCourse')
-          .withArgs({ certificationCourseId: request.params.certificationCourseId })
-          .resolves(certificationCourse);
-
         const v3CertificationAttestation = domainBuilder.certification.results.buildCertificate();
         sinon
           .stub(usecases, 'getCertificate')
@@ -285,16 +269,6 @@ describe('Certification | Results | Unit | Application | certificate-controller'
           params: { certificationCourseId: 9 },
           query: { isFrenchDomainExtension: true, lang: 'fr' },
         };
-
-        const certificationCourse = domainBuilder.buildCertificationCourse({
-          id: request.params.certificationCourseId,
-          userId,
-          version: AlgorithmEngineVersion.V2,
-        });
-        sinon
-          .stub(certificationSharedUsecases, 'getCertificationCourse')
-          .withArgs({ certificationCourseId: request.params.certificationCourseId })
-          .resolves(certificationCourse);
 
         const certificationAttestation = domainBuilder.buildCertificationAttestation();
         const filename = 'certification-pix-20181003.pdf';

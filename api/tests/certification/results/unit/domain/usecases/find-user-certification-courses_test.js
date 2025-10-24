@@ -6,17 +6,17 @@ describe('Unit | Certification | Results | UseCases | find-user-certification-co
     // given
     const userId = Symbol('userId');
 
-    const certificationCourseRepository = {
+    const sharedCertificationCourseRepository = {
       findAllByUserId: sinon.stub(),
     };
 
     // when
     await findUserCertificationCourses({
       userId,
-      certificationCourseRepository,
+      sharedCertificationCourseRepository,
     });
 
     // then
-    expect(certificationCourseRepository.findAllByUserId.calledOnceWithExactly({ userId })).to.be.true;
+    expect(sharedCertificationCourseRepository.findAllByUserId.calledOnceWithExactly({ userId })).to.be.true;
   });
 });

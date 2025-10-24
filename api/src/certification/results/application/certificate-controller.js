@@ -1,6 +1,5 @@
 import dayjs from 'dayjs';
 
-import { usecases as certificationSharedUsecases } from '../../../../src/certification/shared/domain/usecases/index.js';
 import { getChallengeLocale } from '../../../../src/shared/infrastructure/utils/request-response-utils.js';
 import { getI18nFromRequest } from '../../../shared/infrastructure/i18n/i18n.js';
 import { normalizeAndRemoveAccents } from '../../../shared/infrastructure/utils/string-utils.js';
@@ -44,18 +43,18 @@ const getCertificate = async function (
 
   const certificationCourseId = request.params.certificationCourseId;
 
-  const certificationCourse = await certificationSharedUsecases.getCertificationCourse({ certificationCourseId });
+  const certificationCourseVersion = await usecases.getCertificationCourseVersion({ certificationCourseId });
 
   let certificate;
-  if (certificationCourse.isV3()) {
+  if (certificationCourseVersion.isV3()) {
     certificate = await usecases.getCertificate({
-      certificationCourseId: certificationCourse.getId(),
+      certificationCourseId,
       locale,
     });
     return dependencies.certificateSerializer.serialize({ certificate, translate: i18n.__ });
   } else {
     certificate = await usecases.getPrivateCertificate({
-      certificationCourseId: certificationCourse.getId(),
+      certificationCourseId,
       locale,
     });
     return dependencies.privateCertificateSerializer.serialize(certificate, { translate: i18n.__ });

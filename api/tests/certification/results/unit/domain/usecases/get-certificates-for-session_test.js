@@ -3,13 +3,13 @@ import { NotFoundError } from '../../../../../../src/shared/domain/errors.js';
 import { catchErr, domainBuilder, expect, sinon } from '../../../../../test-helper.js';
 
 describe('Unit | UseCase | get-certificates-for-session', function () {
-  let certificateRepository, certificationCourseRepository;
+  let certificateRepository, sharedCertificationCourseRepository;
 
   beforeEach(function () {
     certificateRepository = {
       getCertificate: sinon.stub(),
     };
-    certificationCourseRepository = {
+    sharedCertificationCourseRepository = {
       findCertificationCoursesBySessionId: sinon.stub(),
     };
   });
@@ -50,7 +50,7 @@ describe('Unit | UseCase | get-certificates-for-session', function () {
       certificationCenter: 'Centre des deux certificats',
     });
 
-    certificationCourseRepository.findCertificationCoursesBySessionId
+    sharedCertificationCourseRepository.findCertificationCoursesBySessionId
       .withArgs({ sessionId: 11 })
       .resolves([certificationCourse1, certificationCourse2]);
     certificateRepository.getCertificate.withArgs({ certificationCourseId: 1 }).resolves(certificate1);
@@ -60,7 +60,7 @@ describe('Unit | UseCase | get-certificates-for-session', function () {
     const actualCertificates = await getCertificatesForSession({
       sessionId: 11,
       certificateRepository,
-      certificationCourseRepository,
+      sharedCertificationCourseRepository,
     });
 
     // then
@@ -91,13 +91,13 @@ describe('Unit | UseCase | get-certificates-for-session', function () {
         certificationCenter: 'Centre sans attestation',
       });
 
-      certificationCourseRepository.findCertificationCoursesBySessionId.withArgs({ sessionId: 12 }).resolves([]);
+      sharedCertificationCourseRepository.findCertificationCoursesBySessionId.withArgs({ sessionId: 12 }).resolves([]);
 
       // when
       const error = await catchErr(getCertificatesForSession)({
         sessionId: 12,
         certificateRepository,
-        certificationCourseRepository,
+        sharedCertificationCourseRepository,
       });
 
       // then
@@ -120,7 +120,7 @@ describe('Unit | UseCase | get-certificates-for-session', function () {
         completedAt: '2020-01-01',
       });
 
-      certificationCourseRepository.findCertificationCoursesBySessionId
+      sharedCertificationCourseRepository.findCertificationCoursesBySessionId
         .withArgs({ sessionId: 13 })
         .resolves([certificationCourse]);
       certificateRepository.getCertificate.withArgs({ certificationCourseId: 3 }).resolves();
@@ -129,7 +129,7 @@ describe('Unit | UseCase | get-certificates-for-session', function () {
       const error = await catchErr(getCertificatesForSession)({
         sessionId: 13,
         certificateRepository,
-        certificationCourseRepository,
+        sharedCertificationCourseRepository,
       });
 
       // then
