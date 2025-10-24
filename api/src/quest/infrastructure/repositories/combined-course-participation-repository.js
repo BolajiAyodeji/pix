@@ -7,7 +7,6 @@ import {
   OrganizationLearnerParticipationStatuses,
   OrganizationLearnerParticipationTypes,
 } from '../../domain/models/OrganizationLearnerParticipation.js';
-import { OrganizationLearnerParticipation } from '../../domain/models/OrganizationLearnerParticipation.js';
 
 export const save = async function ({ organizationLearnerId, combinedCourseId }) {
   const knexConnection = DomainTransaction.getConnection();
@@ -82,32 +81,17 @@ export const findUserIdsById = async function ({ combinedCourseId, page }) {
   };
 };
 
-export const update = async function ({ combinedCourseParticipation, combinedCourseId }) {
+export const update = async function ({ combinedCourseParticipation }) {
   const knexConnection = DomainTransaction.getConnection();
-  if (combinedCourseParticipation.organizationLearnerParticipationId) {
-    const organizationLearnerParticipation = OrganizationLearnerParticipation.buildFromCombinedCourseParticipation({
-      id: combinedCourseParticipation.organizationLearnerParticipationId,
-      organizationLearnerId: combinedCourseParticipation.organizationLearnerId,
-      questId: combinedCourseParticipation.questId,
-      status: combinedCourseParticipation.status,
-      createdAt: combinedCourseParticipation.createdAt,
-      updatedAt: combinedCourseParticipation.updatedAt,
-      combinedCourseId,
-    });
-    await knexConnection('organization_learner_participations')
-      .where({ id: combinedCourseParticipation.organizationLearnerParticipationId })
-      .update({
-        updatedAt: organizationLearnerParticipation.updatedAt,
-        status: combinedCourseParticipation.status,
-        completedAt: organizationLearnerParticipation.completedAt,
-      });
-  }
-  const [updatedRow] = await knexConnection('combined_course_participations')
+  const updatedRow = await knexConnection('organization_learner_participations')
     .where({ id: combinedCourseParticipation.id })
-    .update({ status: combinedCourseParticipation.status, updatedAt: combinedCourseParticipation.updatedAt })
+    .update({
+      updatedAt: combinedCourseParticipation.updatedAt,
+      status: combinedCourseParticipation.status,
+      completedAt: combinedCourseParticipation.completedAt,
+    })
     .returning('*');
-
-  return new CombinedCourseParticipation(updatedRow);
+  return new CombinedCourseParticipation(updatedRow[0]);
 };
 
 /**

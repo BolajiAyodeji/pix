@@ -215,13 +215,13 @@ describe('Integration | Quest | Domain | UseCases | update-combined-course', fun
     expect(result.updatedAt).to.deep.equal(combinedCourseParticipation.createdAt);
   });
 
-  it('should not throw if combinedCourseParticipation does not exists', async function () {
+  it('should not throw if combinedCourseParticipation does not exist', async function () {
     const code = 'SOMETHING';
     const { id: organizationLearnerId, userId, organizationId } = databaseBuilder.factory.buildOrganizationLearner();
     const targetProfile = databaseBuilder.factory.buildTargetProfile({ ownerOrganizationId: organizationId });
     const campaign = databaseBuilder.factory.buildCampaign({ targetProfileId: targetProfile.id, organizationId });
 
-    const { questId } = databaseBuilder.factory.buildCombinedCourse({
+    databaseBuilder.factory.buildCombinedCourse({
       code,
       organizationId,
       successRequirements: [
@@ -241,9 +241,7 @@ describe('Integration | Quest | Domain | UseCases | update-combined-course', fun
 
     const result = await usecases.updateCombinedCourse({ userId, code });
 
-    const participation = await knex('combined_course_participations')
-      .where({ organizationLearnerId, questId })
-      .first();
+    const participation = await knex('organization_learner_participations').where({ organizationLearnerId }).first();
     expect(participation).to.be.undefined;
     expect(result).to.not.throw;
   });
@@ -281,7 +279,9 @@ describe('Integration | Quest | Domain | UseCases | update-combined-course', fun
 
     await usecases.updateCombinedCourse({ userId, code });
 
-    const result = await knex('combined_course_participations').where({ id: combinedCourseParticipation.id }).first();
+    const result = await knex('organization_learner_participations')
+      .where({ id: combinedCourseParticipation.id })
+      .first();
 
     expect(result.status).to.equal(combinedCourseParticipation.status);
     expect(result.updatedAt).to.deep.equal(combinedCourseParticipation.updatedAt);

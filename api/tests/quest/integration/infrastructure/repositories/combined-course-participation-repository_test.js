@@ -186,14 +186,15 @@ describe('Quest | Integration | Infrastructure | repositories | Combined-Course-
     it('should update only status and updatedAt for given id', async function () {
       //given
       const organizationLearnerId = databaseBuilder.factory.buildOrganizationLearner().id;
-      const { questId, id: combinedCourseId } = databaseBuilder.factory.buildCombinedCourse();
-      const combinedCourseParticipationFromDB = databaseBuilder.factory.buildCombinedCourseParticipation({
+      const { id: combinedCourseId } = databaseBuilder.factory.buildCombinedCourse();
+      const combinedCourseParticipationFromDB = databaseBuilder.factory.buildOrganizationLearnerParticipation({
         organizationLearnerId,
-        questId,
-        status: CombinedCourseParticipationStatuses.STARTED,
+        status: OrganizationLearnerParticipationStatuses.STARTED,
         createdAt: new Date('2022-01-01'),
         updatedAt: new Date('2022-01-01'),
         combinedCourseId,
+        type: OrganizationLearnerParticipationTypes.COMBINED_COURSE,
+        referenceId: combinedCourseId.toString(),
       });
 
       await databaseBuilder.commit();
@@ -204,11 +205,11 @@ describe('Quest | Integration | Infrastructure | repositories | Combined-Course-
         questId: 1,
         organizationLearnerId: 1,
       });
+
       combinedCourseParticipation.complete();
 
       const updatedParticipation = await combinedCourseParticipationRepository.update({
         combinedCourseParticipation,
-        combinedCourseId,
       });
 
       //then
@@ -219,134 +220,6 @@ describe('Quest | Integration | Infrastructure | repositories | Combined-Course-
       expect(updatedParticipation.questId).to.equal(combinedCourseParticipationFromDB.questId);
       expect(updatedParticipation.status).to.deep.equal(CombinedCourseParticipationStatuses.COMPLETED);
       expect(updatedParticipation.updatedAt).to.deep.equal(now);
-    });
-
-    describe('when organizationLearnerParticipationId is filled', function () {
-      it('should not update completedAt from organization_learner_participations when participation is started', async function () {
-        //given
-        const { id: combinedCourseId, questId } = databaseBuilder.factory.buildCombinedCourse();
-        const { id: organizationLearnerId } = databaseBuilder.factory.buildOrganizationLearner();
-        const { id: organizationLearnerParticipationId } =
-          databaseBuilder.factory.buildOrganizationLearnerParticipation({
-            type: OrganizationLearnerParticipationTypes.COMBINED_COURSE,
-            status: CombinedCourseParticipationStatuses.STARTED,
-            combinedCourseId,
-            questId,
-            organizationLearnerId,
-          });
-        await databaseBuilder.commit();
-
-        const combinedCourseParticipation = await knex('combined_course_participations')
-          .where({
-            organizationLearnerParticipationId,
-          })
-          .first();
-
-        const expectedCombinedCourseParticipation = new CombinedCourseParticipation(combinedCourseParticipation);
-
-        // when
-        await combinedCourseParticipationRepository.update({
-          combinedCourseParticipation: expectedCombinedCourseParticipation,
-        });
-
-        //then
-        const result = await knex('organization_learner_participations')
-          .where('id', organizationLearnerParticipationId)
-          .first();
-
-        expect(result.completedAt).to.be.null;
-      });
-
-      it('should update completedAt / updatedAt / status and attributes from organization_learner_participations when participation is completed', async function () {
-        //given
-        const { id: combinedCourseId, questId } = databaseBuilder.factory.buildCombinedCourse();
-        const { id: organizationLearnerId } = databaseBuilder.factory.buildOrganizationLearner();
-        const { id: organizationLearnerParticipationId } =
-          databaseBuilder.factory.buildOrganizationLearnerParticipation({
-            type: OrganizationLearnerParticipationTypes.COMBINED_COURSE,
-            status: CombinedCourseParticipationStatuses.STARTED,
-            combinedCourseId,
-            questId,
-            organizationLearnerId,
-            createdAt: new Date('2024-01-01'),
-            updatedAt: new Date('2024-05-01'),
-            completedAt: null,
-          });
-        await databaseBuilder.commit();
-
-        const combinedCourseParticipation = await knex('combined_course_participations')
-          .where({
-            organizationLearnerParticipationId,
-          })
-          .first();
-
-        const expectedCombinedCourseParticipation = new CombinedCourseParticipation(combinedCourseParticipation);
-        expectedCombinedCourseParticipation.complete();
-        // when
-        await combinedCourseParticipationRepository.update({
-          combinedCourseParticipation: expectedCombinedCourseParticipation,
-          combinedCourseId,
-        });
-
-        //then
-        const result = await knex('organization_learner_participations')
-          .where('id', organizationLearnerParticipationId)
-          .first();
-
-        expect(result.completedAt).deep.equal(now);
-        expect(result.updatedAt).deep.equal(now);
-        expect(result.status).equal(OrganizationLearnerParticipationStatuses.COMPLETED);
-        expect(result.referenceId).to.deep.equal(combinedCourseId.toString());
-      });
-
-      it('should update organization_learner_participations given id', async function () {
-        //given
-        const { id: combinedCourseId, questId } = databaseBuilder.factory.buildCombinedCourse();
-        const { id: organizationLearnerId } = databaseBuilder.factory.buildOrganizationLearner();
-        const { id: organizationLearnerParticipationId, organizationLearnerCombinedCourseParticipationId } =
-          databaseBuilder.factory.buildOrganizationLearnerParticipation({
-            type: OrganizationLearnerParticipationTypes.COMBINED_COURSE,
-            status: CombinedCourseParticipationStatuses.STARTED,
-            combinedCourseId,
-            questId,
-            organizationLearnerId,
-            createdAt: new Date('2024-01-01'),
-            updatedAt: new Date('2024-05-01'),
-            completedAt: null,
-          });
-        const { id: anotherOrganizationLearnerParticipationId } =
-          databaseBuilder.factory.buildOrganizationLearnerParticipation({
-            type: OrganizationLearnerParticipationTypes.COMBINED_COURSE,
-            status: CombinedCourseParticipationStatuses.STARTED,
-            combinedCourseId,
-            questId,
-            organizationLearnerId: databaseBuilder.factory.buildOrganizationLearner().id,
-            createdAt: new Date('2024-01-01'),
-            updatedAt: new Date('2024-05-01'),
-            completedAt: null,
-          });
-        await databaseBuilder.commit();
-
-        // when
-        await combinedCourseParticipationRepository.update({
-          combinedCourseParticipation: {
-            id: organizationLearnerCombinedCourseParticipationId,
-            organizationLearnerParticipationId,
-            updatedAt: new Date('2025-10-20'),
-            status: OrganizationLearnerParticipationStatuses.COMPLETED,
-          },
-          combinedCourseId,
-        });
-
-        //then
-        const result = await knex('organization_learner_participations')
-          .where('id', anotherOrganizationLearnerParticipationId)
-          .first();
-
-        expect(result.completedAt).null;
-        expect(result.updatedAt).deep.equal(new Date('2024-05-01'));
-        expect(result.status).equal(OrganizationLearnerParticipationStatuses.STARTED);
-      });
     });
   });
 

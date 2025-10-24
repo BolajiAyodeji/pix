@@ -33,7 +33,6 @@ export async function updateCombinedCourse({
     combinedCourseDetails.participation.complete();
     return combinedCourseParticipationRepository.update({
       combinedCourseParticipation: combinedCourseDetails.participation,
-      combinedCourseId: combinedCourse.id,
     });
   }
 
