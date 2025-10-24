@@ -499,11 +499,11 @@
     "params": {
       "contactUs": "neem hier contact met ons op",
       "hello": "Hallo {firstName},",
-      "requestConfirmation": "Na je verzoek zullen we de verwijdering van je Pix-account en je persoonlijke gegevens bevestigen.",
-      "seeYouSoon": "We hopen je snel te zien voor nieuwe digitale avonturen.",
-      "signing": "Het Pix team",
+      "requestConfirmation": "We hebben je verzoek ontvangen om je Pix-account te verwijderen. Zodra het proces is afgerond, ontvang je een bevestiging van ons.",
+      "seeYouSoon": "We hopen je in de toekomst weer te mogen verwelkomen voor nieuwe digitale avonturen.",
+      "signing": "Groeten, Het Pix team",
       "title": "Je account verwijderen",
-      "warning": "Als u niet de bron van dit verzoek bent, neem dan contact op met ondersteuning."
+      "warning": "Was jij dit niet? Neem dan contact op met onze ondersteuning."
     },
     "subject": "Je account verwijderen"
   },
