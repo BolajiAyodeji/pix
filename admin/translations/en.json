@@ -549,7 +549,15 @@
         }
       },
       "children-list": {
+        "actions": {
+          "detach": {
+            "button": "Detach",
+            "confirm-modal-message": "Are you sure you want to detach this child organization?",
+            "confirm-modal-title": "Detach an organization"
+          }
+        },
         "table-headers": {
+          "actions": "Actions",
           "external-id": "External Identifier",
           "id": "ID",
           "name": "Name"
@@ -1063,10 +1071,12 @@
           "unable-to-attach-already-attached-child-organization": "Child organization {childOrganizationId} already linked",
           "unable-to-attach-child-organization-to-another-child-organization": "Unable to attach the child organization to another child organization",
           "unable-to-attach-child-organization-to-itself": "Unable to attach organization {childOrganizationId} to itself",
-          "unable-to-attach-parent-organization-as-child-organization": "Unable to attach the parent organization {childOrganizationId} as child organization"
+          "unable-to-attach-parent-organization-as-child-organization": "Unable to attach the parent organization {childOrganizationId} as child organization",
+          "unable-to-detach-child-organization": "An error occurred while detaching the child organization."
         },
         "success": {
-          "attach-child-organization": "{count, plural, =1 {The child organization has been linked to the parent organization} other {The {count} child organizations have been linked to the parent organization}}"
+          "attach-child-organization": "{count, plural, =1 {The child organization has been linked to the parent organization} other {The {count} child organizations have been linked to the parent organization}}",
+          "detach-child-organization": "The child organization has been successfully detached."
         }
       },
       "title": "Children organisations"

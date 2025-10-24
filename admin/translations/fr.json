@@ -550,7 +550,15 @@
         }
       },
       "children-list": {
+        "actions": {
+          "detach": {
+            "button": "Détacher",
+            "confirm-modal-message": "Êtes-vous sûr de vouloir détacher cette organisation fille ?",
+            "confirm-modal-title": "Détacher une organization"
+          }
+        },
         "table-headers": {
+          "actions": "Actions",
           "external-id": "Identifiant externe",
           "id": "ID",
           "name": "Nom"
@@ -1064,10 +1072,12 @@
           "unable-to-attach-already-attached-child-organization": "L'organisation fille {childOrganizationId} est déjà liée.",
           "unable-to-attach-child-organization-to-another-child-organization": "Impossible d'attacher l'organisation fille à une autre organisation fille.",
           "unable-to-attach-child-organization-to-itself": "Impossible d'attacher l'organisation {childOrganizationId} à elle-même",
-          "unable-to-attach-parent-organization-as-child-organization": "Impossible d'attacher l'organisation mère {childOrganizationId} en tant qu'organisation fille."
+          "unable-to-attach-parent-organization-as-child-organization": "Impossible d'attacher l'organisation mère {childOrganizationId} en tant qu'organisation fille.",
+          "unable-to-detach-child-organization": "Une erreur est survenue lors du détachement de l'organisation fille."
         },
         "success": {
-          "attach-child-organization": "{count, plural, =1 {L'organisation fille a bien été liée à l'organisation mère} other {Les {count} organisations filles ont bien été liées à l'organisation mère}}"
+          "attach-child-organization": "{count, plural, =1 {L'organisation fille a bien été liée à l'organisation mère} other {Les {count} organisations filles ont bien été liées à l'organisation mère}}",
+          "detach-child-organization": "L'organisation fille a été détachée avec succès."
         }
       },
       "title": "Organisations filles"
