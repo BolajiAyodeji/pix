@@ -8,4 +8,8 @@ export default class Module extends Model {
   @attr('string') version;
   @attr('string') redirectionUrl;
   @hasMany('section', { async: false, inverse: 'module' }) sections;
+
+  get isNewPattern() {
+    return this.sections.length > 1;
+  }
 }
