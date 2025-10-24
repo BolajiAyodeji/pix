@@ -156,4 +156,28 @@ describe('Quest | Integration | Domain | Usecases | findCombinedCourseParticipat
       },
     ]);
   });
+
+  it('should return a list on participations filtered by fullname', async function () {
+    // when
+    const { combinedCourseParticipations } = await usecases.findCombinedCourseParticipations({
+      combinedCourseId,
+      filters: { fullName: 'mar' },
+    });
+
+    // then
+    expect(combinedCourseParticipations).lengthOf(1);
+    expect(combinedCourseParticipations[0].id).equal(participation2.id);
+  });
+
+  it('should return a list on participations filtered by status', async function () {
+    // when
+    const { combinedCourseParticipations } = await usecases.findCombinedCourseParticipations({
+      combinedCourseId,
+      filters: { statuses: [CombinedCourseParticipationStatuses.STARTED] },
+    });
+
+    // then
+    expect(combinedCourseParticipations).lengthOf(1);
+    expect(combinedCourseParticipations[0].id).equal(participation1.id);
+  });
 });
