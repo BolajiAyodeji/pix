@@ -8,9 +8,15 @@ import ModulixNavigation from '../module/layout/navigation';
 
 export default class ModulixAppLayout extends Component {
   @service featureToggles;
+  @service store;
+
+  get isNewPattern() {
+    const module = this.store.peekAll('module');
+    return module[0].isNewPattern;
+  }
 
   get shouldDisplayNavigation() {
-    return this.featureToggles.featureToggles?.isModulixNavEnabled && this.args.isModulixPassage;
+    return this.featureToggles.featureToggles?.isModulixNavEnabled && this.args.isModulixPassage && this.isNewPattern;
   }
 
   <template>
