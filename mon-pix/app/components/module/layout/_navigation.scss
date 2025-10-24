@@ -1,0 +1,38 @@
+@use 'pix-design-tokens/breakpoints';
+
+img.module-navigation {
+  &__logo {
+    height: 40px;
+  }
+}
+
+.module-navigation {
+  @include breakpoints.device-is('mobile') {
+    padding: 0;
+  }
+
+  @include breakpoints.device-is('desktop') {
+    margin: var(--pix-spacing-6x) 0 0 var(--pix-spacing-6x);
+  }
+
+  & .pix-navigation__nav {
+    gap: var(--pix-spacing-4x);
+    align-items: center;
+  }
+
+  &__button {
+    @include breakpoints.device-is('mobile') {
+      justify-content:start;
+     width: 100%;
+      padding: var(--pix-spacing-2x) var(--pix-spacing-3x);
+
+      &:not(:last-child){
+      margin-bottom:var(--pix-spacing-4x);
+      }
+    }
+
+    width: 3.375rem;
+    background-color: rgb(var(--pix-primary-700-inline), 0.2);
+    border-radius: var(--pix-spacing-2x);
+  }
+}

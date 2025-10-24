@@ -48,9 +48,11 @@ export default class ApplicationTemplate extends Component {
   }
 
   get isModulix() {
-    return this.router.currentRouteName.startsWith('module.') ||
+    return (
+      this.router.currentRouteName.startsWith('module.') ||
       this.router.currentRouteName === 'module-preview-existing' ||
-      this.router.currentRouteName === 'module-preview';
+      this.router.currentRouteName === 'module-preview'
+    );
   }
 
   get isModulixPassage() {

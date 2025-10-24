@@ -1,4 +1,5 @@
 @charset "utf-8";
+@use 'pix-design-tokens/breakpoints';
 
 /* globals */
 @use 'globals/a11y' as *;
@@ -79,6 +80,7 @@ of an adaptative/mobile-first approach — refactoring is welcome here */
 @use '../components/module/feedback' as *;
 @use '../components/module/grain/grain' as *;
 @use '../components/module/layout/navbar' as *;
+@use '../components/module/layout/navigation' as *;
 @use '../components/module/normalize' as *;
 @use '../components/module/instruction/objectives' as *;
 @use '../components/module/passage' as *;
@@ -227,6 +229,8 @@ of an adaptative/mobile-first approach — refactoring is welcome here */
   }
 
   & > .pix-app-layout__navigation{
-    padding: 0;
+    @include breakpoints.device-is('desktop') {
+      padding: 0;
+    }
   }
 }
