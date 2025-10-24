@@ -719,6 +719,16 @@ function _configureOrganizationsRoutes(context) {
 
     return new Response(204);
   });
+
+  context.post('admin/organizations/:childOrganizationId/detach-parent-organization', (schema, request) => {
+    const childOrganization = schema.organizations.find(request.params.childOrganizationId);
+
+    childOrganization.update({
+      parentOrganizationId: null,
+    });
+
+    return new Response(204);
+  });
 }
 
 function _parseUserIdFromJWT(request) {
