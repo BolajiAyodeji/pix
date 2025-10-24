@@ -219,3 +219,14 @@ of an adaptative/mobile-first approach — refactoring is welcome here */
     padding: 0;
   }
 }
+
+.modulix-layout{
+  & > .pix-app-layout__main{
+  max-width: 100%;
+  padding: 0;
+  }
+
+  & > .pix-app-layout__navigation{
+    padding: 0;
+  }
+}

@@ -3,6 +3,7 @@ import Component from '@glimmer/component';
 import t from 'ember-intl/helpers/t';
 import pageTitle from 'ember-page-title/helpers/page-title';
 import AppLayout from 'mon-pix/components/global/app-layout';
+import ModulixAppLayout from 'mon-pix/components/global/modulix-app-layout';
 
 export default class ApplicationTemplate extends Component {
   @service router;
@@ -39,16 +40,21 @@ export default class ApplicationTemplate extends Component {
       this.router.currentRouteName === 'campaigns.assessment.tutorial' ||
       this.router.currentRouteName.startsWith('organizations.');
 
-    const isModulePages =
-      this.router.currentRouteName.startsWith('module.') ||
-      this.router.currentRouteName === 'module-preview-existing' ||
-      this.router.currentRouteName === 'module-preview';
-
     const isCertificationsPages = ['authenticated.certifications.information', 'companion'].includes(
       this.router.currentRouteName,
     );
 
-    return isAccessPages || isEvaluationPages || isModulePages || isCertificationsPages;
+    return isAccessPages || isEvaluationPages || isCertificationsPages;
+  }
+
+  get isModulix() {
+    return this.router.currentRouteName.startsWith('module.') ||
+      this.router.currentRouteName === 'module-preview-existing' ||
+      this.router.currentRouteName === 'module-preview';
+  }
+
+  get isModulixPassage() {
+    return this.router.currentRouteName.startsWith('module.') && this.router.currentRouteName.endsWith('passage');
   }
 
   <template>
@@ -61,14 +67,22 @@ export default class ApplicationTemplate extends Component {
     {{/in-element}}
 
     <div id="app">
-      <AppLayout
-        @displayFullLayout={{this.displayFullLayout}}
-        @isFullWidth={{this.isFullWidth}}
-        @banners={{@controller.model.informationBanner.banners}}
-      >
-        {{outlet}}
-      </AppLayout>
-
+      {{#if this.isModulix}}
+        <ModulixAppLayout
+          @banners={{@controller.model.informationBanner.banners}}
+          @isModulixPassage={{this.isModulixPassage}}
+        >
+          {{outlet}}
+        </ModulixAppLayout>
+      {{else}}
+        <AppLayout
+          @displayFullLayout={{this.displayFullLayout}}
+          @isFullWidth={{this.isFullWidth}}
+          @banners={{@controller.model.informationBanner.banners}}
+        >
+          {{outlet}}
+        </AppLayout>
+      {{/if}}
       <!-- Preloading images -->
       <img src="/images/loader-white.svg" alt="{{t 'common.loading.default'}}" style="display: none" />
     </div>
