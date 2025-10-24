@@ -4,52 +4,6 @@ import { NotFoundError } from '../../../../../../src/shared/domain/errors.js';
 import { catchErr, databaseBuilder, domainBuilder, expect, knex } from '../../../../../test-helper.js';
 
 describe('Certification | Configuration | Integration | Repository | consolidated-framework', function () {
-  describe('#create', function () {
-    it('should create a consolidated framework for a given certification key', async function () {
-      // given
-      const complementaryCertification = databaseBuilder.factory.buildComplementaryCertification();
-
-      const challenge1 = databaseBuilder.factory.learningContent.buildChallenge({
-        id: 'challenge1',
-        alpha: 1.33,
-        delta: 2.2,
-      });
-      const challenge2 = databaseBuilder.factory.learningContent.buildChallenge({
-        id: 'challenge2',
-        alpha: 4.2,
-        delta: -2,
-      });
-      await databaseBuilder.commit();
-
-      // when
-      await consolidatedFrameworkRepository.create({
-        complementaryCertificationKey: complementaryCertification.key,
-        challenges: [challenge1, challenge2],
-        version: '1234',
-      });
-
-      // then
-      const consolidatedFrameworkInDB = await knex('certification-frameworks-challenges').select(
-        'complementaryCertificationKey',
-        'challengeId',
-        'discriminant',
-        'difficulty',
-        'createdAt',
-        'version',
-      );
-
-      expect(consolidatedFrameworkInDB).to.have.lengthOf(2);
-      expect(consolidatedFrameworkInDB[0].discriminant).to.equal(null);
-      expect(consolidatedFrameworkInDB[0].difficulty).to.equal(null);
-      expect(consolidatedFrameworkInDB[0].challengeId).to.equal(challenge1.id);
-      expect(consolidatedFrameworkInDB[1].challengeId).to.equal(challenge2.id);
-      expect(consolidatedFrameworkInDB[0].complementaryCertificationKey).to.equal(
-        consolidatedFrameworkInDB[1].complementaryCertificationKey,
-      );
-      expect(consolidatedFrameworkInDB[0].version).to.equal(consolidatedFrameworkInDB[1].version);
-    });
-  });
-
   describe('#getCurrentFrameworkByComplementaryCertificationKey', function () {
     it('should get the current complementary certification framework', async function () {
       // given

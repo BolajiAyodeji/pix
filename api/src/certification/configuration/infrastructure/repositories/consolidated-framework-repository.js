@@ -6,18 +6,6 @@ import { NotFoundError } from '../../../../shared/domain/errors.js';
 import { CertificationFrameworksChallenge } from '../../domain/models/CertificationFrameworksChallenge.js';
 import { ConsolidatedFramework } from '../../domain/models/ConsolidatedFramework.js';
 
-export async function create({ complementaryCertificationKey, challenges, version }) {
-  const knexConn = DomainTransaction.getConnection();
-
-  const challengesDTO = challenges.map((challenge) => ({
-    complementaryCertificationKey,
-    challengeId: challenge.id,
-    version,
-  }));
-
-  await knexConn('certification-frameworks-challenges').insert(challengesDTO);
-}
-
 export async function getCurrentFrameworkByComplementaryCertificationKey({ complementaryCertificationKey }) {
   const knexConn = DomainTransaction.getConnection();
 
