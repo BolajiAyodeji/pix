@@ -84,4 +84,22 @@ module('Unit | Adapters | organization', function (hooks) {
       );
     });
   });
+
+  module('#detachChildOrganizationFromParent', function () {
+    test('sends an HTTP POST request', async function (assert) {
+      // given
+      const childOrganizationId = '1234';
+
+      // when
+      await adapter.detachChildOrganizationFromParent({ childOrganizationId });
+
+      // then
+      assert.true(
+        adapter.ajax.calledOnceWithExactly(
+          'http://localhost:3000/api/admin/organizations/1234/detach-parent-organization',
+          'POST',
+        ),
+      );
+    });
+  });
 });
