@@ -10,7 +10,11 @@ import ListItem from './list-item';
     @data={{@organizations}}
   >
     <:columns as |organization context|>
-      <ListItem @organization={{organization}} @context={{context}} />
+      <ListItem
+        @organization={{organization}}
+        @context={{context}}
+        @onDetachChildOrganization={{@onDetachChildOrganization}}
+      />
     </:columns>
   </PixTable>
 </template>
