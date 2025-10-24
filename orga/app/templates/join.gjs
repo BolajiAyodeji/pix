@@ -29,7 +29,6 @@ import AuthenticationLayout from 'pix-orga/components/authentication-layout/inde
           @isInvitationCancelled={{@controller.isInvitationCancelled}}
           @organizationInvitationId={{@controller.invitationId}}
           @organizationInvitationCode={{@controller.code}}
-          @organizationName={{@model.organizationName}}
         />
       </:content>
     </AuthenticationLayout>
