@@ -275,7 +275,7 @@ describe('Certification | Session Management | Acceptance | Application | Route 
             'results-sent-to-prescriber-at': null,
             'published-at': null,
             'has-some-clea-acquired': false,
-            version: 2,
+            version: 3,
           },
         },
       });

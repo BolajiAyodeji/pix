@@ -1,7 +1,6 @@
 import {
   createServer,
   databaseBuilder,
-  domainBuilder,
   expect,
   generateAuthenticatedUserRequestHeaders,
   knex,
@@ -16,17 +15,14 @@ describe('Acceptance | Controller | Certification | Session management | session
 
   it('should return a HTTP 204 No Content', async function () {
     // given
-
     const certificationCenter = databaseBuilder.factory.buildCertificationCenter({});
-    const session = domainBuilder.certification.sessionManagement.buildSession({
-      id: 121,
+    const session = databaseBuilder.factory.buildSession({
       certificationCenterId: certificationCenter.id,
     });
-    databaseBuilder.factory.buildUser({ id: 3456 });
-    databaseBuilder.factory.buildSession(session);
+    const { id: userId } = databaseBuilder.factory.buildUser();
     await databaseBuilder.commit();
 
-    const headers = generateAuthenticatedUserRequestHeaders({ userId: 3456, source: 'pix-certif' });
+    const headers = generateAuthenticatedUserRequestHeaders({ userId });
 
     const options = {
       headers,
@@ -34,10 +30,10 @@ describe('Acceptance | Controller | Certification | Session management | session
       url: '/api/sessions/supervise',
       payload: {
         data: {
-          id: '121',
+          id: session.id,
           type: 'supervisor-authentications',
           attributes: {
-            'session-id': '121',
+            'session-id': session.id,
             'supervisor-password': session.invigilatorPassword,
           },
         },
@@ -48,7 +44,7 @@ describe('Acceptance | Controller | Certification | Session management | session
     const response = await server.inject(options);
 
     // then
-    const supervisedSessionInDB = await knex('supervisor-accesses').where({ userId: 3456, sessionId: 121 }).first();
+    const supervisedSessionInDB = await knex('supervisor-accesses').where({ userId, sessionId: session.id }).first();
     expect(supervisedSessionInDB).to.exist;
     expect(response.statusCode).to.equal(204);
   });

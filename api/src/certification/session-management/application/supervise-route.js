@@ -15,7 +15,8 @@ const register = async function (server) {
         validate: {
           payload: Joi.object({
             data: {
-              id: identifiersType.supervisorAccessesId,
+              // note: necessary for ember object id
+              id: identifiersType.sessionId,
               type: 'supervisor-authentications',
               attributes: {
                 'supervisor-password': Joi.string().required(),

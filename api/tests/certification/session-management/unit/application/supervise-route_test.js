@@ -12,7 +12,7 @@ describe('Certification | Session Management | Unit | Application | Routes | Sup
       await httpTestServer.register(moduleUnderTest);
       const payload = {
         data: {
-          id: '1234',
+          id: '121',
           type: 'supervisor-authentications',
           attributes: {
             'session-id': '121',
@@ -37,7 +37,7 @@ describe('Certification | Session Management | Unit | Application | Routes | Sup
         await httpTestServer.register(moduleUnderTest);
         const payload = {
           data: {
-            id: '1234',
+            id: '121',
             type: 'supervisor-authentications',
             attributes: {
               'session-id': '121',

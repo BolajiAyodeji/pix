@@ -23,7 +23,6 @@ const get = async function ({ id }) {
       'finalizedAt',
       'resultsSentToPrescriberAt',
       'publishedAt',
-      'certificationCandidates',
       'certificationCenterId',
       'assignedCertificationOfficerId',
       'createdBy',
