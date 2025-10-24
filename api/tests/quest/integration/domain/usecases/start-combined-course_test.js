@@ -1,4 +1,4 @@
-import { CombinedCourseParticipationStatuses } from '../../../../../src/prescription/shared/domain/constants.js';
+import { OrganizationLearnerParticipationStatuses } from '../../../../../src/quest/domain/models/OrganizationLearnerParticipation.js';
 import { usecases } from '../../../../../src/quest/domain/usecases/index.js';
 import { databaseBuilder, domainBuilder, expect, knex } from '../../../../test-helper.js';
 
@@ -8,7 +8,7 @@ describe('Integration | Combined course | Domain | UseCases | start-combined-cou
       //given
       const organizationId = databaseBuilder.factory.buildOrganization().id;
       const organizationLearner = databaseBuilder.factory.buildOrganizationLearner({ organizationId });
-      const { questId, id: combinedCourseId } = databaseBuilder.factory.buildCombinedCourse({
+      const { id: combinedCourseId } = databaseBuilder.factory.buildCombinedCourse({
         organizationId,
         code: 'COMBINIX8',
       });
@@ -22,31 +22,15 @@ describe('Integration | Combined course | Domain | UseCases | start-combined-cou
 
       //then
       const [participation] = await knex('organization_learner_participations')
-        .select(
-          'questId',
-          'organization_learner_participations.organizationLearnerId',
-          'combined_course_participations.organizationLearnerId AS ccpOrganizationLearnerId',
-          'combined_course_participations.status AS ccpStatus',
-          'organization_learner_participations.status',
-          'combinedCourseId',
-        )
-        .join(
-          'combined_course_participations',
-          'combined_course_participations.organizationLearnerParticipationId',
-          'organization_learner_participations.id',
-        )
+        .select('organizationLearnerId', 'status', 'referenceId')
         .where({
-          questId,
-          'organization_learner_participations.organizationLearnerId': organizationLearner.id,
+          referenceId: combinedCourseId.toString(),
+          organizationLearnerId: organizationLearner.id,
         });
 
-      expect(participation.questId).to.deep.equal(questId);
-      expect(participation.combinedCourseId).to.equal(combinedCourseId);
+      expect(participation.referenceId).to.equal(combinedCourseId.toString());
       expect(participation.organizationLearnerId).to.deep.equal(organizationLearner.id);
-      expect(participation.status).to.deep.equal(CombinedCourseParticipationStatuses.STARTED);
-
-      expect(participation.ccpOrganizationLearnerId).to.equal(organizationLearner.id);
-      expect(participation.ccpStatus).to.deep.equal(CombinedCourseParticipationStatuses.STARTED);
+      expect(participation.status).to.deep.equal(OrganizationLearnerParticipationStatuses.STARTED);
     });
     describe('when organization learner does not exist', function () {
       it('should also create organization learner', async function () {
